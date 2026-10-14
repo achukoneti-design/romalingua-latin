@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and synced learning progress across devices",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "The Firebase Authentication UID"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 256,
+          "description": "The user email"
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "The user display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 1024,
+          "description": "URL to the user avatar"
+        },
+        "xp": {
+          "type": "number",
+          "description": "Total XP earned"
+        },
+        "streak": {
+          "type": "number",
+          "description": "Current learning streak in days"
+        },
+        "completedSentences": {
+          "type": "array",
+          "description": "Array of completed sentence IDs"
+        },
+        "masteredWords": {
+          "type": "array",
+          "description": "Array of mastered DVL Latin words"
+        },
+        "currentSentenceIndex": {
+          "type": "number",
+          "description": "Index of current sentence in practice arena (0 to 174)"
+        },
+        "sentencesDoneToday": {
+          "type": "number",
+          "description": "Number of sentences completed on today's calendar date"
+        },
+        "lastActiveDate": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "Calendar date string YYYY-MM-DD for daily progress reset tracking"
+        },
+        "updatedAt": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "ISO timestamp of last progress update"
+        }
+      },
+      "required": ["userId", "xp", "streak"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User learning progress and profile"
+    }
+  }
+}

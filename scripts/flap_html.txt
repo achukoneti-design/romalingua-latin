@@ -1,0 +1,272 @@
+
+    <!-- ==================== TAB 5: LATINA FLAP MINI-GAME ==================== -->
+    <div id="tabFlap" class="tab-content app-section" style="display: none;">
+      <div class="flap-section">
+        <!-- Banner Header -->
+        <div class="flap-banner">
+          <div class="flap-title-wrap">
+            <div class="flap-banner-icon">🦅</div>
+            <div>
+              <div class="flap-title">Latina Flap · Aquila Romana</div>
+              <div class="flap-subtitle">Fly the Roman Eagle through the correct Latin portals · 20 Levels of GCSE Mastery</div>
+            </div>
+          </div>
+          <div class="flap-banner-stats">
+            <div class="flap-stat-badge">
+              <span>🏆 Peak Level:</span>
+              <span class="val" id="flapStatPeakLevel">Level I</span>
+            </div>
+            <div class="flap-stat-badge">
+              <span>⚡ Mode High Score:</span>
+              <span class="val" id="flapStatHighScore">0</span>
+            </div>
+            <div class="flap-stat-badge">
+              <span>⭐ Total Flights:</span>
+              <span class="val" id="flapStatTotalFlights">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. LOBBY SCREEN (Mode & Level Select) -->
+        <div id="flapLobbyScreen" class="flap-lobby">
+          <!-- Vocabulary & Difficulty Mode Selector -->
+          <div class="flap-card-panel">
+            <div class="flap-card-title">
+              <span>⚔️</span> Select Vocabulary & Difficulty Mode
+            </div>
+            <div class="flap-mode-grid">
+              <button type="button" class="flap-mode-btn active" data-mode="easy" onclick="setFlapMode('easy')">
+                <div class="mode-header">
+                  <span class="mode-name">Easy</span>
+                  <span class="mode-tag">Tirones</span>
+                </div>
+                <div class="mode-desc">Top 100 most common GCSE Latin words (puella, servus, currit, via). Ideal for warmup and building reflex speed.</div>
+                <div class="mode-score">High Score: <span id="modeHighEasy">0</span></div>
+              </button>
+
+              <button type="button" class="flap-mode-btn" data-mode="intermediate" onclick="setFlapMode('intermediate')">
+                <div class="mode-header">
+                  <span class="mode-name">Intermediate</span>
+                  <span class="mode-tag">Legionarii</span>
+                </div>
+                <div class="mode-desc">Core 446 DVL vocabulary list. Comprehensive syllabus coverage across all nouns, verbs, and conjunctions.</div>
+                <div class="mode-score">High Score: <span id="modeHighInter">0</span></div>
+              </button>
+
+              <button type="button" class="flap-mode-btn" data-mode="hard" onclick="setFlapMode('hard')">
+                <div class="mode-header">
+                  <span class="mode-name">Hard</span>
+                  <span class="mode-tag">Centuriones</span>
+                </div>
+                <div class="mode-desc">Subtle vocabulary distractors & confusable pairs (cadere vs caedere, manere vs monere, hostis vs hospes).</div>
+                <div class="mode-score">High Score: <span id="modeHighHard">0</span></div>
+              </button>
+
+              <button type="button" class="flap-mode-btn" data-mode="cases" onclick="setFlapMode('cases')">
+                <div class="mode-header">
+                  <span class="mode-name">Case Mastery</span>
+                  <span class="mode-tag">Grammatici</span>
+                </div>
+                <div class="mode-desc">Advanced declension traps & grammar syntax (e.g. 'to the slaves' -> servis vs servos, tenses & participles).</div>
+                <div class="mode-score">High Score: <span id="modeHighCases">0</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 20-Level Difficulty Progression Grid -->
+          <div class="flap-card-panel">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+              <div class="flap-card-title" style="margin-bottom: 0;">
+                <span>🏛️</span> 20-Level Difficulty Progression (Target: Lvl 15 for Gamers · Lvl 20 for Champions)
+              </div>
+              <div style="font-size: 12px; color: #94a3b8;">
+                Clear 3 correct gap passes per level to advance
+              </div>
+            </div>
+
+            <div class="flap-level-grid" id="flapLevelGrid">
+              <!-- Dynamically populated Levels 1 to 20 -->
+            </div>
+          </div>
+
+          <!-- Launch Actions -->
+          <div class="flap-actions-row">
+            <button type="button" class="flap-play-btn" onclick="startFlapGame()">
+              <span>🦅</span> START FLIGHT · <span id="btnSelectedLevelLabel">LEVEL I</span>
+            </button>
+          </div>
+
+          <div class="flap-instructions">
+            <div><kbd>Spacebar</kbd> or <kbd>↑ Up Arrow</kbd> to flap wings</div>
+            <div>·</div>
+            <div><kbd>Screen Tap</kbd> or <kbd>Mouse Click</kbd> on Mobile & Desktop</div>
+            <div>·</div>
+            <div>3 Lives per flight · Fly through the CORRECT Latin gap!</div>
+          </div>
+        </div>
+
+        <!-- 2. ACTIVE GAME CANVAS SCREEN -->
+        <div id="flapGameScreen" class="flap-canvas-container" style="display: none;">
+          <div class="flap-canvas-outer" id="flapCanvasOuter">
+            <!-- Prompt Bar Top -->
+            <div class="flap-prompt-bar" id="flapPromptBar">
+              <span class="flap-prompt-kicker">TRANSLATE:</span>
+              <span class="flap-prompt-text" id="flapPromptText">loading prompt...</span>
+            </div>
+
+            <!-- Canvas Top HUD Overlays -->
+            <div class="flap-hud-top">
+              <div class="flap-hud-left">
+                <div class="flap-hud-pill">
+                  <span class="gold" id="hudLevelLabel">LEVEL I</span>
+                  <span style="color: #38bdf8; font-size: 11px;" id="hudSpeedLabel">1.0x</span>
+                </div>
+                <div class="flap-hud-pill">
+                  <span>SCORE:</span>
+                  <span class="gold" id="hudScoreVal">0</span>
+                </div>
+              </div>
+
+              <div class="flap-hud-right">
+                <div class="flap-hud-pill" title="Lives Remaining">
+                  <span id="hudLivesDisplay">❤️❤️❤️</span>
+                </div>
+                <div class="flap-hud-progress-wrap" title="Progress: 3 passes needed to clear level">
+                  <span style="font-size: 11px; font-weight: 700; color: #94a3b8;">PASS:</span>
+                  <div class="flap-progress-gem" id="progressGem1"></div>
+                  <div class="flap-progress-gem" id="progressGem2"></div>
+                  <div class="flap-progress-gem" id="progressGem3"></div>
+                </div>
+                <div style="display: flex; gap: 6px; margin-top: 4px;">
+                  <button type="button" class="flap-hud-btn" onclick="toggleFlapPause()" title="Pause Game">⏸️</button>
+                  <button type="button" class="flap-hud-btn" onclick="exitFlapToLobby()" title="Exit to Level Select">🏛️</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ready / Tap to Flap Overlay -->
+            <div class="flap-canvas-message" id="flapReadyOverlay">
+              <h3 id="readyLevelTitle">LEVEL I · WARMUP</h3>
+              <p id="readyLevelDesc">Speed 1.0x · Wide gap portals · Complete 3 correct Latin translations to clear this level.</p>
+              <div class="flap-tap-prompt" onclick="triggerFlapFlap()">
+                <span>🦅</span> TAP OR PRESS SPACE TO FLAP
+              </div>
+            </div>
+
+            <!-- Game Over Overlay Modal -->
+            <div class="flap-canvas-message" id="flapGameOverModal" style="display: none;">
+              <div class="flap-modal-dialog">
+                <div class="flap-modal-badge" id="gameOverIcon">💥</div>
+                <div class="flap-modal-title danger" id="gameOverTitle">FLIGHT FAILED</div>
+                <div class="flap-modal-cause" id="gameOverCause">
+                  Cause of collision details...
+                </div>
+                <div class="flap-modal-stats">
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Final Score</div>
+                    <div class="val" id="goFinalScore">0</div>
+                  </div>
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Level Reached</div>
+                    <div class="val" id="goLevelReached">I</div>
+                  </div>
+                </div>
+                <div class="flap-modal-btns">
+                  <button type="button" class="flap-modal-btn primary" onclick="retryFlapLevel()">
+                    🔄 RETRY LEVEL
+                  </button>
+                  <button type="button" class="flap-modal-btn secondary" onclick="exitFlapToLobby()">
+                    🏛️ LEVEL SELECT
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level Cleared Modal -->
+            <div class="flap-canvas-message" id="flapLevelClearModal" style="display: none;">
+              <div class="flap-modal-dialog">
+                <div class="flap-modal-badge">🌿</div>
+                <div class="flap-modal-title success" id="levelClearTitle">OPTIME! LEVEL CLEARED</div>
+                <p style="color: #fed7aa; margin: 8px 0 16px 0; font-size: 14px;" id="levelClearDesc">
+                  You flawlessly passed 3 correct Latin portals!
+                </p>
+                <div class="flap-modal-stats">
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Current Score</div>
+                    <div class="val" id="lcScoreVal">0</div>
+                  </div>
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Next Challenge</div>
+                    <div class="val" id="lcNextLevel">LEVEL II</div>
+                  </div>
+                </div>
+                <div class="flap-modal-btns">
+                  <button type="button" class="flap-modal-btn primary" onclick="advanceToNextLevel()">
+                    ⚔️ ADVANCE TO NEXT LEVEL
+                  </button>
+                  <button type="button" class="flap-modal-btn secondary" onclick="exitFlapToLobby()">
+                    🏛️ LEVEL SELECT
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Victory Modal (Level 20 Cleared - LATIN IMPERATOR!) -->
+            <div class="flap-canvas-message" id="flapVictoryModal" style="display: none;">
+              <div class="flap-modal-dialog" style="border-color: #fbbf24; box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);">
+                <div class="flap-modal-badge">👑</div>
+                <div class="flap-modal-title" style="color: #fef08a; font-size: 26px;">AVE IMPERATOR!</div>
+                <p style="color: #fde68a; font-size: 15px; margin: 6px 0 14px 0; font-weight: 600;">
+                  TRIUMPHUS ROMANUS! You have conquered all 20 levels of Latina Flap!
+                </p>
+                <div class="flap-modal-cause" style="border-color: #fbbf24; text-align: center; font-size: 13px;">
+                  "Senatus Populusque Romanus acknowledges your mastery of the Latin language. Your name shall be engraved upon the columns of the Capitolium!"
+                </div>
+                <div class="flap-modal-stats">
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Imperator Score</div>
+                    <div class="val" id="vicScoreVal">0</div>
+                  </div>
+                  <div class="flap-modal-stat-box">
+                    <div class="lbl">Title Awarded</div>
+                    <div class="val" style="font-size: 14px; color: #34d399;">LATIN IMPERATOR</div>
+                  </div>
+                </div>
+                <div class="flap-modal-btns">
+                  <button type="button" class="flap-modal-btn primary" onclick="exitFlapToLobby()">
+                    🏛️ RETURN TRIUMPHANT
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pause Modal -->
+            <div class="flap-canvas-message" id="flapPauseModal" style="display: none;">
+              <div class="flap-modal-dialog">
+                <div class="flap-modal-badge">⏸️</div>
+                <div class="flap-modal-title">FLIGHT PAUSED</div>
+                <p style="color: #94a3b8; margin: 8px 0 18px 0;">Take a breath before resuming your Roman flight.</p>
+                <div class="flap-modal-btns">
+                  <button type="button" class="flap-modal-btn primary" onclick="toggleFlapPause()">
+                    ▶️ RESUME
+                  </button>
+                  <button type="button" class="flap-modal-btn secondary" onclick="exitFlapToLobby()">
+                    🏛️ LEVEL SELECT
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- The HTML5 Game Canvas -->
+            <canvas id="latinaFlapCanvas" width="800" height="500"></canvas>
+          </div>
+
+          <!-- Dedicated Mobile Flap Button -->
+          <div class="flap-mobile-controls">
+            <button type="button" class="flap-mobile-big-btn" id="flapMobileBtn" ontouchstart="handleMobileFlap(event)" onclick="handleMobileFlap(event)">
+              🦅 TAP TO FLAP WINGS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,23 @@
+{
+  "name": "RomaLingua - OCR GCSE Latin",
+  "short_name": "RomaLingua",
+  "description": "Interactive OCR GCSE Latin revision suite featuring Translation Arena with token tooltips, Vocab Speed Blitz, full 446-word DVL flashcard deck, and Grammar Notes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2358cc02'/%3E%3Cstop offset='100%25' stop-color='%23059669'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fef08a'/%3E%3Cstop offset='50%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23d97706'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cg fill='url(%23gold)'%3E%3Cpath d='M32 48 C22 46 15 37 15 26 C15 20 18 15 22 12 C21 16 21 21 24 26 C21 26 18 22 17 18 C16 24 19 32 25 37 C22 36 20 32 20 28 C21 35 26 41 32 44 Z'/%3E%3Cpath d='M20 14 C17 19 18 24 23 25 C22 21 22 17 20 14 Z'/%3E%3Cpath d='M16 25 C15 30 18 35 23 35 C21 31 19 28 16 25 Z'/%3E%3Cpath d='M20 36 C20 41 25 45 30 45 C28 41 25 38 20 36 Z'/%3E%3Cpath d='M32 48 C42 46 49 37 49 26 C49 20 46 15 42 12 C43 16 43 21 40 26 C43 26 46 22 47 18 C48 24 45 32 39 37 C42 36 44 32 44 28 C43 35 38 41 32 44 Z'/%3E%3Cpath d='M44 14 C47 19 46 24 41 25 C42 21 42 17 44 14 Z'/%3E%3Cpath d='M48 25 C49 30 46 35 41 35 C43 31 45 28 48 25 Z'/%3E%3Cpath d='M44 36 C44 41 39 45 34 45 C36 41 39 38 44 36 Z'/%3E%3Ccircle cx='32' cy='48' r='3.5'/%3E%3Cpath d='M30 49 L25 56 L28 57 L31 51 Z'/%3E%3Cpath d='M34 49 L39 56 L36 57 L33 51 Z'/%3E%3C/g%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

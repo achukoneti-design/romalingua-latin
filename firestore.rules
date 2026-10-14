@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper Functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUserProfile(data) {
+      return data.userId is string &&
+             data.userId == request.auth.uid &&
+             data.xp is number &&
+             data.xp >= 0 && data.xp <= 1000000 &&
+             data.streak is number &&
+             data.streak >= 0 && data.streak <= 10000 &&
+             (!('email' in data) || (data.email is string && data.email.size() <= 256)) &&
+             (!('displayName' in data) || (data.displayName is string && data.displayName.size() <= 128)) &&
+             (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 1024)) &&
+             (!('completedSentences' in data) || (data.completedSentences is list && data.completedSentences.size() <= 1000)) &&
+             (!('masteredWords' in data) || (data.masteredWords is list && data.masteredWords.size() <= 1000)) &&
+             (!('currentSentenceIndex' in data) || (data.currentSentenceIndex is number && data.currentSentenceIndex >= 0 && data.currentSentenceIndex <= 1000)) &&
+             (!('sentencesDoneToday' in data) || (data.sentencesDoneToday is number && data.sentencesDoneToday >= 0 && data.sentencesDoneToday <= 100000)) &&
+             (!('lastActiveDate' in data) || (data.lastActiveDate is string && data.lastActiveDate.size() <= 64)) &&
+             (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 64));
+    }
+
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+
+      allow create: if isOwner(userId) &&
+                       incoming().keys().hasAll(['userId', 'xp', 'streak']) &&
+                       incoming().keys().hasOnly(['userId', 'xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt']) &&
+                       isValidUserProfile(incoming());
+
+      allow update: if isOwner(userId) &&
+                       incoming().userId == userId &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt']) &&
+                       isValidUserProfile(incoming());
+
+      allow delete: if isOwner(userId);
+    }
+  }
+}

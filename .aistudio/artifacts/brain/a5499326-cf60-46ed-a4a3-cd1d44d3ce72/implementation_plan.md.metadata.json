@@ -1,0 +1,6 @@
+{
+  "summary": "Implemented Translation Arena difficulty tiers (Easy, Intermediate, Hard, GCSE) strictly adhering to Henry Cullen & John Taylor's 'Latin to GCSE Book 1' (OCR syllabus) learning order. Sentences within Cullen Book 1 Chapters 1–3 are mapped to Easy, Chapters 4–6 to Intermediate, and non-Book 1 / Book 2 constructions (deponents, passives, participles, 4th/5th declensions, subjunctives, ablative absolutes, gerundives) are mapped to Hard and GCSE. Added segmented pill tabs next to daily sentence count, unified daily progress tracking, interactive word token tooltips, and dynamic count badges.",
+  "updatedAt": "2026-10-13T19:21:32.327894780Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

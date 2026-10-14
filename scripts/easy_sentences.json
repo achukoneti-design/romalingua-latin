@@ -1,0 +1,1688 @@
+[
+  {
+    "latin": "servus in horto laborat.",
+    "primaryTranslation": "The slave is working in the garden.",
+    "acceptedTranslations": [
+      "the slave is working in the garden",
+      "the slave works in the garden",
+      "a slave is working in a garden",
+      "a slave works in a garden"
+    ],
+    "tenseHint": "laborat is 3rd Person Singular Present Active ('works' or 'is working').",
+    "grammarFocus": "Cullen Book 1 (Ch 1): Present Tense & 2nd Declension",
+    "tokens": [
+      {
+        "w": "servus",
+        "def": "slave",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "in",
+        "def": "in / on",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "horto",
+        "def": "garden",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "laborat",
+        "def": "works / is working",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus servos laetos vocat.",
+    "primaryTranslation": "The master calls the happy slaves.",
+    "acceptedTranslations": [
+      "the master calls the happy slaves",
+      "the master is calling the happy slaves",
+      "a master calls happy slaves"
+    ],
+    "tenseHint": "vocat is 3rd Person Singular Present Active; servos laetos is accusative plural direct object.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): Transitive Present & 2-1-2 Adjective",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "servos",
+        "def": "slaves",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "laetos",
+        "def": "happy / cheerful",
+        "role": "Accusative Plural Adjective"
+      },
+      {
+        "w": "vocat",
+        "def": "calls / is calling",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "pueri cibum bonum in villa consumunt.",
+    "primaryTranslation": "The boys eat good food in the villa.",
+    "acceptedTranslations": [
+      "the boys eat good food in the villa",
+      "the boys are eating good food in the villa",
+      "boys eat good food in a villa",
+      "the boys consume good food in the house"
+    ],
+    "tenseHint": "consumunt is 3rd Person Plural Present Active ('consume' or 'eat').",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 3rd Conjugation Present & Accusative Object",
+    "tokens": [
+      {
+        "w": "pueri",
+        "def": "boys",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "cibum",
+        "def": "food",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "bonum",
+        "def": "good",
+        "role": "Accusative Singular Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in / inside",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "villa",
+        "def": "country house / villa",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "consumunt",
+        "def": "eat / consume",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella laeta in horto cantat.",
+    "primaryTranslation": "The happy girl is singing in the garden.",
+    "acceptedTranslations": [
+      "the happy girl is singing in the garden",
+      "the happy girl sings in the garden",
+      "a happy girl is singing in a garden",
+      "a happy girl sings in the garden"
+    ],
+    "tenseHint": "cantat is 3rd Person Singular Present Active of 1st conjugation canto.",
+    "grammarFocus": "Cullen Book 1 (Ch 1): 1st Declension Noun & 1st Conjugation Present",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "laeta",
+        "def": "happy / joyful",
+        "role": "Nominative Singular Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in / on",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "horto",
+        "def": "garden",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "cantat",
+        "def": "sings / is singing",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus meus verba vera semper dicit.",
+    "primaryTranslation": "My friend always speaks true words.",
+    "acceptedTranslations": [
+      "my friend always speaks true words",
+      "my friend always tells the truth",
+      "my friend always says true words",
+      "my friend says true words always"
+    ],
+    "tenseHint": "dicit is 3rd Person Singular Present Active of 3rd conjugation dico.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation Present & Possessive",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "meus",
+        "def": "my",
+        "role": "Nominative Singular Possessive"
+      },
+      {
+        "w": "verba",
+        "def": "words",
+        "role": "Accusative Plural Neuter (Direct Object)"
+      },
+      {
+        "w": "vera",
+        "def": "true",
+        "role": "Accusative Plural Neuter Adjective"
+      },
+      {
+        "w": "semper",
+        "def": "always",
+        "role": "Adverb"
+      },
+      {
+        "w": "dicit",
+        "def": "speaks / says",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "servus dominum audit.",
+    "primaryTranslation": "The slave listens to his master.",
+    "acceptedTranslations": [
+      "the slave listens to his master",
+      "the slave hears the master",
+      "the slave listens to the master",
+      "a slave hears a master"
+    ],
+    "tenseHint": "audit is 3rd Person Singular Present Active of 4th conjugation audio.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 4th Conjugation Present Active",
+    "tokens": [
+      {
+        "w": "servus",
+        "def": "slave",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "dominum",
+        "def": "master",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "audit",
+        "def": "hears / listens to",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus servum bonum laudat.",
+    "primaryTranslation": "The master praises the good slave.",
+    "acceptedTranslations": [
+      "the master praises the good slave",
+      "the master is praising the good slave",
+      "a master praises a good slave"
+    ],
+    "tenseHint": "laudat is 3rd Person Singular Present Active of 1st conjugation laudo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1): 1st Conjugation Present Transitive",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "servum",
+        "def": "slave",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "bonum",
+        "def": "good",
+        "role": "Accusative Singular Adjective"
+      },
+      {
+        "w": "laudat",
+        "def": "praises / is praising",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "filius parvus cum amico ludit.",
+    "primaryTranslation": "The small son plays with a friend.",
+    "acceptedTranslations": [
+      "the small son plays with a friend",
+      "the small son is playing with a friend",
+      "the little son plays with his friend",
+      "the small boy plays with a friend"
+    ],
+    "tenseHint": "ludit is 3rd Person Singular Present Active; cum amico is ablative of accompaniment.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Preposition cum (+ ablative)",
+    "tokens": [
+      {
+        "w": "filius",
+        "def": "son",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "parvus",
+        "def": "small / little",
+        "role": "Nominative Singular Adjective"
+      },
+      {
+        "w": "cum",
+        "def": "with",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "amico",
+        "def": "friend",
+        "role": "Ablative Singular (Accompaniment)"
+      },
+      {
+        "w": "ludit",
+        "def": "plays / is playing",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "agricola aquam ad villam portat.",
+    "primaryTranslation": "The farmer carries water to the villa.",
+    "acceptedTranslations": [
+      "the farmer carries water to the villa",
+      "the farmer is carrying water to the villa",
+      "the farmer carries water to the house",
+      "a farmer carries water to a villa"
+    ],
+    "tenseHint": "portat is 3rd Person Singular Present Active; ad villam is accusative of motion towards.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Motion Towards with Preposition ad",
+    "tokens": [
+      {
+        "w": "agricola",
+        "def": "farmer",
+        "role": "Nominative Singular 1st Declension Masculine"
+      },
+      {
+        "w": "aquam",
+        "def": "water",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "villam",
+        "def": "country house / villa",
+        "role": "Accusative Singular (Motion towards)"
+      },
+      {
+        "w": "portat",
+        "def": "carries / is carrying",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus epistulam laetus scribit.",
+    "primaryTranslation": "The friend happily writes a letter.",
+    "acceptedTranslations": [
+      "the friend happily writes a letter",
+      "the happy friend writes a letter",
+      "the friend is writing a letter happily",
+      "a friend happily writes a letter"
+    ],
+    "tenseHint": "scribit is 3rd Person Singular Present Active of 3rd conjugation scribo.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation & Predicative Adjective",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "epistulam",
+        "def": "letter",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "laetus",
+        "def": "happy / joyful",
+        "role": "Nominative Singular Adjective (Predicative)"
+      },
+      {
+        "w": "scribit",
+        "def": "writes / is writing",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "ancilla cibum in mensa ponit.",
+    "primaryTranslation": "The slave-girl places food on the table.",
+    "acceptedTranslations": [
+      "the slave-girl places food on the table",
+      "the maidservant puts food on the table",
+      "the slave girl puts food on the table",
+      "a slave-girl places food on a table"
+    ],
+    "tenseHint": "ponit is 3rd Person Singular Present Active of 3rd conjugation pono.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 3rd Conjugation Verb pono & in (+ ablative)",
+    "tokens": [
+      {
+        "w": "ancilla",
+        "def": "slave-girl / maidservant",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "cibum",
+        "def": "food",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "in",
+        "def": "on / upon",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "mensa",
+        "def": "table",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "ponit",
+        "def": "places / puts",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "pueri gladios in silva quaerunt.",
+    "primaryTranslation": "The boys look for swords in the forest.",
+    "acceptedTranslations": [
+      "the boys look for swords in the forest",
+      "the boys are looking for swords in the wood",
+      "the boys search for swords in the forest",
+      "boys search for swords in the woods"
+    ],
+    "tenseHint": "quaerunt is 3rd Person Plural Present Active of quaero.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 3rd Conjugation Plural Present",
+    "tokens": [
+      {
+        "w": "pueri",
+        "def": "boys",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "gladios",
+        "def": "swords",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "in",
+        "def": "in / inside",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "silva",
+        "def": "forest / wood",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "quaerunt",
+        "def": "look for / search for",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "nauta ad insulam parvam navigat.",
+    "primaryTranslation": "The sailor sails to a small island.",
+    "acceptedTranslations": [
+      "the sailor sails to a small island",
+      "the sailor is sailing to a small island",
+      "a sailor sails to a small island"
+    ],
+    "tenseHint": "navigat is 3rd Person Singular Present Active of navigo.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Preposition ad (+ acc) & Agreement",
+    "tokens": [
+      {
+        "w": "nauta",
+        "def": "sailor",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "insulam",
+        "def": "island",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "parvam",
+        "def": "small",
+        "role": "Accusative Singular Feminine Adjective"
+      },
+      {
+        "w": "navigat",
+        "def": "sails / is sailing",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "servi dominum iratum timent.",
+    "primaryTranslation": "The slaves fear the angry master.",
+    "acceptedTranslations": [
+      "the slaves fear the angry master",
+      "the slaves are afraid of the angry master",
+      "slaves fear an angry master"
+    ],
+    "tenseHint": "timent is 3rd Person Plural Present Active of 2nd conjugation timeo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1): 2nd Conjugation Present Active",
+    "tokens": [
+      {
+        "w": "servi",
+        "def": "slaves",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "dominum",
+        "def": "master",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "iratum",
+        "def": "angry",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "timent",
+        "def": "fear / are afraid of",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "femina donum pulchrum accipit.",
+    "primaryTranslation": "The woman receives a beautiful gift.",
+    "acceptedTranslations": [
+      "the woman receives a beautiful gift",
+      "the woman is receiving a beautiful gift",
+      "a woman receives a beautiful gift"
+    ],
+    "tenseHint": "accipit is 3rd Person Singular Present Active of mixed conjugation accipio.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Mixed Conjugation Verb & Neuter Noun",
+    "tokens": [
+      {
+        "w": "femina",
+        "def": "woman",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "donum",
+        "def": "gift",
+        "role": "Accusative Singular Neuter (Direct Object)"
+      },
+      {
+        "w": "pulchrum",
+        "def": "beautiful",
+        "role": "Accusative Singular Neuter Adjective"
+      },
+      {
+        "w": "accipit",
+        "def": "receives / accepts",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus novus in villa habitat.",
+    "primaryTranslation": "The new friend lives in the villa.",
+    "acceptedTranslations": [
+      "the new friend lives in the villa",
+      "a new friend lives in a villa",
+      "the new friend is living in the villa"
+    ],
+    "tenseHint": "habitat is 3rd Person Singular Present Active of habito.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 1st Conjugation & 2-1-2 Adjective",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "novus",
+        "def": "new",
+        "role": "Nominative Singular Masculine Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "villa",
+        "def": "villa / house",
+        "role": "Ablative Singular (Place where)"
+      },
+      {
+        "w": "habitat",
+        "def": "lives / is living",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "pueri vinum et cibum consumunt.",
+    "primaryTranslation": "The boys eat food and wine.",
+    "acceptedTranslations": [
+      "the boys eat food and wine",
+      "the boys consume wine and food",
+      "the boys eat wine and food",
+      "the boys are consuming wine and food"
+    ],
+    "tenseHint": "consumunt is 3rd Person Plural Present Active.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Conjunction et & Direct Objects",
+    "tokens": [
+      {
+        "w": "pueri",
+        "def": "boys",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "vinum",
+        "def": "wine",
+        "role": "Accusative Singular Neuter"
+      },
+      {
+        "w": "et",
+        "def": "and",
+        "role": "Conjunction"
+      },
+      {
+        "w": "cibum",
+        "def": "food",
+        "role": "Accusative Singular Masculine"
+      },
+      {
+        "w": "consumunt",
+        "def": "consume / eat",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus servos malos punit.",
+    "primaryTranslation": "The master punishes the bad slaves.",
+    "acceptedTranslations": [
+      "the master punishes the bad slaves",
+      "the master is punishing bad slaves",
+      "a master punishes bad slaves"
+    ],
+    "tenseHint": "punit is 3rd Person Singular Present Active of 4th conjugation punio.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 4th Conjugation Present Active",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "servos",
+        "def": "slaves",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "malos",
+        "def": "bad / wicked",
+        "role": "Accusative Plural Masculine Adjective"
+      },
+      {
+        "w": "punit",
+        "def": "punishes / is punishing",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella per viam cum amica ambulat.",
+    "primaryTranslation": "The girl walks along the street with a female friend.",
+    "acceptedTranslations": [
+      "the girl walks along the street with a friend",
+      "the girl is walking along the street with her friend",
+      "the girl walks along the road with a female friend",
+      "the girl walks along the street with a female friend"
+    ],
+    "tenseHint": "ambulat is 3rd Person Singular Present Active; per viam takes accusative; cum amica takes ablative.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Prepositions per (+ acc) and cum (+ abl)",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "per",
+        "def": "along / through",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "viam",
+        "def": "street / road",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "cum",
+        "def": "with",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "amica",
+        "def": "female friend",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "ambulat",
+        "def": "walks / is walking",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "vir bonus amicum fidelem amat.",
+    "primaryTranslation": "The good man loves his faithful friend.",
+    "acceptedTranslations": [
+      "the good man loves his faithful friend",
+      "a good man loves a faithful friend",
+      "the good man loves a faithful friend"
+    ],
+    "tenseHint": "amat is 3rd Person Singular Present Active of amo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 2nd Declension vir & Transitive Present",
+    "tokens": [
+      {
+        "w": "vir",
+        "def": "man",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "bonus",
+        "def": "good",
+        "role": "Nominative Singular Masculine Adjective"
+      },
+      {
+        "w": "amicum",
+        "def": "friend",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "fidelem",
+        "def": "faithful",
+        "role": "Accusative Singular Adjective"
+      },
+      {
+        "w": "amat",
+        "def": "loves",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "servi multum cibum ad villam portant.",
+    "primaryTranslation": "The slaves carry much food to the villa.",
+    "acceptedTranslations": [
+      "the slaves carry much food to the villa",
+      "the slaves are carrying a lot of food to the villa",
+      "the slaves carry much food to the house"
+    ],
+    "tenseHint": "portant is 3rd Person Plural Present Active of porto.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): 1st Conjugation Plural & Preposition ad",
+    "tokens": [
+      {
+        "w": "servi",
+        "def": "slaves",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "multum",
+        "def": "much / a lot of",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "cibum",
+        "def": "food",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "villam",
+        "def": "villa / country house",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "portant",
+        "def": "carry / are carrying",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "agricola in agris cotidie laborat.",
+    "primaryTranslation": "The farmer works daily in the fields.",
+    "acceptedTranslations": [
+      "the farmer works daily in the fields",
+      "the farmer works every day in the fields",
+      "the farmer is working daily in the fields",
+      "a farmer works daily in the fields"
+    ],
+    "tenseHint": "laborat is 3rd Person Singular Present Active; in agris is ablative plural.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): 2nd Declension ager & in (+ ablative)",
+    "tokens": [
+      {
+        "w": "agricola",
+        "def": "farmer",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "agris",
+        "def": "fields",
+        "role": "Ablative Plural (Place where)"
+      },
+      {
+        "w": "cotidie",
+        "def": "daily / every day",
+        "role": "Adverb"
+      },
+      {
+        "w": "laborat",
+        "def": "works / is working",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "nuntius epistulam ad villam portat.",
+    "primaryTranslation": "The messenger carries a letter to the villa.",
+    "acceptedTranslations": [
+      "the messenger carries a letter to the villa",
+      "the messenger is carrying a letter to the villa",
+      "a messenger carries a letter to the house"
+    ],
+    "tenseHint": "portat is 3rd Person Singular Present Active.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): 2nd Declension Noun nuntius",
+    "tokens": [
+      {
+        "w": "nuntius",
+        "def": "messenger",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "epistulam",
+        "def": "letter",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "villam",
+        "def": "villa / house",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "portat",
+        "def": "carries / is carrying",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella libros magnos in taberna legit.",
+    "primaryTranslation": "The girl reads big books in the shop.",
+    "acceptedTranslations": [
+      "the girl reads big books in the shop",
+      "the girl is reading big books in the shop",
+      "a girl reads big books in a shop"
+    ],
+    "tenseHint": "legit is 3rd Person Singular Present Active of 3rd conjugation lego.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation lego & 2nd Declension liber",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "libros",
+        "def": "books",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "magnos",
+        "def": "big / large",
+        "role": "Accusative Plural Masculine Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in / inside",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "taberna",
+        "def": "shop / inn",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "legit",
+        "def": "reads / is reading",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus gladium novum spectat.",
+    "primaryTranslation": "The friend looks at the new sword.",
+    "acceptedTranslations": [
+      "the friend looks at the new sword",
+      "the friend is looking at the new sword",
+      "a friend looks at a new sword"
+    ],
+    "tenseHint": "spectat is 3rd Person Singular Present Active of specto.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 1st Conjugation specto & 2-1-2 novus",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "gladium",
+        "def": "sword",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "novum",
+        "def": "new",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "spectat",
+        "def": "looks at / watches",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "feminae dona pulchra parant.",
+    "primaryTranslation": "The women prepare beautiful gifts.",
+    "acceptedTranslations": [
+      "the women prepare beautiful gifts",
+      "the women are preparing beautiful gifts",
+      "women prepare beautiful gifts"
+    ],
+    "tenseHint": "parant is 3rd Person Plural Present Active of paro.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 1st Declension Plural & Neuter dona",
+    "tokens": [
+      {
+        "w": "feminae",
+        "def": "women",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "dona",
+        "def": "gifts",
+        "role": "Accusative Plural Neuter (Direct Object)"
+      },
+      {
+        "w": "pulchra",
+        "def": "beautiful",
+        "role": "Accusative Plural Neuter Adjective"
+      },
+      {
+        "w": "parant",
+        "def": "prepare / are preparing",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus epistulam tuam laetus legit.",
+    "primaryTranslation": "The master happily reads your letter.",
+    "acceptedTranslations": [
+      "the master happily reads your letter",
+      "the master reads your letter happily",
+      "the happy master reads your letter",
+      "the master is happily reading your letter"
+    ],
+    "tenseHint": "legit is 3rd Person Singular Present Active; tuam is possessive adjective.",
+    "grammarFocus": "Cullen Book 1 (Ch 3): Possessive Adjective tuus",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "epistulam",
+        "def": "letter",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "tuam",
+        "def": "your",
+        "role": "Accusative Singular Feminine Possessive"
+      },
+      {
+        "w": "laetus",
+        "def": "happy / joyful",
+        "role": "Nominative Singular Masculine Adjective"
+      },
+      {
+        "w": "legit",
+        "def": "reads / is reading",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puer ad templum sacrum currit.",
+    "primaryTranslation": "The boy runs to the sacred temple.",
+    "acceptedTranslations": [
+      "the boy runs to the sacred temple",
+      "the boy is running to the sacred temple",
+      "a boy runs to a sacred temple"
+    ],
+    "tenseHint": "currit is 3rd Person Singular Present Active of curro.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation curro & 2nd Decl Neuter",
+    "tokens": [
+      {
+        "w": "puer",
+        "def": "boy",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "templum",
+        "def": "temple",
+        "role": "Accusative Singular Neuter"
+      },
+      {
+        "w": "sacrum",
+        "def": "sacred / holy",
+        "role": "Accusative Singular Neuter Adjective"
+      },
+      {
+        "w": "currit",
+        "def": "runs / is running",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus pecuniam multam in villa servat.",
+    "primaryTranslation": "The master keeps much money in the villa.",
+    "acceptedTranslations": [
+      "the master keeps much money in the villa",
+      "the master saves much money in the villa",
+      "the master keeps a lot of money in the house",
+      "a master keeps much money in a villa"
+    ],
+    "tenseHint": "servat is 3rd Person Singular Present Active of servo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): 1st Conjugation servo & 1st Decl pecunia",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "pecuniam",
+        "def": "money",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "multam",
+        "def": "much / a lot of",
+        "role": "Accusative Singular Feminine Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in / inside",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "villa",
+        "def": "villa / house",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "servat",
+        "def": "keeps / saves",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus meus in horto sedet.",
+    "primaryTranslation": "My friend sits in the garden.",
+    "acceptedTranslations": [
+      "my friend sits in the garden",
+      "my friend is sitting in the garden",
+      "a friend of mine sits in the garden"
+    ],
+    "tenseHint": "sedet is 3rd Person Singular Present Active of 2nd conjugation sedeo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1): 2nd Conjugation sedeo",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "meus",
+        "def": "my",
+        "role": "Nominative Singular Possessive"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "horto",
+        "def": "garden",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "sedet",
+        "def": "sits / is sitting",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "nautae navem magnam in litore parant.",
+    "primaryTranslation": "The sailors prepare a large ship on the shore.",
+    "acceptedTranslations": [
+      "the sailors prepare a large ship on the shore",
+      "the sailors are preparing a large ship on the shore",
+      "sailors prepare a big ship on the shore"
+    ],
+    "tenseHint": "parant is 3rd Person Plural Present Active of paro.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): 1st Declension Masculine nauta",
+    "tokens": [
+      {
+        "w": "nautae",
+        "def": "sailors",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "navem",
+        "def": "ship",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "magnam",
+        "def": "large / big",
+        "role": "Accusative Singular Feminine Adjective"
+      },
+      {
+        "w": "in",
+        "def": "on / in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "litore",
+        "def": "shore",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "parant",
+        "def": "prepare / are preparing",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella flores pulchros ad templum portat.",
+    "primaryTranslation": "The girl carries beautiful flowers to the temple.",
+    "acceptedTranslations": [
+      "the girl carries beautiful flowers to the temple",
+      "the girl is carrying beautiful flowers to the temple",
+      "a girl carries beautiful flowers to a temple"
+    ],
+    "tenseHint": "portat is 3rd Person Singular Present Active of porto.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 2): Preposition ad & 1st Conjugation",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "flores",
+        "def": "flowers",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "pulchros",
+        "def": "beautiful",
+        "role": "Accusative Plural Masculine Adjective"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "templum",
+        "def": "temple",
+        "role": "Accusative Singular Neuter"
+      },
+      {
+        "w": "portat",
+        "def": "carries / is carrying",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "servus dominum fidelem adiuvat.",
+    "primaryTranslation": "The slave helps his faithful master.",
+    "acceptedTranslations": [
+      "the slave helps his faithful master",
+      "the slave is helping his faithful master",
+      "a slave helps a faithful master"
+    ],
+    "tenseHint": "adiuvat is 3rd Person Singular Present Active of adiuvo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1): Compound 1st Conjugation adiuvo",
+    "tokens": [
+      {
+        "w": "servus",
+        "def": "slave",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "dominum",
+        "def": "master",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "fidelem",
+        "def": "faithful",
+        "role": "Accusative Singular Adjective"
+      },
+      {
+        "w": "adiuvat",
+        "def": "helps / is helping",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "pueri cum gaudio in arena pugnant.",
+    "primaryTranslation": "The boys fight with joy in the arena.",
+    "acceptedTranslations": [
+      "the boys fight with joy in the arena",
+      "the boys are fighting with joy in the arena",
+      "the boys fight gladly in the arena"
+    ],
+    "tenseHint": "pugnant is 3rd Person Plural Present Active of pugno; cum gaudio is ablative of manner.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Ablative of Manner with cum",
+    "tokens": [
+      {
+        "w": "pueri",
+        "def": "boys",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "cum",
+        "def": "with",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "gaudio",
+        "def": "joy / gladness",
+        "role": "Ablative Singular (Manner)"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "arena",
+        "def": "arena / sand",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "pugnant",
+        "def": "fight / are fighting",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "femina epistulam ad filium mittit.",
+    "primaryTranslation": "The woman sends a letter to her son.",
+    "acceptedTranslations": [
+      "the woman sends a letter to her son",
+      "the woman is sending a letter to her son",
+      "a woman sends a letter to a son"
+    ],
+    "tenseHint": "mittit is 3rd Person Singular Present Active of 3rd conjugation mitto.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): 3rd Conjugation mitto & Preposition ad",
+    "tokens": [
+      {
+        "w": "femina",
+        "def": "woman",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "epistulam",
+        "def": "letter",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "ad",
+        "def": "to / towards",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "filium",
+        "def": "son",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "mittit",
+        "def": "sends / is sending",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "vir laetus vinum bonum bibit.",
+    "primaryTranslation": "The happy man drinks good wine.",
+    "acceptedTranslations": [
+      "the happy man drinks good wine",
+      "the joyful man drinks good wine",
+      "a happy man drinks good wine",
+      "the happy man is drinking good wine"
+    ],
+    "tenseHint": "bibit is 3rd Person Singular Present Active of 3rd conjugation bibo.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation bibo & 2-1-2 Adjective",
+    "tokens": [
+      {
+        "w": "vir",
+        "def": "man",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "laetus",
+        "def": "happy / joyful",
+        "role": "Nominative Singular Masculine Adjective"
+      },
+      {
+        "w": "vinum",
+        "def": "wine",
+        "role": "Accusative Singular Neuter (Direct Object)"
+      },
+      {
+        "w": "bonum",
+        "def": "good",
+        "role": "Accusative Singular Neuter Adjective"
+      },
+      {
+        "w": "bibit",
+        "def": "drinks / is drinking",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "amicus tuus gladium durum gerit.",
+    "primaryTranslation": "Your friend carries a hard sword.",
+    "acceptedTranslations": [
+      "your friend carries a hard sword",
+      "your friend wears a hard sword",
+      "your friend is carrying a hard sword"
+    ],
+    "tenseHint": "gerit is 3rd Person Singular Present Active of 3rd conjugation gero.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation gero & Possessive tuus",
+    "tokens": [
+      {
+        "w": "amicus",
+        "def": "friend",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "tuus",
+        "def": "your",
+        "role": "Nominative Singular Possessive"
+      },
+      {
+        "w": "gladium",
+        "def": "sword",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "durum",
+        "def": "hard / tough",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "gerit",
+        "def": "carries / bears / wears",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "servi fessi in horto non laborant.",
+    "primaryTranslation": "The tired slaves do not work in the garden.",
+    "acceptedTranslations": [
+      "the tired slaves do not work in the garden",
+      "the tired slaves are not working in the garden",
+      "tired slaves do not work in the garden"
+    ],
+    "tenseHint": "laborant is 3rd Person Plural Present Active; non negates the verb.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): Negative non & 2-1-2 Adjective fessus",
+    "tokens": [
+      {
+        "w": "servi",
+        "def": "slaves",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "fessi",
+        "def": "tired / weary",
+        "role": "Nominative Plural Masculine Adjective"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "horto",
+        "def": "garden",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "non",
+        "def": "not",
+        "role": "Adverb (Negation)"
+      },
+      {
+        "w": "laborant",
+        "def": "work / are working",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puellae carae per silvam ambulant.",
+    "primaryTranslation": "The dear girls walk through the forest.",
+    "acceptedTranslations": [
+      "the dear girls walk through the forest",
+      "the dear girls walk through the wood",
+      "the dear girls are walking through the forest"
+    ],
+    "tenseHint": "ambulant is 3rd Person Plural Present Active; per silvam takes accusative.",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 1st Declension Plural & Preposition per",
+    "tokens": [
+      {
+        "w": "puellae",
+        "def": "girls",
+        "role": "Nominative Plural (Subject)"
+      },
+      {
+        "w": "carae",
+        "def": "dear / beloved",
+        "role": "Nominative Plural Feminine Adjective"
+      },
+      {
+        "w": "per",
+        "def": "through",
+        "role": "Preposition (+ accusative)"
+      },
+      {
+        "w": "silvam",
+        "def": "forest / wood",
+        "role": "Accusative Singular"
+      },
+      {
+        "w": "ambulant",
+        "def": "walk / are walking",
+        "role": "3rd Pers Plur Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "dominus villam novam aedificat.",
+    "primaryTranslation": "The master builds a new villa.",
+    "acceptedTranslations": [
+      "the master builds a new villa",
+      "the master is building a new villa",
+      "the master builds a new house",
+      "a master builds a new villa"
+    ],
+    "tenseHint": "aedificat is 3rd Person Singular Present Active of 1st conjugation aedifico.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 1st Conjugation aedifico & 2-1-2 novus",
+    "tokens": [
+      {
+        "w": "dominus",
+        "def": "master",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "villam",
+        "def": "villa / house",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "novam",
+        "def": "new",
+        "role": "Accusative Singular Feminine Adjective"
+      },
+      {
+        "w": "aedificat",
+        "def": "builds / is building",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puer cibum carum amico dat.",
+    "primaryTranslation": "The boy gives dear food to his friend.",
+    "acceptedTranslations": [
+      "the boy gives dear food to his friend",
+      "the boy gives dear food to a friend",
+      "the boy is giving dear food to his friend"
+    ],
+    "tenseHint": "dat is 3rd Person Singular Present Active of do; amico is dative singular indirect object.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Dative Case (Indirect Object)",
+    "tokens": [
+      {
+        "w": "puer",
+        "def": "boy",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "cibum",
+        "def": "food",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "carum",
+        "def": "dear / precious",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "amico",
+        "def": "friend",
+        "role": "Dative Singular (Indirect Object)"
+      },
+      {
+        "w": "dat",
+        "def": "gives / is giving",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "frater meus gladium novum habet.",
+    "primaryTranslation": "My brother has a new sword.",
+    "acceptedTranslations": [
+      "my brother has a new sword",
+      "my brother owns a new sword",
+      "a brother of mine has a new sword"
+    ],
+    "tenseHint": "habet is 3rd Person Singular Present Active of 2nd conjugation habeo.",
+    "grammarFocus": "Cullen Book 1 (Ch 1 & 3): 2nd Conjugation habeo & Possessive",
+    "tokens": [
+      {
+        "w": "frater",
+        "def": "brother",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "meus",
+        "def": "my",
+        "role": "Nominative Singular Possessive"
+      },
+      {
+        "w": "gladium",
+        "def": "sword",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "novum",
+        "def": "new",
+        "role": "Accusative Singular Masculine Adjective"
+      },
+      {
+        "w": "habet",
+        "def": "has / possesses",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella pulchra flores in horto legit.",
+    "primaryTranslation": "The beautiful girl chooses flowers in the garden.",
+    "acceptedTranslations": [
+      "the beautiful girl chooses flowers in the garden",
+      "the beautiful girl gathers flowers in the garden",
+      "the beautiful girl picks flowers in the garden",
+      "a beautiful girl gathers flowers in the garden"
+    ],
+    "tenseHint": "legit is 3rd Person Singular Present Active ('gathers' or 'picks').",
+    "grammarFocus": "Cullen Book 1 (Ch 2 & 3): 3rd Conjugation lego & 2-1-2 pulcher",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "pulchra",
+        "def": "beautiful",
+        "role": "Nominative Singular Feminine Adjective"
+      },
+      {
+        "w": "flores",
+        "def": "flowers",
+        "role": "Accusative Plural (Direct Object)"
+      },
+      {
+        "w": "in",
+        "def": "in",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "horto",
+        "def": "garden",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "legit",
+        "def": "picks / gathers / chooses",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  },
+  {
+    "latin": "puella epistulam amici cum gaudio legit.",
+    "primaryTranslation": "The girl reads her friend's letter with joy.",
+    "acceptedTranslations": [
+      "the girl reads her friend's letter with joy",
+      "the girl reads the letter of her friend with joy",
+      "the girl reads her friend's letter gladly",
+      "a girl reads a friend's letter with joy"
+    ],
+    "tenseHint": "legit is 3rd Person Singular Present Active; amici is genitive singular.",
+    "grammarFocus": "Cullen Book 1 (Ch 2): Genitive Case of Possession & cum (+ abl)",
+    "tokens": [
+      {
+        "w": "puella",
+        "def": "girl",
+        "role": "Nominative Singular (Subject)"
+      },
+      {
+        "w": "epistulam",
+        "def": "letter",
+        "role": "Accusative Singular (Direct Object)"
+      },
+      {
+        "w": "amici",
+        "def": "of a friend / friend's",
+        "role": "Genitive Singular"
+      },
+      {
+        "w": "cum",
+        "def": "with",
+        "role": "Preposition (+ ablative)"
+      },
+      {
+        "w": "gaudio",
+        "def": "joy",
+        "role": "Ablative Singular"
+      },
+      {
+        "w": "legit",
+        "def": "reads / is reading",
+        "role": "3rd Pers Sing Present Active Verb"
+      }
+    ]
+  }
+]

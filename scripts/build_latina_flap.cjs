@@ -1,0 +1,475 @@
+// Script to verify and generate Latina Flap questions & level progression
+const fs = require('fs');
+
+const EASY_WORDS = [
+  { latin: "puella", english: "girl", distractor: "femina" },
+  { latin: "servus", english: "slave", distractor: "dominus" },
+  { latin: "currit", english: "runs", distractor: "ambulat" },
+  { latin: "via", english: "street, road", distractor: "porta" },
+  { latin: "dominus", english: "master", distractor: "servus" },
+  { latin: "templum", english: "temple", distractor: "forum" },
+  { latin: "ambulat", english: "walks", distractor: "festinat" },
+  { latin: "aqua", english: "water", distractor: "vinum" },
+  { latin: "equus", english: "horse", distractor: "canis" },
+  { latin: "gladius", english: "sword", distractor: "scutum" },
+  { latin: "rex", english: "king", distractor: "princeps" },
+  { latin: "dux", english: "leader, general", distractor: "miles" },
+  { latin: "murus", english: "wall", distractor: "porta" },
+  { latin: "silva", english: "wood, forest", distractor: "ager" },
+  { latin: "terra", english: "ground, land", distractor: "caelum" },
+  { latin: "urbs", english: "city", distractor: "villa" },
+  { latin: "amicus", english: "friend", distractor: "inimicus" },
+  { latin: "canis", english: "dog", distractor: "equus" },
+  { latin: "civis", english: "citizen", distractor: "hospes" },
+  { latin: "custos", english: "guard", distractor: "captivus" },
+  { latin: "homo", english: "person, man", distractor: "femina" },
+  { latin: "iuvenis", english: "young man", distractor: "senex" },
+  { latin: "mater", english: "mother", distractor: "uxor" },
+  { latin: "pater", english: "father", distractor: "frater" },
+  { latin: "miles", english: "soldier", distractor: "nauta" },
+  { latin: "nuntius", english: "messenger", distractor: "legatus" },
+  { latin: "senex", english: "old man", distractor: "puer" },
+  { latin: "filius", english: "son", distractor: "frater" },
+  { latin: "filia", english: "daughter", distractor: "soror" },
+  { latin: "hortus", english: "garden", distractor: "campus" },
+  { latin: "navis", english: "ship", distractor: "plaustrum" },
+  { latin: "periculum", english: "danger", distractor: "praemium" },
+  { latin: "pecunia", english: "money", distractor: "aurum" },
+  { latin: "bellum", english: "war", distractor: "pax" },
+  { latin: "audio", english: "hear, listen", distractor: "specto" },
+  { latin: "dico", english: "say, speak", distractor: "clamo" },
+  { latin: "facio", english: "make, do", distractor: "fugio" },
+  { latin: "habeo", english: "have, hold", distractor: "teneo" },
+  { latin: "mitto", english: "send", distractor: "relinguo" },
+  { latin: "porto", english: "carry", distractor: "traho" },
+  { latin: "scribo", english: "write", distractor: "lego" },
+  { latin: "video", english: "see", distractor: "audio" },
+  { latin: "vinco", english: "conquer, win", distractor: "supero" },
+  { latin: "clamo", english: "shout", distractor: "taceo" },
+  { latin: "intro", english: "enter", distractor: "exeo" },
+  { latin: "laudo", english: "praise", distractor: "culpo" },
+  { latin: "pugno", english: "fight", distractor: "vulnero" },
+  { latin: "timeo", english: "fear", distractor: "audeo" },
+  { latin: "venio", english: "come", distractor: "discedo" },
+  { latin: "bonus", english: "good", distractor: "malus" },
+  { latin: "magnus", english: "large, great", distractor: "parvus" },
+  { latin: "malus", english: "bad, evil", distractor: "bonus" },
+  { latin: "multus", english: "much, many", distractor: "pauci" },
+  { latin: "parvus", english: "small", distractor: "magnus" },
+  { latin: "pulcher", english: "beautiful", distractor: "tristis" },
+  { latin: "laetus", english: "happy", distractor: "miser" },
+  { latin: "novus", english: "new", distractor: "antiquus" },
+  { latin: "solus", english: "alone, only", distractor: "totus" },
+  { latin: "totus", english: "whole", distractor: "omnis" },
+  { latin: "iratus", english: "angry", distractor: "laetus" },
+  { latin: "miser", english: "wretched, sad", distractor: "felix" },
+  { latin: "fortis", english: "brave, strong", distractor: "timidus" },
+  { latin: "omnis", english: "all, every", distractor: "nullus" },
+  { latin: "nemo", english: "no one", distractor: "omnes" },
+  { latin: "nihil", english: "nothing", distractor: "omnia" },
+  { latin: "semper", english: "always", distractor: "numquam" },
+  { latin: "numquam", english: "never", distractor: "saepe" },
+  { latin: "saepe", english: "often", distractor: "semper" },
+  { latin: "tandem", english: "at last, finally", distractor: "statim" },
+  { latin: "statim", english: "immediately", distractor: "tandem" },
+  { latin: "subito", english: "suddenly", distractor: "paulatim" },
+  { latin: "mox", english: "soon", distractor: "nunc" },
+  { latin: "nunc", english: "now", distractor: "tunc" },
+  { latin: "tunc", english: "then", distractor: "nunc" },
+  { latin: "ibi", english: "there", distractor: "hic" },
+  { latin: "hic", english: "here", distractor: "ibi" },
+  { latin: "bene", english: "well", distractor: "male" },
+  { latin: "cur?", english: "why?", distractor: "quomodo?" },
+  { latin: "quo?", english: "to where?", distractor: "unde?" },
+  { latin: "unde?", english: "from where?", distractor: "ubi?" },
+  { latin: "ubi?", english: "where?", distractor: "quando?" },
+  { latin: "cum (+ abl)", english: "with", distractor: "sine" },
+  { latin: "sine (+ abl)", english: "without", distractor: "cum" },
+  { latin: "ad (+ acc)", english: "to, towards", distractor: "ab" },
+  { latin: "ab (+ abl)", english: "from, away from", distractor: "ad" },
+  { latin: "in (+ acc)", english: "into, onto", distractor: "e, ex" },
+  { latin: "e, ex (+ abl)", english: "out of, from", distractor: "in" },
+  { latin: "per (+ acc)", english: "through, along", distractor: "prope" },
+  { latin: "prope (+ acc)", english: "near", distractor: "procul" },
+  { latin: "inter (+ acc)", english: "among, between", distractor: "contra" },
+  { latin: "post (+ acc)", english: "after, behind", distractor: "ante" },
+  { latin: "ante (+ acc)", english: "before, in front of", distractor: "post" },
+  { latin: "sed", english: "but", distractor: "et" },
+  { latin: "et", english: "and", distractor: "aut" },
+  { latin: "nam", english: "for", distractor: "igitur" },
+  { latin: "itaque", english: "and so, therefore", distractor: "tamen" },
+  { latin: "tamen", english: "however", distractor: "tandem" },
+  { latin: "quod", english: "because", distractor: "quamquam" },
+  { latin: "quamquam", english: "although", distractor: "postquam" },
+  { latin: "postquam", english: "after, when", distractor: "antequam" }
+];
+
+const HARD_CONFUSABLES = [
+  { prompt: "warn, advise", correct: "monere", distractor: "manere", hint: "monere = warn, manere = stay/remain" },
+  { prompt: "stay, remain", correct: "manere", distractor: "monere", hint: "manere = stay, monere = warn" },
+  { prompt: "fall", correct: "cadere", distractor: "caedere", hint: "cadere = fall, caedere = kill/cut down" },
+  { prompt: "kill, cut down", correct: "caedere", distractor: "cadere", hint: "caedere = slaughter, cadere = fall" },
+  { prompt: "enemy", correct: "hostis", distractor: "hospes", hint: "hostis = enemy, hospes = guest/host" },
+  { prompt: "guest, host", correct: "hospes", distractor: "hostis", hint: "hospes = guest/host, hostis = enemy" },
+  { prompt: "dare", correct: "audere", distractor: "audire", hint: "audere = dare (semi-dep), audire = hear" },
+  { prompt: "hear, listen", correct: "audire", distractor: "audere", hint: "audire = listen/hear, audere = dare" },
+  { prompt: "lie down", correct: "iacēre", distractor: "iacere", hint: "iacēre = lie down, iacere = throw" },
+  { prompt: "throw", correct: "iacere", distractor: "iacēre", hint: "iacere = throw, iacēre = lie down" },
+  { prompt: "die", correct: "mori", distractor: "morari", hint: "mori (morior) = die, morari = delay" },
+  { prompt: "delay", correct: "morari", distractor: "mori", hint: "morari = delay, mori = die" },
+  { prompt: "obey (+ dat)", correct: "parere", distractor: "parare", hint: "parere = obey, parare = prepare" },
+  { prompt: "prepare", correct: "parare", distractor: "parere", hint: "parare = prepare, parere = obey" },
+  { prompt: "rise, arise", correct: "oriri", distractor: "hortari", hint: "oriri = rise, hortari = encourage" },
+  { prompt: "encourage", correct: "hortari", distractor: "oriri", hint: "hortari = encourage, oriri = rise" },
+  { prompt: "children", correct: "liberi", distractor: "libri", hint: "liberi = children, libri = books" },
+  { prompt: "books", correct: "libri", distractor: "liberi", hint: "libri = books, liberi = children" },
+  { prompt: "companion", correct: "comes", distractor: "comitor", hint: "comes = companion (noun), comitor = accompany (verb)" },
+  { prompt: "flee", correct: "fugere", distractor: "facere", hint: "fugere = flee, facere = make/do" },
+  { prompt: "lead", correct: "ducere", distractor: "dicere", hint: "ducere = lead, dicere = say/speak" },
+  { prompt: "say, speak", correct: "dicere", distractor: "ducere", hint: "dicere = say, ducere = lead" },
+  { prompt: "rule", correct: "regere", distractor: "rogare", hint: "regere = rule, rogare = ask" },
+  { prompt: "ask", correct: "rogare", distractor: "regere", hint: "rogare = ask, regere = rule" },
+  { prompt: "plan, advice", correct: "consilium", distractor: "concilium", hint: "consilium = plan/advice, concilium = meeting" },
+  { prompt: "meeting, council", correct: "concilium", distractor: "consilium", hint: "concilium = assembly, consilium = plan" },
+  { prompt: "however", correct: "tamen", distractor: "tandem", hint: "tamen = however, tandem = at last" },
+  { prompt: "at last, finally", correct: "tandem", distractor: "tamen", hint: "tandem = at last, tamen = however" },
+  { prompt: "unless, except", correct: "nisi", distractor: "quasi", hint: "nisi = unless, quasi = as if" },
+  { prompt: "as if", correct: "quasi", distractor: "nisi", hint: "quasi = as if, nisi = unless" },
+  { prompt: "free (adjective)", correct: "liber", distractor: "liberi", hint: "liber = free, liberi = children" },
+  { prompt: "alone, only", correct: "solus", distractor: "solum", hint: "solus = alone, solum = only / ground" },
+  { prompt: "safe", correct: "tutus", distractor: "totus", hint: "tutus = safe, totus = whole" },
+  { prompt: "whole", correct: "totus", distractor: "tutus", hint: "totus = whole, tutus = safe" },
+  { prompt: "know", correct: "scire", distractor: "nescire", hint: "scire = know, nescire = not know" },
+  { prompt: "not know", correct: "nescire", distractor: "scire", hint: "nescire = be ignorant, scire = know" },
+  { prompt: "fear, be afraid", correct: "timere", distractor: "tenere", hint: "timere = fear, tenere = hold" },
+  { prompt: "hold", correct: "tenere", distractor: "timere", hint: "tenere = hold, timere = fear" },
+  { prompt: "order, command", correct: "iubere", distractor: "iuvare", hint: "iubere = order, iuvare = help" },
+  { prompt: "help", correct: "iuvare", distractor: "iubere", hint: "iuvare = help, iubere = order" },
+  { prompt: "hand over", correct: "tradere", distractor: "trahere", hint: "tradere = surrender, trahere = drag/pull" },
+  { prompt: "drag, pull", correct: "trahere", distractor: "tradere", hint: "trahere = drag, tradere = hand over" },
+  { prompt: "defeat, overcome", correct: "superare", distractor: "surgere", hint: "superare = overcome, surgere = stand up" },
+  { prompt: "get up, stand up", correct: "surgere", distractor: "superare", hint: "surgere = rise, superare = conquer" },
+  { prompt: "set out", correct: "proficisci", distractor: "progredi", hint: "proficisci = set out, progredi = advance" },
+  { prompt: "advance, proceed", correct: "progredi", distractor: "proficisci", hint: "progredi = go forward, proficisci = set out" },
+  { prompt: "return", correct: "regredi", distractor: "redire", hint: "regredi = step back, redire = go back" },
+  { prompt: "enter", correct: "ingredi", distractor: "egredi", hint: "ingredi = enter, egredi = exit/go out" },
+  { prompt: "go out, leave", correct: "egredi", distractor: "ingredi", hint: "egredi = leave, ingredi = enter" },
+  { prompt: "catch sight of", correct: "conspicere", distractor: "aspicere", hint: "conspicere = catch sight of, aspicere = look at" },
+  { prompt: "attack (noun)", correct: "impetus", distractor: "metus", hint: "impetus = charge/attack, metus = fear" },
+  { prompt: "fear (noun)", correct: "metus", distractor: "impetus", hint: "metus = fear, impetus = attack" },
+  { prompt: "wound (noun)", correct: "vulnus", distractor: "virtus", hint: "vulnus = wound, virtus = courage" },
+  { prompt: "courage, virtue", correct: "virtus", distractor: "vulnus", hint: "virtus = courage, vulnus = wound" }
+];
+
+const CASE_MASTERY_QUESTIONS = [
+  {
+    prompt: "to the slaves (dative plural)",
+    correct: "servis",
+    distractor: "servos",
+    explanation: "Dative plural of 2nd declension is -is ('servis'). 'Servos' is accusative plural."
+  },
+  {
+    prompt: "of the girls (genitive plural)",
+    correct: "puellarum",
+    distractor: "puellas",
+    explanation: "Genitive plural of 1st declension ends in -arum ('puellarum'). 'Puellas' is accusative plural."
+  },
+  {
+    prompt: "by the soldiers (ablative plural)",
+    correct: "militibus",
+    distractor: "milites",
+    explanation: "Ablative plural of 3rd declension ends in -ibus ('militibus'). 'Milites' is nominative or accusative."
+  },
+  {
+    prompt: "into the city (motion into, acc)",
+    correct: "in urbem",
+    distractor: "in urbe",
+    explanation: "'in' + accusative ('urbem') expresses motion into; 'in' + ablative ('urbe') means location in/on."
+  },
+  {
+    prompt: "in the city (place where, abl)",
+    correct: "in urbe",
+    distractor: "in urbem",
+    explanation: "'in' + ablative ('urbe') shows location; 'in' + accusative shows motion."
+  },
+  {
+    prompt: "with great courage (manner)",
+    correct: "magna virtute",
+    distractor: "magnam virtutem",
+    explanation: "Ablative of manner without preposition takes ablative case: 'magna virtute'."
+  },
+  {
+    prompt: "to the king (dative singular)",
+    correct: "regi",
+    distractor: "regem",
+    explanation: "3rd declension dative singular ends in -i ('regi'). 'Regem' is accusative singular."
+  },
+  {
+    prompt: "of the master (genitive singular)",
+    correct: "domini",
+    distractor: "domino",
+    explanation: "2nd declension genitive singular ends in -i ('domini'). 'Domino' is dative or ablative."
+  },
+  {
+    prompt: "to the queen (dative singular)",
+    correct: "reginae",
+    distractor: "reginam",
+    explanation: "1st declension dative singular ends in -ae ('reginae'). 'Reginam' is accusative."
+  },
+  {
+    prompt: "of the citizens (genitive plural)",
+    correct: "civium",
+    distractor: "cives",
+    explanation: "3rd declension i-stem genitive plural ends in -ium ('civium')."
+  },
+  {
+    prompt: "they were walking (imperfect)",
+    correct: "ambulabant",
+    distractor: "ambulaverunt",
+    explanation: "Imperfect tense features the -ba- infix ('ambulabant'). 'Ambulaverunt' is perfect."
+  },
+  {
+    prompt: "they walked / have walked (perfect)",
+    correct: "ambulaverunt",
+    distractor: "ambulabant",
+    explanation: "Perfect 3rd plural ends in -erunt ('ambulaverunt')."
+  },
+  {
+    prompt: "they will fight (future 1st conj)",
+    correct: "pugnabunt",
+    distractor: "pugnabant",
+    explanation: "1st conjugation future features -bi-/-bu- ('pugnabunt'). 'Pugnabant' with -ba- is imperfect."
+  },
+  {
+    prompt: "they will hear (future 4th conj)",
+    correct: "audient",
+    distractor: "audiebant",
+    explanation: "4th conjugation future features -e- ('audient'). 'Audiebant' is imperfect."
+  },
+  {
+    prompt: "having been captured (perf pass part)",
+    correct: "captus",
+    distractor: "capiens",
+    explanation: "'Captus' is perfect passive participle (having been taken); 'capiens' is present active participle (taking)."
+  },
+  {
+    prompt: "fleeing (present active participle)",
+    correct: "fugiens",
+    distractor: "fugatus",
+    explanation: "Present participle has -ns/-ntis suffix ('fugiens')."
+  },
+  {
+    prompt: "to the faithful friend (dative sing)",
+    correct: "fido amico",
+    distractor: "fidus amicus",
+    explanation: "Dative requires matching dative noun + adjective endings ('fido amico')."
+  },
+  {
+    prompt: "hands (4th decl accusative plural)",
+    correct: "manus",
+    distractor: "manibus",
+    explanation: "4th declension accusative plural ends in long -us ('manus'). 'Manibus' is dative/ablative."
+  },
+  {
+    prompt: "of the day (5th decl genitive sing)",
+    correct: "diei",
+    distractor: "diem",
+    explanation: "5th declension genitive singular ends in -ei ('diei'). 'Diem' is accusative."
+  },
+  {
+    prompt: "we praise (1st person plural)",
+    correct: "laudamus",
+    distractor: "laudant",
+    explanation: "1st person plural ending is -mus ('laudamus'). -nt is 3rd plural."
+  },
+  {
+    prompt: "you (plural) fear",
+    correct: "timetis",
+    distractor: "times",
+    explanation: "2nd person plural ending is -tis ('timetis'). -s is 2nd singular."
+  },
+  {
+    prompt: "they had seen (pluperfect)",
+    correct: "viderant",
+    distractor: "viderunt",
+    explanation: "Pluperfect active uses perfect stem + -era- ('viderant'). 'Viderunt' is perfect."
+  },
+  {
+    prompt: "having spoken (deponent participle)",
+    correct: "locutus",
+    distractor: "loquens",
+    explanation: "Deponent perfect participle has active meaning: 'locutus' = having spoken."
+  },
+  {
+    prompt: "to sleep (present infinitive)",
+    correct: "dormire",
+    distractor: "dormiebat",
+    explanation: "Infinitive ends in -re ('dormire'). 'Dormiebat' is 3rd person imperfect."
+  },
+  {
+    prompt: "he was shouting (imperfect)",
+    correct: "clamabat",
+    distractor: "clamavit",
+    explanation: "-bat denotes continuous/imperfect past ('clamabat'). -vit is completed perfect."
+  },
+  {
+    prompt: "he shouted (perfect)",
+    correct: "clamavit",
+    distractor: "clamabat",
+    explanation: "-vit denotes completed perfect action ('clamavit')."
+  },
+  {
+    prompt: "to the good mother (dative singular)",
+    correct: "bonae matri",
+    distractor: "bona mater",
+    explanation: "Dative singular: 1st decl adj 'bonae' + 3rd decl noun 'matri'."
+  },
+  {
+    prompt: "with the brave soldiers (ablative pl)",
+    correct: "cum fortibus militibus",
+    distractor: "cum fortes milites",
+    explanation: "'cum' governs ablative plural (-ibus on both 3rd declension words)."
+  },
+  {
+    prompt: "of the great city (genitive sing)",
+    correct: "magnae urbis",
+    distractor: "magnam urbem",
+    explanation: "Genitive singular: 1st decl adj 'magnae' + 3rd decl noun 'urbis'."
+  },
+  {
+    prompt: "from the country house (ablative)",
+    correct: "e villa",
+    distractor: "ad villam",
+    explanation: "'e/ex' + ablative ('e villa') = out of/from; 'ad' + accusative = towards."
+  },
+  {
+    prompt: "having advanced (deponent participle)",
+    correct: "progressus",
+    distractor: "progrediens",
+    explanation: "Perfect participle of deponent 'progredior' is 'progressus' (having advanced)."
+  },
+  {
+    prompt: "they had been conquered (plupf pass)",
+    correct: "victi erant",
+    distractor: "victi sunt",
+    explanation: "Pluperfect passive uses participle + 'erant'. 'Victi sunt' is perfect passive."
+  },
+  {
+    prompt: "they were conquered (perfect pass)",
+    correct: "victi sunt",
+    distractor: "victi erant",
+    explanation: "Perfect passive uses participle + 'sunt'."
+  },
+  {
+    prompt: "to have conquered (perf active inf)",
+    correct: "vicisse",
+    distractor: "vinci",
+    explanation: "Perfect active infinitive ends in -isse ('vicisse'). 'Vinci' is present passive infinitive."
+  },
+  {
+    prompt: "to be sent (present passive inf)",
+    correct: "mitti",
+    distractor: "mittere",
+    explanation: "3rd conjugation present passive infinitive replaces -ere with -i ('mitti')."
+  },
+  {
+    prompt: "more bravely (comparative adverb)",
+    correct: "fortius",
+    distractor: "fortiter",
+    explanation: "Comparative adverb takes neuter comparative form -ius ('fortius'). 'Fortiter' is positive."
+  },
+  {
+    prompt: "very brave / bravest (superlative)",
+    correct: "fortissimus",
+    distractor: "fortior",
+    explanation: "Superlative ends in -issimus ('fortissimus'). 'Fortior' is comparative."
+  },
+  {
+    prompt: "more easily (comparative adverb)",
+    correct: "facilius",
+    distractor: "facile",
+    explanation: "Comparative adverb of 'facilis' is 'facilius'."
+  },
+  {
+    prompt: "very easy / easiest (superlative)",
+    correct: "facillimus",
+    distractor: "facilior",
+    explanation: "-lis adjectives form superlative with -limus ('facillimus')."
+  },
+  {
+    prompt: "better (comparative adjective)",
+    correct: "melior",
+    distractor: "optimus",
+    explanation: "Irregular comparative of bonus is 'melior' (better); 'optimus' is best."
+  },
+  {
+    prompt: "worse (comparative adjective)",
+    correct: "peior",
+    distractor: "pessimus",
+    explanation: "Comparative of malus is 'peior' (worse); 'pessimus' is worst."
+  },
+  {
+    prompt: "greater / bigger (comparative)",
+    correct: "maior",
+    distractor: "maximus",
+    explanation: "Comparative of magnus is 'maior' (greater); 'maximus' is greatest."
+  },
+  {
+    prompt: "smaller (comparative adjective)",
+    correct: "minor",
+    distractor: "minimus",
+    explanation: "Comparative of parvus is 'minor' (smaller); 'minimus' is smallest."
+  },
+  {
+    prompt: "let us fight! (1st pl present subj)",
+    correct: "pugnemus",
+    distractor: "pugnamus",
+    explanation: "Jussive/hortatory subjunctive in 1st conjugation switches 'a' to 'e': 'pugnemus'."
+  },
+  {
+    prompt: "may they come! (3rd pl pres subj)",
+    correct: "veniant",
+    distractor: "veniunt",
+    explanation: "4th conjugation present subjunctive takes -ia- ('veniant'). 'Veniunt' is indicative."
+  },
+  {
+    prompt: "if he were here (imperfect subj)",
+    correct: "adesset",
+    distractor: "adest",
+    explanation: "Imperfect subjunctive formed from infinitive + endings ('adesset')."
+  },
+  {
+    prompt: "if they had known (pluperfect subj)",
+    correct: "scivissent",
+    distractor: "sciverunt",
+    explanation: "Pluperfect subjunctive ends in -issent ('scivissent')."
+  },
+  {
+    prompt: "to the brave citizens (dative pl)",
+    correct: "fortibus civibus",
+    distractor: "fortes cives",
+    explanation: "Dative plural requires matching -ibus endings: 'fortibus civibus'."
+  },
+  {
+    prompt: "by common consent (ablative)",
+    correct: "communi consilio",
+    distractor: "commune consilium",
+    explanation: "Ablative phrase requires 3rd decl -i ('communi') and 2nd decl -o ('consilio')."
+  },
+  {
+    prompt: "towards the deep sea (accusative)",
+    correct: "ad altum mare",
+    distractor: "in alto mari",
+    explanation: "'ad' takes accusative neuter ('altum mare'); 'mari' is ablative."
+  }
+];
+
+console.log('Easy words count:', EASY_WORDS.length);
+console.log('Hard confusables count:', HARD_CONFUSABLES.length);
+console.log('Case mastery questions count:', CASE_MASTERY_QUESTIONS.length);
+
+fs.writeFileSync('scripts/latina_flap_data.json', JSON.stringify({
+  easy: EASY_WORDS,
+  hard: HARD_CONFUSABLES,
+  caseMastery: CASE_MASTERY_QUESTIONS
+}, null, 2));

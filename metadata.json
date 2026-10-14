@@ -1,0 +1,6 @@
+{
+  "name": "RomaLingua - OCR GCSE Latin Prep",
+  "description": "Interactive OCR GCSE Latin revision suite featuring Translation Arena with Cullen Book 1 progression, Latina Flap 20-level arcade mini-game, full 446-word DVL flashcard deck, and Grammar Notes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
