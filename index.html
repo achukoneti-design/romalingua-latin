@@ -2921,6 +2921,411 @@
       background: #475569;
     }
 
+    /* ==================== TAB 6: MYTH COMPREHENSION PRACTICE ==================== */
+    .myths-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .myths-header-bar {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .myths-title-block h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 4px 0;
+      text-wrap: balance;
+    }
+
+    .myths-meta-line {
+      font-size: 13.5px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .myths-filter-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 4px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .myths-filter-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #475569;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      min-height: 40px;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .myths-filter-btn:hover {
+      color: #0f172a;
+    }
+
+    .myths-filter-btn.active {
+      background: #ffffff;
+      color: #059669;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .myths-workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .myths-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 22px;
+      min-width: 0;
+    }
+
+    .myths-passage-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .myths-diff-text-easy {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .myths-diff-text-intermediate {
+      color: #b45309;
+      font-weight: 700;
+    }
+
+    .myths-diff-text-hard {
+      color: #b91c1c;
+      font-weight: 700;
+    }
+
+    .myths-passage-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      text-wrap: balance;
+    }
+
+    .myths-latin-stage {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18.5px;
+      line-height: 1.95;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .myth-gloss-word {
+      appearance: none;
+      background: transparent;
+      border: none;
+      border-bottom: 1px dotted #cbd5e1;
+      padding: 1px 2px;
+      margin: 0 -1px;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+    }
+
+    .myth-gloss-word:hover,
+    .myth-gloss-word:focus-visible {
+      background: #ecfdf5;
+      border-bottom-color: #10b981;
+      color: #065f46;
+      outline: none;
+    }
+
+    .myth-gloss-word.is-selected {
+      background: #d1fae5;
+      border-bottom-color: #059669;
+      color: #064e3b;
+      font-weight: 600;
+    }
+
+    .myths-gloss-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 14.5px;
+      line-height: 1.45;
+      color: #14532d;
+      min-height: 48px;
+    }
+
+    .myths-gloss-banner.is-hint {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+      color: #475569;
+      font-size: 13.5px;
+    }
+
+    .myths-nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .myths-nav-btn {
+      appearance: none;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #0f172a;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 18px;
+      min-height: 44px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    }
+
+    .myths-nav-btn:hover:not(:disabled) {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .myths-nav-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .myths-nav-btn.primary {
+      background: #059669;
+      border-color: #059669;
+      color: #ffffff;
+    }
+
+    .myths-nav-btn.primary:hover:not(:disabled) {
+      background: #047857;
+      border-color: #047857;
+    }
+
+    .myths-subhead-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .myths-subhead-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .myths-text-action {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #059669;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 8px;
+      min-height: 36px;
+      cursor: pointer;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .myths-text-action:hover {
+      background: #ecfdf5;
+    }
+
+    .myths-questions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .myths-question-block {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 16px;
+    }
+
+    .myths-question-block:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .myths-question-prompt {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.45;
+      margin: 0 0 10px 0;
+    }
+
+    .myths-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .myths-option-btn {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 13px;
+      min-height: 44px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #1e293b;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .myths-option-btn:hover {
+      border-color: #94a3b8;
+      background: #ffffff;
+    }
+
+    .myths-option-btn.is-correct {
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+      font-weight: 600;
+    }
+
+    .myths-option-btn.is-wrong {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .myths-option-letter {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      color: #334155;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      margin-top: 1px;
+    }
+
+    .myths-option-btn.is-correct .myths-option-letter {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .myths-option-btn.is-wrong .myths-option-letter {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .myths-answer-feedback {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      border: 1px solid #e2e8f0;
+    }
+
+    .myths-answer-feedback.is-correct {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #14532d;
+    }
+
+    .myths-answer-feedback.is-wrong {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+
+    .myths-next-prompt {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 900px) {
+      .myths-workspace-grid {
+        grid-template-columns: 1fr;
+      }
+      .myths-card,
+      .myths-header-bar {
+        padding: 16px;
+      }
+      .myths-latin-stage {
+        padding: 14px 16px;
+        font-size: 17px;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -3173,6 +3578,9 @@
         </button>
         <button type="button" class="tab-btn" onclick="switchTab('flap', event)" id="tabBtnFlap">
           <span>🎮</span> Latina Flap
+        </button>
+        <button type="button" class="tab-btn" onclick="switchTab('myths', event)" id="tabBtnMyths">
+          <span>📖</span> Myth Practice
         </button>
       </div>
 
@@ -4013,6 +4421,60 @@
       </div>
     </div>
 
+    <!-- ==================== TAB 6: MYTH COMPREHENSION PRACTICE ==================== -->
+    <div id="tabMyths" class="tab-content app-section" style="display: none;">
+      <div class="myths-container">
+        <div class="myths-header-bar">
+          <div class="myths-title-block">
+            <h2>Myth Comprehension Practice</h2>
+            <p class="myths-meta-line">Tap any Latin word in the story to look up its meaning, then answer the comprehension questions.</p>
+          </div>
+
+          <div class="myths-filter-bar" role="tablist" aria-label="Filter passages by difficulty">
+            <button type="button" class="myths-filter-btn active" data-myth-filter="all" onclick="setMythDifficultyFilter('all')">All</button>
+            <button type="button" class="myths-filter-btn" data-myth-filter="easy" onclick="setMythDifficultyFilter('easy')">Easy</button>
+            <button type="button" class="myths-filter-btn" data-myth-filter="intermediate" onclick="setMythDifficultyFilter('intermediate')">Intermediate</button>
+            <button type="button" class="myths-filter-btn" data-myth-filter="hard" onclick="setMythDifficultyFilter('hard')">Hard</button>
+          </div>
+        </div>
+
+        <div class="myths-workspace-grid">
+          <section class="myths-card" aria-label="Latin passage">
+            <div class="myths-passage-meta" id="mythPassageMeta"></div>
+            <h3 class="myths-passage-title" id="mythPassageTitle"></h3>
+
+            <div class="myths-latin-stage" id="mythLatinStage"></div>
+
+            <div class="myths-gloss-banner is-hint" id="mythGlossBanner" aria-live="polite">
+              <span>Tap any word above to inspect its dictionary form and English meaning.</span>
+            </div>
+
+            <div class="myths-nav-row">
+              <button type="button" class="myths-nav-btn" id="mythPrevBtn" onclick="prevMythPassage()">
+                ← Previous Passage
+              </button>
+              <button type="button" class="myths-nav-btn primary" id="mythNextBtn" onclick="nextMythPassage()">
+                Next Passage →
+              </button>
+            </div>
+          </section>
+
+          <aside class="myths-card" aria-label="Comprehension questions">
+            <div class="myths-subhead-row">
+              <h4 class="myths-subhead-title">Comprehension Questions</h4>
+              <span style="font-size: 13px; color: #059669; font-weight: 600;" id="mythSolvedBadge"></span>
+            </div>
+            <div class="myths-questions-stack" id="mythQuestionsStack"></div>
+            <div class="myths-next-prompt" id="mythNextPromptRow" style="display: none;">
+              <button type="button" class="myths-nav-btn primary" onclick="nextMythPassage()">
+                Continue to Next Passage →
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
 </main>
 
   <!-- Explicit Footer Required by User -->
@@ -4025,6 +4487,7 @@
 
   <!-- Application Logic wrapped cleanly inside script tags -->
   <script type="module">
+    import { MYTH_EXTRACTS, lookupLatinWordMeaning } from './src/data/mythPassages';
     // Firebase v10 CDN Modular SDK Imports
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
     import { 
@@ -12339,6 +12802,10 @@
           toggleFlapPause();
         }
       }
+
+      if (tabId === 'myths' && typeof renderMythsView === 'function') {
+        renderMythsView();
+      }
     }
 
     // ==================== TAB 1: TRANSLATION ARENA LOGIC ====================
@@ -14699,7 +15166,270 @@
       if (typeof window.updateNavScrollUI === 'function') {
         window.updateNavScrollUI();
       }
+
+      if (typeof renderMythsView === 'function') {
+        renderMythsView();
+      }
     }
+
+    // ==================== TAB 6: MYTH COMPREHENSION PRACTICE LOGIC ====================
+    let mythDifficultyFilter = 'all';
+    let currentMythId = MYTH_EXTRACTS[0].myth_id;
+    let mythSelectedToken = null; // { index: number, word: string }
+    let mythAnswersState = {};
+
+    try {
+      const savedMyths = localStorage.getItem('romalingua_myths_answers_v1');
+      if (savedMyths) {
+        mythAnswersState = JSON.parse(savedMyths) || {};
+      }
+      const savedId = localStorage.getItem('romalingua_myths_current_id_v1');
+      if (savedId && MYTH_EXTRACTS.some(m => m.myth_id === savedId)) {
+        currentMythId = savedId;
+      }
+    } catch (_e) {
+      mythAnswersState = {};
+    }
+
+    function escapeMythHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function getFilteredMythExtracts() {
+      if (mythDifficultyFilter === 'all') return MYTH_EXTRACTS;
+      return MYTH_EXTRACTS.filter(m => m.difficulty === mythDifficultyFilter);
+    }
+
+    function getActiveMythPoolAndIndex() {
+      const pool = getFilteredMythExtracts();
+      let idx = pool.findIndex(m => m.myth_id === currentMythId);
+      if (idx === -1) {
+        idx = 0;
+        if (pool.length > 0) {
+          currentMythId = pool[0].myth_id;
+        }
+      }
+      return {
+        pool,
+        index: idx,
+        myth: pool[idx] || MYTH_EXTRACTS[0]
+      };
+    }
+
+    function renderMythLatinWithGloss(myth) {
+      const tokens = myth.latin_text.split(/(\s+)/);
+      let wordIdx = 0;
+      return tokens.map(token => {
+        if (/^\s+$/.test(token)) return token;
+        const match = token.match(/^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$/);
+        if (!match) return escapeMythHtml(token);
+        const leading = match[1];
+        const core = match[2];
+        const trailing = match[3];
+        const tokenIdx = wordIdx++;
+        const isSelected = mythSelectedToken && mythSelectedToken.index === tokenIdx;
+        const selectedClass = isSelected ? ' is-selected' : '';
+        const safeWordAttr = escapeMythHtml(core).replace(/'/g, '&#39;');
+        return (
+          escapeMythHtml(leading) +
+          '<button type="button" class="myth-gloss-word' + selectedClass + '" onclick="glossPassageWord(' + tokenIdx + ', \'' + safeWordAttr + '\')">' +
+          escapeMythHtml(core) +
+          '</button>' +
+          escapeMythHtml(trailing)
+        );
+      }).join('');
+    }
+
+    function renderMythsView() {
+      const { pool, index, myth } = getActiveMythPoolAndIndex();
+      const metaEl = document.getElementById('mythPassageMeta');
+      const titleEl = document.getElementById('mythPassageTitle');
+      const stageEl = document.getElementById('mythLatinStage');
+      const glossBanner = document.getElementById('mythGlossBanner');
+      const prevBtn = document.getElementById('mythPrevBtn');
+      const nextBtn = document.getElementById('mythNextBtn');
+      const questionsStack = document.getElementById('mythQuestionsStack');
+      const solvedBadge = document.getElementById('mythSolvedBadge');
+      const nextPromptRow = document.getElementById('mythNextPromptRow');
+
+      if (!metaEl || !titleEl || !stageEl) return;
+
+      document.querySelectorAll('.myths-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-myth-filter') === mythDifficultyFilter);
+      });
+
+      const diffLabel = myth.difficulty.charAt(0).toUpperCase() + myth.difficulty.slice(1);
+      const diffClass = 'myths-diff-text-' + myth.difficulty;
+
+      metaEl.innerHTML =
+        '<span>' + escapeMythHtml(myth.source) + '</span>' +
+        '<span aria-hidden="true">·</span>' +
+        '<span class="' + diffClass + '">' + escapeMythHtml(diffLabel) + '</span>';
+
+      titleEl.textContent = myth.title;
+      stageEl.innerHTML = renderMythLatinWithGloss(myth);
+
+      if (glossBanner) {
+        if (mythSelectedToken && mythSelectedToken.word) {
+          const entry = lookupLatinWordMeaning(mythSelectedToken.word);
+          glossBanner.className = 'myths-gloss-banner';
+          glossBanner.innerHTML =
+            '<div><strong>' + escapeMythHtml(entry.headword) + '</strong> — ' + escapeMythHtml(entry.meaning) + '</div>' +
+            '<button type="button" class="myths-text-action" onclick="glossPassageWord(null, null)">Clear</button>';
+        } else {
+          glossBanner.className = 'myths-gloss-banner is-hint';
+          glossBanner.innerHTML = '<span>Tap any word above to inspect its dictionary form and English meaning.</span>';
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.disabled = index <= 0;
+      }
+      if (nextBtn) {
+        nextBtn.textContent = index < pool.length - 1 ? 'Next Passage →' : 'Start From Beginning ↻';
+      }
+
+      const solvedForMyth = mythAnswersState[myth.myth_id] || {};
+      const allCorrect = myth.comprehension_questions.every((_q, idx) => solvedForMyth[idx] && solvedForMyth[idx].isCorrect);
+
+      if (solvedBadge) {
+        solvedBadge.textContent = allCorrect ? 'Optime!' : '';
+      }
+      if (nextPromptRow) {
+        nextPromptRow.style.display = allCorrect ? 'flex' : 'none';
+      }
+
+      if (questionsStack) {
+        const letters = ['A', 'B', 'C', 'D'];
+        questionsStack.innerHTML = myth.comprehension_questions.map((q, qIdx) => {
+          const state = solvedForMyth[qIdx];
+          const optionsHtml = q.options.map((opt, optIdx) => {
+            let cls = 'myths-option-btn';
+            if (state && state.selected === opt) {
+              cls += state.isCorrect ? ' is-correct' : ' is-wrong';
+            }
+            const safeOptAttr = escapeMythHtml(opt);
+            return (
+              '<button type="button" class="' + cls + '" onclick="answerMythQuestion(' + qIdx + ', ' + optIdx + ')">' +
+              '<span class="myths-option-letter">' + letters[optIdx] + '</span>' +
+              '<span>' + safeOptAttr + '</span>' +
+              '</button>'
+            );
+          }).join('');
+
+          let feedbackHtml = '';
+          if (state) {
+            if (state.isCorrect) {
+              feedbackHtml =
+                '<div class="myths-answer-feedback is-correct">' +
+                '<strong>✓ Correct</strong> — ' + escapeMythHtml(q.explanation) +
+                '</div>';
+            } else {
+              feedbackHtml =
+                '<div class="myths-answer-feedback is-wrong">' +
+                '<strong>✕ Not quite</strong> — Tap words in the passage above to double-check the Latin, then try another option.' +
+                '</div>';
+            }
+          }
+
+          return (
+            '<div class="myths-question-block">' +
+            '<p class="myths-question-prompt">' + (qIdx + 1) + '. ' + escapeMythHtml(q.question) + '</p>' +
+            '<div class="myths-options-list">' + optionsHtml + '</div>' +
+            feedbackHtml +
+            '</div>'
+          );
+        }).join('');
+      }
+    }
+
+    function setMythDifficultyFilter(filter) {
+      mythDifficultyFilter = filter || 'all';
+      mythSelectedToken = null;
+      const pool = getFilteredMythExtracts();
+      if (pool.length > 0 && !pool.some(m => m.myth_id === currentMythId)) {
+        currentMythId = pool[0].myth_id;
+        try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
+      }
+      renderMythsView();
+    }
+
+    function prevMythPassage() {
+      const { pool, index } = getActiveMythPoolAndIndex();
+      if (index > 0) {
+        currentMythId = pool[index - 1].myth_id;
+        mythSelectedToken = null;
+        try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
+        renderMythsView();
+      }
+    }
+
+    function nextMythPassage() {
+      const { pool, index } = getActiveMythPoolAndIndex();
+      if (pool.length === 0) return;
+      const nextIdx = index + 1 < pool.length ? index + 1 : 0;
+      currentMythId = pool[nextIdx].myth_id;
+      mythSelectedToken = null;
+      try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
+      renderMythsView();
+      const stage = document.getElementById('tabMyths');
+      if (stage && typeof stage.scrollIntoView === 'function') {
+        stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function glossPassageWord(tokenIndex, word) {
+      if (tokenIndex === null || !word || (mythSelectedToken && mythSelectedToken.index === tokenIndex)) {
+        mythSelectedToken = null;
+      } else {
+        mythSelectedToken = { index: tokenIndex, word };
+      }
+      renderMythsView();
+    }
+
+    function answerMythQuestion(qIdx, optIdx) {
+      const { myth } = getActiveMythPoolAndIndex();
+      const q = myth.comprehension_questions[qIdx];
+      if (!q) return;
+      const selected = q.options[optIdx];
+      if (!selected) return;
+
+      if (!mythAnswersState[myth.myth_id]) mythAnswersState[myth.myth_id] = {};
+      const prev = mythAnswersState[myth.myth_id][qIdx];
+      const alreadyRewarded = Boolean(prev && prev.rewarded);
+      const isCorrect = selected === q.correct_answer;
+
+      mythAnswersState[myth.myth_id][qIdx] = {
+        selected,
+        isCorrect,
+        rewarded: alreadyRewarded || isCorrect
+      };
+
+      try {
+        localStorage.setItem('romalingua_myths_answers_v1', JSON.stringify(mythAnswersState));
+      } catch (_e) {}
+
+      if (isCorrect && !alreadyRewarded) {
+        if (typeof addXP === 'function') addXP(15);
+        if (typeof playCorrectSound === 'function') playCorrectSound();
+        if (typeof showToast === 'function') showToast('Optime! +15 XP earned');
+      } else if (!isCorrect && typeof playWrongSound === 'function') {
+        playWrongSound();
+      }
+
+      renderMythsView();
+    }
+
+    window.setMythDifficultyFilter = setMythDifficultyFilter;
+    window.prevMythPassage = prevMythPassage;
+    window.nextMythPassage = nextMythPassage;
+    window.glossPassageWord = glossPassageWord;
+    window.answerMythQuestion = answerMythQuestion;
+    window.renderMythsView = renderMythsView;
 
     if (document.readyState === 'loading') {
       window.addEventListener('DOMContentLoaded', initApp);
