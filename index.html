@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPLWX86G1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DPLWX86G1C');
+  </script>
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="X_OUpIZkShySvZ2Ii845UMnx-X4BLPfDvju_Jx6U7OQ" />
   <!-- Browser Favicon & Mobile Touch Icons (Inline SVG Roman Laurel Crown) -->
@@ -10,7 +19,7 @@
   <link rel="apple-touch-icon-precomposed" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2358cc02'/%3E%3Cstop offset='100%25' stop-color='%23059669'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fef08a'/%3E%3Cstop offset='50%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23d97706'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cg fill='url(%23gold)'%3E%3Cpath d='M32 48 C22 46 15 37 15 26 C15 20 18 15 22 12 C21 16 21 21 24 26 C21 26 18 22 17 18 C16 24 19 32 25 37 C22 36 20 32 20 28 C21 35 26 41 32 44 Z'/%3E%3Cpath d='M20 14 C17 19 18 24 23 25 C22 21 22 17 20 14 Z'/%3E%3Cpath d='M16 25 C15 30 18 35 23 35 C21 31 19 28 16 25 Z'/%3E%3Cpath d='M20 36 C20 41 25 45 30 45 C28 41 25 38 20 36 Z'/%3E%3Cpath d='M32 48 C42 46 49 37 49 26 C49 20 46 15 42 12 C43 16 43 21 40 26 C43 26 46 22 47 18 C48 24 45 32 39 37 C42 36 44 32 44 28 C43 35 38 41 32 44 Z'/%3E%3Cpath d='M44 14 C47 19 46 24 41 25 C42 21 42 17 44 14 Z'/%3E%3Cpath d='M48 25 C49 30 46 35 41 35 C43 31 45 28 48 25 Z'/%3E%3Cpath d='M44 36 C44 41 39 45 34 45 C36 41 39 38 44 36 Z'/%3E%3Ccircle cx='32' cy='48' r='3.5'/%3E%3Cpath d='M30 49 L25 56 L28 57 L31 51 Z'/%3E%3Cpath d='M34 49 L39 56 L36 57 L33 51 Z'/%3E%3C/g%3E%3C/svg%3E">
   
   <!-- Web App Manifest (for Android, Chrome, and Desktop Home Screen) -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="./manifest.json">
   
   <!-- Mobile & Desktop Home Screen PWA Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -240,8 +249,10 @@
       }
 
       .header-stats {
-        gap: 5px;
-        flex-shrink: 0;
+        gap: 6px;
+        flex-wrap: wrap;
+        max-width: 100%;
+        width: 100%;
       }
 
       .stat-pill {
@@ -252,16 +263,6 @@
 
       .stat-pill.sound-toggle {
         padding: 4px 8px;
-        font-size: 13px;
-      }
-
-      .nav-tabs {
-        padding: 6px 12px 0 12px;
-        gap: 4px;
-      }
-
-      .tab-btn {
-        padding: 10px 12px;
         font-size: 13px;
       }
 
@@ -286,21 +287,123 @@
 
     /* Tabs Bar */
     .nav-tabs-container {
+      position: relative;
       background: #ffffff;
       border-bottom: 2px solid #e2e8f0;
     }
 
-    .nav-tabs {
+    .nav-tabs-inner {
+      position: relative;
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .nav-tabs {
+      flex: 1;
+      min-width: 0;
       display: flex;
       gap: 8px;
       padding: 8px 20px 0 20px;
       overflow-x: auto;
       scrollbar-width: none;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
     .nav-tabs::-webkit-scrollbar {
       display: none;
+    }
+
+    .nav-arrow-btn {
+      display: none;
+      flex-shrink: 0;
+      appearance: none;
+      border: none;
+      background: #ffffff;
+      width: 42px;
+      min-height: 44px;
+      padding: 0 4px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 6;
+      transition: background-color 0.15s ease;
+    }
+    .nav-arrow-btn.left {
+      border-right: 1px solid #f1f5f9;
+    }
+    .nav-arrow-btn.right {
+      border-left: 1px solid #f1f5f9;
+      box-shadow: -8px 0 12px -6px rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-tabs-container.has-overflow .nav-arrow-btn {
+      display: inline-flex;
+    }
+
+    .nav-arrow-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 9999px;
+      background: #10b981;
+      border: 1.5px solid #059669;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.28);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+    }
+    .nav-arrow-btn:active .nav-arrow-circle {
+      transform: scale(0.94);
+    }
+    .nav-arrow-btn.is-edge .nav-arrow-circle {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+      color: #94a3b8;
+      box-shadow: none;
+    }
+    .nav-arrow-btn.is-edge {
+      cursor: default;
+    }
+
+    @keyframes navChevronNudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(2px); }
+    }
+    .nav-arrow-btn.right:not(.is-edge) .nav-arrow-circle svg {
+      animation: navChevronNudge 1.5s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-arrow-btn.right:not(.is-edge) .nav-arrow-circle svg {
+        animation: none;
+      }
+    }
+
+    .nav-scroll-track {
+      position: absolute;
+      left: 44px;
+      right: 44px;
+      bottom: -2px;
+      height: 3px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 4;
+    }
+    .nav-tabs-container.has-overflow .nav-scroll-track {
+      opacity: 1;
+    }
+    .nav-scroll-thumb {
+      height: 100%;
+      width: 40%;
+      background: #10b981;
+      border-radius: 9999px;
+      transition: transform 0.1s ease-out, width 0.15s ease-out;
     }
 
     .tab-btn {
@@ -316,6 +419,7 @@
       border-bottom: 3px solid transparent;
       cursor: pointer;
       white-space: nowrap;
+      flex-shrink: 0;
       transition: all 0.2s ease;
       font-family: inherit;
     }
@@ -327,6 +431,24 @@
     .tab-btn.active {
       color: #059669;
       border-bottom-color: #10b981;
+    }
+
+    @media (max-width: 900px) {
+      .nav-arrow-btn {
+        display: inline-flex;
+      }
+      .nav-scroll-track {
+        opacity: 1;
+      }
+      .nav-tabs {
+        padding: 4px 6px 0 6px;
+        gap: 4px;
+      }
+      .tab-btn {
+        padding: 10px 9px;
+        font-size: 12.5px;
+        gap: 4px;
+      }
     }
 
     /* Main Container */
@@ -407,6 +529,19 @@
     .btn-gold:active {
       transform: translateY(3px);
       box-shadow: 0 1px 0 var(--duo-gold-dark);
+    }
+
+    .btn-purple {
+      background: var(--duo-purple);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--duo-purple-dark);
+    }
+    .btn-purple:hover {
+      background: #d896ff;
+    }
+    .btn-purple:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 var(--duo-purple-dark);
     }
 
     .btn-outline {
@@ -1878,7 +2013,199 @@
       text-align: center;
       display: none;
     }
-  
+
+    /* Export & GitHub Pages Modal Styles */
+    .export-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: fadeInOverlay 0.2s ease-out;
+    }
+    .export-modal {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+      border: 2px solid #e2e8f0;
+      max-width: 620px;
+      width: 100%;
+      padding: 28px 24px;
+      position: relative;
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .export-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 12px;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    }
+    .export-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin-bottom: 6px;
+    }
+    .export-sub {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .domain-preview-box {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .domain-preview-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #059669;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .domain-url-sample-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .domain-url-sample {
+      flex: 1;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #e2e8f0;
+      word-break: break-all;
+    }
+    .btn-copy-chip {
+      background: #e2e8f0;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .btn-copy-chip:hover {
+      background: #cbd5e1;
+      color: #0f172a;
+    }
+    .export-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    @media (max-width: 580px) {
+      .export-options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .export-action-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      transition: all 0.15s ease;
+    }
+    .export-action-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .export-card-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .export-card-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .gh-guide-accordion {
+      background: #f1f5f9;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    .gh-guide-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .gh-guide-steps {
+      margin-left: 20px;
+      font-size: 12.5px;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .gh-guide-steps li {
+      margin-bottom: 6px;
+    }
+    .export-pill-btn {
+      color: #4338ca !important;
+      border-bottom-color: transparent !important;
+      background: #eef2ff !important;
+      border-radius: 9999px !important;
+      padding: 6px 14px !important;
+      align-self: center !important;
+      margin-left: auto !important;
+      transition: all 0.15s ease !important;
+      font-size: 13px !important;
+      border: 1.5px solid #c7d2fe !important;
+    }
+    .export-pill-btn:hover {
+      background: #e0e7ff !important;
+      color: #3730a3 !important;
+      transform: translateY(-1px) !important;
+      border-color: #a5b4fc !important;
+    }
 
     /* ==========================================================================
        LATINA FLAP MINI-GAME STYLES (Dark Roman Aesthetic)
@@ -2660,6 +2987,84 @@
     </div>
   </div>
 
+  <!-- Export & Free Browser Hosting Modal & Overlay (No GitHub) -->
+  <div id="exportModalOverlay" class="export-overlay" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle" onclick="if(event.target===this)closeExportModal()">
+    <div class="export-modal">
+      <button type="button" class="auth-close-btn" onclick="closeExportModal()" title="Close dialog" aria-label="Close dialog">✕</button>
+      <div class="export-badge">🌐</div>
+      <div class="export-title" id="exportModalTitle">Free Web Hosting & Offline Bundle</div>
+      <div class="export-sub">Host RomaLingua on a free domain or run standalone offline without restrictions.</div>
+
+      <!-- Domain Preview Box -->
+      <div class="domain-preview-box">
+        <div class="domain-preview-title">
+          <span>🛡️</span> 100% Free Live Web Address:
+        </div>
+        <div class="domain-url-sample-row">
+          <div class="domain-url-sample" id="domainSampleNetlify">https://romalingua-latin.netlify.app</div>
+          <button type="button" class="btn-copy-chip" onclick="copyNetlifyUrlSample()">📋 Copy Netlify Link</button>
+        </div>
+      </div>
+
+      <!-- Action Cards -->
+      <div class="export-options-grid">
+        <!-- Netlify Drop Card -->
+        <div class="export-action-card">
+          <div class="export-card-title">
+            <span>⚡</span> Netlify Drop (.netlify.app)
+            <span style="font-size: 10px; background: #dbeafe; color: #1d4ed8; padding: 2px 7px; border-radius: 9999px; margin-left: auto;">10s Host</span>
+          </div>
+          <div class="export-card-desc">
+            Drag and drop web bundle for a free <code>.netlify.app</code> web address.
+          </div>
+          <div style="display: flex; gap: 6px; margin-top: auto;">
+            <button type="button" class="btn-3d btn-blue" onclick="downloadWebBundle()" style="flex: 1; font-size: 12px; padding: 8px 10px;">
+              <span>⬇️</span> Download ZIP
+            </button>
+            <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" class="btn-3d btn-gold" style="flex: 1; font-size: 12px; padding: 8px 10px; text-decoration: none; text-align: center;">
+              <span>🚀</span> Open Drop
+            </a>
+          </div>
+        </div>
+
+        <!-- Standalone HTML Card -->
+        <div class="export-action-card">
+          <div class="export-card-title">
+            <span>💾</span> Offline Single-File HTML
+            <span style="font-size: 10px; background: #f3e8ff; color: #7e22ce; padding: 2px 7px; border-radius: 9999px; margin-left: auto;">Desktop Play</span>
+          </div>
+          <div class="export-card-desc">
+            Double-click to run directly in Chrome or Edge without any hosting or setup.
+          </div>
+          <button type="button" class="btn-3d btn-purple" onclick="downloadStandaloneBundle()" style="width: 100%; font-size: 12px; padding: 8px 10px; margin-top: auto;">
+            <span>⬇️</span> Download HTML (.html)
+          </button>
+        </div>
+      </div>
+
+      <!-- Netlify Drop Guide (Expandable) -->
+      <div class="gh-guide-accordion" id="netlifyGuideStepsBox" style="display: none;">
+        <div class="gh-guide-title">
+          <span>⚡</span> Quick 10-Second Netlify Drop Guide:
+        </div>
+        <ol class="gh-guide-steps">
+          <li>Click <strong>Download ZIP</strong> above and extract the zip folder on your computer.</li>
+          <li>Open <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 700;">app.netlify.com/drop</a> in any browser tab.</li>
+          <li>Drag and drop the extracted folder into the box. Netlify generates a live URL like <code>https://something.netlify.app</code>!</li>
+          <li><em>(Optional)</em> In Netlify, click <strong>Site configuration &gt; Change site name</strong> to choose your custom name (e.g., <code>romalingua-latin.netlify.app</code>).</li>
+        </ol>
+      </div>
+
+      <div style="font-size: 12px; color: #1e40af; background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 10px 14px; margin-top: 10px; line-height: 1.45; text-align: left;">
+        <strong>🔒 Firebase &amp; Multi-Device Sync:</strong> Firebase protects Google accounts by allowing logins only from whitelisted addresses. To enable Google Sign-In on a new web host (like Netlify), add that domain in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Otherwise, choose <strong>Guest mode</strong> to save all 20 levels, XP, and streak locally!
+      </div>
+
+      <div style="font-size: 12px; color: #64748b; margin-top: 8px;">
+        💡 All 175 Henry Cullen Book 1 sentences, 446 DVL flashcards, and all 20 Latina Flap levels run entirely in your browser with offline progress saving.
+      </div>
+    </div>
+  </div>
+
   <!-- Top Header with Brand and Stats -->
   <header>
     <div class="header-inner">
@@ -2745,25 +3150,89 @@
   </header>
 
   <!-- Navigation Tabs -->
-  <div class="nav-tabs-container">
-    <div class="nav-tabs">
-      <button type="button" class="tab-btn active" onclick="switchTab('arena', event)" id="tabBtnArena">
-        <span>🏛️</span> Translation Arena
+  <div class="nav-tabs-container" id="navTabsContainer">
+    <div class="nav-tabs-inner">
+      <button type="button" class="nav-arrow-btn left is-edge" id="navArrowLeftBtn" onclick="scrollNavTabs(-1)" aria-label="Scroll tabs left" title="Scroll left">
+        <span class="nav-arrow-circle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </span>
       </button>
-      <button type="button" class="tab-btn" onclick="switchTab('arcade', event)" id="tabBtnArcade">
-        <span>⚡</span> Vocab Arcade
+
+      <div class="nav-tabs" id="navTabsList" role="tablist" aria-label="Study Sections">
+        <button type="button" class="tab-btn active" onclick="switchTab('arena', event)" id="tabBtnArena">
+          <span>🏛️</span> Translation Arena
+        </button>
+        <button type="button" class="tab-btn" onclick="switchTab('arcade', event)" id="tabBtnArcade">
+          <span>⚡</span> Vocab Arcade
+        </button>
+        <button type="button" class="tab-btn" onclick="switchTab('deck', event)" id="tabBtnDeck">
+          <span>📇</span> Official DVL Deck (446)
+        </button>
+        <button type="button" class="tab-btn" onclick="switchTab('codex', event)" id="tabBtnCodex">
+          <span>📜</span> Grammar Notes
+        </button>
+        <button type="button" class="tab-btn" onclick="switchTab('flap', event)" id="tabBtnFlap">
+          <span>🎮</span> Latina Flap
+        </button>
+      </div>
+
+      <button type="button" class="nav-arrow-btn right" id="navArrowRightBtn" onclick="scrollNavTabs(1)" aria-label="Scroll tabs right for more sections" title="More sections">
+        <span class="nav-arrow-circle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
       </button>
-      <button type="button" class="tab-btn" onclick="switchTab('deck', event)" id="tabBtnDeck">
-        <span>📇</span> Official DVL Deck (446)
-      </button>
-      <button type="button" class="tab-btn" onclick="switchTab('codex', event)" id="tabBtnCodex">
-        <span>📜</span> Grammar Notes
-      </button>
-      <button type="button" class="tab-btn" onclick="switchTab('flap', event)" id="tabBtnFlap">
-        <span>🎮</span> Latina Flap
-      </button>
+
+      <div class="nav-scroll-track" aria-hidden="true">
+        <div class="nav-scroll-thumb" id="navScrollThumb"></div>
+      </div>
     </div>
   </div>
+  <script>
+    (function() {
+      function updateNavScrollUI() {
+        var container = document.getElementById('navTabsContainer');
+        var navList = document.getElementById('navTabsList');
+        var leftBtn = document.getElementById('navArrowLeftBtn');
+        var rightBtn = document.getElementById('navArrowRightBtn');
+        var thumb = document.getElementById('navScrollThumb');
+        if (!container || !navList) return;
+
+        var maxScroll = navList.scrollWidth - navList.clientWidth;
+        var hasOverflow = maxScroll > 4;
+        container.classList.toggle('has-overflow', hasOverflow);
+
+        if (leftBtn) leftBtn.classList.toggle('is-edge', navList.scrollLeft <= 6);
+        if (rightBtn) rightBtn.classList.toggle('is-edge', !hasOverflow || navList.scrollLeft >= maxScroll - 6);
+
+        if (thumb && navList.scrollWidth > 0) {
+          var visibleRatio = navList.clientWidth / navList.scrollWidth;
+          var thumbWidthPct = Math.max(20, Math.min(100, visibleRatio * 100));
+          var scrollProgress = maxScroll > 0 ? navList.scrollLeft / maxScroll : 0;
+          var maxTranslatePct = ((100 - thumbWidthPct) / thumbWidthPct) * 100;
+          thumb.style.width = thumbWidthPct.toFixed(2) + '%';
+          thumb.style.transform = 'translateX(' + (scrollProgress * maxTranslatePct).toFixed(2) + '%)';
+        }
+      }
+
+      window.updateNavScrollUI = updateNavScrollUI;
+      window.scrollNavTabs = function(direction) {
+        var navList = document.getElementById('navTabsList');
+        if (!navList) return;
+        var step = Math.max(140, Math.round(navList.clientWidth * 0.65));
+        navList.scrollBy({ left: direction * step, behavior: 'smooth' });
+        setTimeout(updateNavScrollUI, 260);
+      };
+
+      var listEl = document.getElementById('navTabsList');
+      if (listEl) listEl.addEventListener('scroll', updateNavScrollUI, { passive: true });
+      window.addEventListener('resize', updateNavScrollUI, { passive: true });
+      updateNavScrollUI();
+      if (window.requestAnimationFrame) window.requestAnimationFrame(updateNavScrollUI);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateNavScrollUI);
+      }
+    })();
+  </script>
 
   <!-- Main Content Area -->
   <main>
@@ -3293,6 +3762,10 @@
               <span>⭐ Total Flights:</span>
               <span class="val" id="flapStatTotalFlights">0</span>
             </div>
+            <div class="flap-stat-badge" id="flapSyncBadge" title="Multi-device account sync status">
+              <span>☁️</span>
+              <span class="val" id="flapSyncStatusText" style="color: #86efac;">Sync Active</span>
+            </div>
           </div>
         </div>
 
@@ -3310,7 +3783,7 @@
                   <span class="mode-tag">Tirones</span>
                 </div>
                 <div class="mode-desc">Top 100 most common GCSE Latin words (puella, servus, currit, via). Ideal for warmup and building reflex speed.</div>
-                <div class="mode-score">High Score: <span id="modeHighEasy">0</span></div>
+                <div class="mode-score">High Score: <span id="modeHighEasy">0</span> • Level: <span id="modeLevelEasy">I</span></div>
               </button>
 
               <button type="button" class="flap-mode-btn" data-mode="intermediate" onclick="setFlapMode('intermediate')">
@@ -3319,7 +3792,7 @@
                   <span class="mode-tag">Legionarii</span>
                 </div>
                 <div class="mode-desc">Core 446 DVL vocabulary list. Comprehensive syllabus coverage across all nouns, verbs, and conjunctions.</div>
-                <div class="mode-score">High Score: <span id="modeHighInter">0</span></div>
+                <div class="mode-score">High Score: <span id="modeHighInter">0</span> • Level: <span id="modeLevelInter">I</span></div>
               </button>
 
               <button type="button" class="flap-mode-btn" data-mode="hard" onclick="setFlapMode('hard')">
@@ -3328,7 +3801,7 @@
                   <span class="mode-tag">Centuriones</span>
                 </div>
                 <div class="mode-desc">Subtle vocabulary distractors & confusable pairs (cadere vs caedere, manere vs monere, hostis vs hospes).</div>
-                <div class="mode-score">High Score: <span id="modeHighHard">0</span></div>
+                <div class="mode-score">High Score: <span id="modeHighHard">0</span> • Level: <span id="modeLevelHard">I</span></div>
               </button>
 
               <button type="button" class="flap-mode-btn" data-mode="cases" onclick="setFlapMode('cases')">
@@ -3337,7 +3810,7 @@
                   <span class="mode-tag">Grammatici</span>
                 </div>
                 <div class="mode-desc">Advanced declension traps & grammar syntax (e.g. 'to the slaves' -> servis vs servos, tenses & participles).</div>
-                <div class="mode-score">High Score: <span id="modeHighCases">0</span></div>
+                <div class="mode-score">High Score: <span id="modeHighCases">0</span> • Level: <span id="modeLevelCases">I</span></div>
               </button>
             </div>
           </div>
@@ -11092,6 +11565,71 @@
       }
     }
 
+    // Latina Flap Multi-Device State Helpers
+    function getFlapLevels() {
+      try {
+        const raw = JSON.parse(localStorage.getItem('romalingua_flap_mode_levels') || '{}');
+        const legacy = parseInt(localStorage.getItem('romalingua_highest_level') || '1', 10) || 1;
+        return {
+          easy: Math.min(20, Math.max(1, Number(raw.easy) || legacy)),
+          intermediate: Math.min(20, Math.max(1, Number(raw.intermediate) || 1)),
+          hard: Math.min(20, Math.max(1, Number(raw.hard) || 1)),
+          cases: Math.min(20, Math.max(1, Number(raw.cases) || 1))
+        };
+      } catch (e) {
+        return { easy: 1, intermediate: 1, hard: 1, cases: 1 };
+      }
+    }
+
+    function saveFlapLevel(mode, level) {
+      const levels = getFlapLevels();
+      const targetMode = mode || (typeof flapCurrentMode !== 'undefined' ? flapCurrentMode : 'easy');
+      const newLevel = Math.min(20, Math.max(1, Number(level) || 1));
+      if (!levels[targetMode] || newLevel > levels[targetMode]) {
+        levels[targetMode] = newLevel;
+        localStorage.setItem('romalingua_flap_mode_levels', JSON.stringify(levels));
+        const maxLvl = Math.max(levels.easy, levels.intermediate, levels.hard, levels.cases);
+        localStorage.setItem('romalingua_highest_level', maxLvl.toString());
+        if (typeof flapCurrentMode !== 'undefined' && flapCurrentMode === targetMode) {
+          flapHighestLevel = newLevel;
+          if (typeof flapSelectedLevel !== 'undefined' && flapSelectedLevel < newLevel) {
+            flapSelectedLevel = newLevel;
+          }
+          if (typeof renderFlapLevelGrid === 'function') renderFlapLevelGrid();
+        }
+        if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+        if (currentUser && currentUser.uid) {
+          syncUserData();
+        }
+        return true;
+      }
+      return false;
+    }
+
+    function getFlapHighScores() {
+      try {
+        return JSON.parse(localStorage.getItem('romalingua_flap_highscores') || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveFlapHighScore(mode, score) {
+      const scores = getFlapHighScores();
+      const targetMode = mode || (typeof flapCurrentMode !== 'undefined' ? flapCurrentMode : 'easy');
+      const numScore = Math.max(0, Number(score) || 0);
+      if (!scores[targetMode] || numScore > scores[targetMode]) {
+        scores[targetMode] = numScore;
+        localStorage.setItem('romalingua_flap_highscores', JSON.stringify(scores));
+        if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+        if (currentUser && currentUser.uid) {
+          syncUserData();
+        }
+        return true;
+      }
+      return false;
+    }
+
     // Progress Synchronization Logic
     async function syncUserData() {
       // Keep global userData in sync
@@ -11115,6 +11653,17 @@
 
       // Signed In: Sync with Firestore
       if (currentUser && currentUser.uid) {
+        if (isSavingToFirestore) {
+          // If already saving, queue a retry so latest game level/XP is never missed
+          if (!window._syncPendingTimeout) {
+            window._syncPendingTimeout = setTimeout(() => {
+              window._syncPendingTimeout = null;
+              syncUserData();
+            }, 850);
+          }
+          return;
+        }
+
         setSyncStatus('syncing');
         const userRef = doc(db, 'users', currentUser.uid);
         const payload = {
@@ -11129,7 +11678,9 @@
           currentSentenceIndex: Math.min(1000, Math.max(0, Number(currentSentenceIndex) || 0)),
           sentencesDoneToday: Math.min(10000, Math.max(0, Number(sentencesDoneToday) || 0)),
           lastActiveDate: savedDailyDate,
-          updatedAt: new Date().toISOString()
+          updatedAt: new Date().toISOString(),
+          flapLevels: getFlapLevels(),
+          flapHighScores: getFlapHighScores()
         };
         try {
           isSavingToFirestore = true;
@@ -11161,6 +11712,163 @@
     window.closeAuthModal = function() {
       const overlay = document.getElementById('authModalOverlay');
       if (overlay) overlay.style.display = 'none';
+    };
+
+    // Free Non-AI Host & Browser Export Handlers (No GitHub)
+    window.openExportModal = function() {
+      const overlay = document.getElementById('exportModalOverlay');
+      if (overlay) overlay.style.display = 'flex';
+    };
+
+    window.closeExportModal = function() {
+      const overlay = document.getElementById('exportModalOverlay');
+      if (overlay) overlay.style.display = 'none';
+    };
+
+    window.copyGoogleSitesUrlSample = function() {
+      const urlText = 'https://sites.google.com/view/romalingua-latin';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(urlText).then(() => {
+          showToast('📋 Copied Google Sites URL format to clipboard!');
+        }).catch(() => {
+          showToast('📋 Google Sites URL: ' + urlText);
+        });
+      } else {
+        showToast('📋 Google Sites URL: ' + urlText);
+      }
+    };
+
+    window.copyAppLiveUrl = function() {
+      const appUrl = (window.location.origin && window.location.origin.includes('run.app')) 
+        ? window.location.origin 
+        : 'https://ais-pre-ycofqmizzmcakkkrwr37go-617643552528.europe-west2.run.app';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(appUrl).then(() => {
+          showToast('📋 Copied App URL to clipboard!');
+        }).catch(() => {
+          showToast('📋 App URL: ' + appUrl);
+        });
+      } else {
+        showToast('📋 App URL: ' + appUrl);
+      }
+    };
+
+    window.copyGoogleSitesEmbedCode = function() {
+      const appUrl = (window.location.origin && window.location.origin.includes('run.app')) 
+        ? window.location.origin 
+        : 'https://ais-pre-ycofqmizzmcakkkrwr37go-617643552528.europe-west2.run.app';
+      const snippet = '<iframe src="' + appUrl + '" style="width:100%; height:900px; border:none; border-radius:12px;" allow="autoplay; fullscreen"></iframe>';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(snippet).then(() => {
+          showToast('📋 Copied Google Sites embed snippet to clipboard!');
+        }).catch(() => {
+          showToast('📋 Embed snippet copied!');
+        });
+      } else {
+        showToast('📋 Embed snippet copied!');
+      }
+    };
+
+    window.toggleGoogleSitesSteps = function() {
+      const box = document.getElementById('googleSitesGuideStepsBox');
+      const btn = document.getElementById('btnToggleGoogleSitesSteps');
+      if (!box) return;
+      if (box.style.display === 'none' || !box.style.display) {
+        box.style.display = 'block';
+        if (btn) btn.innerHTML = '<span>🔼</span> Hide';
+      } else {
+        box.style.display = 'none';
+        if (btn) btn.innerHTML = '<span>📖</span> Guide';
+      }
+    };
+
+    window.toggleNetlifySteps = function() {
+      const box = document.getElementById('netlifyGuideStepsBox');
+      const btn = document.getElementById('btnToggleNetlifySteps');
+      if (!box) return;
+      if (box.style.display === 'none' || !box.style.display) {
+        box.style.display = 'block';
+        if (btn) btn.innerHTML = '<span>🔼</span> Hide';
+      } else {
+        box.style.display = 'none';
+        if (btn) btn.innerHTML = '<span>📖</span> 10s Guide';
+      }
+    };
+
+    window.toggleCloudflareSteps = function() {
+      const box = document.getElementById('cloudflareGuideStepsBox');
+      const btn = document.getElementById('btnToggleCloudflareSteps');
+      if (!box) return;
+      if (box.style.display === 'none' || !box.style.display) {
+        box.style.display = 'block';
+        if (btn) btn.innerHTML = '<span>🔼</span> Hide';
+      } else {
+        box.style.display = 'none';
+        if (btn) btn.innerHTML = '<span>📖</span> Guide';
+      }
+    };
+
+    window.copyNetlifyUrlSample = function() {
+      const urlText = 'https://romalingua-latin.netlify.app';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(urlText).then(() => {
+          showToast('📋 Copied Netlify URL to clipboard!');
+        }).catch(() => {
+          showToast('📋 Netlify URL: ' + urlText);
+        });
+      } else {
+        showToast('📋 Netlify URL: ' + urlText);
+      }
+    };
+
+    window.copyCloudflareUrlSample = function() {
+      const urlText = 'https://romalingua.pages.dev';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(urlText).then(() => {
+          showToast('📋 Copied Cloudflare URL to clipboard!');
+        }).catch(() => {
+          showToast('📋 Cloudflare URL: ' + urlText);
+        });
+      } else {
+        showToast('📋 Cloudflare URL: ' + urlText);
+      }
+    };
+
+    window.downloadWebBundle = function() {
+      try {
+        showToast('⏳ Downloading Netlify & Cloudflare web bundle (.zip)...');
+        const a = document.createElement('a');
+        a.href = './romalingua_bundle.zip';
+        a.download = 'romalingua_bundle.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast('✅ Saved "romalingua_bundle.zip"! Drag folder into Netlify.');
+      } catch (err) {
+        console.error('Download bundle error:', err);
+        showToast('⚠️ Could not download zip; downloading standalone HTML...');
+        window.downloadStandaloneBundle();
+      }
+    };
+
+    window.downloadStandaloneBundle = function() {
+      try {
+        showToast('⏳ Generating standalone offline HTML file...');
+        const docHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const blob = new Blob([docHtml], { type: 'text/html;charset=utf-8' });
+        const downloadUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = 'romalingua_gcse.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(downloadUrl), 4000);
+        showToast('✅ Saved "romalingua_gcse.html"! Open in any browser.');
+      } catch (err) {
+        console.error('Download error:', err);
+        showToast('⚠️ Error downloading offline file: ' + err.message);
+      }
     };
 
     window.setAuthMode = function(mode) {
@@ -11199,7 +11907,11 @@
         console.error('Google Sign In error:', err);
         if (err.code !== 'auth/popup-closed-by-user') {
           if (errBox) {
-            errBox.textContent = err.message || 'Google Sign-in failed. Please try again.';
+            if (err.code === 'auth/unauthorized-domain') {
+              errBox.innerHTML = '⚠️ <strong>Domain not authorized yet:</strong> To use Google Sign-in on this address, add <code>' + window.location.hostname + '</code> in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Alternatively, click <strong>Continue without syncing (Guest mode)</strong> below!';
+            } else {
+              errBox.textContent = err.message || 'Google Sign-in failed. Please try again.';
+            }
             errBox.style.display = 'block';
           }
         }
@@ -11384,6 +12096,70 @@
               }
             }
 
+            // Sync Latina Flap levels for each difficulty mode across devices on same account
+            const localLevels = getFlapLevels();
+            let needsFlapPush = false;
+            let mergedLevels = { ...localLevels };
+
+            if (data.flapLevels && typeof data.flapLevels === 'object') {
+              mergedLevels = {
+                easy: Math.min(20, Math.max(localLevels.easy || 1, Number(data.flapLevels.easy) || 1)),
+                intermediate: Math.min(20, Math.max(localLevels.intermediate || 1, Number(data.flapLevels.intermediate) || 1)),
+                hard: Math.min(20, Math.max(localLevels.hard || 1, Number(data.flapLevels.hard) || 1)),
+                cases: Math.min(20, Math.max(localLevels.cases || 1, Number(data.flapLevels.cases) || 1))
+              };
+              if ((localLevels.easy || 1) > (Number(data.flapLevels.easy) || 1) ||
+                  (localLevels.intermediate || 1) > (Number(data.flapLevels.intermediate) || 1) ||
+                  (localLevels.hard || 1) > (Number(data.flapLevels.hard) || 1) ||
+                  (localLevels.cases || 1) > (Number(data.flapLevels.cases) || 1)) {
+                needsFlapPush = true;
+              }
+            } else {
+              // Remote didn't have flapLevels yet: flag for initial push
+              needsFlapPush = true;
+            }
+
+            localStorage.setItem('romalingua_flap_mode_levels', JSON.stringify(mergedLevels));
+            const maxLvl = Math.max(mergedLevels.easy, mergedLevels.intermediate, mergedLevels.hard, mergedLevels.cases);
+            localStorage.setItem('romalingua_highest_level', maxLvl.toString());
+
+            if (typeof flapCurrentMode !== 'undefined') {
+              flapHighestLevel = mergedLevels[flapCurrentMode] || 1;
+              if (typeof flapSelectedLevel === 'undefined' || flapSelectedLevel > flapHighestLevel) {
+                flapSelectedLevel = flapHighestLevel;
+              }
+              if (typeof renderFlapLevelGrid === 'function') renderFlapLevelGrid();
+              if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+            }
+
+            // Sync Latina Flap high scores for each difficulty mode across devices on same account
+            const localScores = getFlapHighScores();
+            let mergedScores = { ...localScores };
+
+            if (data.flapHighScores && typeof data.flapHighScores === 'object') {
+              mergedScores = {
+                easy: Math.max(localScores.easy || 0, Number(data.flapHighScores.easy) || 0),
+                intermediate: Math.max(localScores.intermediate || 0, Number(data.flapHighScores.intermediate) || 0),
+                hard: Math.max(localScores.hard || 0, Number(data.flapHighScores.hard) || 0),
+                cases: Math.max(localScores.cases || 0, Number(data.flapHighScores.cases) || 0)
+              };
+              if ((localScores.easy || 0) > (Number(data.flapHighScores.easy) || 0) ||
+                  (localScores.intermediate || 0) > (Number(data.flapHighScores.intermediate) || 0) ||
+                  (localScores.hard || 0) > (Number(data.flapHighScores.hard) || 0) ||
+                  (localScores.cases || 0) > (Number(data.flapHighScores.cases) || 0)) {
+                needsFlapPush = true;
+              }
+            } else {
+              needsFlapPush = true;
+            }
+
+            localStorage.setItem('romalingua_flap_highscores', JSON.stringify(mergedScores));
+            if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+
+            if (needsFlapPush && !isSavingToFirestore) {
+              syncUserData();
+            }
+
             updateGamificationDisplay();
             setSyncStatus('synced');
 
@@ -11536,6 +12312,12 @@
       }
       if (targetBtn) {
         targetBtn.classList.add('active');
+        if (typeof targetBtn.scrollIntoView === 'function') {
+          targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+      if (typeof updateNavScrollUI === 'function') {
+        setTimeout(updateNavScrollUI, 220);
       }
 
       if (tabId === 'arcade' && !currentArcadeWord) {
@@ -11848,8 +12630,13 @@
       let examinerTitle = 'Optime! (Correct)';
       let examinerExplanation = sentence.primaryTranslation + ' (+15 XP awarded!)';
 
-      // If not an immediate match, evaluate using OCR GCSE AI Examiner
-      if (!isDirectMatch) {
+      const isStaticOrOffline = window.location.protocol === 'file:' || 
+                                window.location.hostname.endsWith('github.io') ||
+                                window.location.hostname.endsWith('pages.dev') ||
+                                window.location.hostname.endsWith('netlify.app');
+
+      // If not an immediate match, evaluate using OCR GCSE AI Examiner (when backend available)
+      if (!isDirectMatch && !isStaticOrOffline) {
         let originalBtnHtml = '';
         if (checkBtn) {
           originalBtnHtml = checkBtn.innerHTML;
@@ -11888,6 +12675,18 @@
             checkBtn.disabled = false;
             checkBtn.innerHTML = originalBtnHtml;
           }
+        }
+      }
+
+      // Offline / Static fallback grading
+      if (!isCorrect) {
+        const userWords = userVal.split(/\s+/).filter(Boolean);
+        const primaryWords = cleanPrimary.split(/\s+/).filter(Boolean);
+        const matchedWords = userWords.filter(w => primaryWords.includes(w));
+        if (userWords.length > 0 && matchedWords.length / Math.max(userWords.length, primaryWords.length) >= 0.8) {
+          isCorrect = true;
+          examinerTitle = 'Optime! (Accepted)';
+          examinerExplanation = `Good translation: "${sentence.primaryTranslation}" (+15 XP awarded!)`;
         }
       }
 
@@ -12615,10 +13414,8 @@
 
     // Game state variables
     let flapCurrentMode = localStorage.getItem('romalingua_flap_mode') || 'easy';
-    let flapHighestLevel = parseInt(localStorage.getItem('romalingua_highest_level') || '1', 10);
-    if (isNaN(flapHighestLevel) || flapHighestLevel < 1) flapHighestLevel = 1;
-    if (flapHighestLevel > 20) flapHighestLevel = 20;
-
+    const initialFlapLevels = getFlapLevels();
+    let flapHighestLevel = Math.min(20, Math.max(1, Number(initialFlapLevels[flapCurrentMode]) || 1));
     let flapSelectedLevel = Math.min(flapHighestLevel, 20);
     let flapCurrentLevel = flapSelectedLevel;
     let flapScore = 0;
@@ -12736,27 +13533,11 @@
       } catch (e) {}
     }
 
-    // High Scores persistence per mode
-    function getFlapHighScores() {
-      try {
-        return JSON.parse(localStorage.getItem('romalingua_flap_highscores') || '{}');
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveFlapHighScore(mode, score) {
-      const scores = getFlapHighScores();
-      if (!scores[mode] || score > scores[mode]) {
-        scores[mode] = score;
-        localStorage.setItem('romalingua_flap_highscores', JSON.stringify(scores));
-        return true;
-      }
-      return false;
-    }
-
+    // Lobby Stats & Level Progression per Difficulty Mode
     function updateFlapLobbyStatsUI() {
       const scores = getFlapHighScores();
+      const levels = getFlapLevels();
+
       const easyEl = document.getElementById('modeHighEasy');
       const interEl = document.getElementById('modeHighInter');
       const hardEl = document.getElementById('modeHighHard');
@@ -12766,12 +13547,22 @@
       if (hardEl) hardEl.textContent = scores.hard || 0;
       if (casesEl) casesEl.textContent = scores.cases || 0;
 
+      const lvlEasyEl = document.getElementById('modeLevelEasy');
+      const lvlInterEl = document.getElementById('modeLevelInter');
+      const lvlHardEl = document.getElementById('modeLevelHard');
+      const lvlCasesEl = document.getElementById('modeLevelCases');
+      if (lvlEasyEl) lvlEasyEl.textContent = FLAP_LEVELS[(levels.easy || 1) - 1] ? FLAP_LEVELS[(levels.easy || 1) - 1].roman : 'I';
+      if (lvlInterEl) lvlInterEl.textContent = FLAP_LEVELS[(levels.intermediate || 1) - 1] ? FLAP_LEVELS[(levels.intermediate || 1) - 1].roman : 'I';
+      if (lvlHardEl) lvlHardEl.textContent = FLAP_LEVELS[(levels.hard || 1) - 1] ? FLAP_LEVELS[(levels.hard || 1) - 1].roman : 'I';
+      if (lvlCasesEl) lvlCasesEl.textContent = FLAP_LEVELS[(levels.cases || 1) - 1] ? FLAP_LEVELS[(levels.cases || 1) - 1].roman : 'I';
+
       const currentScoreEl = document.getElementById('flapStatHighScore');
       if (currentScoreEl) currentScoreEl.textContent = scores[flapCurrentMode] || 0;
 
       const peakEl = document.getElementById('flapStatPeakLevel');
       if (peakEl) {
-        const roman = FLAP_LEVELS[flapHighestLevel - 1] ? FLAP_LEVELS[flapHighestLevel - 1].roman : 'I';
+        const curLvl = levels[flapCurrentMode] || 1;
+        const roman = FLAP_LEVELS[curLvl - 1] ? FLAP_LEVELS[curLvl - 1].roman : 'I';
         peakEl.textContent = 'Level ' + roman;
       }
 
@@ -12779,6 +13570,22 @@
       if (totalFlightsEl) {
         const flights = parseInt(localStorage.getItem('romalingua_flap_total_flights') || '0', 10);
         totalFlightsEl.textContent = flights;
+      }
+
+      const label = document.getElementById('btnSelectedLevelLabel');
+      if (label && FLAP_LEVELS[flapSelectedLevel - 1]) {
+        label.textContent = 'LEVEL ' + FLAP_LEVELS[flapSelectedLevel - 1].roman;
+      }
+
+      const syncStatusText = document.getElementById('flapSyncStatusText');
+      if (syncStatusText) {
+        if (currentUser) {
+          syncStatusText.textContent = 'Synced (' + (currentUser.email ? currentUser.email.split('@')[0] : 'Account') + ')';
+          syncStatusText.style.color = '#86efac';
+        } else {
+          syncStatusText.textContent = 'Guest (Local)';
+          syncStatusText.style.color = '#cbd5e1';
+        }
       }
     }
 
@@ -12828,13 +13635,24 @@
         }
       });
 
+      const levels = getFlapLevels();
+      flapHighestLevel = Math.min(20, Math.max(1, Number(levels[mode]) || 1));
+      flapSelectedLevel = Math.min(flapHighestLevel, 20);
+      flapCurrentLevel = flapSelectedLevel;
+
+      renderFlapLevelGrid();
       updateFlapLobbyStatsUI();
     }
 
     function selectFlapLevel(level) {
       if (level > flapHighestLevel) return;
       flapSelectedLevel = level;
+      flapCurrentLevel = level;
       renderFlapLevelGrid();
+      const label = document.getElementById('btnSelectedLevelLabel');
+      if (label && FLAP_LEVELS[flapSelectedLevel - 1]) {
+        label.textContent = 'LEVEL ' + FLAP_LEVELS[flapSelectedLevel - 1].roman;
+      }
     }
 
     // Question Generator for Dual Gaps
@@ -13274,11 +14092,11 @@
       flapGameState = 'LEVELCLEAR';
       const cfg = FLAP_LEVELS[flapCurrentLevel - 1];
 
-      // Update highest level
-      if (flapCurrentLevel < 20 && flapHighestLevel < flapCurrentLevel + 1) {
-        flapHighestLevel = flapCurrentLevel + 1;
-        localStorage.setItem('romalingua_highest_level', flapHighestLevel.toString());
-      }
+      // Update highest unlocked level for this specific difficulty mode & multi-device sync
+      const nextLevel = Math.min(20, flapCurrentLevel + 1);
+      saveFlapLevel(flapCurrentMode, nextLevel);
+      const levels = getFlapLevels();
+      flapHighestLevel = levels[flapCurrentMode] || 1;
 
       saveFlapHighScore(flapCurrentMode, flapScore);
 
@@ -13315,6 +14133,7 @@
 
     function handleVictory() {
       flapGameState = 'VICTORY';
+      saveFlapLevel(flapCurrentMode, 20);
       saveFlapHighScore(flapCurrentMode, flapScore);
       addXP(500); // Imperial triumph bonus!
       playVictoryFanfare();
@@ -13862,6 +14681,11 @@
       setArenaDifficulty(currentDifficulty, false);
       loadSentence(currentSentenceIndex, false);
 
+      // Initialize Latina Flap difficulty mode and lobby state
+      if (typeof setFlapMode === 'function') {
+        setFlapMode(flapCurrentMode);
+      }
+
       // Bind tab buttons to strictly prevent default behavior
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -13871,6 +14695,10 @@
           }
         });
       });
+
+      if (typeof window.updateNavScrollUI === 'function') {
+        window.updateNavScrollUI();
+      }
     }
 
     if (document.readyState === 'loading') {

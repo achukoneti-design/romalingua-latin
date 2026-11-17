@@ -12,9 +12,42 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+// The dev server must bind to port 3000 (proxied by Nginx on port 8080).
+const parsePort = (): number => {
+  const portArgIndex = process.argv.findIndex((arg) => arg === '--port' || arg === '-p');
+  if (portArgIndex !== -1 && process.argv[portArgIndex + 1]) {
+    const parsed = Number(process.argv[portArgIndex + 1]);
+    if (!isNaN(parsed) && parsed > 0 && parsed !== 8080) return parsed;
+  }
+  if (process.env.DEFAULT_APP_PORT) {
+    const parsed = Number(process.env.DEFAULT_APP_PORT);
+    if (!isNaN(parsed) && parsed > 0 && parsed !== 8080) return parsed;
+  }
+  if (process.env.PORT && process.env.PORT !== '8080') {
+    const parsed = Number(process.env.PORT);
+    if (!isNaN(parsed) && parsed > 0) return parsed;
+  }
+  return 3000;
+};
+const PORT = parsePort();
 
 app.use(express.json());
+
+// Health check endpoints for rapid readiness detection
+app.get('/health', (_req: Request, res: Response) => {
+  res.status(200).send('OK');
+});
+
+app.get('/api/health', (_req: Request, res: Response) => {
+  res.status(200).json({ status: 'ok', port: PORT });
+});
+
+// Allow responsive iframe embedding in Google Sites (sites.google.com)
+app.use((req, res, next) => {
+  res.removeHeader('X-Frame-Options');
+  res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://sites.google.com https://*.google.com https://*.googleusercontent.com *");
+  next();
+});
 
 // Server-side Gemini client with required User-Agent header
 const ai = new GoogleGenAI({
@@ -119,27 +152,31 @@ Evaluate the translation and output JSON.`;
       },
     };
 
+    // Timeout promise (5 seconds) so evaluation never hangs if outbound connection is slow
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('AI evaluation request timed out')), 5000)
+    );
+
     let response;
     try {
-      response = await ai.models.generateContent({
-        model: 'gemini-3.8-flash',
-        contents: prompt,
-        config,
-      });
+      response = await Promise.race([
+        ai.models.generateContent({
+          model: 'gemini-3.8-flash',
+          contents: prompt,
+          config,
+        }),
+        timeoutPromise,
+      ]);
     } catch (primaryErr: unknown) {
-      console.warn('gemini-3.8-flash spike; falling back to gemini-3.1-flash-lite:', primaryErr);
-      response = await ai.models.generateContent({
-        model: 'gemini-3.1-flash-lite',
-        contents: prompt,
-        config,
-      });
+      console.warn('gemini-3.8-flash attempt failed or timed out:', primaryErr);
+      throw primaryErr;
     }
 
     const parsed = JSON.parse(response.text || '{}');
     res.json(parsed);
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : String(err);
-    console.error('Gemini evaluation error:', errorMsg);
+    console.error('Translation evaluation fallback used:', errorMsg);
 
     // Fallback heuristic if external API is temporarily unavailable
     const cleanUser = userTranslation.toLowerCase().replace(/[.,/#!$%^&*;:{}=_()?'"-]/g, '').trim();
@@ -161,22 +198,66 @@ Evaluate the translation and output JSON.`;
 });
 
 async function startServer() {
-  if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'dist')));
-    app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+  try {
+    // 1. Immediately bind to PORT so health checks and container readiness checks succeed in <50ms
+    const server = app.listen(PORT, '0.0.0.0', () => {
+      console.log(`RomaLingua server running immediately on http://localhost:${PORT}`);
     });
-  } else {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`RomaLingua server running on http://localhost:${PORT}`);
-  });
+    server.on('error', (err: unknown) => {
+      console.error('Fatal dev server listening error:', err);
+    });
+
+    process.on('SIGTERM', () => {
+      server.close();
+    });
+    process.on('SIGINT', () => {
+      server.close();
+    });
+
+    // 2. Attach SPA / static middleware
+    if (process.env.NODE_ENV === 'production') {
+      const distPath = path.resolve(__dirname, 'dist');
+      app.use(express.static(distPath, {
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+            res.setHeader('Pragma', 'no-cache');
+            res.setHeader('Expires', '0');
+          }
+        },
+      }));
+      app.get('*', (_req: Request, res: Response) => {
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+        res.sendFile(path.resolve(distPath, 'index.html'));
+      });
+    } else {
+      let viteMiddleware: express.RequestHandler | null = null;
+
+      // Dynamic middleware delegator ensures instantaneous responsiveness during Vite compilation
+      app.use((req, res, next) => {
+        if (viteMiddleware) {
+          return viteMiddleware(req, res, next);
+        }
+        if (req.path === '/health' || req.path.startsWith('/api/')) {
+          return next();
+        }
+        res.setHeader('Content-Type', 'text/html');
+        res.send('<!DOCTYPE html><html><head><meta http-equiv="refresh" content="1"><title>RomaLingua</title></head><body style="margin:0;display:flex;align-items:center;justify-content:center;height:100vh;background:#030712;color:#f3f4f6;font-family:system-ui,-apple-system,sans-serif;"><p style="font-size:1.1rem;font-weight:600;">Loading RomaLingua GCSE Latin...</p></body></html>');
+      });
+
+      const vite = await createViteServer({
+        server: { middlewareMode: true },
+        appType: 'spa',
+      });
+      viteMiddleware = vite.middlewares as unknown as express.RequestHandler;
+      console.log('Vite dev middleware initialized and ready');
+    }
+  } catch (err: unknown) {
+    console.error('Failed to start RomaLingua dev server:', err);
+  }
 }
 
 startServer();

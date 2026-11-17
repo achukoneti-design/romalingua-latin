@@ -39,7 +39,9 @@ service cloud.firestore {
              (!('currentSentenceIndex' in data) || (data.currentSentenceIndex is number && data.currentSentenceIndex >= 0 && data.currentSentenceIndex <= 1000)) &&
              (!('sentencesDoneToday' in data) || (data.sentencesDoneToday is number && data.sentencesDoneToday >= 0 && data.sentencesDoneToday <= 100000)) &&
              (!('lastActiveDate' in data) || (data.lastActiveDate is string && data.lastActiveDate.size() <= 64)) &&
-             (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 64));
+             (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 64)) &&
+             (!('flapLevels' in data) || (data.flapLevels is map)) &&
+             (!('flapHighScores' in data) || (data.flapHighScores is map));
     }
 
     match /users/{userId} {
@@ -48,12 +50,12 @@ service cloud.firestore {
 
       allow create: if isOwner(userId) &&
                        incoming().keys().hasAll(['userId', 'xp', 'streak']) &&
-                       incoming().keys().hasOnly(['userId', 'xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['userId', 'xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt', 'flapLevels', 'flapHighScores']) &&
                        isValidUserProfile(incoming());
 
       allow update: if isOwner(userId) &&
                        incoming().userId == userId &&
-                       incoming().diff(existing()).affectedKeys().hasOnly(['xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt']) &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['xp', 'streak', 'email', 'displayName', 'photoURL', 'completedSentences', 'masteredWords', 'currentSentenceIndex', 'sentencesDoneToday', 'lastActiveDate', 'updatedAt', 'flapLevels', 'flapHighScores']) &&
                        isValidUserProfile(incoming());
 
       allow delete: if isOwner(userId);

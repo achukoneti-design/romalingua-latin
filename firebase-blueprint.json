@@ -58,6 +58,14 @@
           "type": "string",
           "maxLength": 64,
           "description": "ISO timestamp of last progress update"
+        },
+        "flapLevels": {
+          "type": "object",
+          "description": "Highest unlocked level for each Latina Flap difficulty mode (easy, intermediate, hard, caseMastery)"
+        },
+        "flapHighScores": {
+          "type": "object",
+          "description": "High score for each Latina Flap difficulty mode"
         }
       },
       "required": ["userId", "xp", "streak"]
