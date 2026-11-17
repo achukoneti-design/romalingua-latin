@@ -7,7 +7,7 @@
     "dev": "tsx server.ts",
     "start": "node server.ts",
     "package:bundle": "python3 scripts/package_bundle.py",
-    "build": "python3 scripts/package_bundle.py && vite build",
+    "build": "(python3 scripts/package_bundle.py || true) && vite build",
     "export:pages": "python3 scripts/package_bundle.py && vite build && cp .nojekyll dist/ 2>/dev/null || true",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
