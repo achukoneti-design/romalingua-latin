@@ -44,6 +44,52 @@ service cloud.firestore {
              (!('flapHighScores' in data) || (data.flapHighScores is map));
     }
 
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidAccessHash(hash) {
+      return hash is string && hash.size() == 64 && hash.matches('^[a-f0-9]{64}$');
+    }
+
+    function isValidStudentAccess(data, accessId) {
+      return data.accessHash is string &&
+             data.accessHash == accessId &&
+             isValidAccessHash(data.accessHash) &&
+             data.teacherUid is string &&
+             data.teacherUid == request.auth.uid &&
+             isValidId(data.teacherUid) &&
+             data.username is string &&
+             data.username.size() >= 2 &&
+             data.username.size() <= 40 &&
+             !data.username.matches('.*[\\r\\n].*') &&
+             (!('schoolName' in data) || (data.schoolName is string && data.schoolName.size() <= 100)) &&
+             data.createdAt is string &&
+             data.createdAt.size() > 0 &&
+             data.createdAt.size() <= 64;
+    }
+
+    function isValidTeacherStudentCredential(data, credId, userId) {
+      return data.credId is string &&
+             data.credId == credId &&
+             isValidAccessHash(data.credId) &&
+             data.teacherUid is string &&
+             data.teacherUid == request.auth.uid &&
+             data.teacherUid == userId &&
+             isValidId(data.teacherUid) &&
+             data.username is string &&
+             data.username.size() >= 2 &&
+             data.username.size() <= 40 &&
+             !data.username.matches('.*[\\r\\n].*') &&
+             data.password is string &&
+             data.password.size() >= 4 &&
+             data.password.size() <= 64 &&
+             (!('schoolName' in data) || (data.schoolName is string && data.schoolName.size() <= 100)) &&
+             data.createdAt is string &&
+             data.createdAt.size() > 0 &&
+             data.createdAt.size() <= 64;
+    }
+
     match /users/{userId} {
       allow get: if isOwner(userId);
       allow list: if false;
@@ -59,6 +105,41 @@ service cloud.firestore {
                        isValidUserProfile(incoming());
 
       allow delete: if isOwner(userId);
+
+      // Private teacher-only student credential vault (strictly owner-only)
+      match /student_credentials/{credId} {
+        allow get: if isOwner(userId) && isValidAccessHash(credId);
+        allow list: if isOwner(userId) && resource.data.teacherUid == request.auth.uid;
+
+        allow create: if isOwner(userId) &&
+                         isValidAccessHash(credId) &&
+                         incoming().keys().hasAll(['credId', 'teacherUid', 'username', 'password', 'createdAt']) &&
+                         incoming().keys().hasOnly(['credId', 'teacherUid', 'username', 'password', 'schoolName', 'createdAt']) &&
+                         isValidTeacherStudentCredential(incoming(), credId, userId);
+
+        allow update: if false;
+
+        allow delete: if isOwner(userId) && isValidAccessHash(credId);
+      }
+    }
+
+    match /student_access/{accessId} {
+      // Unauthenticated students can verify exact SHA-256(username:password) doc only; zero pupil PII is stored
+      allow get: if isValidAccessHash(accessId);
+      // Only the owning teacher can list student usernames they created
+      allow list: if isSignedIn() && resource.data.teacherUid == request.auth.uid;
+
+      allow create: if isSignedIn() &&
+                       isValidAccessHash(accessId) &&
+                       incoming().keys().hasAll(['accessHash', 'teacherUid', 'username', 'createdAt']) &&
+                       incoming().keys().hasOnly(['accessHash', 'teacherUid', 'username', 'schoolName', 'createdAt']) &&
+                       isValidStudentAccess(incoming(), accessId);
+
+      allow update: if false;
+
+      allow delete: if isSignedIn() &&
+                       isValidAccessHash(accessId) &&
+                       existing().teacherUid == request.auth.uid;
     }
   }
 }

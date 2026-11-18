@@ -1,27 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#58cc02"/>
-      <stop offset="100%" stop-color="#059669"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3ad11d"/>
+      <stop offset="55%" stop-color="#14a82a"/>
+      <stop offset="100%" stop-color="#027e3b"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fef08a"/>
+    <linearGradient id="goldLeafLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
       <stop offset="50%" stop-color="#fbbf24"/>
       <stop offset="100%" stop-color="#d97706"/>
     </linearGradient>
+    <linearGradient id="goldLeafWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="60%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#g)"/>
-  <g fill="url(#gold)">
-    <path d="M32 48 C22 46 15 37 15 26 C15 20 18 15 22 12 C21 16 21 21 24 26 C21 26 18 22 17 18 C16 24 19 32 25 37 C22 36 20 32 20 28 C21 35 26 41 32 44 Z"/>
-    <path d="M20 14 C17 19 18 24 23 25 C22 21 22 17 20 14 Z"/>
-    <path d="M16 25 C15 30 18 35 23 35 C21 31 19 28 16 25 Z"/>
-    <path d="M20 36 C20 41 25 45 30 45 C28 41 25 38 20 36 Z"/>
-    <path d="M32 48 C42 46 49 37 49 26 C49 20 46 15 42 12 C43 16 43 21 40 26 C43 26 46 22 47 18 C48 24 45 32 39 37 C42 36 44 32 44 28 C43 35 38 41 32 44 Z"/>
-    <path d="M44 14 C47 19 46 24 41 25 C42 21 42 17 44 14 Z"/>
-    <path d="M48 25 C49 30 46 35 41 35 C43 31 45 28 48 25 Z"/>
-    <path d="M44 36 C44 41 39 45 34 45 C36 41 39 38 44 36 Z"/>
-    <circle cx="32" cy="48" r="3.5"/>
-    <path d="M30 49 L25 56 L28 57 L31 51 Z"/>
-    <path d="M34 49 L39 56 L36 57 L33 51 Z"/>
+  <rect width="256" height="256" rx="48" fill="url(#bgGrad)"/>
+  <g stroke="#b45309" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M100 222 C110 208 119 195 128 184 C112 174 88 156 76 122 C67 96 71 67 80 46" fill="none" stroke="url(#goldLeafWarm)" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M156 222 C146 208 137 195 128 184 C144 174 168 156 180 122 C189 96 185 67 176 46" fill="none" stroke="url(#goldLeafLight)" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M122 183 C106 184 95 178 88 167 C101 164 114 171 122 183 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M122 181 C123 167 117 156 108 148 C105 161 111 173 122 181 Z" fill="url(#goldLeafLight)"/>
+    <path d="M105 168 C87 167 74 156 66 142 C82 141 96 151 105 168 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M104 166 C108 151 104 136 95 126 C89 140 93 155 104 166 Z" fill="url(#goldLeafLight)"/>
+    <path d="M89 147 C70 144 58 131 51 116 C67 116 81 128 89 147 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M88 145 C95 129 94 113 87 101 C78 115 79 132 88 145 Z" fill="url(#goldLeafLight)"/>
+    <path d="M77 123 C58 118 47 103 44 87 C59 90 71 103 77 123 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M77 121 C86 106 87 90 82 76 C71 89 70 107 77 121 Z" fill="url(#goldLeafLight)"/>
+    <path d="M72 97 C55 90 48 74 47 59 C61 64 69 78 72 97 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M73 96 C84 82 86 67 83 54 C72 65 69 81 73 96 Z" fill="url(#goldLeafLight)"/>
+    <path d="M74 73 C60 66 56 53 58 41 C68 47 73 59 74 73 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M77 65 C75 49 77 35 81 26 C86 38 84 53 77 65 Z" fill="url(#goldLeafLight)"/>
+    <path d="M134 183 C150 184 161 178 168 167 C155 164 142 171 134 183 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M134 181 C133 167 139 156 148 148 C151 161 145 173 134 181 Z" fill="url(#goldLeafLight)"/>
+    <path d="M151 168 C169 167 182 156 190 142 C174 141 160 151 151 168 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M152 166 C148 151 152 136 161 126 C167 140 163 155 152 166 Z" fill="url(#goldLeafLight)"/>
+    <path d="M167 147 C186 144 198 131 205 116 C189 116 175 128 167 147 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M168 145 C161 129 162 113 169 101 C178 115 177 132 168 145 Z" fill="url(#goldLeafLight)"/>
+    <path d="M179 123 C198 118 209 103 212 87 C197 90 185 103 179 123 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M179 121 C170 106 169 90 174 76 C185 89 186 107 179 121 Z" fill="url(#goldLeafLight)"/>
+    <path d="M184 97 C201 90 208 74 209 59 C195 64 187 78 184 97 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M183 96 C172 82 170 67 173 54 C184 65 187 81 183 96 Z" fill="url(#goldLeafLight)"/>
+    <path d="M182 73 C196 66 200 53 198 41 C188 47 183 59 182 73 Z" fill="url(#goldLeafWarm)"/>
+    <path d="M179 65 C181 49 179 35 175 26 C170 38 172 53 179 65 Z" fill="url(#goldLeafLight)"/>
+    <ellipse cx="128" cy="184" rx="5.5" ry="4.5" fill="url(#goldLeafLight)"/>
   </g>
 </svg>
