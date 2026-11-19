@@ -1946,6 +1946,96 @@
       line-height: 1.45;
     }
 
+    /* Orange Top Disclaimer Bar (Sign in to save progress) */
+    .top-save-disclaimer-bar {
+      width: 100%;
+      background: linear-gradient(90deg, #ffedd5 0%, #fff7ed 50%, #ffedd5 100%);
+      border-top: 3px solid #ea580c;
+      border-bottom: 1.5px solid #fdba74;
+      color: #7c2d12;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 55;
+    }
+    .top-save-disclaimer-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .top-save-disclaimer-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      flex: 1 1 260px;
+    }
+    .top-save-disclaimer-tag {
+      background: #ea580c;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .top-save-disclaimer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .top-save-disclaimer-btn {
+      background: #ea580c;
+      color: #ffffff;
+      border: 1px solid #c2410c;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.14s ease, transform 0.1s ease;
+    }
+    .top-save-disclaimer-btn:hover {
+      background: #c2410c;
+    }
+    .top-save-disclaimer-close {
+      background: transparent;
+      border: 1px solid #fdba74;
+      color: #9a3412;
+      border-radius: 6px;
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+    }
+    .top-save-disclaimer-close:hover {
+      background: #fed7aa;
+    }
+    @media (max-width: 600px) {
+      .top-save-disclaimer-bar {
+        padding: 8px 12px;
+      }
+      .top-save-disclaimer-text {
+        font-size: 12px;
+      }
+    }
+
     /* Export Modal Styles */
     .export-overlay {
       position: fixed;
@@ -3370,6 +3460,20 @@
   </div>
 
 
+
+  <!-- Orange Top Disclaimer Bar (Shown when not signed in) -->
+  <div id="topSaveDisclaimerBar" class="top-save-disclaimer-bar" role="region" aria-label="Sign in reminder">
+    <div class="top-save-disclaimer-inner">
+      <div class="top-save-disclaimer-text">
+        <span class="top-save-disclaimer-tag">Save Progress</span>
+        <span>Practicing without an account — <strong>sign in</strong> to save and sync your XP, streak, and levels across devices. (Personal Gmail, Yahoo, Outlook, or iCloud only; no school emails.)</span>
+      </div>
+      <div class="top-save-disclaimer-actions">
+        <button type="button" class="top-save-disclaimer-btn" onclick="openAuthModal()">Sign In</button>
+        <button type="button" class="top-save-disclaimer-close" onclick="dismissSaveDisclaimerBar()" aria-label="Dismiss reminder" title="Dismiss">✕</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Top Header with Brand and Stats -->
   <header>
@@ -12396,6 +12500,14 @@
       }
     };
 
+    let topDisclaimerDismissed = false;
+
+    window.dismissSaveDisclaimerBar = function() {
+      topDisclaimerDismissed = true;
+      const topBar = document.getElementById('topSaveDisclaimerBar');
+      if (topBar) topBar.style.display = 'none';
+    };
+
     window.handleSignOutClick = async function(e) {
       if (e && e.stopPropagation) e.stopPropagation();
       if (e && e.preventDefault) e.preventDefault();
@@ -12406,6 +12518,7 @@
         }
         await signOut(auth);
         currentUser = null;
+        topDisclaimerDismissed = false;
         updateAuthUIState();
         if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
         if (typeof showToast === 'function') showToast('Signed out. You can keep practicing or sign in again anytime.');
@@ -12418,8 +12531,10 @@
       const avatarContainer = document.getElementById('userAvatarContainer');
       const nameLabel = document.getElementById('userNameLabel');
       const signOutBtn = document.getElementById('headerSignOutBtn');
+      const topBar = document.getElementById('topSaveDisclaimerBar');
 
       if (currentUser) {
+        if (topBar) topBar.style.display = 'none';
         if (signOutBtn) signOutBtn.style.display = 'inline-block';
         const displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Scholar');
         if (nameLabel) nameLabel.textContent = displayName;
@@ -12434,6 +12549,7 @@
         }
         setSyncStatus('synced');
       } else {
+        if (topBar) topBar.style.display = topDisclaimerDismissed ? 'none' : 'flex';
         if (signOutBtn) signOutBtn.style.display = 'none';
         if (nameLabel) nameLabel.textContent = 'Sign In';
         if (avatarContainer) avatarContainer.textContent = '?';
