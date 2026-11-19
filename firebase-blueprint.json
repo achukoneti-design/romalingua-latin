@@ -69,100 +69,12 @@
         }
       },
       "required": ["userId", "xp", "streak"]
-    },
-    "StudentAccess": {
-      "title": "StudentAccess",
-      "description": "Teacher-managed student username/password access tokens without storing pupil emails",
-      "type": "object",
-      "properties": {
-        "accessHash": {
-          "type": "string",
-          "minLength": 64,
-          "maxLength": 64,
-          "pattern": "^[a-f0-9]{64}$",
-          "description": "SHA-256 hex hash of normalized username and password"
-        },
-        "teacherUid": {
-          "type": "string",
-          "maxLength": 128,
-          "pattern": "^[a-zA-Z0-9_\\-]+$",
-          "description": "Firebase UID of the teacher who created the student login"
-        },
-        "username": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 40,
-          "description": "Non-email student username"
-        },
-        "schoolName": {
-          "type": "string",
-          "maxLength": 100,
-          "description": "Optional school or class label"
-        },
-        "createdAt": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "ISO timestamp when created"
-        }
-      },
-      "required": ["accessHash", "teacherUid", "username", "createdAt"]
-    },
-    "TeacherStudentCredential": {
-      "title": "TeacherStudentCredential",
-      "description": "Private teacher-only student username and password vault so teachers can view and share class logins",
-      "type": "object",
-      "properties": {
-        "credId": {
-          "type": "string",
-          "minLength": 64,
-          "maxLength": 64,
-          "pattern": "^[a-f0-9]{64}$",
-          "description": "Matches accessHash of the student login"
-        },
-        "teacherUid": {
-          "type": "string",
-          "maxLength": 128,
-          "pattern": "^[a-zA-Z0-9_\\-]+$",
-          "description": "Firebase UID of the owning teacher"
-        },
-        "username": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 40,
-          "description": "Student login username"
-        },
-        "password": {
-          "type": "string",
-          "minLength": 4,
-          "maxLength": 64,
-          "description": "Student login password visible only to the owning teacher"
-        },
-        "schoolName": {
-          "type": "string",
-          "maxLength": 100,
-          "description": "Optional school or class label"
-        },
-        "createdAt": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "ISO timestamp when created"
-        }
-      },
-      "required": ["credId", "teacherUid", "username", "password", "createdAt"]
     }
   },
   "firestore": {
     "/users/{userId}": {
       "schema": "UserProfile",
       "description": "User learning progress and profile"
-    },
-    "/users/{userId}/student_credentials/{credId}": {
-      "schema": "TeacherStudentCredential",
-      "description": "Private teacher-only student usernames and passwords"
-    },
-    "/student_access/{accessId}": {
-      "schema": "StudentAccess",
-      "description": "Teacher-created student username/password credential hashes (no pupil PII)"
     }
   }
 }

@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPLWX86G1C"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZJ5WHXFR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
+    gtag('config', 'G-3HZJ5WHXFR');
     gtag('config', 'G-DPLWX86G1C');
   </script>
   <meta charset="UTF-8">
@@ -1620,36 +1621,7 @@
       font-weight: 500;
     }
 
-    /* Guest Warning Sticky Banner */
-    .guest-warning-banner {
-      background: var(--gold-bg);
-      border-bottom: 1.5px solid var(--gold-border);
-      color: #78350f;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 16px;
-      text-align: center;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .guest-sign-in-btn {
-      background: var(--gold);
-      color: #ffffff;
-      border: 1px solid #78350f;
-      border-radius: 4px;
-      padding: 4px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .guest-sign-in-btn:hover {
-      background: #92400e;
-    }
+
 
     /* User Profile Control Box */
     .user-profile-pill {
@@ -1962,269 +1934,16 @@
       display: none;
     }
 
-    /* Role Switcher inside Auth Modal (Teacher Email/Gmail vs Student Username/Password) */
-    .auth-role-tabs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .auth-role-tab {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      padding: 10px 10px;
+    .auth-disclaimer-box {
+      font-size: 12px;
+      color: #92400e;
+      background: var(--gold-bg);
+      border: 1.5px solid var(--gold-border);
       border-radius: 6px;
-      border: 1.5px solid var(--border);
-      background: var(--surface-sub);
-      color: var(--text-muted);
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.14s ease;
-    }
-    .auth-role-tab:hover {
-      border-color: var(--border-strong);
-      color: var(--text);
-    }
-    .auth-role-tab.active {
-      border-color: var(--primary);
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      box-shadow: 0 2px 0 var(--primary);
-    }
-    .auth-role-tab-title {
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .auth-role-tab-sub {
-      font-size: 11px;
-      font-weight: 600;
-      opacity: 0.85;
-    }
-
-    /* Header School / Student Logins Button (visible for signed-in teachers) */
-    .teacher-logins-btn {
-      display: none;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 11px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--cobalt-border);
-      background: var(--cobalt-bg);
-      color: var(--cobalt);
-      font-size: 12px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      white-space: nowrap;
-      min-height: 34px;
-    }
-    .teacher-logins-btn:hover {
-      background: #dbeafe;
-      border-color: var(--cobalt);
-    }
-
-    /* Teacher School Logins Management Modal */
-    .school-logins-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .school-logins-toggle-all-btn {
-      background: var(--surface-sub);
-      color: var(--cobalt);
-      border: 1px solid var(--cobalt-border);
-      border-radius: 4px;
-      padding: 4px 9px;
-      font-size: 11.5px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-    }
-    .school-logins-toggle-all-btn:hover {
-      background: var(--cobalt-bg);
-    }
-    .school-login-list {
-      margin-top: 8px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      background: var(--surface-sub);
-      max-height: 230px;
-      overflow-y: auto;
-    }
-    .school-login-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      background: #ffffff;
-    }
-    .school-login-item:last-child {
-      border-bottom: none;
-    }
-    .school-login-meta {
-      display: flex;
-      flex-direction: column;
+      padding: 10px 13px;
+      margin: 12px 0 4px;
       text-align: left;
-      gap: 3px;
-      min-width: 0;
-      flex: 1;
-    }
-    .school-login-uname {
-      font-weight: 800;
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      word-break: break-word;
-    }
-    .school-login-pwd-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .school-login-pwd-code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-weight: 700;
-      color: var(--text);
-      background: var(--surface-sub);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1px 6px;
-      word-break: break-all;
-    }
-    .school-login-school {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-    .school-login-actions {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      flex-shrink: 0;
-    }
-    .school-login-action-btn {
-      background: var(--surface-sub);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 11.5px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-    }
-    .school-login-action-btn:hover {
-      background: var(--bg-band);
-      border-color: var(--border-strong);
-    }
-    .school-login-del-btn {
-      background: var(--crimson-bg);
-      color: var(--crimson);
-      border: 1px solid var(--crimson-border);
-      border-radius: 4px;
-      padding: 4px 9px;
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .school-login-del-btn:hover {
-      background: #fecaca;
-    }
-
-    /* Student Session Mode (Username & Password): hide all progress indicators & stats */
-    body.student-session-mode .stat-pill.streak,
-    body.student-session-mode .stat-pill.xp,
-    body.student-session-mode .stat-pill.sentences-today,
-    body.student-session-mode #headerSyncBadge,
-    body.student-session-mode #headerTeacherLoginsBtn,
-    body.student-session-mode #guestWarningBanner,
-    body.student-session-mode .arena-banner-left,
-    body.student-session-mode #sentencePoolPosition,
-    body.student-session-mode .pill-badge-count,
-    body.student-session-mode .arcade-header,
-    body.student-session-mode #deckMasteryText,
-    body.student-session-mode .master-btn,
-    body.student-session-mode .flap-banner-stats,
-    body.student-session-mode .mode-score,
-    body.student-session-mode .lvl-status,
-    body.student-session-mode .flap-score-pill,
-    body.student-session-mode .flap-hud-progress-wrap,
-    body.student-session-mode .flap-modal-stats,
-    body.student-session-mode #mythSolvedBadge {
-      display: none !important;
-    }
-    body.student-session-mode .arena-progress-card {
-      justify-content: center;
-    }
-
-    /* Demo View-Only Mode (Schools previewing before signing in) */
-    .demo-lock-notice {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      background: #fffbeb;
-      border: 1.5px solid #fcd34d;
-      color: #78350f;
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      margin-bottom: 14px;
-      font-size: 13px;
-      font-weight: 600;
-      text-align: left;
-    }
-    .demo-lock-notice-btn {
-      background: #92400e;
-      color: #ffffff;
-      border: 1px solid #78350f;
-      border-radius: 4px;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .demo-lock-notice-btn:hover {
-      background: #78350f;
-    }
-    body.demo-view-mode .demo-lock-notice {
-      display: flex;
-    }
-    body.demo-view-mode .arena-input:disabled {
-      background: #f8fafc;
-      color: var(--text-muted);
-      cursor: not-allowed;
-      opacity: 0.85;
-    }
-    body.demo-view-mode #submitCheckBtn,
-    body.demo-view-mode #tenseHintBtn,
-    body.demo-view-mode #skipBtn,
-    body.demo-view-mode .arcade-option-btn,
-    body.demo-view-mode .myths-option-btn,
-    body.demo-view-mode .flap-play-btn,
-    body.demo-view-mode .myths-nav-btn,
-    body.demo-view-mode .myth-gloss-word,
-    body.demo-view-mode .latin-token,
-    body.demo-view-mode .master-btn {
-      cursor: not-allowed;
-    }
-    body.demo-view-mode #submitCheckBtn,
-    body.demo-view-mode #tenseHintBtn,
-    body.demo-view-mode #skipBtn,
-    body.demo-view-mode .flap-play-btn {
-      opacity: 0.72;
+      line-height: 1.45;
     }
 
     /* Export Modal Styles */
@@ -3509,57 +3228,17 @@
 </style>
 </head>
 <body>
-  <!-- Sticky Demo View-Only Banner -->
-  <div id="guestWarningBanner" class="guest-warning-banner" role="alert">
-    <span><strong>DEMO VIEW ONLY</strong> — Feel free to browse tabs and look around before signing up. Sign in with a personal or school account to unlock full interactive practice.</span>
-    <button type="button" class="guest-sign-in-btn" onclick="openAuthModal()">Sign In to Unlock</button>
-  </div>
-
-  <!-- Authentication Modal & Overlay -->
-  <div id="authModalOverlay" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+  <!-- Authentication Modal & Overlay (Optional) -->
+  <div id="authModalOverlay" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle" onclick="if(event.target===this)closeAuthModal()">
     <div class="auth-modal">
-      <button type="button" class="auth-close-btn" onclick="closeAuthModal()" title="View Demo Only" aria-label="Close to view demo only">✕</button>
+      <button type="button" class="auth-close-btn" onclick="closeAuthModal()" title="Continue without signing in" aria-label="Close">✕</button>
       <div class="auth-brand-badge"><img src="./romalingua-logo.svg" alt="RomaLingua"></div>
-      <div class="auth-modal-title" id="authModalTitle">Sign In to RomaLingua</div>
-      <div class="auth-modal-sub">Join with a personal account, a school account, or a class username &amp; password. Close (✕) or pick Demo below to look around before signing up.</div>
+      <div class="auth-modal-title" id="authModalTitle">Sign In (Optional)</div>
+      <div class="auth-modal-sub">Signing in is optional — you can practice everything right away without an account. <strong>Sign in to save and sync your progress</strong> (XP, streak, completed sentences, and Latina Flap levels) across devices.</div>
 
-      <!-- Role Switcher Tabs -->
-      <div class="auth-role-tabs" role="tablist" aria-label="Sign in method">
-        <button type="button" id="authRoleStudentBtn" class="auth-role-tab active" onclick="setAuthRoleTab('student')">
-          <span class="auth-role-tab-title">School Class Login</span>
-          <span class="auth-role-tab-sub">Username &amp; Password</span>
-        </button>
-        <button type="button" id="authRoleTeacherBtn" class="auth-role-tab" onclick="setAuthRoleTab('teacher')">
-          <span class="auth-role-tab-title">Personal / School</span>
-          <span class="auth-role-tab-sub">Google, Gmail or Email</span>
-        </button>
-      </div>
-
-      <!-- Panel A: School Class Username & Password Login -->
-      <div id="authStudentPanel">
-        <form id="authStudentForm" onsubmit="handleStudentLogin(event)" style="margin: 0; text-align: left;">
-          <div class="auth-input-group">
-            <label class="auth-label" for="studentUsernameInput">Username</label>
-            <input type="text" id="studentUsernameInput" class="auth-input" placeholder="Enter your class username" autocomplete="off" autocapitalize="none" spellcheck="false" required>
-          </div>
-          <div class="auth-input-group">
-            <label class="auth-label" for="studentPasswordInput">Password</label>
-            <input type="password" id="studentPasswordInput" class="auth-input" placeholder="Enter your class password" autocomplete="new-password" required>
-          </div>
-
-          <button type="submit" id="btnSubmitStudentLogin" class="btn-submit-auth" style="margin-top: 6px;">
-            Enter Website
-          </button>
-        </form>
-
-        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 12px 0 4px; text-align: left; background: var(--surface-sub); border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 14px;">
-          <strong>Joining without a school?</strong> Choose <strong>Personal / School</strong> above to sign in or create your own personal account with Google or email. Class logins start a fresh session each time you log in.
-        </div>
-      </div>
-
-      <!-- Panel B: Personal or School Google / Email Sign-In -->
-      <div id="authTeacherPanel" style="display: none;">
-        <!-- Option 1: Google / Gmail Sign-In Button -->
+      <!-- Personal Email Sign-In (Gmail, Yahoo, Outlook, iCloud only) -->
+      <div id="authTeacherPanel">
+        <!-- Option 1: Personal Google / Gmail Sign-In Button -->
         <button type="button" class="btn-google-auth" id="btnGoogleAuth" onclick="handleGoogleSignIn()" style="font-size: 15px; padding: 12px 18px; margin-top: 2px;">
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -3567,11 +3246,11 @@
             <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
             <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
           </svg>
-          <span>Continue with Google / Gmail</span>
+          <span>Continue with Personal Gmail</span>
         </button>
 
         <!-- Divider -->
-        <div class="auth-divider">or use personal or school email</div>
+        <div class="auth-divider">or use Gmail, Yahoo, Outlook, or iCloud</div>
 
         <!-- Mode Selector: Sign In vs Create Account -->
         <div class="auth-mode-toggle-row">
@@ -3582,8 +3261,8 @@
         <!-- Option 2: Email & Password Form -->
         <form id="authEmailForm" onsubmit="handleEmailAuth(event)" style="margin: 0; text-align: left;">
           <div class="auth-input-group">
-            <label class="auth-label" for="authEmailInput">Email Address (Personal or School)</label>
-            <input type="email" id="authEmailInput" class="auth-input" placeholder="e.g. student@example.com or teacher@school.org" autocomplete="email" required>
+            <label class="auth-label" for="authEmailInput">Personal Email (Gmail, Yahoo, Outlook, iCloud only)</label>
+            <input type="email" id="authEmailInput" class="auth-input" placeholder="name@gmail.com, @yahoo.com, @outlook.com, @icloud.com" autocomplete="email" required>
           </div>
           <div class="auth-input-group">
             <label class="auth-label" for="authPasswordInput">Password</label>
@@ -3595,19 +3274,19 @@
           </button>
         </form>
 
-        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 12px 0 4px; text-align: left; background: var(--surface-sub); border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 14px;">
-          <strong>Personal &amp; School Access:</strong> Sign in with a personal email to study on your own and track XP, or sign in with a school email and click <strong>Student Logins</strong> to create class accounts.
+        <div class="auth-disclaimer-box">
+          <strong>Disclaimer:</strong> School emails cannot be used to create or sign in to an account. Please use a personal Gmail, Yahoo, Outlook, or iCloud email address.
         </div>
       </div>
 
       <div id="authErrorMsg" class="auth-error-msg" style="display: none; margin-bottom: 12px;"></div>
 
-      <!-- Option 3: View-Only Demo -->
-      <button type="button" class="btn-guest-continue" onclick="handleContinueAsGuest()">
-        View Website Demo (Look Only) →
+      <!-- Optional Skip -->
+      <button type="button" class="btn-guest-continue" onclick="closeAuthModal()">
+        Continue Without Signing In →
       </button>
       <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 7px; line-height: 1.45; text-align: center;">
-        Demo lets anyone look through the site before signing up. Sign in with a personal or school account to interact and practice.
+        No sign-in required to practice — signing in only saves &amp; syncs your progress across devices.
       </div>
     </div>
   </div>
@@ -3681,7 +3360,7 @@
       </div>
 
       <div style="font-size: 12px; color: #1e40af; background: var(--cobalt-bg); border: 1.5px solid var(--cobalt-border); border-radius: 6px; padding: 10px 14px; margin-top: 10px; line-height: 1.45; text-align: left;">
-        <strong>Firebase &amp; Multi-Device Sync:</strong> Firebase protects Google accounts by allowing logins only from whitelisted addresses. To enable Google Sign-In on a new web host, add that domain in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: var(--cobalt); font-weight: 700; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Otherwise, choose <strong>Guest mode</strong> to save locally.
+        <strong>Firebase &amp; Multi-Device Sync:</strong> Firebase protects accounts by allowing logins only from whitelisted addresses. To enable Google Sign-In on a new web host, add that domain in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: var(--cobalt); font-weight: 700; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Otherwise, you can keep practicing without signing in and save locally.
       </div>
 
       <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
@@ -3690,50 +3369,7 @@
     </div>
   </div>
 
-  <!-- Teacher School & Student Logins Modal -->
-  <div id="schoolLoginsModalOverlay" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="schoolLoginsModalTitle" onclick="if(event.target===this)closeSchoolLoginsModal()">
-    <div class="auth-modal" style="max-width: 520px;">
-      <button type="button" class="auth-close-btn" onclick="closeSchoolLoginsModal()" title="Close dialog" aria-label="Close dialog">✕</button>
-      <div class="auth-modal-title" id="schoolLoginsModalTitle">School &amp; Student Logins</div>
-      <div class="auth-modal-sub" style="margin-bottom: 14px;">Create class or pupil usernames and passwords. Students using these logins never enter an email address, and their progress is not saved.</div>
 
-      <form id="createStudentLoginForm" onsubmit="handleCreateStudentLogin(event)" style="text-align: left;">
-        <div class="auth-input-group">
-          <label class="auth-label" for="teacherSchoolNameInput">School / Class Label (optional)</label>
-          <input type="text" id="teacherSchoolNameInput" class="auth-input" placeholder="e.g. Year 9 Latin · St Paul's" maxlength="100">
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <div class="auth-input-group">
-            <label class="auth-label" for="newStudentUsernameInput">Student Username</label>
-            <input type="text" id="newStudentUsernameInput" class="auth-input" placeholder="e.g. latin9a or Year 9" minlength="2" maxlength="40" title="Enter 2–40 characters" autocomplete="off" required>
-          </div>
-          <div class="auth-input-group">
-            <label class="auth-label" for="newStudentPasswordInput">Student Password</label>
-            <input type="text" id="newStudentPasswordInput" class="auth-input" placeholder="e.g. roma2026" minlength="4" maxlength="64" autocomplete="off" required>
-          </div>
-        </div>
-        <button type="submit" id="btnCreateStudentLogin" class="btn-submit-auth" style="margin-top: 2px;">
-          Create Student Login
-        </button>
-      </form>
-
-      <div id="schoolLoginsErrorMsg" class="auth-error-msg" style="display: none; margin-top: 10px;"></div>
-
-      <div style="margin-top: 16px; text-align: left;">
-        <div class="school-logins-toolbar">
-          <div style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">
-            Active Student Logins (<span id="teacherStudentLoginsCount">0</span>)
-          </div>
-          <button type="button" id="btnToggleAllStudentPwds" class="school-logins-toggle-all-btn" onclick="toggleAllStudentPasswords()">
-            Show All Passwords
-          </button>
-        </div>
-        <div id="teacherStudentLoginsList" class="school-login-list">
-          <div style="padding: 14px; text-align: center; font-size: 12.5px; color: var(--text-muted);">No student logins created yet.</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Top Header with Brand and Stats -->
   <header>
@@ -3763,13 +3399,10 @@
         <div class="stat-pill sound-toggle" id="soundToggleBtn" title="Toggle Sound" role="button" tabindex="0" aria-label="Toggle sound effects">
           <span id="soundIcon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg></span>
         </div>
-        <button type="button" class="teacher-logins-btn" id="headerTeacherLoginsBtn" onclick="openSchoolLoginsModal()" title="Create & manage student usernames and passwords">
-          Student Logins
-        </button>
-        <div class="user-profile-pill" id="headerProfileArea" onclick="handleProfileClick()" title="User Account & Sign In">
+        <div class="user-profile-pill" id="headerProfileArea" onclick="handleProfileClick()" title="Optional: Sign in to save & sync your progress across devices">
           <div class="user-avatar-circle" id="userAvatarContainer">?</div>
-          <span class="user-name-label" id="userNameLabel">Sign In to Sync</span>
-          <span class="sync-indicator-badge not-synced" id="headerSyncBadge" title="Tap to sign in">Not Synced</span>
+          <span class="user-name-label" id="userNameLabel">Sign In</span>
+          <span class="sync-indicator-badge not-synced" id="headerSyncBadge" title="Optional: Sign in to save & sync your progress across devices">Save Progress</span>
           <button type="button" class="sign-out-btn" id="headerSignOutBtn" onclick="handleSignOutClick(event)" title="Log Out">Log Out</button>
         </div>
       </div>
@@ -3910,10 +3543,7 @@
 
         <!-- Translation Card -->
         <div class="arena-card">
-          <div class="demo-lock-notice">
-            <span><strong>View-Only Demo:</strong> Preview the layout before signing up — sign in with a personal or school account to type and check translations.</span>
-            <button type="button" class="demo-lock-notice-btn" onclick="openAuthModal()">Sign In</button>
-          </div>
+
           <div class="sentence-meta-header">
             <div id="sentenceGrammarKicker" class="sentence-grammar-kicker">
               <!-- Rendered dynamically -->
@@ -4003,10 +3633,7 @@
 
         <!-- Quiz Card -->
         <div class="arcade-card">
-          <div class="demo-lock-notice">
-            <span><strong>View-Only Demo:</strong> Preview Vocab Arcade before signing up — sign in with a personal or school account to play.</span>
-            <button type="button" class="demo-lock-notice-btn" onclick="openAuthModal()">Sign In</button>
-          </div>
+
           <div class="arcade-kicker">Speed Blitz · Match the Latin Word</div>
           <div class="arcade-latin-word" id="arcadeLatinWord">puella, puellae, f.</div>
           <div class="arcade-word-note" id="arcadeWordNote">1st declension noun</div>
@@ -4033,10 +3660,7 @@
       <div class="deck-container">
         <!-- Toolbar -->
         <div class="deck-toolbar">
-          <div class="demo-lock-notice">
-            <span><strong>View-Only Demo:</strong> Preview sample vocabulary cards before signing up — sign in with a personal or school account to flip, filter, and search all 446 words.</span>
-            <button type="button" class="demo-lock-notice-btn" onclick="openAuthModal()">Sign In</button>
-          </div>
+
           <div class="deck-controls-top">
             <div class="deck-search">
               <input type="text" id="deckSearchInput" placeholder="Search Latin or English word..." oninput="handleDeckSearch()" onkeydown="if(event.key==='Enter')event.preventDefault();">
@@ -4417,10 +4041,7 @@
 
         <!-- 1. LOBBY SCREEN (Mode & Level Select) -->
         <div id="flapLobbyScreen" class="flap-lobby">
-          <div class="demo-lock-notice">
-            <span><strong>View-Only Demo:</strong> Preview the 4 Latina Flap modes and 20 levels before signing up — sign in with a personal or school account to fly.</span>
-            <button type="button" class="demo-lock-notice-btn" onclick="openAuthModal()">Sign In</button>
-          </div>
+
           <!-- Vocabulary & Difficulty Mode Selector -->
           <div class="flap-card-panel">
             <div class="flap-card-title">
@@ -4680,10 +4301,6 @@
           </div>
         </div>
 
-        <div class="demo-lock-notice">
-          <span><strong>View-Only Demo:</strong> Preview a sample Myth passage &amp; questions before signing up — sign in with a personal or school account to interact and browse all passages.</span>
-          <button type="button" class="demo-lock-notice-btn" onclick="openAuthModal()">Sign In</button>
-        </div>
 
         <div class="myths-workspace-grid">
           <section class="myths-card" aria-label="Latin passage">
@@ -4729,6 +4346,7 @@
     <div class="footer-inner">
       <div class="footer-credit">Made by Achyuth Koneti</div>
       <div class="footer-spec">RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · 175 Exam Sentences</div>
+      <div class="footer-spec" style="margin-top: 4px; opacity: 0.85;">Sign in is optional (saves &amp; syncs progress across devices). Personal Gmail, Yahoo, Outlook, or iCloud emails only — school emails cannot be used to create an account.</div>
     </div>
   </footer>
 
@@ -4744,19 +4362,15 @@
       GoogleAuthProvider, 
       signInWithEmailAndPassword, 
       createUserWithEmailAndPassword, 
+      getAdditionalUserInfo,
+      deleteUser,
       signOut 
     } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
     import { 
       getFirestore, 
       doc, 
-      getDoc, 
       getDocFromServer,
       setDoc, 
-      updateDoc,
-      deleteDoc,
-      collection,
-      query,
-      where,
       onSnapshot
     } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
 
@@ -12203,7 +11817,6 @@
     }
 
     function recordSentenceCompletedToday() {
-      if (isStudentMode || isDemoReadOnly()) return;
       const currentToday = getTodayDateString();
       if (savedDailyDate !== currentToday) {
         savedDailyDate = currentToday;
@@ -12223,32 +11836,8 @@
     }
 
     // Global userData Object tracking XP, streak, completed sentences, and learned DVL flashcards
-    let currentUser = null; // null if not signed in via Teacher/Personal Firebase auth
+    let currentUser = null; // null if practicing without an account (optional sign-in)
     let authMode = 'signin'; // 'signin' or 'signup'
-    let authRoleTab = 'student'; // 'student' or 'teacher'
-    let isGuestMode = false; // Legacy alias for View-Only School Demo mode (never auto-unlocked from localStorage)
-    let isDemoMode = false; // View-Only School Demo mode: look only, all answering/practice blocked until signed in
-    let isStudentMode = false; // Ephemeral Student Session (Username/Password): never saved, never shows progress
-    let isSigningInStudent = false;
-    let studentSession = null; // { username, schoolName, teacherUid }
-    const studentSeenSentenceIds = new Set();
-    const studentSeenMythIds = new Set();
-    let teacherLoginsUnsubscribe = null;
-    let teacherCredsUnsubscribe = null;
-    let teacherStudentLogins = [];
-    let teacherStudentCredentials = [];
-    const revealedStudentCredIds = new Set();
-    let showAllStudentPasswords = false;
-
-    function isDemoReadOnly() {
-      return !currentUser && !isStudentMode;
-    }
-
-    function notifyDemoLocked(actionDesc) {
-      if (typeof showToast === 'function') {
-        showToast('Demo is view-only (look only) — sign in to ' + (actionDesc || 'answer and practice') + '.');
-      }
-    }
 
     window.userData = {
       xp: userXP,
@@ -12282,15 +11871,10 @@
     function setSyncStatus(status) {
       const badge = document.getElementById('headerSyncBadge');
       if (!badge) return;
-      if (isStudentMode) {
-        badge.className = 'sync-indicator-badge not-synced';
-        badge.textContent = '';
-        return;
-      }
       if (!currentUser) {
         badge.className = 'sync-indicator-badge not-synced';
-        badge.textContent = 'Not Synced';
-        badge.title = 'You are currently in Guest Mode. Sign in with Google to sync across all your devices.';
+        badge.textContent = 'Save Progress';
+        badge.title = 'Optional: Sign in with a personal email to save & sync your progress across devices.';
         return;
       }
       if (status === 'syncing') {
@@ -12310,9 +11894,6 @@
 
     // Latina Flap Multi-Device State Helpers
     function getFlapLevels() {
-      if (isStudentMode) {
-        return { easy: 20, intermediate: 20, hard: 20, cases: 20 };
-      }
       try {
         const raw = JSON.parse(localStorage.getItem('romalingua_flap_mode_levels') || '{}');
         const legacy = parseInt(localStorage.getItem('romalingua_highest_level') || '1', 10) || 1;
@@ -12328,7 +11909,6 @@
     }
 
     function saveFlapLevel(mode, level) {
-      if (isStudentMode || isDemoReadOnly()) return false;
       const levels = getFlapLevels();
       const targetMode = mode || (typeof flapCurrentMode !== 'undefined' ? flapCurrentMode : 'easy');
       const newLevel = Math.min(20, Math.max(1, Number(level) || 1));
@@ -12354,7 +11934,6 @@
     }
 
     function getFlapHighScores() {
-      if (isStudentMode) return {};
       try {
         return JSON.parse(localStorage.getItem('romalingua_flap_highscores') || '{}');
       } catch (e) {
@@ -12363,7 +11942,6 @@
     }
 
     function saveFlapHighScore(mode, score) {
-      if (isStudentMode || isDemoReadOnly()) return false;
       const scores = getFlapHighScores();
       const targetMode = mode || (typeof flapCurrentMode !== 'undefined' ? flapCurrentMode : 'easy');
       const numScore = Math.max(0, Number(score) || 0);
@@ -12381,7 +11959,6 @@
 
     // Progress Synchronization Logic
     async function syncUserData() {
-      if (isStudentMode || isDemoReadOnly()) return;
       // Keep global userData in sync
       window.userData.xp = userXP;
       window.userData.streak = userStreak;
@@ -12391,7 +11968,7 @@
       window.userData.sentencesDoneToday = sentencesDoneToday;
       window.userData.lastActiveDate = savedDailyDate;
 
-      // Signed In Local Cache
+      // Local Browser Cache
       localStorage.setItem('romalingua_xp', userXP.toString());
       localStorage.setItem('romalingua_streak', userStreak.toString());
       localStorage.setItem('romalingua_mastered', JSON.stringify(masteredWords));
@@ -12454,23 +12031,12 @@
       const overlay = document.getElementById('authModalOverlay');
       const errBox = document.getElementById('authErrorMsg');
       const pwdInput = document.getElementById('authPasswordInput');
-      const stuUser = document.getElementById('studentUsernameInput');
-      const stuPwd = document.getElementById('studentPasswordInput');
       if (pwdInput) pwdInput.value = '';
-      if (stuUser) stuUser.value = '';
-      if (stuPwd) stuPwd.value = '';
       if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
-      if (typeof window.setAuthRoleTab === 'function') {
-        window.setAuthRoleTab(authRoleTab || 'student');
-      }
       if (overlay) overlay.style.display = 'flex';
     };
 
     window.closeAuthModal = function() {
-      if (!currentUser && !isStudentMode) {
-        enterDemoMode();
-        return;
-      }
       const overlay = document.getElementById('authModalOverlay');
       if (overlay) overlay.style.display = 'none';
     };
@@ -12632,22 +12198,6 @@
       }
     };
 
-    function normalizeStudentUsername(username) {
-      return String(username || '').trim().replace(/\s+/g, ' ');
-    }
-
-    async function computeStudentAccessHash(username, password) {
-      if (!window.crypto || !window.crypto.subtle) {
-        throw new Error('Secure Web Crypto API is required to verify student credentials.');
-      }
-      const normalized = normalizeStudentUsername(username).toLowerCase() + ':' + String(password || '');
-      const encoded = new TextEncoder().encode(normalized);
-      const hashBuffer = await window.crypto.subtle.digest('SHA-256', encoded);
-      return Array.from(new Uint8Array(hashBuffer))
-        .map(b => b.toString(16).padStart(2, '0'))
-        .join('');
-    }
-
     function escapeHtmlText(str) {
       return String(str || '')
         .replace(/&/g, '&amp;')
@@ -12655,517 +12205,6 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     }
-
-    function activateStudentSession(username, schoolName, teacherUid) {
-      isStudentMode = true;
-      isDemoMode = false;
-      isGuestMode = false;
-      localStorage.removeItem('romalingua_is_guest');
-      document.body.classList.remove('demo-view-mode');
-      currentUser = null;
-      studentSession = {
-        username: normalizeStudentUsername(username || 'Student'),
-        schoolName: String(schoolName || '').trim(),
-        teacherUid: String(teacherUid || '').trim()
-      };
-
-      document.body.classList.add('student-session-mode');
-
-      // Reset all in-memory progress cleanly without touching localStorage or Firestore
-      userXP = 0;
-      userStreak = 1;
-      masteredWords = [];
-      completedSentences = [];
-      sentencesDoneToday = 0;
-      if (arcadeAdvanceTimeout) {
-        clearTimeout(arcadeAdvanceTimeout);
-        arcadeAdvanceTimeout = null;
-      }
-      arcadeScore = 0;
-      arcadeStreak = 0;
-      arcadePrevStreak = 0;
-      arcadeBestStreak = 0;
-      mythAnswersState = {};
-      mythSelectedToken = null;
-      studentSeenSentenceIds.clear();
-      studentSeenMythIds.clear();
-
-      // Unlock all Flap speeds for practice without saving or displaying level progress
-      flapHighestLevel = 20;
-      flapSelectedLevel = 1;
-      flapCurrentLevel = 1;
-      flapScore = 0;
-      flapLives = 3;
-      flapLevelProgress = 0;
-      if (typeof flapGameState !== 'undefined' && flapGameState !== 'LOBBY' && typeof exitFlapToLobby === 'function') {
-        exitFlapToLobby();
-      } else {
-        if (typeof renderFlapLevelGrid === 'function') renderFlapLevelGrid();
-        if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
-      }
-
-      // Reset Arcade UI counters cleanly & refresh word if active
-      const aScoreEl = document.getElementById('arcadeScore');
-      const aStreakEl = document.getElementById('arcadeStreak');
-      const aBestEl = document.getElementById('arcadeBestStreak');
-      if (aScoreEl) aScoreEl.textContent = '0';
-      if (aStreakEl) aStreakEl.textContent = '0';
-      if (aBestEl) aBestEl.textContent = '0';
-      if (currentArcadeWord && typeof nextArcadeWord === 'function') {
-        nextArcadeWord();
-      }
-
-      // Start on a random Arena sentence and random Myth passage
-      if (typeof getRandomSentenceIndex === 'function') {
-        loadSentence(getRandomSentenceIndex(false), false);
-      }
-      if (typeof pickRandomMythId === 'function') {
-        currentMythId = pickRandomMythId(false);
-        if (typeof renderMythsView === 'function') renderMythsView();
-      }
-      if (typeof renderCardsGrid === 'function' && displayedDeckList && displayedDeckList.length > 0) {
-        renderCardsGrid();
-      }
-
-      updateGamificationDisplay();
-      updateAuthUIState();
-      closeAuthModal();
-    }
-
-    function resetFromStudentSession(restoreGuestDefaults = true) {
-      isStudentMode = false;
-      studentSession = null;
-      document.body.classList.remove('student-session-mode');
-      studentSeenSentenceIds.clear();
-      studentSeenMythIds.clear();
-
-      if (arcadeAdvanceTimeout) {
-        clearTimeout(arcadeAdvanceTimeout);
-        arcadeAdvanceTimeout = null;
-      }
-
-      if (typeof flapGameState !== 'undefined' && flapGameState !== 'LOBBY' && typeof exitFlapToLobby === 'function') {
-        exitFlapToLobby();
-      }
-
-      if (restoreGuestDefaults) {
-        userXP = parseInt(localStorage.getItem('romalingua_xp') || '0', 10) || 0;
-        userStreak = parseInt(localStorage.getItem('romalingua_streak') || '1', 10) || 1;
-        try { masteredWords = JSON.parse(localStorage.getItem('romalingua_mastered') || '[]'); } catch (_e) { masteredWords = []; }
-        try { completedSentences = JSON.parse(localStorage.getItem('romalingua_completed_sentences') || '[]'); } catch (_e) { completedSentences = []; }
-        arcadeScore = 0;
-        arcadeStreak = 0;
-        arcadePrevStreak = 0;
-        arcadeBestStreak = parseInt(localStorage.getItem('romalingua_arcade_best') || '0', 10) || 0;
-
-        const aScoreEl = document.getElementById('arcadeScore');
-        const aStreakEl = document.getElementById('arcadeStreak');
-        if (aScoreEl) aScoreEl.textContent = '0';
-        if (aStreakEl) aStreakEl.textContent = '0';
-        if (currentArcadeWord && typeof nextArcadeWord === 'function') {
-          currentArcadeWord = null;
-          nextArcadeWord();
-        }
-
-        try {
-          mythAnswersState = JSON.parse(localStorage.getItem('romalingua_myths_answers_v1') || '{}') || {};
-        } catch (_e) {
-          mythAnswersState = {};
-        }
-        const savedMythId = localStorage.getItem('romalingua_myths_current_id_v1');
-        if (savedMythId && MYTH_EXTRACTS.some(m => m.myth_id === savedMythId)) {
-          currentMythId = savedMythId;
-        } else {
-          currentMythId = MYTH_EXTRACTS[0].myth_id;
-        }
-        mythSelectedToken = null;
-
-        const savedSentenceIdx = parseInt(localStorage.getItem('romalingua_sentence_index') || '0', 10) || 0;
-        loadSentence(savedSentenceIdx, false);
-        if (typeof renderMythsView === 'function') renderMythsView();
-        if (typeof setFlapMode === 'function') setFlapMode(localStorage.getItem('romalingua_flap_mode') || 'easy', true);
-        if (typeof renderCardsGrid === 'function') renderCardsGrid();
-        if (typeof updateDeckStats === 'function') updateDeckStats();
-        updateGamificationDisplay();
-      }
-    }
-
-    window.setAuthRoleTab = function(role) {
-      authRoleTab = role === 'teacher' ? 'teacher' : 'student';
-      const stuBtn = document.getElementById('authRoleStudentBtn');
-      const teaBtn = document.getElementById('authRoleTeacherBtn');
-      const stuPanel = document.getElementById('authStudentPanel');
-      const teaPanel = document.getElementById('authTeacherPanel');
-      const errBox = document.getElementById('authErrorMsg');
-      if (stuBtn) stuBtn.className = 'auth-role-tab' + (authRoleTab === 'student' ? ' active' : '');
-      if (teaBtn) teaBtn.className = 'auth-role-tab' + (authRoleTab === 'teacher' ? ' active' : '');
-      if (stuPanel) stuPanel.style.display = authRoleTab === 'student' ? 'block' : 'none';
-      if (teaPanel) teaPanel.style.display = authRoleTab === 'teacher' ? 'block' : 'none';
-      if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
-    };
-
-    window.handleStudentLogin = async function(event) {
-      if (event && event.preventDefault) event.preventDefault();
-      const userInput = document.getElementById('studentUsernameInput');
-      const pwdInput = document.getElementById('studentPasswordInput');
-      const submitBtn = document.getElementById('btnSubmitStudentLogin');
-      const errBox = document.getElementById('authErrorMsg');
-      if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
-
-      const rawUser = userInput ? normalizeStudentUsername(userInput.value) : '';
-      const rawPwd = pwdInput ? pwdInput.value : '';
-
-      if (rawUser.length < 2 || rawPwd.length < 4) {
-        if (errBox) {
-          errBox.textContent = 'Please enter your class username (min 2 chars) and password (min 4 chars).';
-          errBox.style.display = 'block';
-        }
-        return;
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Checking login...';
-      }
-
-      isSigningInStudent = true;
-      try {
-        if (auth.currentUser) {
-          if (userDocUnsubscribe) { userDocUnsubscribe(); userDocUnsubscribe = null; }
-          if (teacherLoginsUnsubscribe) { teacherLoginsUnsubscribe(); teacherLoginsUnsubscribe = null; }
-          if (teacherCredsUnsubscribe) { teacherCredsUnsubscribe(); teacherCredsUnsubscribe = null; }
-          await signOut(auth);
-        }
-
-        const accessHash = await computeStudentAccessHash(rawUser, rawPwd);
-        const accessRef = doc(db, 'student_access', accessHash);
-        let snap;
-        try {
-          snap = await getDocFromServer(accessRef);
-        } catch (serverErr) {
-          if (serverErr && serverErr.message && serverErr.message.includes('offline')) {
-            snap = await getDoc(accessRef);
-          } else {
-            throw serverErr;
-          }
-        }
-
-        if (!snap || !snap.exists()) {
-          if (errBox) {
-            errBox.textContent = 'Invalid username or password. Ask your teacher for your class login.';
-            errBox.style.display = 'block';
-          }
-          return;
-        }
-
-        const data = snap.data() || {};
-        activateStudentSession(data.username || rawUser, data.schoolName || '', data.teacherUid || '');
-      } catch (err) {
-        handleFirestoreError(err, 'get', 'student_access/[hashed]');
-        if (errBox) {
-          errBox.textContent = 'Could not verify login right now. Check your internet connection and try again.';
-          errBox.style.display = 'block';
-        }
-      } finally {
-        isSigningInStudent = false;
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Enter Website';
-        }
-      }
-    };
-
-    // Teacher School & Student Logins Portal Handlers
-    window.openSchoolLoginsModal = function() {
-      if (!currentUser || isStudentMode) {
-        openAuthModal();
-        return;
-      }
-      const overlay = document.getElementById('schoolLoginsModalOverlay');
-      const errBox = document.getElementById('schoolLoginsErrorMsg');
-      if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
-      renderTeacherStudentLogins();
-      if (overlay) overlay.style.display = 'flex';
-    };
-
-    window.closeSchoolLoginsModal = function() {
-      const overlay = document.getElementById('schoolLoginsModalOverlay');
-      if (overlay) overlay.style.display = 'none';
-    };
-
-    function subscribeTeacherStudentLogins(teacherUid) {
-      if (teacherLoginsUnsubscribe) {
-        teacherLoginsUnsubscribe();
-        teacherLoginsUnsubscribe = null;
-      }
-      if (teacherCredsUnsubscribe) {
-        teacherCredsUnsubscribe();
-        teacherCredsUnsubscribe = null;
-      }
-      if (!teacherUid) {
-        teacherStudentLogins = [];
-        teacherStudentCredentials = [];
-        revealedStudentCredIds.clear();
-        showAllStudentPasswords = false;
-        renderTeacherStudentLogins();
-        return;
-      }
-      const qAccess = query(collection(db, 'student_access'), where('teacherUid', '==', teacherUid));
-      teacherLoginsUnsubscribe = onSnapshot(qAccess, (snapshot) => {
-        const list = [];
-        snapshot.forEach((docSnap) => {
-          list.push({ id: docSnap.id, ...(docSnap.data() || {}) });
-        });
-        teacherStudentLogins = list;
-        renderTeacherStudentLogins();
-      }, (err) => {
-        handleFirestoreError(err, 'list', 'student_access');
-      });
-
-      const qCreds = query(collection(db, 'users', teacherUid, 'student_credentials'), where('teacherUid', '==', teacherUid));
-      teacherCredsUnsubscribe = onSnapshot(qCreds, (snapshot) => {
-        const list = [];
-        snapshot.forEach((docSnap) => {
-          list.push({ id: docSnap.id, ...(docSnap.data() || {}) });
-        });
-        teacherStudentCredentials = list;
-        renderTeacherStudentLogins();
-      }, (err) => {
-        handleFirestoreError(err, 'list', 'users/' + teacherUid + '/student_credentials');
-      });
-    }
-
-    function getMergedTeacherStudentList() {
-      const mergedMap = new Map();
-      teacherStudentLogins.forEach(item => {
-        mergedMap.set(item.id, { ...item });
-      });
-      teacherStudentCredentials.forEach(cred => {
-        const existing = mergedMap.get(cred.id) || {};
-        mergedMap.set(cred.id, { ...existing, ...cred, id: cred.id });
-      });
-      return Array.from(mergedMap.values()).sort((a, b) =>
-        String(a.username || '').localeCompare(String(b.username || ''), undefined, { sensitivity: 'base' })
-      );
-    }
-
-    window.toggleStudentPasswordVisibility = function(credId) {
-      if (!credId) return;
-      if (revealedStudentCredIds.has(credId)) {
-        revealedStudentCredIds.delete(credId);
-      } else {
-        revealedStudentCredIds.add(credId);
-      }
-      renderTeacherStudentLogins();
-    };
-
-    window.toggleAllStudentPasswords = function() {
-      showAllStudentPasswords = !showAllStudentPasswords;
-      if (!showAllStudentPasswords) {
-        revealedStudentCredIds.clear();
-      }
-      renderTeacherStudentLogins();
-    };
-
-    window.copyStudentCredential = function(credId) {
-      const merged = getMergedTeacherStudentList();
-      const item = merged.find(x => x.id === credId);
-      if (!item) return;
-      const text = item.password
-        ? ('Username: ' + item.username + ' | Password: ' + item.password)
-        : ('Username: ' + item.username);
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast('Copied login for "' + item.username + '"!');
-        }).catch(() => {
-          showToast(text);
-        });
-      } else {
-        showToast(text);
-      }
-    };
-
-    function renderTeacherStudentLogins() {
-      const mergedList = getMergedTeacherStudentList();
-      const countEl = document.getElementById('teacherStudentLoginsCount');
-      const listEl = document.getElementById('teacherStudentLoginsList');
-      const toggleAllBtn = document.getElementById('btnToggleAllStudentPwds');
-      if (countEl) countEl.textContent = String(mergedList.length);
-      if (toggleAllBtn) {
-        toggleAllBtn.textContent = showAllStudentPasswords ? 'Hide All Passwords' : 'Show All Passwords';
-        toggleAllBtn.style.display = mergedList.some(i => Boolean(i.password)) ? 'inline-block' : 'none';
-      }
-      if (!listEl) return;
-
-      if (!mergedList.length) {
-        listEl.innerHTML = '<div style="padding: 14px; text-align: center; font-size: 12.5px; color: var(--text-muted);">No student logins created yet.</div>';
-        return;
-      }
-
-      listEl.innerHTML = mergedList.map(item => {
-        const uname = escapeHtmlText(item.username || 'student');
-        const school = item.schoolName ? '<span class="school-login-school">' + escapeHtmlText(item.schoolName) + '</span>' : '';
-        const safeId = escapeHtmlText(item.id || '').replace(/'/g, '&#39;');
-        const hasPwd = typeof item.password === 'string' && item.password.length > 0;
-        const isShown = showAllStudentPasswords || revealedStudentCredIds.has(item.id);
-        const pwdDisplay = hasPwd
-          ? ('<div class="school-login-pwd-row">' +
-               '<span>Password:</span>' +
-               '<span class="school-login-pwd-code">' + (isShown ? escapeHtmlText(item.password) : '••••••••') + '</span>' +
-             '</div>')
-          : '<div class="school-login-pwd-row"><span>Re-create with this username to store viewable password</span></div>';
-
-        const eyeBtn = hasPwd
-          ? '<button type="button" class="school-login-action-btn" onclick="toggleStudentPasswordVisibility(\'' + safeId + '\')">' + (isShown ? 'Hide' : 'Show') + '</button>'
-          : '';
-        const copyBtn = hasPwd
-          ? '<button type="button" class="school-login-action-btn" onclick="copyStudentCredential(\'' + safeId + '\')">Copy</button>'
-          : '';
-
-        return (
-          '<div class="school-login-item">' +
-            '<div class="school-login-meta">' +
-              '<span class="school-login-uname">' + uname + '</span>' +
-              pwdDisplay +
-              school +
-            '</div>' +
-            '<div class="school-login-actions">' +
-              eyeBtn +
-              copyBtn +
-              '<button type="button" class="school-login-del-btn" onclick="deleteStudentLogin(\'' + safeId + '\')">Remove</button>' +
-            '</div>' +
-          '</div>'
-        );
-      }).join('');
-    }
-
-    window.handleCreateStudentLogin = async function(event) {
-      if (event && event.preventDefault) event.preventDefault();
-      if (!currentUser || !currentUser.uid) return;
-
-      const schoolInput = document.getElementById('teacherSchoolNameInput');
-      const userInput = document.getElementById('newStudentUsernameInput');
-      const pwdInput = document.getElementById('newStudentPasswordInput');
-      const submitBtn = document.getElementById('btnCreateStudentLogin');
-      const errBox = document.getElementById('schoolLoginsErrorMsg');
-      if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
-
-      const schoolLabel = schoolInput ? schoolInput.value.trim().slice(0, 100) : '';
-      const rawUsername = userInput ? normalizeStudentUsername(userInput.value) : '';
-      const rawPwd = pwdInput ? pwdInput.value : '';
-
-      if (rawUsername.length < 2 || rawUsername.length > 40 || /[\r\n]/.test(rawUsername)) {
-        if (errBox) {
-          errBox.textContent = 'Username must be between 2 and 40 characters.';
-          errBox.style.display = 'block';
-        }
-        return;
-      }
-      if (rawPwd.length < 4 || rawPwd.length > 64) {
-        if (errBox) {
-          errBox.textContent = 'Password must be 4–64 characters.';
-          errBox.style.display = 'block';
-        }
-        return;
-      }
-
-      const usernameKey = rawUsername.toLowerCase();
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Creating...';
-      }
-
-      try {
-        const accessHash = await computeStudentAccessHash(rawUsername, rawPwd);
-
-        const existingAccess = teacherStudentLogins.find(item => item.id === accessHash);
-        const existingCred = teacherStudentCredentials.find(item => item.id === accessHash);
-
-        if (existingAccess && existingCred) {
-          if (errBox) {
-            errBox.textContent = 'That exact username and password is already active.';
-            errBox.style.display = 'block';
-          }
-          return;
-        }
-
-        // Remove any prior credentials for this same username (case-insensitive) when changing password
-        const oldAccessIds = new Set();
-        teacherStudentLogins
-          .filter(item => normalizeStudentUsername(item.username).toLowerCase() === usernameKey && item.id !== accessHash)
-          .forEach(item => oldAccessIds.add(item.id));
-        teacherStudentCredentials
-          .filter(item => normalizeStudentUsername(item.username).toLowerCase() === usernameKey && item.id !== accessHash)
-          .forEach(item => oldAccessIds.add(item.id));
-
-        for (const oldId of oldAccessIds) {
-          await Promise.allSettled([
-            deleteDoc(doc(db, 'student_access', oldId)),
-            deleteDoc(doc(db, 'users', currentUser.uid, 'student_credentials', oldId))
-          ]);
-        }
-
-        const nowIso = new Date().toISOString();
-        if (!existingAccess) {
-          const accessPayload = {
-            accessHash,
-            teacherUid: currentUser.uid,
-            username: rawUsername,
-            createdAt: nowIso
-          };
-          if (schoolLabel) accessPayload.schoolName = schoolLabel;
-          await setDoc(doc(db, 'student_access', accessHash), accessPayload);
-        }
-
-        if (!existingCred) {
-          const credPayload = {
-            credId: accessHash,
-            teacherUid: currentUser.uid,
-            username: rawUsername,
-            password: rawPwd,
-            createdAt: nowIso
-          };
-          if (schoolLabel) credPayload.schoolName = schoolLabel;
-          await setDoc(doc(db, 'users', currentUser.uid, 'student_credentials', accessHash), credPayload);
-        }
-
-        if (userInput) userInput.value = '';
-        if (pwdInput) pwdInput.value = '';
-        showToast('Student login "' + rawUsername + '" saved!');
-      } catch (err) {
-        handleFirestoreError(err, 'create', 'student_access/[hashed]');
-        if (errBox) {
-          errBox.textContent = (err && err.code === 'permission-denied')
-            ? 'Could not create login — that username/password combination may already be in use. Try a slightly more unique username or password.'
-            : (err.message || 'Could not create student login.');
-          errBox.style.display = 'block';
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Create Student Login';
-        }
-      }
-    };
-
-    window.deleteStudentLogin = async function(accessId) {
-      if (!currentUser || !accessId) return;
-      try {
-        const results = await Promise.allSettled([
-          deleteDoc(doc(db, 'student_access', accessId)),
-          deleteDoc(doc(db, 'users', currentUser.uid, 'student_credentials', accessId))
-        ]);
-        const anySucceeded = results.some(r => r.status === 'fulfilled');
-        if (!anySucceeded) {
-          throw results[0].reason;
-        }
-        revealedStudentCredIds.delete(accessId);
-        showToast('Student login removed.');
-      } catch (err) {
-        handleFirestoreError(err, 'delete', 'student_access/' + accessId);
-        showToast('Unable to remove student login.');
-      }
-    };
 
     window.setAuthMode = function(mode) {
       authMode = mode;
@@ -13179,32 +12218,53 @@
       if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
     };
 
-    function enterDemoMode() {
-      if (isStudentMode) {
-        resetFromStudentSession(true);
-      }
-      isDemoMode = true;
-      isGuestMode = true;
-      document.body.classList.add('demo-view-mode');
-      if (typeof flapGameState !== 'undefined' && flapGameState !== 'LOBBY' && typeof exitFlapToLobby === 'function') {
-        exitFlapToLobby();
-      }
-      const input = document.getElementById('translationInput');
-      if (input) {
-        input.value = '';
-        input.className = 'arena-input';
-        input.disabled = true;
-        input.placeholder = 'Demo View Only — Sign in to type & check translations';
-      }
-      const overlay = document.getElementById('authModalOverlay');
-      if (overlay) overlay.style.display = 'none';
-      updateAuthUIState();
-      if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
-    }
+    const ALLOWED_EMAIL_DOMAINS = new Set([
+      // Gmail
+      'gmail.com',
+      'googlemail.com',
+      // Yahoo
+      'yahoo.com',
+      'yahoo.co.uk',
+      'yahoo.ca',
+      'yahoo.com.au',
+      'yahoo.fr',
+      'yahoo.de',
+      'yahoo.es',
+      'yahoo.it',
+      'yahoo.co.in',
+      'yahoo.ie',
+      'ymail.com',
+      'rocketmail.com',
+      // Outlook
+      'outlook.com',
+      'outlook.co.uk',
+      'outlook.fr',
+      'outlook.de',
+      'hotmail.com',
+      'hotmail.co.uk',
+      'live.com',
+      'live.co.uk',
+      'msn.com',
+      // iCloud
+      'icloud.com',
+      'me.com',
+      'mac.com'
+    ]);
 
-    window.handleContinueAsGuest = function() {
-      enterDemoMode();
-    };
+    const DISALLOWED_EMAIL_MSG =
+      'School emails cannot be used to create or sign in to an account. Please use a personal Gmail, Yahoo, Outlook, or iCloud email — or close this window to practice without signing in.';
+
+    let isRejectingDisallowedAuth = false;
+
+    function isAllowedPersonalEmail(email) {
+      if (typeof email !== 'string') return false;
+      const trimmed = email.trim().toLowerCase();
+      const atIdx = trimmed.lastIndexOf('@');
+      if (atIdx <= 0 || atIdx === trimmed.length - 1) return false;
+      if (/\s/.test(trimmed)) return false;
+      const domain = trimmed.slice(atIdx + 1);
+      return ALLOWED_EMAIL_DOMAINS.has(domain);
+    }
 
     window.handleGoogleSignIn = async function() {
       const errBox = document.getElementById('authErrorMsg');
@@ -13215,19 +12275,37 @@
         googleBtn.style.opacity = '0.7';
       }
       try {
-        if (isStudentMode) {
-          resetFromStudentSession(true);
-        }
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' });
-        await signInWithPopup(auth, provider);
+        const cred = await signInWithPopup(auth, provider);
+        const signedEmail = cred && cred.user ? cred.user.email : '';
+        if (!isAllowedPersonalEmail(signedEmail)) {
+          isRejectingDisallowedAuth = true;
+          try {
+            const info = getAdditionalUserInfo(cred);
+            if (info && info.isNewUser && cred.user) {
+              await deleteUser(cred.user);
+            } else {
+              await signOut(auth);
+            }
+          } catch (_cleanupErr) {
+            try { await signOut(auth); } catch (_soErr) {}
+          } finally {
+            isRejectingDisallowedAuth = false;
+          }
+          if (errBox) {
+            errBox.textContent = DISALLOWED_EMAIL_MSG;
+            errBox.style.display = 'block';
+          }
+          return;
+        }
         closeAuthModal();
       } catch (err) {
         console.error('Google Sign In error:', err);
         if (err.code !== 'auth/popup-closed-by-user') {
           if (errBox) {
             if (err.code === 'auth/unauthorized-domain') {
-              errBox.innerHTML = '<strong>Domain not authorized yet:</strong> To use Google Sign-in on this address, add <code>' + window.location.hostname + '</code> in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: #1d4ed8; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Alternatively, click <strong>View Website Demo (Look Only)</strong> below!';
+              errBox.innerHTML = '<strong>Domain not authorized yet:</strong> To use Google Sign-in on this address, add <code>' + window.location.hostname + '</code> in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/settings" target="_blank" rel="noopener noreferrer" style="color: #1d4ed8; text-decoration: underline;">Firebase Console &gt; Authorized Domains</a>. Alternatively, click <strong>Continue Without Signing In</strong> below!';
             } else {
               errBox.textContent = err.message || 'Google Sign-in failed. Please try again.';
             }
@@ -13261,15 +12339,20 @@
         return;
       }
 
+      if (!isAllowedPersonalEmail(email)) {
+        if (errBox) {
+          errBox.textContent = DISALLOWED_EMAIL_MSG;
+          errBox.style.display = 'block';
+        }
+        return;
+      }
+
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = authMode === 'signin' ? 'Signing In...' : 'Creating Account...';
       }
 
       try {
-        if (isStudentMode) {
-          resetFromStudentSession(true);
-        }
         if (authMode === 'signin') {
           await signInWithEmailAndPassword(auth, email, pwd);
         } else {
@@ -13280,7 +12363,7 @@
         console.error('Email Auth error:', err);
         if (err.code === 'auth/operation-not-allowed') {
           if (errBox) {
-            errBox.innerHTML = '<strong>Email &amp; Password sign-in is not enabled yet:</strong> Enable the <strong>Email/Password</strong> provider in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/providers" target="_blank" rel="noopener noreferrer" style="color: #1d4ed8; text-decoration: underline;">Firebase Console &gt; Authentication &gt; Sign-in method</a>, or click <strong>Continue with Google / Gmail</strong> above!';
+            errBox.innerHTML = '<strong>Email &amp; Password sign-in is not enabled yet:</strong> Enable the <strong>Email/Password</strong> provider in your <a href="https://console.firebase.google.com/project/resonant-sandbox-dv4kj/authentication/providers" target="_blank" rel="noopener noreferrer" style="color: #1d4ed8; text-decoration: underline;">Firebase Console &gt; Authentication &gt; Sign-in method</a>, or click <strong>Continue with Personal Gmail</strong> above!';
             errBox.style.display = 'block';
           }
           return;
@@ -13308,7 +12391,7 @@
     };
 
     window.handleProfileClick = function() {
-      if (!currentUser && !isStudentMode) {
+      if (!currentUser) {
         openAuthModal();
       }
     };
@@ -13317,70 +12400,27 @@
       if (e && e.stopPropagation) e.stopPropagation();
       if (e && e.preventDefault) e.preventDefault();
       try {
-        if (isStudentMode) {
-          // Student logs out -> reset session completely & show login screen so next login starts fresh
-          resetFromStudentSession(true);
-          isDemoMode = false;
-          isGuestMode = false;
-          localStorage.removeItem('romalingua_is_guest');
-          updateAuthUIState();
-          setAuthRoleTab('student');
-          openAuthModal();
-          return;
-        }
         if (userDocUnsubscribe) {
           userDocUnsubscribe();
           userDocUnsubscribe = null;
         }
-        if (teacherLoginsUnsubscribe) {
-          teacherLoginsUnsubscribe();
-          teacherLoginsUnsubscribe = null;
-        }
-        if (teacherCredsUnsubscribe) {
-          teacherCredsUnsubscribe();
-          teacherCredsUnsubscribe = null;
-        }
-        closeSchoolLoginsModal();
         await signOut(auth);
         currentUser = null;
-        teacherStudentLogins = [];
-        teacherStudentCredentials = [];
-        revealedStudentCredIds.clear();
-        showAllStudentPasswords = false;
-        isDemoMode = false;
-        isGuestMode = false;
-        localStorage.removeItem('romalingua_is_guest');
         updateAuthUIState();
-        openAuthModal();
+        if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+        if (typeof showToast === 'function') showToast('Signed out. You can keep practicing or sign in again anytime.');
       } catch (err) {
         console.error('Sign Out error:', err);
       }
     };
 
     function updateAuthUIState() {
-      const banner = document.getElementById('guestWarningBanner');
       const avatarContainer = document.getElementById('userAvatarContainer');
       const nameLabel = document.getElementById('userNameLabel');
       const signOutBtn = document.getElementById('headerSignOutBtn');
-      const teacherLoginsBtn = document.getElementById('headerTeacherLoginsBtn');
 
-      if (isStudentMode && studentSession) {
-        document.body.classList.remove('demo-view-mode');
-        if (banner) banner.style.display = 'none';
+      if (currentUser) {
         if (signOutBtn) signOutBtn.style.display = 'inline-block';
-        if (teacherLoginsBtn) teacherLoginsBtn.style.display = 'none';
-
-        const uname = studentSession.username || 'Student';
-        if (nameLabel) nameLabel.textContent = uname;
-        if (avatarContainer) avatarContainer.textContent = uname.charAt(0).toUpperCase();
-        setSyncStatus('not-synced');
-      } else if (currentUser) {
-        // Logged In Teacher / Personal
-        document.body.classList.remove('demo-view-mode');
-        if (banner) banner.style.display = 'none';
-        if (signOutBtn) signOutBtn.style.display = 'inline-block';
-        if (teacherLoginsBtn) teacherLoginsBtn.style.display = 'inline-flex';
-        
         const displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Scholar');
         if (nameLabel) nameLabel.textContent = displayName;
 
@@ -13394,19 +12434,10 @@
         }
         setSyncStatus('synced');
       } else {
-        // Demo View-Only Mode / Not Signed In
-        document.body.classList.add('demo-view-mode');
-        if (banner) banner.style.display = 'flex';
         if (signOutBtn) signOutBtn.style.display = 'none';
-        if (teacherLoginsBtn) teacherLoginsBtn.style.display = 'none';
-        if (nameLabel) nameLabel.textContent = 'Demo (View Only)';
-        if (avatarContainer) avatarContainer.textContent = 'D';
-        const badge = document.getElementById('headerSyncBadge');
-        if (badge) {
-          badge.className = 'sync-indicator-badge not-synced';
-          badge.textContent = 'View Only';
-          badge.title = 'Demo mode is view-only. Sign in to unlock answering, tools, and saving.';
-        }
+        if (nameLabel) nameLabel.textContent = 'Sign In';
+        if (avatarContainer) avatarContainer.textContent = '?';
+        setSyncStatus('not-synced');
       }
     }
 
@@ -13416,33 +12447,26 @@
         userDocUnsubscribe();
         userDocUnsubscribe = null;
       }
-      if (teacherLoginsUnsubscribe) {
-        teacherLoginsUnsubscribe();
-        teacherLoginsUnsubscribe = null;
-      }
-      if (teacherCredsUnsubscribe) {
-        teacherCredsUnsubscribe();
-        teacherCredsUnsubscribe = null;
-      }
 
       if (user) {
-        if (isStudentMode) {
-          resetFromStudentSession(true);
+        if (!isAllowedPersonalEmail(user.email)) {
+          currentUser = null;
+          if (!isRejectingDisallowedAuth) {
+            try { await signOut(auth); } catch (_e) {}
+            const errBox = document.getElementById('authErrorMsg');
+            if (errBox) {
+              errBox.textContent = DISALLOWED_EMAIL_MSG;
+              errBox.style.display = 'block';
+            }
+            openAuthModal();
+          }
+          updateAuthUIState();
+          return;
         }
         currentUser = user;
-        isDemoMode = false;
-        isGuestMode = false;
-        localStorage.removeItem('romalingua_is_guest');
-        document.body.classList.remove('demo-view-mode');
         const overlay = document.getElementById('authModalOverlay');
         if (overlay) overlay.style.display = 'none';
-        const arenaInput = document.getElementById('translationInput');
-        if (arenaInput) {
-          arenaInput.disabled = false;
-          arenaInput.placeholder = 'Type your English translation here...';
-        }
         updateAuthUIState();
-        subscribeTeacherStudentLogins(user.uid);
         if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
 
         const userRef = doc(db, 'users', user.uid);
@@ -13575,18 +12599,8 @@
 
       } else {
         currentUser = null;
-        teacherStudentLogins = [];
-        teacherStudentCredentials = [];
-        revealedStudentCredIds.clear();
-        showAllStudentPasswords = false;
-        if (isStudentMode || isSigningInStudent) {
-          updateAuthUIState();
-          return;
-        }
         updateAuthUIState();
-        if (!isDemoMode) {
-          openAuthModal();
-        }
+        if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
       }
     });
 
@@ -13668,7 +12682,6 @@
 
     // Gamification persistence
     function addXP(amount) {
-      if (isStudentMode || isDemoReadOnly()) return;
       userXP += amount;
       syncUserData();
       updateGamificationDisplay();
@@ -13774,32 +12787,7 @@
       return filtered.length > 0 ? filtered : SENTENCES_DATA;
     }
 
-    function getRandomSentenceIndex(avoidCurrent = true) {
-      const pool = getFilteredSentencePool();
-      if (!pool.length) return 0;
-
-      const currentSentence = SENTENCES_DATA[currentSentenceIndex];
-      let candidates = pool.filter(s =>
-        !studentSeenSentenceIds.has(s.id) &&
-        (!avoidCurrent || !currentSentence || s.id !== currentSentence.id || pool.length === 1)
-      );
-
-      if (candidates.length === 0) {
-        pool.forEach(s => studentSeenSentenceIds.delete(s.id));
-        candidates = pool.filter(s => !avoidCurrent || !currentSentence || s.id !== currentSentence.id || pool.length === 1);
-      }
-      if (candidates.length === 0) candidates = pool;
-
-      const target = candidates[Math.floor(Math.random() * candidates.length)];
-      const globalIdx = SENTENCES_DATA.findIndex(s => s.id === target.id);
-      return globalIdx >= 0 ? globalIdx : 0;
-    }
-
     function getNextSentenceIndex() {
-      if (isStudentMode) {
-        return getRandomSentenceIndex(true);
-      }
-
       const pool = getFilteredSentencePool();
       if (!pool.length) return 0;
 
@@ -13886,15 +12874,9 @@
     }
 
     function setArenaDifficulty(diff, shouldPlaySound = true, fromInit = false) {
-      if (!fromInit && isDemoReadOnly()) {
-        notifyDemoLocked('change difficulty tiers or practice');
-        return;
-      }
       if (!['all', 'easy', 'intermediate', 'hard', 'gcse'].includes(diff)) diff = 'all';
       currentDifficulty = diff;
-      if (!isStudentMode && !isDemoReadOnly()) {
-        localStorage.setItem('romalingua_arena_difficulty', currentDifficulty);
-      }
+      localStorage.setItem('romalingua_arena_difficulty', currentDifficulty);
 
       // Update active pill button styling
       document.querySelectorAll('.diff-pill-btn').forEach(btn => {
@@ -13906,16 +12888,12 @@
       const currentSentence = SENTENCES_DATA[currentSentenceIndex];
       const inPool = currentSentence && (currentDifficulty === 'all' || currentSentence.difficulty === currentDifficulty);
 
-      if ((!inPool || isStudentMode) && pool.length > 0) {
-        if (isStudentMode) {
-          loadSentence(getRandomSentenceIndex(!inPool ? false : true), false);
-        } else {
-          // Jump to first uncompleted in tier, or pool[0]
-          const uncompleted = pool.find(s => !completedSentences.includes(s.id));
-          const target = uncompleted || pool[0];
-          const targetGlobalIdx = SENTENCES_DATA.findIndex(s => s.id === target.id);
-          loadSentence(targetGlobalIdx >= 0 ? targetGlobalIdx : 0, !fromInit);
-        }
+      if (!inPool && pool.length > 0) {
+        // Jump to first uncompleted in tier, or pool[0]
+        const uncompleted = pool.find(s => !completedSentences.includes(s.id));
+        const target = uncompleted || pool[0];
+        const targetGlobalIdx = SENTENCES_DATA.findIndex(s => s.id === target.id);
+        loadSentence(targetGlobalIdx >= 0 ? targetGlobalIdx : 0, !fromInit);
       } else {
         renderSentenceMeta(currentSentence);
         updateTierSummaryDisplay();
@@ -13930,26 +12908,19 @@
       // After 175 sentences done, restart the cycle
       if (index >= SENTENCES_DATA.length) {
         currentSentenceIndex = 0;
-        if (!isStudentMode && !isDemoReadOnly()) {
-          showToast('All 175 sentences completed! Cycle restarted.');
-        }
+        showToast('All 175 sentences completed! Cycle restarted.');
       } else {
         currentSentenceIndex = (index + SENTENCES_DATA.length) % SENTENCES_DATA.length;
       }
 
       const sentence = SENTENCES_DATA[currentSentenceIndex];
-      if (isStudentMode && sentence && sentence.id) {
-        studentSeenSentenceIds.add(sentence.id);
-      }
 
-      // Keep sentence progress in sync across devices and sessions (disabled in Student Mode & Demo Mode)
-      if (!isStudentMode && !isDemoReadOnly()) {
-        localStorage.setItem('romalingua_sentence_index', currentSentenceIndex.toString());
-        localStorage.setItem('romalingua_last_active_time', Date.now().toString());
-        if (window.userData) window.userData.currentSentenceIndex = currentSentenceIndex;
-        if (shouldSync && currentUser && currentUser.uid) {
-          syncUserData();
-        }
+      // Keep sentence progress in sync across devices and sessions
+      localStorage.setItem('romalingua_sentence_index', currentSentenceIndex.toString());
+      localStorage.setItem('romalingua_last_active_time', Date.now().toString());
+      if (window.userData) window.userData.currentSentenceIndex = currentSentenceIndex;
+      if (shouldSync && currentUser && currentUser.uid) {
+        syncUserData();
       }
 
       sentenceAttempts = 0;
@@ -13983,10 +12954,6 @@
 
           tokenSpan.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (isDemoReadOnly()) {
-              notifyDemoLocked('tap words for meanings');
-              return;
-            }
             document.querySelectorAll('.latin-token').forEach(el => {
               if (el !== tokenSpan) el.classList.remove('active-token');
             });
@@ -14003,14 +12970,9 @@
       if (input) {
         input.value = '';
         input.className = 'arena-input';
-        if (isDemoReadOnly()) {
-          input.disabled = true;
-          input.placeholder = 'Demo View Only — Sign in to type & check translations';
-        } else {
-          input.disabled = false;
-          input.placeholder = 'Type your English translation here...';
-          input.focus();
-        }
+        input.disabled = false;
+        input.placeholder = 'Type your English translation here...';
+        if (shouldSync) input.focus();
       }
 
       // Reset feedback banner
@@ -14040,10 +13002,6 @@
     }
 
     function toggleTenseHint() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('view tense hints');
-        return;
-      }
       const hintBox = document.getElementById('tenseHintBox');
       if (!hintBox) return;
       tenseHintVisible = !tenseHintVisible;
@@ -14060,10 +13018,6 @@
     }
 
     async function checkTranslation() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('check translations');
-        return;
-      }
       const input = document.getElementById('translationInput');
       if (!input) return;
 
@@ -14094,9 +13048,7 @@
 
       let isCorrect = isDirectMatch;
       let examinerTitle = 'Optime! (Correct)';
-      let examinerExplanation = isStudentMode
-        ? sentence.primaryTranslation
-        : (sentence.primaryTranslation + ' (+15 XP awarded!)');
+      let examinerExplanation = sentence.primaryTranslation + ' (+15 XP awarded!)';
 
       const isStaticOrOffline = window.location.protocol === 'file:' || 
                                 window.location.hostname.endsWith('github.io') ||
@@ -14154,9 +13106,7 @@
         if (userWords.length > 0 && matchedWords.length / Math.max(userWords.length, primaryWords.length) >= 0.8) {
           isCorrect = true;
           examinerTitle = 'Optime! (Accepted)';
-          examinerExplanation = isStudentMode
-            ? `Good translation: "${sentence.primaryTranslation}"`
-            : `Good translation: "${sentence.primaryTranslation}" (+15 XP awarded!)`;
+          examinerExplanation = `Good translation: "${sentence.primaryTranslation}" (+15 XP awarded!)`;
         }
       }
 
@@ -14172,17 +13122,15 @@
         feedback.className = 'feedback-banner success';
         feedbackIcon.textContent = '✓';
         feedbackTitle.textContent = examinerTitle || 'Optime! (Correct)';
-        feedbackText.textContent = examinerExplanation || (isStudentMode ? sentence.primaryTranslation : (sentence.primaryTranslation + ' (+15 XP awarded!)'));
+        feedbackText.textContent = examinerExplanation || (sentence.primaryTranslation + ' (+15 XP awarded!)');
         feedback.style.display = 'flex';
 
         playSuccessChime();
-        if (!isStudentMode) {
-          addXP(15);
-          recordSentenceCompletedToday();
-          if (!completedSentences.includes(sentence.id)) {
-            completedSentences.push(sentence.id);
-            syncUserData();
-          }
+        addXP(15);
+        recordSentenceCompletedToday();
+        if (!completedSentences.includes(sentence.id)) {
+          completedSentences.push(sentence.id);
+          syncUserData();
         }
 
         checkBtn.innerHTML = '<span>Next Sentence →</span>';
@@ -14235,10 +13183,6 @@
     }
 
     function handleIWasRight() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('submit answers');
-        return;
-      }
       const sentence = SENTENCES_DATA[currentSentenceIndex];
       const input = document.getElementById('translationInput');
       const userTyped = (lastSubmittedSentenceAnswer || (input ? input.value : '')).trim();
@@ -14282,9 +13226,7 @@
         if (feedbackIcon) feedbackIcon.textContent = '✓';
         if (feedbackTitle) feedbackTitle.textContent = 'Optime! Marked as correct (Override)';
         if (feedbackText) {
-          feedbackText.textContent = isStudentMode
-            ? `"${acceptedAnswer}" accepted as valid!`
-            : `"${acceptedAnswer}" accepted as valid! (+15 XP awarded)`;
+          feedbackText.textContent = `"${acceptedAnswer}" accepted as valid! (+15 XP awarded)`;
         }
         feedback.style.display = 'flex';
       }
@@ -14293,13 +13235,11 @@
       if (arenaIWasRightBtn) arenaIWasRightBtn.style.display = 'none';
 
       playSuccessChime();
-      if (!isStudentMode) {
-        addXP(15);
-        recordSentenceCompletedToday();
-        if (sentence && !completedSentences.includes(sentence.id)) {
-          completedSentences.push(sentence.id);
-          syncUserData();
-        }
+      addXP(15);
+      recordSentenceCompletedToday();
+      if (sentence && !completedSentences.includes(sentence.id)) {
+        completedSentences.push(sentence.id);
+        syncUserData();
       }
 
       if (checkBtn) {
@@ -14309,23 +13249,15 @@
         checkBtn.focus();
       }
 
-      showToast(isStudentMode ? '"I was right" accepted!' : '"I was right" accepted! +15 XP added.');
+      showToast('"I was right" accepted! +15 XP added.');
     }
 
     function skipSentence() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('practice sentences');
-        return;
-      }
       loadSentence(getNextSentenceIndex());
     }
 
     // ==================== TAB 2: VOCAB SPEED BLITZ LOGIC ====================
     function nextArcadeWord() {
-      if (isDemoReadOnly() && currentArcadeWord) {
-        notifyDemoLocked('play Vocab Arcade');
-        return;
-      }
       if (arcadeAdvanceTimeout) {
         clearTimeout(arcadeAdvanceTimeout);
         arcadeAdvanceTimeout = null;
@@ -14375,10 +13307,6 @@
     }
 
     function handleArcadeAnswer(selectedBtn, chosenEnglish) {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('answer Vocab Arcade questions');
-        return;
-      }
       if (!arcadeCanAnswer || !currentArcadeWord) return;
       arcadeCanAnswer = false;
 
@@ -14393,13 +13321,11 @@
 
       if (isCorrect) {
         selectedBtn.classList.add('correct');
-        if (!isStudentMode) {
-          arcadeScore += 10;
-          arcadeStreak++;
-          if (arcadeStreak > arcadeBestStreak) {
-            arcadeBestStreak = arcadeStreak;
-            localStorage.setItem('romalingua_arcade_best', arcadeBestStreak.toString());
-          }
+        arcadeScore += 10;
+        arcadeStreak++;
+        if (arcadeStreak > arcadeBestStreak) {
+          arcadeBestStreak = arcadeStreak;
+          localStorage.setItem('romalingua_arcade_best', arcadeBestStreak.toString());
         }
         if (arcadeOverrideBtn) arcadeOverrideBtn.style.display = 'none';
         playSuccessChime();
@@ -14436,10 +13362,6 @@
     }
 
     function handleArcadeIWasRight() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('answer Vocab Arcade questions');
-        return;
-      }
       if (arcadeAdvanceTimeout) {
         clearTimeout(arcadeAdvanceTimeout);
         arcadeAdvanceTimeout = null;
@@ -14452,13 +13374,11 @@
         lastArcadeWrongBtn.classList.add('correct');
       }
 
-      if (!isStudentMode) {
-        arcadeScore += 10;
-        arcadeStreak = (arcadePrevStreak || 0) + 1;
-        if (arcadeStreak > arcadeBestStreak) {
-          arcadeBestStreak = arcadeStreak;
-          localStorage.setItem('romalingua_arcade_best', arcadeBestStreak.toString());
-        }
+      arcadeScore += 10;
+      arcadeStreak = (arcadePrevStreak || 0) + 1;
+      if (arcadeStreak > arcadeBestStreak) {
+        arcadeBestStreak = arcadeStreak;
+        localStorage.setItem('romalingua_arcade_best', arcadeBestStreak.toString());
       }
 
       const scoreEl = document.getElementById('arcadeScore');
@@ -14470,7 +13390,7 @@
 
       playSuccessChime();
       addXP(10);
-      showToast(isStudentMode ? 'Vocab accepted via "I was right"!' : 'Vocab accepted via "I was right"! +10 XP');
+      showToast('Vocab accepted via "I was right"! +10 XP');
 
       arcadeAdvanceTimeout = setTimeout(() => {
         nextArcadeWord();
@@ -14482,12 +13402,6 @@
       if (e) {
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
-      }
-      if (isDemoReadOnly()) {
-        const select = document.getElementById('deckCategorySelect');
-        if (select) select.value = activeDeckFilter;
-        notifyDemoLocked('filter and study the DVL Deck');
-        return;
       }
       currentDeckPage = 1;
       if (val === 'sort-az') {
@@ -14518,10 +13432,6 @@
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('filter and study the DVL Deck');
-        return;
-      }
       currentDeckPage = 1;
       activeDeckFilter = category || 'all';
       deckSortOrder = 'default';
@@ -14542,12 +13452,6 @@
     }
 
     function handleDeckSearch() {
-      if (isDemoReadOnly()) {
-        const input = document.getElementById('deckSearchInput');
-        if (input) input.value = '';
-        notifyDemoLocked('search the DVL Deck');
-        return;
-      }
       const input = document.getElementById('deckSearchInput');
       deckSearchQuery = (input ? input.value : '').toLowerCase().trim();
       currentDeckPage = 1;
@@ -14558,10 +13462,6 @@
       if (e) {
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
-      }
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('browse all 446 flashcards');
-        return;
       }
       const totalPages = Math.max(1, Math.ceil(displayedDeckList.length / CARDS_PER_PAGE));
       const targetPage = currentDeckPage + delta;
@@ -14622,10 +13522,6 @@
         const card = e.target.closest('.flashcard');
         if (card) {
           if (typeof e.preventDefault === 'function') e.preventDefault();
-          if (isDemoReadOnly()) {
-            notifyDemoLocked('flip flashcards');
-            return;
-          }
           card.classList.toggle('flipped');
           playFlipClick();
         }
@@ -14637,10 +13533,6 @@
           const card = e.target.closest('.flashcard');
           if (card) {
             if (typeof e.preventDefault === 'function') e.preventDefault();
-            if (isDemoReadOnly()) {
-              notifyDemoLocked('flip flashcards');
-              return;
-            }
             card.classList.toggle('flipped');
             playFlipClick();
           }
@@ -14746,11 +13638,6 @@
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
         if (typeof e.preventDefault === 'function') e.preventDefault();
       }
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('mark words mastered');
-        return;
-      }
-      if (isStudentMode) return;
       if (!Array.isArray(masteredWords)) masteredWords = [];
       if (masteredWords.includes(wordId)) {
         masteredWords = masteredWords.filter(id => id !== wordId);
@@ -14812,10 +13699,6 @@
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('shuffle and study flashcards');
-        return;
-      }
       if (!Array.isArray(displayedDeckList)) return;
       for (let i = displayedDeckList.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -14832,10 +13715,6 @@
       if (e) {
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
-      }
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('flip flashcards');
-        return;
       }
       allFlippedState = !allFlippedState;
       const flipBtnText = document.getElementById('flipAllText');
@@ -14874,10 +13753,6 @@
         input.addEventListener('keydown', (e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            if (isDemoReadOnly()) {
-              notifyDemoLocked('check translations');
-              return;
-            }
             const checkBtn = document.getElementById('submitCheckBtn');
             if (checkBtn) checkBtn.click();
           }
@@ -14892,10 +13767,6 @@
 
     // ==================== ARCADE & DECK HELPER DEFINITIONS ====================
     function restartArcade() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('play Vocab Arcade');
-        return;
-      }
       arcadeScore = 0;
       arcadeStreak = 0;
       const scoreEl = document.getElementById('arcadeScore');
@@ -15121,7 +13992,7 @@
 
       const totalFlightsEl = document.getElementById('flapStatTotalFlights');
       if (totalFlightsEl) {
-        const flights = isStudentMode ? 0 : parseInt(localStorage.getItem('romalingua_flap_total_flights') || '0', 10);
+        const flights = parseInt(localStorage.getItem('romalingua_flap_total_flights') || '0', 10);
         totalFlightsEl.textContent = flights;
       }
 
@@ -15132,15 +14003,12 @@
 
       const syncStatusText = document.getElementById('flapSyncStatusText');
       if (syncStatusText) {
-        if (isStudentMode) {
-          syncStatusText.textContent = 'Student Session (Not Saved)';
-          syncStatusText.style.color = '#cbd5e1';
-        } else if (currentUser) {
+        if (currentUser) {
           syncStatusText.textContent = 'Synced (' + (currentUser.email ? currentUser.email.split('@')[0] : 'Account') + ')';
           syncStatusText.style.color = '#86efac';
         } else {
-          syncStatusText.textContent = 'Demo (View Only)';
-          syncStatusText.style.color = '#fcd34d';
+          syncStatusText.textContent = 'Saved Locally (Sign in to sync)';
+          syncStatusText.style.color = '#cbd5e1';
         }
       }
     }
@@ -15180,14 +14048,8 @@
     }
 
     function setFlapMode(mode, fromInit = false) {
-      if (!fromInit && isDemoReadOnly()) {
-        notifyDemoLocked('play Latina Flap');
-        return;
-      }
       flapCurrentMode = mode;
-      if (!isStudentMode && !isDemoReadOnly()) {
-        localStorage.setItem('romalingua_flap_mode', mode);
-      }
+      localStorage.setItem('romalingua_flap_mode', mode);
 
       document.querySelectorAll('.flap-mode-btn').forEach(btn => {
         if (btn.getAttribute('data-mode') === mode) {
@@ -15197,26 +14059,16 @@
         }
       });
 
-      if (isStudentMode) {
-        flapHighestLevel = 20;
-        flapSelectedLevel = Math.min(20, Math.max(1, flapSelectedLevel || 1));
-        flapCurrentLevel = flapSelectedLevel;
-      } else {
-        const levels = getFlapLevels();
-        flapHighestLevel = Math.min(20, Math.max(1, Number(levels[mode]) || 1));
-        flapSelectedLevel = Math.min(flapHighestLevel, 20);
-        flapCurrentLevel = flapSelectedLevel;
-      }
+      const levels = getFlapLevels();
+      flapHighestLevel = Math.min(20, Math.max(1, Number(levels[mode]) || 1));
+      flapSelectedLevel = Math.min(flapHighestLevel, 20);
+      flapCurrentLevel = flapSelectedLevel;
 
       renderFlapLevelGrid();
       updateFlapLobbyStatsUI();
     }
 
     function selectFlapLevel(level) {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('play Latina Flap');
-        return;
-      }
       if (level > flapHighestLevel) return;
       flapSelectedLevel = level;
       flapCurrentLevel = level;
@@ -15295,20 +14147,14 @@
 
     // Launch & Screen Transition Functions
     function startFlapGame() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('play Latina Flap');
-        return;
-      }
       flapCurrentLevel = flapSelectedLevel;
       flapScore = 0;
       flapLives = 3;
       flapLevelProgress = 0;
 
-      // Track total flights (only when not in Student Mode)
-      if (!isStudentMode) {
-        const totalFlights = parseInt(localStorage.getItem('romalingua_flap_total_flights') || '0', 10) + 1;
-        localStorage.setItem('romalingua_flap_total_flights', totalFlights.toString());
-      }
+      // Track total flights
+      const totalFlights = parseInt(localStorage.getItem('romalingua_flap_total_flights') || '0', 10) + 1;
+      localStorage.setItem('romalingua_flap_total_flights', totalFlights.toString());
 
       const lobby = document.getElementById('flapLobbyScreen');
       const gameScreen = document.getElementById('flapGameScreen');
@@ -16248,7 +15094,6 @@
     window.setArenaDifficulty = setArenaDifficulty;
     window.getNextSentenceIndex = getNextSentenceIndex;
     window.getFilteredSentencePool = getFilteredSentencePool;
-    window.getRandomSentenceIndex = getRandomSentenceIndex;
 
     // Strict DOM binding upon DOMContentLoaded (or immediately if already parsed)
     function initApp() {
@@ -16265,13 +15110,8 @@
         setFlapMode(flapCurrentMode, true);
       }
 
-      // Always show Sign In options before entering website until signed in
-      if (!currentUser && !isStudentMode) {
-        updateAuthUIState();
-        if (!isDemoMode) {
-          openAuthModal();
-        }
-      }
+      // Sign-in is optional — sync header badge/profile without gating entry behind modal
+      updateAuthUIState();
 
       // Bind tab buttons to strictly prevent default behavior
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -16364,28 +15204,8 @@
       }).join('');
     }
 
-    function pickRandomMythId(avoidCurrent = true) {
-      const pool = getFilteredMythExtracts();
-      if (!pool.length) return MYTH_EXTRACTS[0].myth_id;
-
-      let candidates = pool.filter(m =>
-        !studentSeenMythIds.has(m.myth_id) &&
-        (!avoidCurrent || m.myth_id !== currentMythId || pool.length === 1)
-      );
-      if (candidates.length === 0) {
-        pool.forEach(m => studentSeenMythIds.delete(m.myth_id));
-        candidates = pool.filter(m => !avoidCurrent || m.myth_id !== currentMythId || pool.length === 1);
-      }
-      if (candidates.length === 0) candidates = pool;
-
-      return candidates[Math.floor(Math.random() * candidates.length)].myth_id;
-    }
-
     function renderMythsView() {
       const { pool, index, myth } = getActiveMythPoolAndIndex();
-      if (isStudentMode && myth && myth.myth_id) {
-        studentSeenMythIds.add(myth.myth_id);
-      }
       const metaEl = document.getElementById('mythPassageMeta');
       const titleEl = document.getElementById('mythPassageTitle');
       const stageEl = document.getElementById('mythLatinStage');
@@ -16427,22 +15247,18 @@
       }
 
       if (prevBtn) {
-        prevBtn.style.display = isStudentMode ? 'none' : '';
-        prevBtn.disabled = isStudentMode || index <= 0;
+        prevBtn.style.display = '';
+        prevBtn.disabled = index <= 0;
       }
       if (nextBtn) {
-        if (isStudentMode) {
-          nextBtn.textContent = 'Next Passage →';
-        } else {
-          nextBtn.textContent = index < pool.length - 1 ? 'Next Passage →' : 'Start From Beginning ↻';
-        }
+        nextBtn.textContent = index < pool.length - 1 ? 'Next Passage →' : 'Start From Beginning ↻';
       }
 
       const solvedForMyth = mythAnswersState[myth.myth_id] || {};
       const allCorrect = myth.comprehension_questions.every((_q, idx) => solvedForMyth[idx] && solvedForMyth[idx].isCorrect);
 
       if (solvedBadge) {
-        solvedBadge.textContent = (!isStudentMode && allCorrect) ? 'Optime!' : '';
+        solvedBadge.textContent = allCorrect ? 'Optime!' : '';
       }
       if (nextPromptRow) {
         nextPromptRow.style.display = allCorrect ? 'flex' : 'none';
@@ -16493,16 +15309,10 @@
     }
 
     function setMythDifficultyFilter(filter) {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('filter and practice myth passages');
-        return;
-      }
       mythDifficultyFilter = filter || 'all';
       mythSelectedToken = null;
       const pool = getFilteredMythExtracts();
-      if (isStudentMode) {
-        currentMythId = pickRandomMythId(false);
-      } else if (pool.length > 0 && !pool.some(m => m.myth_id === currentMythId)) {
+      if (pool.length > 0 && !pool.some(m => m.myth_id === currentMythId)) {
         currentMythId = pool[0].myth_id;
         try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
       }
@@ -16510,11 +15320,6 @@
     }
 
     function prevMythPassage() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('browse and practice myth passages');
-        return;
-      }
-      if (isStudentMode) return;
       const { pool, index } = getActiveMythPoolAndIndex();
       if (index > 0) {
         currentMythId = pool[index - 1].myth_id;
@@ -16525,19 +15330,11 @@
     }
 
     function nextMythPassage() {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('browse and practice myth passages');
-        return;
-      }
       const { pool, index } = getActiveMythPoolAndIndex();
       if (pool.length === 0) return;
-      if (isStudentMode) {
-        currentMythId = pickRandomMythId(true);
-      } else {
-        const nextIdx = index + 1 < pool.length ? index + 1 : 0;
-        currentMythId = pool[nextIdx].myth_id;
-        try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
-      }
+      const nextIdx = index + 1 < pool.length ? index + 1 : 0;
+      currentMythId = pool[nextIdx].myth_id;
+      try { localStorage.setItem('romalingua_myths_current_id_v1', currentMythId); } catch (_e) {}
       mythSelectedToken = null;
       renderMythsView();
       const stage = document.getElementById('tabMyths');
@@ -16547,10 +15344,6 @@
     }
 
     function glossPassageWord(tokenIndex, word) {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('tap words for dictionary meanings');
-        return;
-      }
       if (tokenIndex === null || !word || (mythSelectedToken && mythSelectedToken.index === tokenIndex)) {
         mythSelectedToken = null;
       } else {
@@ -16560,10 +15353,6 @@
     }
 
     function answerMythQuestion(qIdx, optIdx) {
-      if (isDemoReadOnly()) {
-        notifyDemoLocked('answer comprehension questions');
-        return;
-      }
       const { myth } = getActiveMythPoolAndIndex();
       const q = myth.comprehension_questions[qIdx];
       if (!q) return;
@@ -16581,16 +15370,14 @@
         rewarded: alreadyRewarded || isCorrect
       };
 
-      if (!isStudentMode) {
-        try {
-          localStorage.setItem('romalingua_myths_answers_v1', JSON.stringify(mythAnswersState));
-        } catch (_e) {}
-      }
+      try {
+        localStorage.setItem('romalingua_myths_answers_v1', JSON.stringify(mythAnswersState));
+      } catch (_e) {}
 
       if (isCorrect && !alreadyRewarded) {
-        if (!isStudentMode && typeof addXP === 'function') addXP(15);
+        if (typeof addXP === 'function') addXP(15);
         if (typeof playSuccessChime === 'function') playSuccessChime();
-        if (typeof showToast === 'function') showToast(isStudentMode ? 'Optime!' : 'Optime! +15 XP earned');
+        if (typeof showToast === 'function') showToast('Optime! +15 XP earned');
       } else if (!isCorrect && typeof playWarningSound === 'function') {
         playWarningSound();
       }
