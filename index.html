@@ -37,7 +37,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f3f2ec;
@@ -3315,6 +3315,387 @@
       }
     }
 
+    /* ==================== LANGUAGE SWITCHER & ANCIENT GREEK MODE ==================== */
+    .greek-script {
+      font-family: 'Noto Serif', 'Spectral', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switcher-group {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px;
+      background: var(--bg-band);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      gap: 3px;
+    }
+
+    .lang-switch-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.14s ease, color 0.14s ease, box-shadow 0.14s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-switch-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .lang-switch-btn.active-latin {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(20, 83, 45, 0.25);
+    }
+
+    .lang-switch-btn.active-greek {
+      background: #9a5b13;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(120, 53, 15, 0.30);
+    }
+
+    body.lang-greek header {
+      border-top-color: #b45309;
+    }
+
+    body.lang-greek .brand-badge {
+      background: #15803d;
+      border-color: #b45309;
+      border-width: 2px;
+      box-shadow: 0 1px 4px rgba(120, 53, 15, 0.22);
+    }
+
+    body.lang-greek .brand-title {
+      color: #78350f;
+    }
+
+    body.lang-greek .tab-btn {
+      background: #f3f2ec;
+      border-color: #d6b685;
+      color: #5c4630;
+    }
+
+    body.lang-greek .tab-btn:hover {
+      background: #faf9f5;
+      border-color: #b45309;
+      color: #78350f;
+    }
+
+    body.lang-greek .tab-btn.active {
+      background: #ffffff;
+      border-color: #b45309;
+      color: #78350f;
+      box-shadow: inset 0 3px 0 #b45309;
+    }
+
+    body.lang-greek .tab-btn.active .tab-icon-svg {
+      color: #b45309;
+      opacity: 1;
+    }
+
+    body.lang-greek .nav-scroll-thumb {
+      background: #b45309;
+    }
+
+    body.lang-greek .nav-arrow-circle {
+      background: #ffffff;
+      border-color: #b45309;
+      color: #78350f;
+    }
+
+    @media (max-width: 760px) {
+      .lang-switcher-group {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+      .lang-switch-btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+
+    /* Greek to GCSE Shared Chapter Context Bar (Classical Bronze Palette) */
+    .greek-context-bar {
+      max-width: 1060px;
+      margin: 0 auto 16px auto;
+      background: var(--card-bg);
+      border: 1.5px solid #e5c896;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      box-shadow: 0 2px 6px rgba(120, 53, 15, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .greek-context-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .greek-context-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .greek-context-title {
+      font-weight: 800;
+      font-size: 13.5px;
+      color: #78350f;
+    }
+
+    .greek-context-summary {
+      font-size: 12px;
+      font-weight: 700;
+      color: #92400e;
+      background: #fef7ea;
+      border: 1px solid #e5c896;
+      padding: 3px 9px;
+      border-radius: 5px;
+    }
+
+    .greek-context-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .greek-mini-btn {
+      appearance: none;
+      border: 1.5px solid var(--border);
+      background: var(--surface-sub);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .greek-mini-btn:hover {
+      border-color: #b45309;
+      color: #92400e;
+      background: #fef7ea;
+    }
+
+    .greek-mini-btn.active {
+      background: #9a5b13;
+      border-color: #78350f;
+      color: #ffffff;
+    }
+
+    .greek-mini-btn.translit-on {
+      background: #fef7ea;
+      border-color: #d97706;
+      color: #92400e;
+    }
+
+    .greek-chapters-strip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      border-top: 1px solid #efe4cf;
+    }
+
+    .greek-part-lbl {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-right: 2px;
+    }
+
+    .greek-ch-btn {
+      appearance: none;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .greek-ch-btn:hover {
+      border-color: #d97706;
+      background: #fef7ea;
+      color: #78350f;
+    }
+
+    .greek-ch-btn.active {
+      background: #9a5b13;
+      border-color: #78350f;
+      color: #ffffff;
+    }
+
+    .greek-ch-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+      margin: 0 4px;
+    }
+
+    .greek-deck-scope-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #efe4cf;
+    }
+
+    .greek-scope-btn {
+      appearance: none;
+      border: 1.5px solid #e5c896;
+      background: #fffcf5;
+      color: #78350f;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .greek-scope-btn:hover {
+      background: #fef3c7;
+      border-color: #b45309;
+    }
+
+    .greek-scope-btn.active {
+      background: #9a5b13;
+      border-color: #78350f;
+      color: #ffffff;
+    }
+
+    .greek-translit-line {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: #fdfbf6;
+      border: 1px dashed #d6c5a3;
+      border-radius: 6px;
+      font-size: 14px;
+      font-style: italic;
+      color: #574126;
+      text-align: center;
+    }
+
+    .greek-story-trans-drawer {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #fef7ea;
+      border: 1.5px solid #e5c896;
+      border-radius: 6px;
+      font-size: 13.5px;
+      color: #78350f;
+      line-height: 1.5;
+    }
+
+    /* Custom Vocab Modal */
+    .greek-custom-textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+      background: var(--surface-sub);
+    }
+
+    .greek-custom-textarea:focus {
+      outline: none;
+      border-color: #b45309;
+      background: #ffffff;
+    }
+
+    /* Aegean Trireme Game UI (Classical Bronze & Sea Slate) */
+    .trireme-banner {
+      background: linear-gradient(135deg, #451a03 0%, #78350f 55%, #9a5b13 100%);
+      border: 1.5px solid #d97706;
+    }
+
+    .trireme-lane-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .trireme-steer-btn {
+      appearance: none;
+      border: 1.5px solid #d97706;
+      background: #1c1917;
+      color: #fef3c7;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 11px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.12s ease, transform 0.1s ease;
+    }
+
+    .trireme-steer-btn:hover,
+    .trireme-steer-btn:active {
+      background: #9a5b13;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .trireme-recovery-badge {
+      background: #b91c1c !important;
+      color: #fef2f2 !important;
+      border: 1px solid #fca5a5;
+      animation: triremePulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes triremePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.78; }
+    }
+
+    #aegeanTriremeCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #0e3a46;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
 </style>
 </head>
 <body>
@@ -3454,7 +3835,7 @@
       </div>
 
       <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
-        All 175 Cullen Book 1 sentences, 446 DVL flashcards, and 20 Latina Flap levels run locally with offline progress saving.
+        All Cullen Book 1 sentences, 446 DVL flashcards, and 20 Latina Flap levels run locally with offline progress saving.
       </div>
     </div>
   </div>
@@ -3487,6 +3868,16 @@
         </div>
       </div>
 
+      <!-- Top-Level Language Switcher -->
+      <div class="lang-switcher-group" id="langSwitchBar" role="group" aria-label="Course Language Switcher">
+        <button type="button" class="lang-switch-btn active-latin" id="langBtnLatin" onclick="switchLanguage('latin')">
+          <span>Latin</span>
+        </button>
+        <button type="button" class="lang-switch-btn" id="langBtnGreek" onclick="switchLanguage('greek')">
+          <span>Ancient Greek</span>
+        </button>
+      </div>
+
       <div class="header-stats">
         <div class="stat-pill streak" title="Daily Streak">
           <span class="metric-lbl">Streak</span>
@@ -3496,7 +3887,7 @@
           <span id="xpCount">0</span>
           <span class="metric-lbl">XP</span>
         </div>
-        <div class="stat-pill sentences-today" id="headerSentencesTodayPill" title="Sentences completed today">
+        <div class="stat-pill sentences-today" id="headerSentencesTodayPill" title="Sentences completed today" style="display: none;">
           <span id="sentencesTodayCount">0</span>
           <span class="metric-lbl">Today</span>
         </div>
@@ -3607,40 +3998,84 @@
     })();
   </script>
 
+  <!-- Custom Pasted Greek Vocab Modal -->
+  <div id="greekCustomVocabModal" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="greekCustomModalTitle" onclick="if(event.target===this)closeGreekCustomVocabModal()">
+    <div class="auth-modal" style="max-width: 540px; text-align: left;">
+      <button type="button" class="auth-close-btn" onclick="closeGreekCustomVocabModal()" title="Close" aria-label="Close">✕</button>
+      <div class="auth-modal-title" id="greekCustomModalTitle" style="text-align: left; font-size: 20px;">Custom Ancient Greek Vocabulary</div>
+      <div class="auth-modal-sub" style="text-align: left; margin-bottom: 10px;">
+        Paste one word per line using <code>Greek | translit | English</code> or <code>Greek - English</code> (transliteration is auto-generated if omitted). Active across Flashcards, Vocab Arcade, and Aegean Trireme.
+      </div>
+      <textarea id="greekCustomVocabInput" class="greek-custom-textarea" placeholder="λόγος | logos | word, story&#10;θεός - god&#10;νῆσος = island&#10;λύω - untie, set free"></textarea>
+      <div id="greekCustomPreviewInfo" style="font-size: 12px; color: var(--text-muted); margin: 8px 0 12px 0; font-weight: 600;"></div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button type="button" class="greek-mini-btn" onclick="loadSampleCustomGreekVocab()">Load Sample List</button>
+          <button type="button" class="greek-mini-btn" onclick="clearCustomGreekVocab()">Revert to Chapters</button>
+        </div>
+        <button type="button" class="btn-3d btn-gold" style="padding: 9px 16px; font-size: 13px;" onclick="saveCustomGreekVocab()">
+          <span>Save &amp; Use Custom Vocab</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content Area -->
   <main>
 
+    <!-- Shared John Taylor Greek to GCSE Chapter Selector Bar (Shown in Ancient Greek Mode) -->
+    <div id="greekContextBar" class="greek-context-bar" style="display: none;" role="region" aria-label="Greek to GCSE Chapter & Settings">
+      <div class="greek-context-top">
+        <div class="greek-context-brand">
+          <span class="greek-context-title">Greek to GCSE (John Taylor)</span>
+          <span class="greek-context-summary" id="greekContextSummaryBadge">Part 1: Ch 1 · 29 words</span>
+        </div>
+        <div class="greek-context-controls">
+          <button type="button" class="greek-mini-btn" id="greekSelectModeBtn" onclick="toggleGreekChapterSelectMode()" title="Switch between single-chapter selection and multi-chapter combination">Mode: Combine Ch.</button>
+          <button type="button" class="greek-mini-btn" id="greekPresetPart1Btn" onclick="applyGreekChapterPreset('part1')">Part 1 (Ch 1–6)</button>
+          <button type="button" class="greek-mini-btn" id="greekPresetPart2Btn" onclick="applyGreekChapterPreset('part2')">Part 2 (Ch 7–12)</button>
+          <button type="button" class="greek-mini-btn" id="greekPresetAllBtn" onclick="applyGreekChapterPreset('all')">Full DVL (1–12)</button>
+          <button type="button" class="greek-mini-btn" id="greekCustomVocabBtn" onclick="openGreekCustomVocabModal()">Custom Vocab</button>
+          <button type="button" class="greek-mini-btn translit-on" id="greekTranslitToggleBtn" onclick="toggleGreekTransliteration()">Transliteration: ON</button>
+        </div>
+      </div>
+      <div class="greek-chapters-strip" id="greekChapterButtonsContainer">
+        <!-- Populated dynamically for Ch 1-6 (Part 1) and Ch 7-12 (Part 2) -->
+      </div>
+    </div>
+
     <!-- ==================== TAB 1: TRANSLATION ARENA ==================== -->
     <div id="tabArena" class="tab-content app-section active">
+      <div id="arenaLatinView">
       <div class="arena-container">
         <!-- Today's Completed Sentences Banner & Difficulty Selector -->
         <div class="arena-progress-card">
           <div class="arena-banner-left">
-            <div class="arena-today-counter-row">
+            <div class="arena-today-counter-row" id="latinTodayRow" style="display: none;">
               <span>Sentences done today:</span>
               <span id="arenaSentencesTodayBadge" class="arena-today-badge">0</span>
             </div>
             <div id="arenaTierSummaryText" class="arena-tier-summary">
-              Unified progress • 0 / 175 completed overall
+              Unified progress • 0 completed overall
             </div>
           </div>
 
           <!-- Difficulty Selector -->
           <div class="arena-difficulty-pills" role="tablist" aria-label="Sentence Difficulty Selector">
             <button type="button" class="diff-pill-btn active" data-difficulty="all" onclick="setArenaDifficulty('all')">
-              <span>All</span> <span class="pill-badge-count" id="countAllBadge">175</span>
+              <span>All</span>
             </button>
             <button type="button" class="diff-pill-btn diff-easy" data-difficulty="easy" onclick="setArenaDifficulty('easy')">
-              <span>Easy</span> <span class="pill-badge-count" id="countEasyBadge">44</span>
+              <span>Easy</span>
             </button>
             <button type="button" class="diff-pill-btn diff-intermediate" data-difficulty="intermediate" onclick="setArenaDifficulty('intermediate')">
-              <span>Intermediate</span> <span class="pill-badge-count" id="countInterBadge">51</span>
+              <span>Intermediate</span>
             </button>
             <button type="button" class="diff-pill-btn diff-hard" data-difficulty="hard" onclick="setArenaDifficulty('hard')">
-              <span>Hard</span> <span class="pill-badge-count" id="countHardBadge">42</span>
+              <span>Hard</span>
             </button>
             <button type="button" class="diff-pill-btn diff-gcse" data-difficulty="gcse" onclick="setArenaDifficulty('gcse')">
-              <span>GCSE</span> <span class="pill-badge-count" id="countGcseBadge">38</span>
+              <span>GCSE</span>
             </button>
           </div>
         </div>
@@ -3714,10 +4149,104 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK TRANSLATION ARENA -->
+      <div id="arenaGreekView" style="display: none;">
+        <div class="arena-container">
+          <div class="arena-progress-card">
+            <div class="arena-banner-left">
+              <div class="arena-today-counter-row" id="greekTodayRow" style="display: none;">
+                <span>Sentences done today:</span>
+                <span id="greekArenaSentencesTodayBadge" class="arena-today-badge">0</span>
+              </div>
+              <div id="greekArenaTierSummaryText" class="arena-tier-summary">
+                Greek to GCSE • Chapter-scoped grammar &amp; vocab
+              </div>
+            </div>
+
+            <div class="arena-difficulty-pills" role="tablist" aria-label="Greek Difficulty Filter">
+              <button type="button" class="diff-pill-btn active" data-greek-diff="all" onclick="setGreekArenaDifficulty('all')">
+                <span>All</span>
+              </button>
+              <button type="button" class="diff-pill-btn diff-easy" data-greek-diff="easy" onclick="setGreekArenaDifficulty('easy')">
+                <span>Easy</span>
+              </button>
+              <button type="button" class="diff-pill-btn diff-intermediate" data-greek-diff="intermediate" onclick="setGreekArenaDifficulty('intermediate')">
+                <span>Inter</span>
+              </button>
+              <button type="button" class="diff-pill-btn diff-hard" data-greek-diff="hard" onclick="setGreekArenaDifficulty('hard')">
+                <span>Hard</span>
+              </button>
+              <button type="button" class="diff-pill-btn diff-gcse" data-greek-diff="gcse" onclick="setGreekArenaDifficulty('gcse')">
+                <span>GCSE</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="arena-card">
+            <div class="sentence-meta-header">
+              <div id="greekSentenceGrammarKicker" class="sentence-grammar-kicker"></div>
+              <div id="greekSentencePoolPosition" class="sentence-pool-position"></div>
+            </div>
+
+            <div class="arena-instruction">
+              Hover or tap any Ancient Greek word below for its dictionary form, grammar note, and English meaning.
+            </div>
+
+            <div class="sentence-box greek-script" id="greekSentenceTokenContainer"></div>
+            <div class="greek-translit-line" id="greekArenaTranslitLine" style="display: none;"></div>
+
+            <div class="input-wrapper" style="margin-top: 14px;">
+              <input type="text"
+                     id="greekTranslationInput"
+                     class="arena-input"
+                     placeholder="Type your English translation here..."
+                     autocomplete="off"
+                     autocorrect="off"
+                     spellcheck="false">
+            </div>
+
+            <div id="greekTenseHintBox" class="tense-hint-box"></div>
+
+            <div id="greekFeedbackBanner" class="feedback-banner">
+              <div class="feedback-body">
+                <span class="feedback-icon" id="greekFeedbackIcon">!</span>
+                <div class="feedback-content">
+                  <h4 id="greekFeedbackTitle">Notice</h4>
+                  <p id="greekFeedbackText">Feedback message</p>
+                </div>
+              </div>
+              <button type="button" id="greekIWasRightBtn" class="btn-i-was-right" onclick="handleGreekIWasRight()" style="display: none;">
+                <span>Accept My Answer</span>
+              </button>
+            </div>
+
+            <div class="arena-actions">
+              <button type="button" class="btn-3d btn-outline" id="greekTenseHintBtn" onclick="toggleGreekTenseHint()">
+                <span>Grammar Hint</span>
+              </button>
+
+              <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <button type="button" class="btn-3d btn-override" id="greekArenaIWasRightBtn" onclick="handleGreekIWasRight()" style="display: none;">
+                  <span>I was right</span>
+                </button>
+                <button type="button" class="btn-3d btn-outline" id="greekSkipBtn" onclick="skipGreekSentence()">
+                  <span>Skip</span>
+                </button>
+                <button type="button" class="btn-3d btn-green" id="greekSubmitCheckBtn" onclick="checkGreekTranslation()">
+                  <span>Check Translation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== TAB 2: VOCAB ARCADE ==================== -->
     <div id="tabArcade" class="tab-content app-section">
+      <div id="arcadeLatinView">
       <div class="arcade-container">
         <!-- Header stats -->
         <div class="arcade-header">
@@ -3757,10 +4286,49 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK VOCAB ARCADE -->
+      <div id="arcadeGreekView" style="display: none;">
+        <div class="arcade-container">
+          <div class="arcade-header">
+            <div class="arcade-stat">
+              <span class="arcade-stat-label">Arcade Score</span>
+              <span class="arcade-stat-val" id="greekArcadeScore">0</span>
+            </div>
+            <div class="arcade-stat">
+              <span class="arcade-stat-label">Combo Streak</span>
+              <span class="arcade-stat-val" id="greekArcadeStreak" style="color: var(--gold);">0</span>
+            </div>
+            <div class="arcade-stat">
+              <span class="arcade-stat-label">Best Streak</span>
+              <span class="arcade-stat-val" id="greekArcadeBestStreak">0</span>
+            </div>
+          </div>
+
+          <div class="arcade-card">
+            <div class="arcade-kicker" id="greekArcadeKicker">Speed Blitz · Match the Ancient Greek Word</div>
+            <div class="arcade-latin-word greek-script" id="arcadeGreekWord">ἄγγελος</div>
+            <div class="arcade-word-note" id="arcadeGreekWordNote">angelos · 2nd declension masculine</div>
+
+            <div class="arcade-options-grid" id="arcadeGreekOptionsGrid"></div>
+
+            <div style="display: flex; justify-content: center; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+              <button type="button" class="btn-3d btn-override" id="arcadeGreekIWasRightBtn" onclick="handleGreekArcadeIWasRight()" style="display: none;">
+                <span>I was right (+10 XP)</span>
+              </button>
+              <button type="button" class="btn-3d btn-outline" onclick="nextGreekArcadeWord()">
+                <span>Skip / Next Word →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== TAB 3: OFFICIAL DVL DECK ==================== -->
     <div id="tabDeck" class="tab-content app-section">
+      <div id="deckLatinView">
       <div class="deck-container">
         <!-- Toolbar -->
         <div class="deck-toolbar">
@@ -3841,10 +4409,83 @@
           </button>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK FLASHCARD DECK -->
+      <div id="deckGreekView" style="display: none;">
+        <div class="deck-container">
+          <div class="deck-toolbar">
+            <div class="greek-deck-scope-row" role="group" aria-label="Greek Deck Scope">
+              <span style="font-size: 12px; font-weight: 800; color: #78350f; text-transform: uppercase; letter-spacing: 0.04em;">Deck Scope:</span>
+              <button type="button" class="greek-scope-btn active" id="greekScopeFullBtn" onclick="setGreekDeckScope('full')">Full OCR GCSE DVL (531)</button>
+              <button type="button" class="greek-scope-btn" id="greekScopeChaptersBtn" onclick="setGreekDeckScope('chapters')">Selected Chapter Pool</button>
+              <span id="greekDeckScopeHint" style="font-size: 12px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Complete OCR J292 &amp; Greek to GCSE list</span>
+            </div>
+
+            <div class="deck-controls-top">
+              <div class="deck-search">
+                <input type="text" id="greekDeckSearchInput" placeholder="Search Greek, transliteration, or English..." oninput="handleGreekDeckSearch()" onkeydown="if(event.key==='Enter')event.preventDefault();">
+              </div>
+
+              <div class="deck-filter-select-wrap">
+                <label for="greekDeckCategorySelect" class="deck-select-label">Category / Sort:</label>
+                <select id="greekDeckCategorySelect" class="deck-select" onchange="handleGreekDropdownFilter(this.value)">
+                  <option value="all">All Selected Words</option>
+                  <option value="noun">Nouns</option>
+                  <option value="verb">Verbs</option>
+                  <option value="adjective">Adjectives</option>
+                  <option value="preposition">Prepositions</option>
+                  <option value="other">Other (Indeclinable)</option>
+                  <option value="sort-az">Sort A–Z (Translit)</option>
+                  <option value="sort-za">Sort Z–A (Translit)</option>
+                </select>
+              </div>
+
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" class="btn-3d btn-outline" style="padding: 8px 14px; font-size: 13px;" onclick="shuffleGreekCards()">
+                  <span>Shuffle</span>
+                </button>
+                <button type="button" class="btn-3d btn-outline" style="padding: 8px 14px; font-size: 13px;" onclick="toggleFlipAllGreek()">
+                  <span id="greekFlipAllText">Flip Page</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-pills" id="greekDeckFilterPills">
+              <button type="button" class="filter-pill active" data-gcat="all" onclick="setGreekCategoryFilter('all')">All Words</button>
+              <button type="button" class="filter-pill" data-gcat="noun" onclick="setGreekCategoryFilter('noun')">Nouns</button>
+              <button type="button" class="filter-pill" data-gcat="verb" onclick="setGreekCategoryFilter('verb')">Verbs</button>
+              <button type="button" class="filter-pill" data-gcat="adjective" onclick="setGreekCategoryFilter('adjective')">Adjectives</button>
+              <button type="button" class="filter-pill" data-gcat="preposition" onclick="setGreekCategoryFilter('preposition')">Prepositions</button>
+              <button type="button" class="filter-pill" data-gcat="other" onclick="setGreekCategoryFilter('other')">Other</button>
+            </div>
+
+            <div class="deck-stats-line">
+              <span id="greekDeckCounterText">Showing 0 words</span>
+              <span id="greekDeckMasteryText">0 Mastered (0%)</span>
+            </div>
+          </div>
+
+          <div class="deck-pagination" id="greekDeckPaginationTop">
+            <button type="button" class="btn-3d btn-outline btn-page" id="greekPrevPageBtn" onclick="changeGreekPage(-1)">← Previous</button>
+            <div class="page-indicator" id="greekPageIndicatorText">Page 1 of 1</div>
+            <button type="button" class="btn-3d btn-outline btn-page" id="greekNextPageBtn" onclick="changeGreekPage(1)">Next →</button>
+          </div>
+
+          <div class="cards-grid" id="greekCardsGrid"></div>
+
+          <div class="deck-pagination" id="greekDeckPaginationBottom" style="margin-top: 28px;">
+            <button type="button" class="btn-3d btn-outline btn-page" id="greekPrevPageBtnBottom" onclick="changeGreekPage(-1)">← Previous</button>
+            <div class="page-indicator" id="greekPageIndicatorTextBottom">Page 1 of 1</div>
+            <button type="button" class="btn-3d btn-outline btn-page" id="greekNextPageBtnBottom" onclick="changeGreekPage(1)">Next →</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== TAB 4: GRAMMAR NOTES ==================== -->
     <div id="tabCodex" class="tab-content app-section">
+      <div id="codexLatinView">
       <div class="codex-container">
         <!-- Noun Declensions -->
         <div class="codex-section">
@@ -4107,12 +4748,192 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK GRAMMAR NOTES -->
+      <div id="codexGreekView" style="display: none;">
+        <div class="codex-container">
+          <!-- Breathings, Accents, Iota Subscript & Orthography -->
+          <div class="codex-section">
+            <div class="codex-heading">Breathings, Accents, Iota Subscript &amp; Punctuation</div>
+            <div class="codex-sub">Essential reading rules in OCR GCSE Classical Greek (every initial vowel or diphthong carries a breathing mark).</div>
+            <div class="prep-grid-2col">
+              <div style="background: #fef7ea; border: 1.5px solid #e5c896; border-radius: 6px; padding: 16px;">
+                <h4 style="color: #78350f; font-size: 15.5px; margin-bottom: 8px;">1. Smooth vs. Rough Breathings (῾ / ᾿)</h4>
+                <p class="greek-script" style="font-size: 13.5px; color: #574126; line-height: 1.7;">
+                  <strong>• Smooth Breathing ( ᾿ ):</strong> Curved like a closing quote (like <strong>ἀ, ἐ, ὀ</strong>). Pronounced with <em>no h- sound</em>: <strong>ἀγαθός</strong> (<em>agathos</em>), <strong>ἐν</strong> (<em>en</em>), <strong>ὄνομα</strong> (<em>onoma</em>).<br>
+                  <strong>• Rough Breathing ( ῾ ):</strong> Curved like an opening quote (like <strong>ἁ, ἑ, ὁ, ἱ, ὑ, ῥ</strong>). Always adds an initial <strong>h- sound</strong>: <strong>ὁ</strong> (<em>ho</em>), <strong>ἡμέρα</strong> (<em>hēmera</em>), <strong>ἵππος</strong> (<em>hippos</em> → Eng. <em>hippo</em>), <strong>ὑπέρ</strong> (<em>huper</em> → <em>hyper</em>).<br>
+                  <strong>• Diphthongs:</strong> Breathing sits on the <strong>2nd vowel</strong>: <strong>αὐτός</strong> (<em>autos</em>, smooth), <strong>οἱ</strong> (<em>hoi</em>, rough), <strong>εὑρίσκω</strong> (<em>heuriskō</em>, rough).<br>
+                  <strong>• Mandatory Rough Breathings:</strong> Initial upsilon (<strong>ὑ-</strong>, e.g. <strong>ὕδωρ</strong>) and initial rho (<strong>ῥ-</strong>, e.g. <strong>ῥήτωρ</strong> <em>rhētōr</em>) <strong>always</strong> take a rough breathing.<br>
+                  <strong>• Capital Letters:</strong> Breathing appears <em>in front</em> of the capital letter: <strong>Ἀθῆναι</strong>, <strong>Ὅμηρος</strong>.
+                </p>
+              </div>
+              <div style="background: var(--primary-light); border: 1.5px solid #86efac; border-radius: 6px; padding: 16px;">
+                <h4 style="color: var(--primary-dark); font-size: 15.5px; margin-bottom: 8px;">2. Sound Shifts, Accents, Iota Subscript &amp; Punctuation</h4>
+                <p class="greek-script" style="font-size: 13.5px; color: #14532d; line-height: 1.7;">
+                  <strong>• οὐ / οὐκ / οὐχ ("not"):</strong> Uses <strong>οὐ</strong> before consonants (<strong>οὐ λύει</strong>); <strong>οὐκ</strong> before a smooth breathing (<strong>οὐκ ἔχει</strong>); <strong>οὐχ</strong> before a rough breathing (<strong>οὐχ ὁρᾷ</strong>).<br>
+                  <strong>• ἐκ / ἐξ &amp; Elision (’):</strong> <strong>ἐκ</strong> before consonants, <strong>ἐξ</strong> before vowels (<strong>ἐξ ἀγροῦ</strong>). Short final vowels drop before vowels (<strong>ἀπ’ ἀγροῦ</strong>); rough breathings aspirate p/t/k → ph/th/kh (<strong>μετὰ ἡμέραν → μεθ’ ἡμέραν</strong>).<br>
+                  <strong>• Three Accents:</strong> Acute (<strong>ά</strong>), Grave (<strong>ὰ</strong> — replaces final acute mid-sentence), Circumflex (<strong>ᾶ</strong>). Distinguishes pairs like <strong>εἰμί</strong> (<em>I am</em>) vs <strong>εἶμι</strong> (<em>I shall go</em>), <strong>τίς;</strong> (<em>who?</em>) vs <strong>τις</strong> (<em>someone</em>).<br>
+                  <strong>• Iota Subscript (ᾳ, ῃ, ῳ):</strong> Silent iota written under long vowels — key marker of <strong>dative singular</strong> (<strong>τῇ χώρᾳ, τῷ λόγῳ</strong>) and words like <strong>σῴζω, ζῷον</strong>.<br>
+                  <strong>• Movable -ν &amp; Punctuation:</strong> Optional <strong>-ν</strong> appears on <strong>-ε</strong> and <strong>-σι</strong> forms before vowels or sentence end (<strong>ἔλυσεν, ἐστίν, φύλαξιν</strong>). Question mark = <strong>;</strong> (<strong>τίς εἶ;</strong>) | Colon/semicolon = raised dot <strong>·</strong> (high dot).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Greek Alphabet & Pronunciation -->
+          <div class="codex-section">
+            <div class="codex-heading">The Ancient Greek Alphabet (24 Letters &amp; Diphthongs)</div>
+            <div class="codex-sub">Note: Sigma is written <strong>σ</strong> inside words and <strong>ς</strong> at the end of a word (e.g. <strong>στρατιώτης</strong>).</div>
+            <div class="table-responsive">
+              <table class="grammar-table greek-script">
+                <thead>
+                  <tr>
+                    <th>Letter</th><th>Name</th><th>Translit / Sound</th>
+                    <th>Letter</th><th>Name</th><th>Translit / Sound</th>
+                    <th>Letter</th><th>Name</th><th>Translit / Sound</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Α α</strong></td><td>Alpha</td><td>a (as in father/hat)</td><td><strong>Ι ι</strong></td><td>Iota</td><td>i (machine/hit)</td><td><strong>Ρ ρ (ῥ)</strong></td><td>Rho</td><td>r / rh (trilled r)</td></tr>
+                  <tr><td><strong>Β β</strong></td><td>Beta</td><td>b (bad)</td><td><strong>Κ κ</strong></td><td>Kappa</td><td>k (king)</td><td><strong>Σ σ/ς</strong></td><td>Sigma</td><td>s (sit; ς final)</td></tr>
+                  <tr><td><strong>Γ γ</strong></td><td>Gamma</td><td>g (go; γγ/γκ = ng/nk)</td><td><strong>Λ λ</strong></td><td>Lambda</td><td>l (land)</td><td><strong>Τ τ</strong></td><td>Tau</td><td>t (top)</td></tr>
+                  <tr><td><strong>Δ δ</strong></td><td>Delta</td><td>d (day)</td><td><strong>Μ μ</strong></td><td>Mu</td><td>m (man)</td><td><strong>Υ υ (ὑ)</strong></td><td>Upsilon</td><td>u / y (French u)</td></tr>
+                  <tr><td><strong>Ε ε</strong></td><td>Epsilon</td><td>e (short: pet)</td><td><strong>Ν ν</strong></td><td>Nu</td><td>n (new)</td><td><strong>Φ φ</strong></td><td>Phi</td><td>ph / f (philosophy)</td></tr>
+                  <tr><td><strong>Ζ ζ</strong></td><td>Zeta</td><td>z / sd (wisdom/zoo)</td><td><strong>Ξ ξ</strong></td><td>Xi</td><td>x / ks (box)</td><td><strong>Χ χ</strong></td><td>Chi</td><td>kh (loch / chorus)</td></tr>
+                  <tr><td><strong>Η η</strong></td><td>Eta</td><td>ē (long e: hair/they)</td><td><strong>Ο ο</strong></td><td>Omicron</td><td>o (short: pot)</td><td><strong>Ψ ψ</strong></td><td>Psi</td><td>ps (lapse)</td></tr>
+                  <tr><td><strong>Θ θ</strong></td><td>Theta</td><td>th (thin)</td><td><strong>Π π</strong></td><td>Pi</td><td>p (pen)</td><td><strong>Ω ω</strong></td><td>Omega</td><td>ō (long o: saw)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="greek-script" style="font-size: 13px; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">
+              <strong>Common Diphthongs:</strong> <strong>αι</strong> (ai — aisle) · <strong>ει</strong> (ei — eight) · <strong>οι</strong> (oi — boil) · <strong>αυ</strong> (au — house) · <strong>ευ</strong> (eu — feud) · <strong>ου</strong> (ou — food) · <strong>υι</strong> (ui — quit).
+            </p>
+          </div>
+
+          <!-- Definite Article -->
+          <div class="codex-section">
+            <div class="codex-heading">The Definite Article (ὁ, ἡ, τό)</div>
+            <div class="codex-sub">The foundation of Greek noun case &amp; gender recognition (Greek to GCSE Ch 1–2). Notice rough breathings on nom. ὁ, ἡ, οἱ, αἱ!</div>
+            <div class="table-responsive">
+              <table class="grammar-table greek-script">
+                <thead>
+                  <tr>
+                    <th>Case</th>
+                    <th>Masc. Sg.</th>
+                    <th>Fem. Sg.</th>
+                    <th>Neut. Sg.</th>
+                    <th>Masc. Pl.</th>
+                    <th>Fem. Pl.</th>
+                    <th>Neut. Pl.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Nominative</strong></td><td>ὁ</td><td>ἡ</td><td>τό</td><td>οἱ</td><td>αἱ</td><td>τά</td></tr>
+                  <tr><td><strong>Accusative</strong></td><td>τόν</td><td>τήν</td><td>τό</td><td>τούς</td><td>τάς</td><td>τά</td></tr>
+                  <tr><td><strong>Genitive</strong></td><td>τοῦ</td><td>τῆς</td><td>τοῦ</td><td>τῶν</td><td>τῶν</td><td>τῶν</td></tr>
+                  <tr><td><strong>Dative</strong></td><td>τῷ</td><td>τῇ</td><td>τῷ</td><td>τοῖς</td><td>ταῖς</td><td>τοῖς</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Noun Declensions -->
+          <div class="codex-section">
+            <div class="codex-heading">Noun Declension Endings (1st, 2nd &amp; 3rd)</div>
+            <div class="codex-sub">Regular Attic Greek noun declensions across Part 1 (Chapters 1–5).</div>
+            <div class="table-responsive">
+              <table class="grammar-table greek-script">
+                <thead>
+                  <tr>
+                    <th>Case</th>
+                    <th>1st (f.) τιμή / χώρα</th>
+                    <th>2nd (m.) λόγος</th>
+                    <th>2nd (n.) δῶρον</th>
+                    <th>3rd (m./f.) φύλαξ</th>
+                    <th>3rd (n.) σῶμα</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Nom. Sg.</strong></td><td>τιμ<span class="ending-highlight">-ή</span> (χώρα)</td><td>λόγ<span class="ending-highlight">-ος</span></td><td>δῶρ<span class="ending-highlight">-ον</span></td><td>φύλαξ</td><td>σῶμα</td></tr>
+                  <tr><td><strong>Acc. Sg.</strong></td><td>τιμ<span class="ending-highlight">-ήν</span> (χώραν)</td><td>λόγ<span class="ending-highlight">-ον</span></td><td>δῶρ<span class="ending-highlight">-ον</span></td><td>φύλακ<span class="ending-highlight">-α</span></td><td>σῶμα</td></tr>
+                  <tr><td><strong>Gen. Sg.</strong></td><td>τιμ<span class="ending-highlight">-ῆς</span> (χώρας)</td><td>λόγ<span class="ending-highlight">-ου</span></td><td>δῶρ<span class="ending-highlight">-ου</span></td><td>φύλακ<span class="ending-highlight">-ος</span></td><td>σώματ<span class="ending-highlight">-ος</span></td></tr>
+                  <tr><td><strong>Dat. Sg.</strong></td><td>τιμ<span class="ending-highlight">-ῇ</span> (χώρᾳ)</td><td>λόγ<span class="ending-highlight">-ῳ</span></td><td>δῶρ<span class="ending-highlight">-ῳ</span></td><td>φύλακ<span class="ending-highlight">-ι</span></td><td>σώματ<span class="ending-highlight">-ι</span></td></tr>
+                  <tr><td><strong>Nom. Pl.</strong></td><td>τιμ<span class="ending-highlight">-αί</span></td><td>λόγ<span class="ending-highlight">-οι</span></td><td>δῶρ<span class="ending-highlight">-α</span></td><td>φύλακ<span class="ending-highlight">-ες</span></td><td>σώματ<span class="ending-highlight">-α</span></td></tr>
+                  <tr><td><strong>Acc. Pl.</strong></td><td>τιμ<span class="ending-highlight">-άς</span></td><td>λόγ<span class="ending-highlight">-ους</span></td><td>δῶρ<span class="ending-highlight">-α</span></td><td>φύλακ<span class="ending-highlight">-ας</span></td><td>σώματ<span class="ending-highlight">-α</span></td></tr>
+                  <tr><td><strong>Gen. Pl.</strong></td><td>τιμ<span class="ending-highlight">-ῶν</span></td><td>λόγ<span class="ending-highlight">-ων</span></td><td>δῶρ<span class="ending-highlight">-ων</span></td><td>φυλάκ<span class="ending-highlight">-ων</span></td><td>σωμάτ<span class="ending-highlight">-ων</span></td></tr>
+                  <tr><td><strong>Dat. Pl.</strong></td><td>τιμ<span class="ending-highlight">-αῖς</span></td><td>λόγ<span class="ending-highlight">-οις</span></td><td>δῶρ<span class="ending-highlight">-οις</span></td><td>φύλαξ<span class="ending-highlight">-ι(ν)</span></td><td>σώμασ<span class="ending-highlight">-ι(ν)</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Active & Mood Verb Endings -->
+          <div class="codex-section">
+            <div class="codex-heading">Regular Verbs (λύω) — Tenses &amp; Subjunctive / Optative Moods</div>
+            <div class="codex-sub">Present, Imperfect, Future, Weak Aorist, Aorist Passive (Ch 1–7), plus Subjunctive &amp; Optative moods (Ch 9–10).</div>
+            <div class="table-responsive">
+              <table class="grammar-table greek-script">
+                <thead>
+                  <tr>
+                    <th>Person</th>
+                    <th>Present</th>
+                    <th>Imperfect</th>
+                    <th>Future</th>
+                    <th>Weak Aorist</th>
+                    <th>Aor. Passive</th>
+                    <th>Pres. Subj. (Ch 9)</th>
+                    <th>Pres. Opt. (Ch 10)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>1st Sg.</strong></td><td>λύ<span class="ending-highlight">-ω</span></td><td>ἔ-λυ<span class="ending-highlight">-ον</span></td><td>λύ-σ<span class="ending-highlight">-ω</span></td><td>ἔ-λυ<span class="ending-highlight">-σα</span></td><td>ἐ-λύ<span class="ending-highlight">-θην</span></td><td>λύ<span class="ending-highlight">-ω</span></td><td>λύ<span class="ending-highlight">-οιμι</span></td></tr>
+                  <tr><td><strong>2nd Sg.</strong></td><td>λύ<span class="ending-highlight">-εις</span></td><td>ἔ-λυ<span class="ending-highlight">-ες</span></td><td>λύ-σ<span class="ending-highlight">-εις</span></td><td>ἔ-λυ<span class="ending-highlight">-σας</span></td><td>ἐ-λύ<span class="ending-highlight">-θης</span></td><td>λύ<span class="ending-highlight">-ῃς</span></td><td>λύ<span class="ending-highlight">-οις</span></td></tr>
+                  <tr><td><strong>3rd Sg.</strong></td><td>λύ<span class="ending-highlight">-ει</span></td><td>ἔ-λυ<span class="ending-highlight">-ε(ν)</span></td><td>λύ-σ<span class="ending-highlight">-ει</span></td><td>ἔ-λυ<span class="ending-highlight">-σε(ν)</span></td><td>ἐ-λύ<span class="ending-highlight">-θη</span></td><td>λύ<span class="ending-highlight">-ῃ</span></td><td>λύ<span class="ending-highlight">-οι</span></td></tr>
+                  <tr><td><strong>1st Pl.</strong></td><td>λύ<span class="ending-highlight">-ομεν</span></td><td>ἐ-λύ<span class="ending-highlight">-ομεν</span></td><td>λύ-σ<span class="ending-highlight">-ομεν</span></td><td>ἐ-λύ<span class="ending-highlight">-σαμεν</span></td><td>ἐ-λύ<span class="ending-highlight">-θημεν</span></td><td>λύ<span class="ending-highlight">-ωμεν</span></td><td>λύ<span class="ending-highlight">-οιμεν</span></td></tr>
+                  <tr><td><strong>2nd Pl.</strong></td><td>λύ<span class="ending-highlight">-ετε</span></td><td>ἐ-λύ<span class="ending-highlight">-ετε</span></td><td>λύ-σ<span class="ending-highlight">-ετε</span></td><td>ἐ-λύ<span class="ending-highlight">-σατε</span></td><td>ἐ-λύ<span class="ending-highlight">-θητε</span></td><td>λύ<span class="ending-highlight">-ητε</span></td><td>λύ<span class="ending-highlight">-οιτε</span></td></tr>
+                  <tr><td><strong>3rd Pl.</strong></td><td>λύ<span class="ending-highlight">-ουσι(ν)</span></td><td>ἔ-λυ<span class="ending-highlight">-ον</span></td><td>λύ-σ<span class="ending-highlight">-ουσι(ν)</span></td><td>ἔ-λυ<span class="ending-highlight">-σαν</span></td><td>ἐ-λύ<span class="ending-highlight">-θησαν</span></td><td>λύ<span class="ending-highlight">-ωσι(ν)</span></td><td>λύ<span class="ending-highlight">-οιεν</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Key Irregulars & -μι Verbs + Prepositions -->
+          <div class="codex-section">
+            <div class="codex-heading">εἰμί ("to be"), -μι Verbs &amp; Prepositions</div>
+            <div class="codex-sub">Essential irregular paradigms and prepositional case rules from Chapters 2–11.</div>
+            <div class="prep-grid-2col">
+              <div style="background: var(--primary-light); border: 1.5px solid #86efac; border-radius: 6px; padding: 16px;">
+                <h4 style="color: var(--primary-dark); font-size: 15.5px; margin-bottom: 8px;">εἰμί (to be) &amp; -μι Verbs (Ch 2, 11)</h4>
+                <p class="greek-script" style="font-size: 13.5px; color: #14532d; line-height: 1.65;">
+                  <strong>εἰμί Present:</strong> εἰμί, εἶ, ἐστί(ν), ἐσμέν, ἐστέ, εἰσί(ν)<br>
+                  <strong>εἰμί Imperfect:</strong> ἦ / ἦν, ἦσθα, ἦν, ἦμεν, ἦτε, ἦσαν<br>
+                  <strong>δίδωμι</strong> (give) — aorist: <strong>ἔδωκα</strong> (3rd pl. ἔδωκαν)<br>
+                  <strong>τίθημι</strong> (put, place) — aorist: <strong>ἔθηκα</strong><br>
+                  <strong>ἵστημι</strong> (stand / set up) — aorist: <strong>ἔστησα / ἔστην</strong><br>
+                  <strong>ἀφίημι</strong> (let go, release) — aorist: <strong>ἀφῆκα</strong>
+                </p>
+              </div>
+              <div style="background: #fef7ea; border: 1.5px solid #e5c896; border-radius: 6px; padding: 16px;">
+                <h4 style="color: #78350f; font-size: 15.5px; margin-bottom: 8px;">Prepositions by Case</h4>
+                <p class="greek-script" style="font-size: 13.5px; color: #574126; line-height: 1.65;">
+                  <strong>+ Genitive:</strong> ἐκ / ἐξ (out of), ἀπό (from), πρό (before), ὑπό (by - agent), ἄνευ (without), πλήν (except)<br>
+                  <strong>+ Dative:</strong> ἐν (in, on), σύν (with), ἅμα (together with)<br>
+                  <strong>+ Accusative:</strong> εἰς (into), πρός (towards)<br>
+                  <strong>Variable cases:</strong> διά (+gen = through; +acc = because of), μετά (+gen = with; +acc = after), ἐπί (+gen/dat = on; +acc = against), παρά (+gen = from; +dat = beside; +acc = along/to)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   
 
-    <!-- ==================== TAB 5: LATINA FLAP MINI-GAME ==================== -->
+    <!-- ==================== TAB 5: LATINA FLAP MINI-GAME / AEGEAN TRIREME ==================== -->
     <div id="tabFlap" class="tab-content app-section" style="display: none;">
+      <div id="flapLatinView">
       <div class="flap-section">
         <!-- Banner Header -->
         <div class="flap-banner">
@@ -4386,10 +5207,161 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK GAME: AEGEAN TRIREME -->
+      <div id="triremeGreekView" style="display: none;">
+        <div class="flap-section">
+          <div class="flap-banner trireme-banner">
+            <div class="flap-title-wrap">
+              <div class="flap-banner-icon" style="background: #b45309; border-color: #fcd34d; color: #fef3c7;">ΤΡΙ</div>
+              <div>
+                <div class="flap-title">Aegean Trireme · Ἀθηναϊκὴ Τριήρης</div>
+                <div class="flap-subtitle">Steer your warship into the harbour lane matching the Greek sail · Steady speed · +2 words every 5 gates · 3x Mistake Recovery Round</div>
+              </div>
+            </div>
+            <div class="flap-banner-stats">
+              <div class="flap-stat-badge">
+                <span>Active Pool:</span>
+                <span class="val" id="triremePoolCountBadge">29 words</span>
+              </div>
+              <div class="flap-stat-badge">
+                <span>High Score:</span>
+                <span class="val" id="triremeHighScoreBadge">0</span>
+              </div>
+              <div class="flap-stat-badge">
+                <span>Best Gates:</span>
+                <span class="val" id="triremeBestGatesBadge">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trireme Lobby -->
+          <div id="triremeLobbyScreen" class="flap-lobby">
+            <div class="flap-card-panel">
+              <div class="flap-card-title">How Aegean Trireme Works</div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+                <div style="background: rgba(15, 23, 42, 0.55); border: 1px solid #44403c; border-radius: 6px; padding: 12px;">
+                  <strong style="color: #fde68a;">1. 3 Harbour Lanes · Steady Speed</strong><br>
+                  Your Athenian trireme rows forward at a comfortable, constant sailing speed. Steer across the Top, Middle, or Bottom sea lane matching the Greek word printed on the sail.
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.55); border: 1px solid #44403c; border-radius: 6px; padding: 12px;">
+                  <strong style="color: #fcd34d;">2. Progressive Word Expansion</strong><br>
+                  Begin with <strong>4 words</strong> from your selected <em>Greek to GCSE</em> chapter(s) or Custom Vocab. Every <strong>5 gates</strong> cleared unlocks <strong>+2 new words</strong> into your deck!
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.55); border: 1px solid #44403c; border-radius: 6px; padding: 12px;">
+                  <strong style="color: #fca5a5;">3. 3x Mistake Recovery Round</strong><br>
+                  Any missed word enters a mandatory <strong>Recovery Round</strong> at the end of the 15-gate voyage—clear every missed word <strong>3 times</strong> to claim Athenian Victory!
+                </div>
+              </div>
+              <div id="triremeLobbySourceNote" style="margin-top: 12px; font-size: 12.5px; color: #fcd34d; font-weight: 700;">
+                Selected Chapters: Ch 1 (29 words)
+              </div>
+            </div>
+
+            <div class="flap-actions-row">
+              <button type="button" class="flap-play-btn" style="background: linear-gradient(135deg, #b45309, #78350f); border-color: #fcd34d;" onclick="startTriremeGame()">
+                <span>SET SAIL · START VOYAGE (15 GATES)</span>
+              </button>
+            </div>
+
+            <div class="flap-instructions">
+              <div><kbd>↑ / ↓</kbd> or <kbd>W / S</kbd> to change lane</div>
+              <div>·</div>
+              <div>Tap/Click any lane directly on the sea canvas</div>
+              <div>·</div>
+              <div>5 Hull Hearts · Steady Speed · Toggle transliteration above anytime</div>
+            </div>
+          </div>
+
+          <!-- Trireme Active Canvas Screen -->
+          <div id="triremeGameScreen" class="flap-canvas-container" style="display: none;">
+            <div class="flap-canvas-outer" id="triremeCanvasOuter" style="border-color: #d97706;">
+              <div class="flap-prompt-bar" style="background: rgba(69, 26, 3, 0.94); border-bottom-color: #d97706;">
+                <span class="flap-prompt-kicker" id="triremePhaseKicker">MAIN VOYAGE · GATE 1/15</span>
+                <span class="flap-prompt-text greek-script" id="triremeSailPromptText" style="font-size: 20px;">ἄγγελος</span>
+                <span style="font-size: 12px; color: #fde68a; margin-left: 10px; font-weight: 700;" id="triremeUnlockedLabel">Words: 4</span>
+              </div>
+
+              <div class="flap-hud-top">
+                <div class="flap-hud-left">
+                  <div class="flap-hud-pill">
+                    <span>SCORE:</span>
+                    <span class="gold" id="triremeHudScore">0</span>
+                  </div>
+                  <div class="flap-hud-pill" id="triremeHudModePill">
+                    <span id="triremeHudModeText">4 WORDS</span>
+                  </div>
+                </div>
+                <div class="flap-hud-right">
+                  <div class="flap-hud-pill" title="Hull Integrity">
+                    <span id="triremeHudHearts" style="color: #f87171; letter-spacing: 2px;">♥♥♥♥♥</span>
+                  </div>
+                  <div class="flap-hud-pill" title="Missed words awaiting 3x recovery">
+                    <span id="triremeHudRecoveryCount" style="color: #fde68a;">Recovery: 0</span>
+                  </div>
+                  <div style="display: flex; gap: 6px; margin-top: 4px;">
+                    <button type="button" class="flap-hud-btn" onclick="toggleTriremePause()">Pause</button>
+                    <button type="button" class="flap-hud-btn" onclick="exitTriremeToLobby()">Lobby</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trireme End / Victory / Pause Overlays -->
+              <div class="flap-canvas-message" id="triremePauseModal" style="display: none;">
+                <div class="flap-modal-dialog">
+                  <div class="flap-modal-badge">II</div>
+                  <div class="flap-modal-title">VOYAGE PAUSED</div>
+                  <p style="color: #94a3b8; margin: 8px 0 18px 0;">Oars resting on the Aegean waves.</p>
+                  <div class="flap-modal-btns">
+                    <button type="button" class="flap-modal-btn primary" onclick="toggleTriremePause()">RESUME</button>
+                    <button type="button" class="flap-modal-btn secondary" onclick="exitTriremeToLobby()">LOBBY</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flap-canvas-message" id="triremeEndModal" style="display: none;">
+                <div class="flap-modal-dialog" id="triremeEndDialog">
+                  <div class="flap-modal-badge" id="triremeEndBadge">✓</div>
+                  <div class="flap-modal-title success" id="triremeEndTitle">ΝΙΚΗ! VOYAGE COMPLETE</div>
+                  <p style="color: #e2e8f0; margin: 8px 0 14px 0; font-size: 14px;" id="triremeEndSummary"></p>
+                  <div class="flap-modal-stats">
+                    <div class="flap-modal-stat-box">
+                      <div class="lbl">Final Score</div>
+                      <div class="val" id="triremeEndScore">0</div>
+                    </div>
+                    <div class="flap-modal-stat-box">
+                      <div class="lbl">Gates Cleared</div>
+                      <div class="val" id="triremeEndGates">0</div>
+                    </div>
+                  </div>
+                  <div class="flap-modal-btns">
+                    <button type="button" class="flap-modal-btn primary" id="triremeRecoveryQuickBtn" style="display: none;" onclick="startTriremeRecoveryOnly()">
+                      PRACTICE MISSED WORDS (3x)
+                    </button>
+                    <button type="button" class="flap-modal-btn primary" onclick="startTriremeGame()">SAIL AGAIN</button>
+                    <button type="button" class="flap-modal-btn secondary" onclick="exitTriremeToLobby()">LOBBY</button>
+                  </div>
+                </div>
+              </div>
+
+              <canvas id="aegeanTriremeCanvas" width="800" height="480"></canvas>
+            </div>
+
+            <!-- Dedicated 3-Lane Steer Controls (Touch & Desktop Accessibility) -->
+            <div class="trireme-lane-controls">
+              <button type="button" class="trireme-steer-btn" onclick="steerTriremeLane(0)">▲ Top Lane (1)</button>
+              <button type="button" class="trireme-steer-btn" onclick="steerTriremeLane(1)">● Middle Lane (2)</button>
+              <button type="button" class="trireme-steer-btn" onclick="steerTriremeLane(2)">▼ Bottom Lane (3)</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== TAB 6: MYTH COMPREHENSION PRACTICE ==================== -->
     <div id="tabMyths" class="tab-content app-section" style="display: none;">
+      <div id="mythsLatinView">
       <div class="myths-container">
         <div class="myths-header-bar">
           <div class="myths-title-block">
@@ -4441,6 +5413,60 @@
           </aside>
         </div>
       </div>
+      </div>
+
+      <!-- ANCIENT GREEK STORY & MYTH READER -->
+      <div id="mythsGreekView" style="display: none;">
+        <div class="myths-container">
+          <div class="myths-header-bar">
+            <div class="myths-title-block">
+              <h2>Greek Story &amp; Myth Reader</h2>
+              <p class="myths-meta-line">Stories strictly match your selected <em>Greek to GCSE</em> chapters. Tap any Greek word for grammar &amp; meaning.</p>
+            </div>
+
+            <div class="myths-filter-bar" role="tablist" aria-label="Filter Greek stories by difficulty">
+              <button type="button" class="myths-filter-btn active" data-greek-myth-filter="all" onclick="setGreekStoryDifficultyFilter('all')">All Chapters</button>
+              <button type="button" class="myths-filter-btn" data-greek-myth-filter="easy" onclick="setGreekStoryDifficultyFilter('easy')">Easy</button>
+              <button type="button" class="myths-filter-btn" data-greek-myth-filter="intermediate" onclick="setGreekStoryDifficultyFilter('intermediate')">Intermediate</button>
+              <button type="button" class="myths-filter-btn" data-greek-myth-filter="hard" onclick="setGreekStoryDifficultyFilter('hard')">Hard</button>
+            </div>
+          </div>
+
+          <div class="myths-workspace-grid">
+            <section class="myths-card" aria-label="Ancient Greek passage">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <div class="myths-passage-meta" id="greekStoryMeta"></div>
+                <button type="button" class="greek-mini-btn" id="greekStoryEngToggleBtn" onclick="toggleGreekStoryTranslation()">Show English Translation</button>
+              </div>
+              <h3 class="myths-passage-title" id="greekStoryTitle"></h3>
+
+              <div class="myths-latin-stage greek-script" id="greekStoryStage"></div>
+              <div class="greek-translit-line" id="greekStoryTranslitLine" style="display: none;"></div>
+              <div class="greek-story-trans-drawer" id="greekStoryEngDrawer" style="display: none;"></div>
+
+              <div class="myths-gloss-banner is-hint" id="greekGlossBanner" aria-live="polite">
+                <span>Tap any Ancient Greek word above to view its dictionary form, grammar note, and English meaning.</span>
+              </div>
+
+              <div class="myths-nav-row">
+                <button type="button" class="myths-nav-btn" id="greekStoryPrevBtn" onclick="prevGreekStory()">← Previous Story</button>
+                <button type="button" class="myths-nav-btn primary" id="greekStoryNextBtn" onclick="nextGreekStory()">Next Story →</button>
+              </div>
+            </section>
+
+            <aside class="myths-card" aria-label="Greek comprehension questions">
+              <div class="myths-subhead-row">
+                <h4 class="myths-subhead-title">Comprehension Questions</h4>
+                <span style="font-size: 13px; color: #059669; font-weight: 600;" id="greekStorySolvedBadge"></span>
+              </div>
+              <div class="myths-questions-stack" id="greekStoryQuestionsStack"></div>
+              <div class="myths-next-prompt" id="greekStoryNextPromptRow" style="display: none;">
+                <button type="button" class="myths-nav-btn primary" onclick="nextGreekStory()">Continue to Next Story →</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
     </div>
 
 </main>
@@ -4449,7 +5475,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-credit">Made by Achyuth Koneti</div>
-      <div class="footer-spec">RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · 175 Exam Sentences</div>
+      <div class="footer-spec" id="footerSpecLine">RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · Translation Arena</div>
       <div class="footer-spec" style="margin-top: 4px; opacity: 0.85;">Sign in is optional (saves &amp; syncs progress across devices). Personal Gmail, Yahoo, Outlook, or iCloud emails only — school emails cannot be used to create an account.</div>
     </div>
   </footer>
@@ -4457,6 +5483,14 @@
   <!-- Application Logic wrapped cleanly inside script tags -->
   <script type="module">
     import { MYTH_EXTRACTS, lookupLatinWordMeaning } from './src/data/mythPassages';
+    import {
+      GREEK_CHAPTERS,
+      GREEK_CHAPTER_VOCAB,
+      GREEK_SENTENCES,
+      GREEK_STORIES,
+      transliterateAncientGreek,
+      parseCustomGreekVocab
+    } from './src/data/greekToGcseData.js';
     // Firebase v10 CDN Modular SDK Imports
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
     import { 
@@ -12532,10 +13566,16 @@
       const nameLabel = document.getElementById('userNameLabel');
       const signOutBtn = document.getElementById('headerSignOutBtn');
       const topBar = document.getElementById('topSaveDisclaimerBar');
+      const headerTodayPill = document.getElementById('headerSentencesTodayPill');
+      const latinTodayRow = document.getElementById('latinTodayRow');
+      const greekTodayRow = document.getElementById('greekTodayRow');
 
       if (currentUser) {
         if (topBar) topBar.style.display = 'none';
         if (signOutBtn) signOutBtn.style.display = 'inline-block';
+        if (headerTodayPill) headerTodayPill.style.display = 'inline-flex';
+        if (latinTodayRow) latinTodayRow.style.display = 'flex';
+        if (greekTodayRow) greekTodayRow.style.display = 'flex';
         const displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Scholar');
         if (nameLabel) nameLabel.textContent = displayName;
 
@@ -12551,6 +13591,9 @@
       } else {
         if (topBar) topBar.style.display = topDisclaimerDismissed ? 'none' : 'flex';
         if (signOutBtn) signOutBtn.style.display = 'none';
+        if (headerTodayPill) headerTodayPill.style.display = 'none';
+        if (latinTodayRow) latinTodayRow.style.display = 'none';
+        if (greekTodayRow) greekTodayRow.style.display = 'none';
         if (nameLabel) nameLabel.textContent = 'Sign In';
         if (avatarContainer) avatarContainer.textContent = '?';
         setSyncStatus('not-synced');
@@ -12621,16 +13664,10 @@
               localStorage.setItem('romalingua_sentences_today', sentencesDoneToday.toString());
             }
 
-            // Sync current sentence index across all devices on account
-            if (typeof data.currentSentenceIndex === 'number' && !isNaN(data.currentSentenceIndex)) {
-              const remoteSentenceIndex = Math.max(0, data.currentSentenceIndex % SENTENCES_DATA.length);
-
-              // Update sentence if different and not currently saving
-              if (!isSavingToFirestore && remoteSentenceIndex !== currentSentenceIndex) {
-                currentSentenceIndex = remoteSentenceIndex;
-                localStorage.setItem('romalingua_sentence_index', currentSentenceIndex.toString());
-                loadSentence(currentSentenceIndex, false);
-              }
+            // Keep freshly randomized initial sentence on page access; update metadata only
+            if (SENTENCES_DATA[currentSentenceIndex]) {
+              renderSentenceMeta(SENTENCES_DATA[currentSentenceIndex]);
+              updateTierSummaryDisplay();
             }
 
             // Sync Latina Flap levels for each difficulty mode across devices on same account
@@ -12814,6 +13851,15 @@
       if (todayCountEl) todayCountEl.textContent = sentencesDoneToday;
       const arenaBadgeEl = document.getElementById('arenaSentencesTodayBadge');
       if (arenaBadgeEl) arenaBadgeEl.textContent = sentencesDoneToday;
+      const greekArenaBadgeEl = document.getElementById('greekArenaSentencesTodayBadge');
+      if (greekArenaBadgeEl) greekArenaBadgeEl.textContent = sentencesDoneToday;
+      const showToday = Boolean(currentUser);
+      const headerTodayPill = document.getElementById('headerSentencesTodayPill');
+      if (headerTodayPill) headerTodayPill.style.display = showToday ? 'inline-flex' : 'none';
+      const latinTodayRow = document.getElementById('latinTodayRow');
+      if (latinTodayRow) latinTodayRow.style.display = showToday ? 'flex' : 'none';
+      const greekTodayRow = document.getElementById('greekTodayRow');
+      if (greekTodayRow) greekTodayRow.style.display = showToday ? 'flex' : 'none';
     }
 
     // Tab Navigation & Section Switching
@@ -12849,6 +13895,24 @@
       }
       if (typeof updateNavScrollUI === 'function') {
         setTimeout(updateNavScrollUI, 220);
+      }
+
+      if (typeof activeLanguage !== 'undefined' && activeLanguage === 'greek') {
+        if (tabId === 'arcade' && typeof nextGreekArcadeWord === 'function' && !currentGreekArcadeWord) {
+          nextGreekArcadeWord();
+        }
+        if (tabId === 'deck' && typeof filterAndRenderGreekCards === 'function') {
+          filterAndRenderGreekCards();
+        }
+        if (tabId === 'flap' && typeof updateTriremeLobbyUI === 'function') {
+          updateTriremeLobbyUI();
+        } else if (tabId !== 'flap' && typeof triremeState !== 'undefined' && triremeState.status === 'PLAYING' && typeof toggleTriremePause === 'function') {
+          toggleTriremePause(true);
+        }
+        if (tabId === 'myths' && typeof renderGreekStoriesView === 'function') {
+          renderGreekStoriesView();
+        }
+        return;
       }
 
       if (tabId === 'arcade' && !currentArcadeWord) {
@@ -12903,23 +13967,22 @@
       return filtered.length > 0 ? filtered : SENTENCES_DATA;
     }
 
-    function getNextSentenceIndex() {
+    function getRandomSentenceIndexFromPool(excludeIndex = -1) {
       const pool = getFilteredSentencePool();
       if (!pool.length) return 0;
-
-      const currentSentence = SENTENCES_DATA[currentSentenceIndex];
-      const poolIdx = pool.findIndex(s => s && currentSentence && s.id === currentSentence.id);
-
-      if (poolIdx === -1) {
-        // If current sentence is not in active pool, pick first uncompleted sentence in pool, or pool[0]
-        const uncompleted = pool.find(s => !completedSentences.includes(s.id));
-        const target = uncompleted || pool[0];
-        return SENTENCES_DATA.findIndex(s => s.id === target.id);
+      let candidates = pool;
+      if (excludeIndex >= 0 && SENTENCES_DATA[excludeIndex]) {
+        const excludeId = SENTENCES_DATA[excludeIndex].id;
+        const filtered = pool.filter(s => s.id !== excludeId);
+        if (filtered.length > 0) candidates = filtered;
       }
+      const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+      const globalIdx = SENTENCES_DATA.findIndex(s => s.id === chosen.id);
+      return globalIdx >= 0 ? globalIdx : 0;
+    }
 
-      const nextPoolIdx = (poolIdx + 1) % pool.length;
-      const nextSentence = pool[nextPoolIdx];
-      return SENTENCES_DATA.findIndex(s => s.id === nextSentence.id);
+    function getNextSentenceIndex() {
+      return getRandomSentenceIndexFromPool(currentSentenceIndex);
     }
 
     function renderSentenceMeta(sentence) {
@@ -12942,16 +14005,16 @@
         kickerEl.innerHTML = `<span class="kicker-tag ${info.cls}">${info.label}</span> <span>${focus}</span>`;
       }
 
-      const pool = getFilteredSentencePool();
-      const poolIndex = pool.findIndex(s => s.id === sentence.id);
       const isCompleted = completedSentences.includes(sentence.id);
 
       if (posEl) {
         if (currentDifficulty === 'all') {
-          posEl.innerHTML = `Sentence ${poolIndex >= 0 ? poolIndex + 1 : 1} of ${pool.length}${isCompleted ? ' • <span style="color:#15803d; font-weight:800;">✓ Done</span>' : ''}`;
+          posEl.innerHTML = isCompleted
+            ? '<span style="color:#15803d; font-weight:800;">✓ Done</span>'
+            : 'OCR GCSE Practice';
         } else {
           const capitalizedDiff = diff.charAt(0).toUpperCase() + diff.slice(1);
-          posEl.innerHTML = `${capitalizedDiff}: ${poolIndex >= 0 ? poolIndex + 1 : 1} of ${pool.length}${isCompleted ? ' • <span style="color:#15803d; font-weight:800;">✓ Done</span>' : ''}`;
+          posEl.innerHTML = `${capitalizedDiff} Tier${isCompleted ? ' • <span style="color:#15803d; font-weight:800;">✓ Done</span>' : ''}`;
         }
       }
     }
@@ -12964,7 +14027,7 @@
       const completedInPool = pool.filter(s => completedSentences.includes(s.id)).length;
 
       if (currentDifficulty === 'all') {
-        summaryEl.textContent = `Unified progress • ${completedSentences.length} of ${SENTENCES_DATA.length} sentences mastered overall`;
+        summaryEl.textContent = `Unified progress • ${completedSentences.length} mastered overall`;
       } else {
         const diffNames = {
           easy: 'Easy tier',
@@ -12973,20 +14036,8 @@
           gcse: 'GCSE tier'
         };
         const name = diffNames[currentDifficulty] || 'Current tier';
-        summaryEl.textContent = `Unified progress • ${completedInPool} of ${pool.length} ${name} sentences completed`;
+        summaryEl.textContent = `Unified progress • ${completedInPool} ${name} completed`;
       }
-
-      // Update badge counts on pills dynamically
-      const countEasyEl = document.getElementById('countEasyBadge');
-      if (countEasyEl) countEasyEl.textContent = SENTENCES_DATA.filter(s => s.difficulty === 'easy').length;
-      const countInterEl = document.getElementById('countInterBadge');
-      if (countInterEl) countInterEl.textContent = SENTENCES_DATA.filter(s => s.difficulty === 'intermediate').length;
-      const countHardEl = document.getElementById('countHardBadge');
-      if (countHardEl) countHardEl.textContent = SENTENCES_DATA.filter(s => s.difficulty === 'hard').length;
-      const countGcseEl = document.getElementById('countGcseBadge');
-      if (countGcseEl) countGcseEl.textContent = SENTENCES_DATA.filter(s => s.difficulty === 'gcse').length;
-      const countAllEl = document.getElementById('countAllBadge');
-      if (countAllEl) countAllEl.textContent = SENTENCES_DATA.length;
     }
 
     function setArenaDifficulty(diff, shouldPlaySound = true, fromInit = false) {
@@ -13005,11 +14056,7 @@
       const inPool = currentSentence && (currentDifficulty === 'all' || currentSentence.difficulty === currentDifficulty);
 
       if (!inPool && pool.length > 0) {
-        // Jump to first uncompleted in tier, or pool[0]
-        const uncompleted = pool.find(s => !completedSentences.includes(s.id));
-        const target = uncompleted || pool[0];
-        const targetGlobalIdx = SENTENCES_DATA.findIndex(s => s.id === target.id);
-        loadSentence(targetGlobalIdx >= 0 ? targetGlobalIdx : 0, !fromInit);
+        loadSentence(getRandomSentenceIndexFromPool(), !fromInit);
       } else {
         renderSentenceMeta(currentSentence);
         updateTierSummaryDisplay();
@@ -13021,10 +14068,9 @@
     function loadSentence(index, shouldSync = true) {
       if (typeof index !== 'number' || isNaN(index)) index = 0;
 
-      // After 175 sentences done, restart the cycle
       if (index >= SENTENCES_DATA.length) {
         currentSentenceIndex = 0;
-        showToast('All 175 sentences completed! Cycle restarted.');
+        showToast('Sentence cycle completed! Cycle restarted.');
       } else {
         currentSentenceIndex = (index + SENTENCES_DATA.length) % SENTENCES_DATA.length;
       }
@@ -14322,8 +15368,9 @@
           onPlayerFlapAction();
         });
 
-        // Key listeners: Space and Up Arrow
+        // Key listeners: Space and Up Arrow (Latin Latina Flap only)
         window.addEventListener('keydown', (e) => {
+          if (typeof activeLanguage !== 'undefined' && activeLanguage === 'greek') return;
           const flapTab = document.getElementById('tabFlap');
           if (!flapTab || flapTab.style.display === 'none') return;
 
@@ -14343,6 +15390,7 @@
     }
 
     function onPlayerFlapAction() {
+      if (typeof activeLanguage !== 'undefined' && activeLanguage === 'greek') return;
       if (flapGameState === 'READY') {
         flapGameState = 'PLAYING';
         hideFlapModals();
@@ -15217,8 +16265,9 @@
       setupSoundToggle();
       setupKeyListeners();
 
-      // Initialize difficulty pill selection and sentence
+      // Always start on a random sentence on page access (signed in or not)
       setArenaDifficulty(currentDifficulty, false, true);
+      currentSentenceIndex = getRandomSentenceIndexFromPool();
       loadSentence(currentSentenceIndex, false);
 
       // Initialize Latina Flap difficulty mode and lobby state
@@ -15245,6 +16294,10 @@
 
       if (typeof renderMythsView === 'function') {
         renderMythsView();
+      }
+
+      if (typeof initGreekMode === 'function') {
+        initGreekMode();
       }
     }
 
@@ -15507,6 +16560,2183 @@
     window.glossPassageWord = glossPassageWord;
     window.answerMythQuestion = answerMythQuestion;
     window.renderMythsView = renderMythsView;
+
+    // ==================== ANCIENT GREEK MODE & JOHN TAYLOR GREEK TO GCSE ENGINE ====================
+    let activeLanguage = localStorage.getItem('romalingua_active_language') === 'greek' ? 'greek' : 'latin';
+    let greekSelectedChapters = [1];
+    try {
+      const savedChs = JSON.parse(localStorage.getItem('romalingua_greek_selected_chapters') || '[1]');
+      if (Array.isArray(savedChs) && savedChs.length > 0) {
+        const cleanChs = savedChs.map(Number).filter(n => n >= 1 && n <= 12);
+        if (cleanChs.length > 0) greekSelectedChapters = [...new Set(cleanChs)].sort((a, b) => a - b);
+      }
+    } catch (_e) {}
+
+    let greekChapterSelectMode = localStorage.getItem('romalingua_greek_ch_mode') === 'single' ? 'single' : 'combine';
+    let greekUseCustomVocab = localStorage.getItem('romalingua_greek_use_custom') === 'true';
+    let greekCustomVocabRaw = localStorage.getItem('romalingua_greek_custom_vocab_raw') || '';
+    let greekCustomVocabList = parseCustomGreekVocab(greekCustomVocabRaw);
+    if (greekUseCustomVocab && greekCustomVocabList.length === 0) {
+      greekUseCustomVocab = false;
+    }
+    let greekShowTranslit = localStorage.getItem('romalingua_greek_show_translit') !== 'false';
+
+    // Greek Arena State
+    let greekArenaDifficulty = 'all';
+    let greekCurrentSentenceId = null;
+    let greekSentenceAttempts = 0;
+    let greekTenseHintVisible = false;
+    let greekLastSubmittedAnswer = '';
+    let greekCompletedSentences = [];
+    try {
+      const savedComp = JSON.parse(localStorage.getItem('romalingua_greek_completed_sentences') || '[]');
+      if (Array.isArray(savedComp)) greekCompletedSentences = savedComp;
+    } catch (_e) {}
+
+    // Greek Arcade State
+    let currentGreekArcadeWord = null;
+    let greekArcadeScore = 0;
+    let greekArcadeStreak = 0;
+    let greekArcadeBestStreak = parseInt(localStorage.getItem('romalingua_greek_arcade_best') || '0', 10) || 0;
+    let greekArcadeCanAnswer = true;
+    let greekArcadeAdvanceTimeout = null;
+    let greekArcadePrevStreak = 0;
+
+    // Greek Flashcards State
+    const GREEK_CARDS_PER_PAGE = 20;
+    let greekDeckScope = localStorage.getItem('romalingua_greek_deck_scope') || 'full'; // 'full' | 'chapters'
+    let greekDeckCategory = 'all';
+    let greekDeckSortOrder = 'default';
+    let greekDeckSearchQuery = '';
+    let greekCurrentDeckPage = 1;
+    let greekAllFlipped = false;
+    let greekShuffledOrder = null;
+    let greekDisplayedDeck = [];
+    let greekMasteredWords = [];
+    try {
+      const savedGM = JSON.parse(localStorage.getItem('romalingua_greek_mastered') || '[]');
+      if (Array.isArray(savedGM)) greekMasteredWords = savedGM;
+    } catch (_e) {}
+
+    // Greek Stories State
+    let greekStoryDiffFilter = 'all';
+    let currentGreekStoryId = GREEK_STORIES[0] ? GREEK_STORIES[0].story_id : '';
+    let greekStorySelectedToken = null;
+    let greekStoryShowEnglish = false;
+    let greekStoryAnswersState = {};
+    try {
+      const savedGSt = JSON.parse(localStorage.getItem('romalingua_greek_stories_answers_v1') || '{}');
+      if (savedGSt && typeof savedGSt === 'object') greekStoryAnswersState = savedGSt;
+    } catch (_e) {}
+
+    function escapeGreekHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function stripGreekDiacritics(str) {
+      return String(str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/ς/g, 'σ')
+        .toLowerCase()
+        .trim();
+    }
+
+    function getMaxSelectedGreekChapter() {
+      if (!greekSelectedChapters.length) return 1;
+      return Math.max(...greekSelectedChapters);
+    }
+
+    function getActiveGreekVocabPool() {
+      if (greekUseCustomVocab && greekCustomVocabList.length > 0) {
+        return greekCustomVocabList;
+      }
+      const list = GREEK_CHAPTER_VOCAB.filter(w => greekSelectedChapters.includes(w.chapter));
+      return list.length > 0 ? list : GREEK_CHAPTER_VOCAB.filter(w => w.chapter === 1);
+    }
+
+    function formatChapterRangeLabel(chs) {
+      if (!chs || !chs.length) return 'Ch 1';
+      if (chs.length === 12) return 'All Ch 1–12';
+      if (chs.length === 6 && chs[0] === 1 && chs[5] === 6) return 'Part 1 (Ch 1–6)';
+      if (chs.length === 6 && chs[0] === 7 && chs[5] === 12) return 'Part 2 (Ch 7–12)';
+      if (chs.length <= 4) return 'Ch ' + chs.join(', ');
+      return chs.length + ' Chapters (max Ch ' + Math.max(...chs) + ')';
+    }
+
+    // ---- Shared Chapter Selector & Context Bar ----
+    function renderGreekContextBar() {
+      const strip = document.getElementById('greekChapterButtonsContainer');
+      const summaryBadge = document.getElementById('greekContextSummaryBadge');
+      const modeBtn = document.getElementById('greekSelectModeBtn');
+      const translitBtn = document.getElementById('greekTranslitToggleBtn');
+      const customBtn = document.getElementById('greekCustomVocabBtn');
+      const p1Btn = document.getElementById('greekPresetPart1Btn');
+      const p2Btn = document.getElementById('greekPresetPart2Btn');
+      const allBtn = document.getElementById('greekPresetAllBtn');
+
+      const activePool = getActiveGreekVocabPool();
+      if (summaryBadge) {
+        if (greekUseCustomVocab && greekCustomVocabList.length > 0) {
+          summaryBadge.textContent = `Custom Vocab · ${greekCustomVocabList.length} words`;
+        } else {
+          summaryBadge.textContent = `${formatChapterRangeLabel(greekSelectedChapters)} · ${activePool.length} words`;
+        }
+      }
+
+      if (modeBtn) {
+        modeBtn.textContent = greekChapterSelectMode === 'single' ? 'Select: One Ch' : 'Select: Combine Ch';
+      }
+      if (translitBtn) {
+        translitBtn.textContent = greekShowTranslit ? 'Transliteration: ON' : 'Transliteration: OFF';
+        translitBtn.classList.toggle('translit-on', greekShowTranslit);
+      }
+      if (customBtn) {
+        customBtn.classList.toggle('active', greekUseCustomVocab && greekCustomVocabList.length > 0);
+        customBtn.textContent = (greekUseCustomVocab && greekCustomVocabList.length > 0)
+          ? `Custom Vocab (${greekCustomVocabList.length})`
+          : 'Custom Vocab';
+      }
+
+      const isPart1 = !greekUseCustomVocab && greekSelectedChapters.length === 6 && greekSelectedChapters[0] === 1 && greekSelectedChapters[5] === 6;
+      const isPart2 = !greekUseCustomVocab && greekSelectedChapters.length === 6 && greekSelectedChapters[0] === 7 && greekSelectedChapters[5] === 12;
+      const isAll = !greekUseCustomVocab && greekSelectedChapters.length === 12;
+      if (p1Btn) p1Btn.classList.toggle('active', isPart1);
+      if (p2Btn) p2Btn.classList.toggle('active', isPart2);
+      if (allBtn) allBtn.classList.toggle('active', isAll);
+
+      if (strip) {
+        let html = '<span class="greek-part-lbl">Part 1:</span>';
+        for (let ch = 1; ch <= 6; ch++) {
+          const chMeta = GREEK_CHAPTERS.find(c => c.id === ch);
+          const isActive = !greekUseCustomVocab && greekSelectedChapters.includes(ch);
+          html += `<button type="button" class="greek-ch-btn${isActive ? ' active' : ''}" title="${escapeGreekHtml(chMeta ? chMeta.title + ' — ' + chMeta.grammarSummary : 'Ch ' + ch)}" onclick="toggleGreekChapter(${ch})">Ch ${ch}</button>`;
+        }
+        html += '<span class="greek-ch-divider" aria-hidden="true"></span><span class="greek-part-lbl">Part 2:</span>';
+        for (let ch = 7; ch <= 12; ch++) {
+          const chMeta = GREEK_CHAPTERS.find(c => c.id === ch);
+          const isActive = !greekUseCustomVocab && greekSelectedChapters.includes(ch);
+          html += `<button type="button" class="greek-ch-btn${isActive ? ' active' : ''}" title="${escapeGreekHtml(chMeta ? chMeta.title + ' — ' + chMeta.grammarSummary : 'Ch ' + ch)}" onclick="toggleGreekChapter(${ch})">Ch ${ch}</button>`;
+        }
+        strip.innerHTML = html;
+      }
+    }
+
+    function saveGreekSelections() {
+      try {
+        localStorage.setItem('romalingua_greek_selected_chapters', JSON.stringify(greekSelectedChapters));
+        localStorage.setItem('romalingua_greek_ch_mode', greekChapterSelectMode);
+        localStorage.setItem('romalingua_greek_use_custom', greekUseCustomVocab ? 'true' : 'false');
+        localStorage.setItem('romalingua_greek_show_translit', greekShowTranslit ? 'true' : 'false');
+      } catch (_e) {}
+    }
+
+    function refreshAllGreekModules() {
+      renderGreekContextBar();
+      renderGreekSentenceByPool();
+      nextGreekArcadeWord();
+      greekShuffledOrder = null;
+      greekCurrentDeckPage = 1;
+      filterAndRenderGreekCards();
+      updateTriremeLobbyUI();
+      renderGreekStoriesView();
+    }
+
+    function toggleGreekChapter(chNum) {
+      greekUseCustomVocab = false;
+      if (greekChapterSelectMode === 'single') {
+        greekSelectedChapters = [chNum];
+      } else {
+        if (greekSelectedChapters.includes(chNum)) {
+          if (greekSelectedChapters.length > 1) {
+            greekSelectedChapters = greekSelectedChapters.filter(c => c !== chNum);
+          } else {
+            showToast('Keep at least 1 chapter selected.');
+          }
+        } else {
+          greekSelectedChapters = [...greekSelectedChapters, chNum].sort((a, b) => a - b);
+        }
+      }
+      saveGreekSelections();
+      refreshAllGreekModules();
+    }
+
+    function applyGreekChapterPreset(preset) {
+      greekUseCustomVocab = false;
+      if (preset === 'part1') greekSelectedChapters = [1, 2, 3, 4, 5, 6];
+      else if (preset === 'part2') greekSelectedChapters = [7, 8, 9, 10, 11, 12];
+      else greekSelectedChapters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      saveGreekSelections();
+      refreshAllGreekModules();
+    }
+
+    function toggleGreekChapterSelectMode() {
+      greekChapterSelectMode = greekChapterSelectMode === 'combine' ? 'single' : 'combine';
+      if (greekChapterSelectMode === 'single' && greekSelectedChapters.length > 1) {
+        greekSelectedChapters = [greekSelectedChapters[greekSelectedChapters.length - 1]];
+      }
+      saveGreekSelections();
+      refreshAllGreekModules();
+    }
+
+    function toggleGreekTransliteration() {
+      greekShowTranslit = !greekShowTranslit;
+      saveGreekSelections();
+      renderGreekContextBar();
+      refreshGreekSentenceDisplay();
+      renderGreekArcadeCurrentWord();
+      renderGreekCardsGrid();
+      updateTriremePromptUI();
+      renderGreekStoriesView();
+    }
+
+    // ---- Custom Vocab Modal Controls ----
+    function openGreekCustomVocabModal() {
+      const modal = document.getElementById('greekCustomVocabModal');
+      const input = document.getElementById('greekCustomVocabInput');
+      if (input) {
+        input.value = greekCustomVocabRaw || '';
+        input.oninput = updateGreekCustomPreview;
+      }
+      updateGreekCustomPreview();
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeGreekCustomVocabModal() {
+      const modal = document.getElementById('greekCustomVocabModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function updateGreekCustomPreview() {
+      const input = document.getElementById('greekCustomVocabInput');
+      const info = document.getElementById('greekCustomPreviewInfo');
+      if (!input || !info) return;
+      const parsed = parseCustomGreekVocab(input.value);
+      info.textContent = parsed.length > 0
+        ? `Ready: ${parsed.length} valid Greek word${parsed.length === 1 ? '' : 's'} detected.`
+        : 'Enter lines formatted as: Greek | transliteration | English (or Greek - English).';
+    }
+
+    function loadSampleCustomGreekVocab() {
+      const input = document.getElementById('greekCustomVocabInput');
+      if (!input) return;
+      input.value = [
+        'λόγος | logos | word, story',
+        'θεός | theos | god',
+        'νῆσος | nēsos | island',
+        'θάλασσα | thalassa | sea',
+        'στρατιώτης | stratiōtēs | soldier',
+        'ναύτης | nautēs | sailor',
+        'βασιλεύς | basileus | king',
+        'λύω | luō | untie, set free'
+      ].join('\n');
+      updateGreekCustomPreview();
+    }
+
+    function saveCustomGreekVocab() {
+      const input = document.getElementById('greekCustomVocabInput');
+      const raw = input ? input.value : '';
+      const parsed = parseCustomGreekVocab(raw);
+      if (parsed.length === 0) {
+        showToast('Please enter at least 1 valid word pair (e.g. λόγος - word).');
+        return;
+      }
+      greekCustomVocabRaw = raw;
+      greekCustomVocabList = parsed;
+      greekUseCustomVocab = true;
+      greekDeckScope = 'chapters';
+      try {
+        localStorage.setItem('romalingua_greek_custom_vocab_raw', raw);
+        localStorage.setItem('romalingua_greek_deck_scope', 'chapters');
+      } catch (_e) {}
+      saveGreekSelections();
+      closeGreekCustomVocabModal();
+      refreshAllGreekModules();
+      showToast(`Custom Vocab activated (${parsed.length} words)!`);
+    }
+
+    function clearCustomGreekVocab() {
+      greekUseCustomVocab = false;
+      saveGreekSelections();
+      closeGreekCustomVocabModal();
+      refreshAllGreekModules();
+      showToast('Switched back to Greek to GCSE chapters.');
+    }
+
+    // ---- Language Switcher (Latin | Ancient Greek) ----
+    function switchLanguage(lang) {
+      const nextLang = lang === 'greek' ? 'greek' : 'latin';
+      activeLanguage = nextLang;
+      try {
+        localStorage.setItem('romalingua_active_language', activeLanguage);
+      } catch (_e) {}
+
+      // Pause active games safely when toggling language
+      if (nextLang === 'greek' && typeof flapGameState !== 'undefined' && flapGameState === 'PLAYING' && typeof toggleFlapPause === 'function') {
+        toggleFlapPause();
+      }
+      if (nextLang === 'latin' && typeof triremeState !== 'undefined' && triremeState.status === 'PLAYING') {
+        toggleTriremePause(true);
+      }
+
+      const isGreek = activeLanguage === 'greek';
+      document.body.classList.toggle('lang-greek', isGreek);
+
+      const btnLatin = document.getElementById('langBtnLatin');
+      const btnGreek = document.getElementById('langBtnGreek');
+      if (btnLatin) btnLatin.className = 'lang-switch-btn' + (!isGreek ? ' active-latin' : '');
+      if (btnGreek) btnGreek.className = 'lang-switch-btn' + (isGreek ? ' active-greek' : '');
+
+      const contextBar = document.getElementById('greekContextBar');
+      if (contextBar) contextBar.style.display = isGreek ? 'flex' : 'none';
+
+      // Swap Tab Labels while keeping exact tab structure
+      const deckSpan = document.querySelector('#tabBtnDeck span');
+      const flapSpan = document.querySelector('#tabBtnFlap span');
+      const mythSpan = document.querySelector('#tabBtnMyths span');
+      if (deckSpan) deckSpan.textContent = isGreek ? `Official Greek DVL (${GREEK_CHAPTER_VOCAB.length})` : 'Official DVL Deck (446)';
+      if (flapSpan) flapSpan.textContent = isGreek ? 'Aegean Trireme' : 'Latina Flap';
+      if (mythSpan) mythSpan.textContent = isGreek ? 'Greek Stories' : 'Myth Practice';
+
+      // Swap Footer Spec Copy
+      const footerLine = document.getElementById('footerSpecLine');
+      if (footerLine) {
+        footerLine.textContent = isGreek
+          ? 'RomaLingua · John Taylor Greek to GCSE (Part 1 & 2) · OCR Classical Greek (J292) · Aegean Trireme'
+          : 'RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · Translation Arena';
+      }
+
+      // Toggle Latin vs Greek view wrappers inside all 6 tabs
+      const pairs = [
+        ['arenaLatinView', 'arenaGreekView'],
+        ['arcadeLatinView', 'arcadeGreekView'],
+        ['deckLatinView', 'deckGreekView'],
+        ['codexLatinView', 'codexGreekView'],
+        ['flapLatinView', 'triremeGreekView'],
+        ['mythsLatinView', 'mythsGreekView']
+      ];
+      pairs.forEach(([lId, gId]) => {
+        const lEl = document.getElementById(lId);
+        const gEl = document.getElementById(gId);
+        if (lEl) lEl.style.display = isGreek ? 'none' : 'block';
+        if (gEl) gEl.style.display = isGreek ? 'block' : 'none';
+      });
+
+      if (isGreek) {
+        renderGreekContextBar();
+        const activeTabEl = document.querySelector('.tab-btn.active');
+        const activeTabId = activeTabEl ? activeTabEl.id : 'tabBtnArena';
+        if (activeTabId === 'tabBtnArena') renderGreekSentenceByPool();
+        else if (activeTabId === 'tabBtnArcade') nextGreekArcadeWord();
+        else if (activeTabId === 'tabBtnDeck') filterAndRenderGreekCards();
+        else if (activeTabId === 'tabBtnFlap') updateTriremeLobbyUI();
+        else if (activeTabId === 'tabBtnMyths') renderGreekStoriesView();
+      } else {
+        const activeTabEl = document.querySelector('.tab-btn.active');
+        const activeTabId = activeTabEl ? activeTabEl.id : 'tabBtnArena';
+        if (activeTabId === 'tabBtnDeck') filterAndRenderCards();
+        else if (activeTabId === 'tabBtnFlap') {
+          if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+          if (typeof renderFlapLevelGrid === 'function') renderFlapLevelGrid();
+        } else if (activeTabId === 'tabBtnMyths') renderMythsView();
+      }
+
+      if (typeof window.updateNavScrollUI === 'function') {
+        setTimeout(window.updateNavScrollUI, 150);
+      }
+    }
+
+    // ==================== GREEK TAB 1: TRANSLATION ARENA ====================
+    function getGreekBaseChapterSentences() {
+      const maxCh = getMaxSelectedGreekChapter();
+      const inSelected = GREEK_SENTENCES.filter(s => greekSelectedChapters.includes(s.chapter) && s.chapter <= maxCh);
+      if (inSelected.length > 0) return inSelected;
+      const upToMax = GREEK_SENTENCES.filter(s => s.chapter <= maxCh);
+      return upToMax.length > 0 ? upToMax : GREEK_SENTENCES.filter(s => s.chapter === 1);
+    }
+
+    function getFilteredGreekSentences() {
+      const base = getGreekBaseChapterSentences();
+      if (greekArenaDifficulty === 'all') return base;
+      const byDiff = base.filter(s => s.difficulty === greekArenaDifficulty);
+      return byDiff.length > 0 ? byDiff : base;
+    }
+
+    function getRandomGreekSentenceFromPool(pool, excludeId = null) {
+      if (!pool || !pool.length) return GREEK_SENTENCES[0];
+      let candidates = pool;
+      if (excludeId && pool.length > 1) {
+        const filtered = pool.filter(s => s.id !== excludeId);
+        if (filtered.length > 0) candidates = filtered;
+      }
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    function getCurrentGreekSentence() {
+      const pool = getFilteredGreekSentences();
+      let found = pool.find(s => s.id === greekCurrentSentenceId);
+      if (!found && pool.length > 0) {
+        found = getRandomGreekSentenceFromPool(pool);
+        greekCurrentSentenceId = found.id;
+      }
+      return found || GREEK_SENTENCES[0];
+    }
+
+    function updateGreekArenaBadges() {
+      const base = getGreekBaseChapterSentences();
+      const summary = document.getElementById('greekArenaTierSummaryText');
+      if (summary) {
+        const doneInPool = base.filter(s => greekCompletedSentences.includes(s.id)).length;
+        summary.textContent = `Greek to GCSE (${formatChapterRangeLabel(greekSelectedChapters)}) • ${doneInPool} completed`;
+      }
+
+      document.querySelectorAll('[data-greek-diff]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-greek-diff') === greekArenaDifficulty);
+      });
+    }
+
+    function renderGreekSentenceByPool() {
+      const pool = getFilteredGreekSentences();
+      if (!pool.some(s => s.id === greekCurrentSentenceId)) {
+        const picked = getRandomGreekSentenceFromPool(pool);
+        greekCurrentSentenceId = picked ? picked.id : GREEK_SENTENCES[0].id;
+      }
+      loadGreekSentence(greekCurrentSentenceId, false);
+    }
+
+    function loadGreekSentence(sentenceId, focusInput = true) {
+      const pool = getFilteredGreekSentences();
+      const s = pool.find(item => item.id === sentenceId) || getRandomGreekSentenceFromPool(pool) || GREEK_SENTENCES[0];
+      greekCurrentSentenceId = s.id;
+      greekSentenceAttempts = 0;
+      greekTenseHintVisible = false;
+      greekLastSubmittedAnswer = '';
+
+      updateGreekArenaBadges();
+
+      const kicker = document.getElementById('greekSentenceGrammarKicker');
+      const pos = document.getElementById('greekSentencePoolPosition');
+      if (kicker) kicker.textContent = s.grammarFocus;
+      if (pos) {
+        const isDone = greekCompletedSentences.includes(s.id);
+        pos.innerHTML = `Part ${s.part} · Ch ${s.chapter}${isDone ? ' • <span style="color:#15803d; font-weight:800;">✓ Done</span>' : ''}`;
+      }
+
+      refreshGreekSentenceDisplay();
+
+      const input = document.getElementById('greekTranslationInput');
+      if (input) {
+        input.value = '';
+        input.className = 'arena-input';
+        input.disabled = false;
+        if (focusInput) input.focus();
+      }
+
+      const hintBox = document.getElementById('greekTenseHintBox');
+      if (hintBox) {
+        hintBox.style.display = 'none';
+        hintBox.textContent = s.tenseHint;
+      }
+
+      const fb = document.getElementById('greekFeedbackBanner');
+      if (fb) fb.style.display = 'none';
+
+      const b1 = document.getElementById('greekIWasRightBtn');
+      const b2 = document.getElementById('greekArenaIWasRightBtn');
+      if (b1) b1.style.display = 'none';
+      if (b2) b2.style.display = 'none';
+
+      const checkBtn = document.getElementById('greekSubmitCheckBtn');
+      if (checkBtn) {
+        checkBtn.innerHTML = '<span>Check Translation</span>';
+        checkBtn.className = 'btn-3d btn-green';
+        checkBtn.onclick = checkGreekTranslation;
+      }
+    }
+
+    function refreshGreekSentenceDisplay() {
+      const s = getCurrentGreekSentence();
+      const container = document.getElementById('greekSentenceTokenContainer');
+      const translitEl = document.getElementById('greekArenaTranslitLine');
+
+      if (container && s && Array.isArray(s.wordByWord)) {
+        container.innerHTML = '';
+        s.wordByWord.forEach(tok => {
+          const span = document.createElement('div');
+          span.className = 'latin-token greek-script';
+          span.setAttribute('tabindex', '0');
+          span.appendChild(document.createTextNode(tok.greek));
+
+          const tip = document.createElement('div');
+          tip.className = 'token-tooltip';
+          const trPart = greekShowTranslit && tok.transliteration ? ` (${escapeGreekHtml(tok.transliteration)})` : '';
+          tip.innerHTML =
+            `<div class="tooltip-def">${escapeGreekHtml(tok.dictionaryForm)}${trPart}: ${escapeGreekHtml(tok.meaning)}</div>` +
+            `<div class="tooltip-role">${escapeGreekHtml(tok.grammarNote)}</div>`;
+          span.appendChild(tip);
+
+          span.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('#greekSentenceTokenContainer .latin-token').forEach(el => {
+              if (el !== span) el.classList.remove('active-token');
+            });
+            span.classList.toggle('active-token');
+            playFlipClick();
+          });
+
+          container.appendChild(span);
+        });
+      }
+
+      if (translitEl && s) {
+        if (greekShowTranslit && s.transliteration) {
+          translitEl.textContent = s.transliteration;
+          translitEl.style.display = 'block';
+        } else {
+          translitEl.style.display = 'none';
+        }
+      }
+    }
+
+    function setGreekArenaDifficulty(diff) {
+      greekArenaDifficulty = diff || 'all';
+      renderGreekSentenceByPool();
+    }
+
+    function toggleGreekTenseHint() {
+      const box = document.getElementById('greekTenseHintBox');
+      if (!box) return;
+      greekTenseHintVisible = !greekTenseHintVisible;
+      box.style.display = greekTenseHintVisible ? 'block' : 'none';
+      playFlipClick();
+    }
+
+    function skipGreekSentence() {
+      const pool = getFilteredGreekSentences();
+      if (!pool.length) return;
+      const next = getRandomGreekSentenceFromPool(pool, greekCurrentSentenceId);
+      loadGreekSentence(next.id, true);
+    }
+
+    async function checkGreekTranslation() {
+      const input = document.getElementById('greekTranslationInput');
+      if (!input) return;
+      const rawVal = input.value.trim();
+      if (!rawVal) {
+        showToast('Type your English translation first!');
+        input.focus();
+        return;
+      }
+
+      greekLastSubmittedAnswer = rawVal;
+      const s = getCurrentGreekSentence();
+      const checkBtn = document.getElementById('greekSubmitCheckBtn');
+      const fb = document.getElementById('greekFeedbackBanner');
+      const fbIcon = document.getElementById('greekFeedbackIcon');
+      const fbTitle = document.getElementById('greekFeedbackTitle');
+      const fbText = document.getElementById('greekFeedbackText');
+      const iwr1 = document.getElementById('greekIWasRightBtn');
+      const iwr2 = document.getElementById('greekArenaIWasRightBtn');
+
+      const normVal = cleanString(rawVal);
+      const localMatch =
+        cleanString(s.englishTranslation) === normVal ||
+        (Array.isArray(s.acceptedTranslations) && s.acceptedTranslations.some(acc => cleanString(acc) === normVal));
+
+      let isCorrect = localMatch;
+      let examinerTitle = localMatch ? 'Εὖ! (Correct)' : 'Check Your Translation';
+      let examinerExplanation = '';
+
+      if (!localMatch) {
+        if (checkBtn) {
+          checkBtn.disabled = true;
+          checkBtn.innerHTML = '<span>Checking...</span>';
+        }
+        try {
+          const resp = await fetch('/api/evaluate-translation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              language: 'greek',
+              greek: s.greek,
+              userTranslation: rawVal,
+              primaryTranslation: s.englishTranslation,
+              tenseHint: s.tenseHint,
+              acceptedTranslations: s.acceptedTranslations || []
+            })
+          });
+          if (resp.ok) {
+            const data = await resp.json();
+            isCorrect = Boolean(data.isCorrect);
+            examinerTitle = data.feedbackTitle || examinerTitle;
+            examinerExplanation = data.feedbackExplanation || '';
+          }
+        } catch (_err) {}
+        if (checkBtn) checkBtn.disabled = false;
+      }
+
+      if (isCorrect) {
+        input.className = 'arena-input correct';
+        input.disabled = true;
+        if (fb) {
+          fb.className = 'feedback-banner success';
+          if (fbIcon) fbIcon.textContent = '✓';
+          if (fbTitle) fbTitle.textContent = examinerTitle;
+          if (fbText) fbText.textContent = examinerExplanation || `Accurate translation: "${s.englishTranslation}" (+15 XP)`;
+          fb.style.display = 'flex';
+        }
+        if (iwr1) iwr1.style.display = 'none';
+        if (iwr2) iwr2.style.display = 'none';
+        playSuccessChime();
+        addXP(15);
+        recordSentenceCompletedToday();
+        if (!greekCompletedSentences.includes(s.id)) {
+          greekCompletedSentences.push(s.id);
+          try { localStorage.setItem('romalingua_greek_completed_sentences', JSON.stringify(greekCompletedSentences)); } catch (_e) {}
+        }
+        updateGreekArenaBadges();
+        if (checkBtn) {
+          checkBtn.innerHTML = '<span>Next Sentence →</span>';
+          checkBtn.className = 'btn-3d btn-green';
+          checkBtn.onclick = skipGreekSentence;
+          checkBtn.focus();
+        }
+      } else {
+        greekSentenceAttempts++;
+        if (iwr1) iwr1.style.display = 'inline-flex';
+        if (iwr2) iwr2.style.display = 'inline-flex';
+        if (greekSentenceAttempts === 1) {
+          input.className = 'arena-input shake';
+          setTimeout(() => input.classList.remove('shake'), 450);
+          if (fb) {
+            fb.className = 'feedback-banner warning';
+            if (fbIcon) fbIcon.textContent = '!';
+            if (fbTitle) fbTitle.textContent = examinerTitle || 'Not quite!';
+            if (fbText) fbText.textContent = (examinerExplanation ? examinerExplanation + ' ' : '') + '(Check verb tense, voice, and article/case, or tap "I was right" if accepted.)';
+            fb.style.display = 'flex';
+          }
+          playWarningSound();
+          input.focus();
+        } else {
+          input.className = 'arena-input wrong';
+          input.disabled = true;
+          if (fb) {
+            fb.className = 'feedback-banner error';
+            if (fbIcon) fbIcon.textContent = '×';
+            if (fbTitle) fbTitle.textContent = 'Model Translation:';
+            if (fbText) fbText.textContent = `"${s.englishTranslation}" · ${s.tenseHint}`;
+            fb.style.display = 'flex';
+          }
+          playWarningSound();
+          if (checkBtn) {
+            checkBtn.innerHTML = '<span>Next Sentence →</span>';
+            checkBtn.className = 'btn-3d btn-gold';
+            checkBtn.onclick = skipGreekSentence;
+            checkBtn.focus();
+          }
+        }
+      }
+    }
+
+    function handleGreekIWasRight() {
+      const s = getCurrentGreekSentence();
+      const input = document.getElementById('greekTranslationInput');
+      const typed = (greekLastSubmittedAnswer || (input ? input.value : '')).trim();
+      if (!typed) {
+        showToast('Enter your translation first!');
+        return;
+      }
+      if (input) {
+        input.value = typed;
+        input.className = 'arena-input correct';
+        input.disabled = true;
+      }
+      const cleanVal = cleanString(typed);
+      if (s && cleanVal && Array.isArray(s.acceptedTranslations) && !s.acceptedTranslations.includes(cleanVal)) {
+        s.acceptedTranslations.push(cleanVal);
+      }
+      const fb = document.getElementById('greekFeedbackBanner');
+      const fbIcon = document.getElementById('greekFeedbackIcon');
+      const fbTitle = document.getElementById('greekFeedbackTitle');
+      const fbText = document.getElementById('greekFeedbackText');
+      if (fb) {
+        fb.className = 'feedback-banner success';
+        if (fbIcon) fbIcon.textContent = '✓';
+        if (fbTitle) fbTitle.textContent = 'Εὖ! Accepted (+15 XP)';
+        if (fbText) fbText.textContent = `"${typed}" accepted!`;
+        fb.style.display = 'flex';
+      }
+      const iwr1 = document.getElementById('greekIWasRightBtn');
+      const iwr2 = document.getElementById('greekArenaIWasRightBtn');
+      if (iwr1) iwr1.style.display = 'none';
+      if (iwr2) iwr2.style.display = 'none';
+      playSuccessChime();
+      addXP(15);
+      recordSentenceCompletedToday();
+      if (s && !greekCompletedSentences.includes(s.id)) {
+        greekCompletedSentences.push(s.id);
+        try { localStorage.setItem('romalingua_greek_completed_sentences', JSON.stringify(greekCompletedSentences)); } catch (_e) {}
+      }
+      updateGreekArenaBadges();
+      const checkBtn = document.getElementById('greekSubmitCheckBtn');
+      if (checkBtn) {
+        checkBtn.innerHTML = '<span>Next Sentence →</span>';
+        checkBtn.className = 'btn-3d btn-green';
+        checkBtn.onclick = skipGreekSentence;
+        checkBtn.focus();
+      }
+    }
+
+    // ==================== GREEK TAB 2: VOCAB ARCADE ====================
+    function renderGreekArcadeCurrentWord() {
+      if (!currentGreekArcadeWord) return;
+      const wordEl = document.getElementById('arcadeGreekWord');
+      const noteEl = document.getElementById('arcadeGreekWordNote');
+      const kickerEl = document.getElementById('greekArcadeKicker');
+      if (wordEl) wordEl.textContent = currentGreekArcadeWord.greek;
+      if (noteEl) {
+        const parts = [];
+        if (greekShowTranslit && currentGreekArcadeWord.transliteration) parts.push(currentGreekArcadeWord.transliteration);
+        if (currentGreekArcadeWord.grammarNote) parts.push(currentGreekArcadeWord.grammarNote);
+        if (currentGreekArcadeWord.chapter) parts.push('Ch ' + currentGreekArcadeWord.chapter);
+        noteEl.textContent = parts.join(' · ');
+      }
+      if (kickerEl) {
+        kickerEl.textContent = greekUseCustomVocab && greekCustomVocabList.length > 0
+          ? 'Speed Blitz · Custom Vocab List'
+          : `Speed Blitz · ${formatChapterRangeLabel(greekSelectedChapters)}`;
+      }
+    }
+
+    function nextGreekArcadeWord() {
+      if (greekArcadeAdvanceTimeout) {
+        clearTimeout(greekArcadeAdvanceTimeout);
+        greekArcadeAdvanceTimeout = null;
+      }
+      greekArcadeCanAnswer = true;
+      const overrideBtn = document.getElementById('arcadeGreekIWasRightBtn');
+      if (overrideBtn) overrideBtn.style.display = 'none';
+
+      const activePool = getActiveGreekVocabPool();
+      const distractorSource = activePool.length >= 4 ? activePool : GREEK_CHAPTER_VOCAB;
+      currentGreekArcadeWord = activePool[Math.floor(Math.random() * activePool.length)];
+      renderGreekArcadeCurrentWord();
+
+      const distractors = [];
+      const seenEng = new Set([currentGreekArcadeWord.english]);
+      let guard = 0;
+      while (distractors.length < 3 && guard < 100) {
+        guard++;
+        const cand = distractorSource[Math.floor(Math.random() * distractorSource.length)];
+        if (cand && !seenEng.has(cand.english)) {
+          seenEng.add(cand.english);
+          distractors.push(cand.english);
+        }
+      }
+      // Guarantee 3 distractors from global vocab if custom list < 4 words
+      while (distractors.length < 3) {
+        const cand = GREEK_CHAPTER_VOCAB[Math.floor(Math.random() * GREEK_CHAPTER_VOCAB.length)];
+        if (cand && !seenEng.has(cand.english)) {
+          seenEng.add(cand.english);
+          distractors.push(cand.english);
+        }
+      }
+
+      const opts = [currentGreekArcadeWord.english, ...distractors];
+      for (let i = opts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [opts[i], opts[j]] = [opts[j], opts[i]];
+      }
+
+      const grid = document.getElementById('arcadeGreekOptionsGrid');
+      if (grid) {
+        grid.innerHTML = '';
+        opts.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'arcade-option-btn';
+          btn.textContent = opt;
+          btn.onclick = () => handleGreekArcadeAnswer(btn, opt);
+          grid.appendChild(btn);
+        });
+      }
+
+      const bestEl = document.getElementById('greekArcadeBestStreak');
+      if (bestEl) bestEl.textContent = greekArcadeBestStreak;
+    }
+
+    function handleGreekArcadeAnswer(selectedBtn, chosen) {
+      if (!greekArcadeCanAnswer || !currentGreekArcadeWord) return;
+      greekArcadeCanAnswer = false;
+      const isCorrect = chosen === currentGreekArcadeWord.english;
+      const allBtns = document.querySelectorAll('#arcadeGreekOptionsGrid .arcade-option-btn');
+      const overrideBtn = document.getElementById('arcadeGreekIWasRightBtn');
+
+      if (isCorrect) {
+        selectedBtn.classList.add('correct');
+        greekArcadeScore += 10;
+        greekArcadeStreak++;
+        if (greekArcadeStreak > greekArcadeBestStreak) {
+          greekArcadeBestStreak = greekArcadeStreak;
+          try { localStorage.setItem('romalingua_greek_arcade_best', String(greekArcadeBestStreak)); } catch (_e) {}
+        }
+        if (overrideBtn) overrideBtn.style.display = 'none';
+        playSuccessChime();
+        addXP(10);
+        greekArcadeAdvanceTimeout = setTimeout(nextGreekArcadeWord, 850);
+      } else {
+        selectedBtn.classList.add('wrong');
+        greekArcadePrevStreak = greekArcadeStreak;
+        greekArcadeStreak = 0;
+        playWarningSound();
+        allBtns.forEach(b => {
+          if (b.textContent === currentGreekArcadeWord.english) b.classList.add('correct');
+        });
+        if (overrideBtn) overrideBtn.style.display = 'inline-flex';
+      }
+
+      const sEl = document.getElementById('greekArcadeScore');
+      const stEl = document.getElementById('greekArcadeStreak');
+      const bEl = document.getElementById('greekArcadeBestStreak');
+      if (sEl) sEl.textContent = greekArcadeScore;
+      if (stEl) stEl.textContent = greekArcadeStreak;
+      if (bEl) bEl.textContent = greekArcadeBestStreak;
+    }
+
+    function handleGreekArcadeIWasRight() {
+      if (!currentGreekArcadeWord) return;
+      greekArcadeScore += 10;
+      greekArcadeStreak = greekArcadePrevStreak + 1;
+      if (greekArcadeStreak > greekArcadeBestStreak) {
+        greekArcadeBestStreak = greekArcadeStreak;
+        try { localStorage.setItem('romalingua_greek_arcade_best', String(greekArcadeBestStreak)); } catch (_e) {}
+      }
+      addXP(10);
+      playSuccessChime();
+      const sEl = document.getElementById('greekArcadeScore');
+      const stEl = document.getElementById('greekArcadeStreak');
+      const bEl = document.getElementById('greekArcadeBestStreak');
+      if (sEl) sEl.textContent = greekArcadeScore;
+      if (stEl) stEl.textContent = greekArcadeStreak;
+      if (bEl) bEl.textContent = greekArcadeBestStreak;
+      showToast('+10 XP awarded!');
+      nextGreekArcadeWord();
+    }
+
+    // ==================== GREEK TAB 3: FLASHCARD DECK ====================
+    function getGreekDeckSourcePool() {
+      if (greekUseCustomVocab && greekCustomVocabList.length > 0 && greekDeckScope === 'chapters') {
+        return greekCustomVocabList;
+      }
+      if (greekDeckScope === 'full') {
+        return GREEK_CHAPTER_VOCAB;
+      }
+      return getActiveGreekVocabPool();
+    }
+
+    function setGreekDeckScope(scope) {
+      greekDeckScope = scope === 'chapters' ? 'chapters' : 'full';
+      try { localStorage.setItem('romalingua_greek_deck_scope', greekDeckScope); } catch (_e) {}
+      greekShuffledOrder = null;
+      greekCurrentDeckPage = 1;
+      filterAndRenderGreekCards();
+    }
+
+    function updateGreekDeckScopeUI() {
+      const fullBtn = document.getElementById('greekScopeFullBtn');
+      const chBtn = document.getElementById('greekScopeChaptersBtn');
+      const hintEl = document.getElementById('greekDeckScopeHint');
+      const chPool = getActiveGreekVocabPool();
+
+      if (fullBtn) {
+        fullBtn.textContent = `Full OCR GCSE DVL (${GREEK_CHAPTER_VOCAB.length})`;
+        fullBtn.classList.toggle('active', greekDeckScope === 'full');
+      }
+      if (chBtn) {
+        const label = (greekUseCustomVocab && greekCustomVocabList.length > 0)
+          ? `Custom Vocab (${greekCustomVocabList.length})`
+          : `Selected Chapters (${chPool.length})`;
+        chBtn.textContent = label;
+        chBtn.classList.toggle('active', greekDeckScope === 'chapters');
+      }
+      if (hintEl) {
+        if (greekDeckScope === 'full') {
+          hintEl.textContent = 'Showing complete OCR J292 & Greek to GCSE vocabulary';
+        } else if (greekUseCustomVocab && greekCustomVocabList.length > 0) {
+          hintEl.textContent = 'Showing your Custom Pasted Vocab list';
+        } else {
+          hintEl.textContent = `Filtered to ${formatChapterRangeLabel(greekSelectedChapters)}`;
+        }
+      }
+    }
+
+    function filterAndRenderGreekCards() {
+      updateGreekDeckScopeUI();
+      const pool = greekShuffledOrder || getGreekDeckSourcePool();
+      const q = (greekDeckSearchQuery || '').trim().toLowerCase();
+      const qNoDia = stripGreekDiacritics(q);
+
+      let filtered = pool.filter(w => {
+        if (!w) return false;
+        const catMatch = greekDeckCategory === 'all' || w.partOfSpeech === greekDeckCategory;
+        if (!catMatch) return false;
+        if (!q) return true;
+        return (
+          (w.greek && (w.greek.toLowerCase().includes(q) || stripGreekDiacritics(w.greek).includes(qNoDia))) ||
+          (w.transliteration && w.transliteration.toLowerCase().includes(q)) ||
+          (w.english && w.english.toLowerCase().includes(q)) ||
+          (w.grammarNote && w.grammarNote.toLowerCase().includes(q))
+        );
+      });
+
+      if (greekDeckSortOrder === 'az') {
+        filtered = [...filtered].sort((a, b) => (a.transliteration || '').localeCompare(b.transliteration || ''));
+      } else if (greekDeckSortOrder === 'za') {
+        filtered = [...filtered].sort((a, b) => (b.transliteration || '').localeCompare(a.transliteration || ''));
+      }
+
+      greekDisplayedDeck = filtered;
+      const totalPages = Math.max(1, Math.ceil(greekDisplayedDeck.length / GREEK_CARDS_PER_PAGE));
+      if (greekCurrentDeckPage > totalPages) greekCurrentDeckPage = totalPages;
+      if (greekCurrentDeckPage < 1) greekCurrentDeckPage = 1;
+
+      renderGreekCardsGrid();
+    }
+
+    function renderGreekCardsGrid() {
+      const grid = document.getElementById('greekCardsGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      if (!grid.dataset.greekDelegated) {
+        grid.dataset.greekDelegated = 'true';
+        grid.addEventListener('click', (e) => {
+          if (e.target && e.target.closest('.master-btn')) return;
+          const card = e.target.closest('.flashcard');
+          if (card) {
+            e.preventDefault();
+            card.classList.toggle('flipped');
+            playFlipClick();
+          }
+        });
+      }
+
+      const startIdx = (greekCurrentDeckPage - 1) * GREEK_CARDS_PER_PAGE;
+      const endIdx = Math.min(startIdx + GREEK_CARDS_PER_PAGE, greekDisplayedDeck.length);
+      const batch = greekDisplayedDeck.slice(startIdx, endIdx);
+
+      const counterEl = document.getElementById('greekDeckCounterText');
+      const masteryEl = document.getElementById('greekDeckMasteryText');
+      const activePool = getGreekDeckSourcePool();
+      const masteredCount = activePool.filter(w => greekMasteredWords.includes(w.id)).length;
+      const pct = activePool.length > 0 ? Math.round((masteredCount / activePool.length) * 100) : 0;
+
+      if (counterEl) {
+        counterEl.textContent = greekDisplayedDeck.length > 0
+          ? `Showing ${startIdx + 1}–${endIdx} of ${greekDisplayedDeck.length} words`
+          : 'Showing 0 words';
+      }
+      if (masteryEl) masteryEl.textContent = `${masteredCount} Mastered (${pct}%)`;
+
+      const totalPages = Math.max(1, Math.ceil(greekDisplayedDeck.length / GREEK_CARDS_PER_PAGE));
+      const pTop = document.getElementById('greekPageIndicatorText');
+      const pBot = document.getElementById('greekPageIndicatorTextBottom');
+      if (pTop) pTop.textContent = `Page ${greekCurrentDeckPage} of ${totalPages}`;
+      if (pBot) pBot.textContent = `Page ${greekCurrentDeckPage} of ${totalPages}`;
+
+      const prevT = document.getElementById('greekPrevPageBtn');
+      const nextT = document.getElementById('greekNextPageBtn');
+      const prevB = document.getElementById('greekPrevPageBtnBottom');
+      const nextB = document.getElementById('greekNextPageBtnBottom');
+      [prevT, prevB].forEach(b => { if (b) b.disabled = greekCurrentDeckPage <= 1; });
+      [nextT, nextB].forEach(b => { if (b) b.disabled = greekCurrentDeckPage >= totalPages; });
+
+      if (batch.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 48px; color: #64748b; font-weight: 600;">No matching Greek words found. Adjust your chapters or search filter.</div>';
+        return;
+      }
+
+      batch.forEach(item => {
+        const isMastered = greekMasteredWords.includes(item.id);
+        const scene = document.createElement('div');
+        scene.className = 'card-scene';
+
+        const card = document.createElement('div');
+        card.className = 'flashcard' + (greekAllFlipped ? ' flipped' : '');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+
+        const chBadge = item.chapter ? `Ch ${item.chapter}` : 'Custom';
+        const translitLine = (greekShowTranslit && item.transliteration)
+          ? `<div class="card-notes" style="color: #92400e; font-style: italic;">${escapeGreekHtml(item.transliteration)}</div>`
+          : '';
+
+        const front = document.createElement('div');
+        front.className = 'card-face card-front';
+        front.innerHTML = `
+          <div class="card-header-bar">
+            <span>${escapeGreekHtml(chBadge)}</span>
+            <span class="card-cat-badge">${escapeGreekHtml(item.partOfSpeech || 'word')}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-latin-text greek-script">${escapeGreekHtml(item.greek)}</div>
+            ${translitLine}
+            <div class="card-notes">${escapeGreekHtml(item.grammarNote || '')}</div>
+          </div>
+          <div style="font-size: 11px; color: #94a3b8; font-weight: 700;">Tap to reveal English →</div>
+        `;
+
+        const back = document.createElement('div');
+        back.className = 'card-face card-back';
+        const safeId = escapeGreekHtml(item.id).replace(/'/g, '&#39;');
+        back.innerHTML = `
+          <div class="card-header-bar">
+            <span style="color: var(--primary-dark); font-weight: 800;">${escapeGreekHtml(chBadge)}</span>
+            <button type="button" class="master-btn${isMastered ? ' mastered' : ''}" onclick="toggleGreekMasterWord('${safeId}', event)" title="Toggle mastered">
+              ${isMastered ? '✓' : '○'}
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-english-text">${escapeGreekHtml(item.english)}</div>
+            <div class="card-notes greek-script" style="margin-top: 6px;">${escapeGreekHtml(item.greek)}</div>
+          </div>
+          <div style="font-size: 11px; color: var(--primary-dark); font-weight: 700;">${isMastered ? 'Mastered (+5 XP)' : 'Tap ○ to mark mastered'}</div>
+        `;
+
+        card.appendChild(front);
+        card.appendChild(back);
+        scene.appendChild(card);
+        grid.appendChild(scene);
+      });
+    }
+
+    function toggleGreekMasterWord(wordId, e) {
+      if (e) e.stopPropagation();
+      const idx = greekMasteredWords.indexOf(wordId);
+      if (idx === -1) {
+        greekMasteredWords.push(wordId);
+        addXP(5);
+        playSuccessChime();
+      } else {
+        greekMasteredWords.splice(idx, 1);
+      }
+      try { localStorage.setItem('romalingua_greek_mastered', JSON.stringify(greekMasteredWords)); } catch (_e) {}
+      renderGreekCardsGrid();
+    }
+
+    function handleGreekDeckSearch() {
+      const inp = document.getElementById('greekDeckSearchInput');
+      greekDeckSearchQuery = inp ? inp.value : '';
+      greekCurrentDeckPage = 1;
+      filterAndRenderGreekCards();
+    }
+
+    function handleGreekDropdownFilter(val) {
+      if (val === 'sort-az') greekDeckSortOrder = 'az';
+      else if (val === 'sort-za') greekDeckSortOrder = 'za';
+      else {
+        greekDeckSortOrder = 'default';
+        setGreekCategoryFilter(val);
+        return;
+      }
+      greekCurrentDeckPage = 1;
+      filterAndRenderGreekCards();
+    }
+
+    function setGreekCategoryFilter(cat) {
+      greekDeckCategory = cat || 'all';
+      greekCurrentDeckPage = 1;
+      document.querySelectorAll('#greekDeckFilterPills .filter-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-gcat') === greekDeckCategory);
+      });
+      const sel = document.getElementById('greekDeckCategorySelect');
+      if (sel && ['all', 'noun', 'verb', 'adjective', 'preposition', 'other'].includes(greekDeckCategory)) {
+        sel.value = greekDeckCategory;
+      }
+      filterAndRenderGreekCards();
+    }
+
+    function shuffleGreekCards() {
+      const pool = [...getGreekDeckSourcePool()];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      greekShuffledOrder = pool;
+      greekCurrentDeckPage = 1;
+      filterAndRenderGreekCards();
+      showToast('Greek deck shuffled!');
+    }
+
+    function toggleFlipAllGreek() {
+      greekAllFlipped = !greekAllFlipped;
+      const lbl = document.getElementById('greekFlipAllText');
+      if (lbl) lbl.textContent = greekAllFlipped ? 'Unflip Page' : 'Flip Page';
+      renderGreekCardsGrid();
+    }
+
+    function changeGreekPage(delta) {
+      greekCurrentDeckPage += delta;
+      filterAndRenderGreekCards();
+    }
+
+    // ==================== GREEK TAB 5: AEGEAN TRIREME CANVAS GAME ====================
+    const TRIREME_SPEED_PX_PER_SEC = 128; // Comfortable, strictly steady sailing speed (never accelerates!)
+    const TRIREME_MAIN_TARGET_GATES = 15;
+    const TRIREME_LANE_Y = [176, 276, 376]; // Clear of top prompt bar & HUD
+
+    let triremeAnimId = null;
+    let triremeLastTimestamp = 0;
+    let triremeHighScore = parseInt(localStorage.getItem('romalingua_greek_trireme_high') || '0', 10) || 0;
+    let triremeBestGates = parseInt(localStorage.getItem('romalingua_greek_trireme_best_gates') || '0', 10) || 0;
+
+    const triremeState = {
+      status: 'LOBBY', // 'LOBBY' | 'PLAYING' | 'PAUSED' | 'ENDED'
+      phase: 'MAIN',   // 'MAIN' | 'RECOVERY'
+      score: 0,
+      hearts: 5,
+      gatesCleared: 0,
+      totalPassedAll: 0,
+      shipX: 145,
+      shipY: TRIREME_LANE_Y[1],
+      targetLane: 1,
+      wavePhase: 0,
+      oarPhase: 0,
+      fullDeck: [],
+      unlockedCount: 4,
+      recoveryMap: {}, // wordId -> { wordObj, remaining }
+      harbourGate: null,
+      unlockBannerText: '',
+      unlockBannerTimer: 0,
+      feedbackBannerText: '',
+      feedbackBannerColor: '#fbbf24',
+      feedbackBannerTimer: 0
+    };
+
+    function getTriremeWordKey(w) {
+      return w.id || (w.greek + '|' + w.english);
+    }
+
+    function getTriremeBaseWord(greekStr) {
+      return String(greekStr || '').split(',')[0].trim();
+    }
+
+    function buildTriremeDeck() {
+      const pool = [...getActiveGreekVocabPool()];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      // Guarantee >= 4 words by topping up with Chapter 1 if custom vocab has fewer than 4 entries
+      if (pool.length < 4) {
+        const seen = new Set(pool.map(w => w.english));
+        for (const w of GREEK_CHAPTER_VOCAB) {
+          if (!seen.has(w.english)) {
+            seen.add(w.english);
+            pool.push(w);
+          }
+          if (pool.length >= 6) break;
+        }
+      }
+      return pool;
+    }
+
+    function updateTriremeLobbyUI() {
+      const pool = getActiveGreekVocabPool();
+      const poolBadge = document.getElementById('triremePoolCountBadge');
+      const hiBadge = document.getElementById('triremeHighScoreBadge');
+      const gatesBadge = document.getElementById('triremeBestGatesBadge');
+      const sourceNote = document.getElementById('triremeLobbySourceNote');
+
+      if (poolBadge) poolBadge.textContent = `${pool.length} word${pool.length === 1 ? '' : 's'}`;
+      if (hiBadge) hiBadge.textContent = String(triremeHighScore);
+      if (gatesBadge) gatesBadge.textContent = String(triremeBestGates);
+      if (sourceNote) {
+        sourceNote.textContent = (greekUseCustomVocab && greekCustomVocabList.length > 0)
+          ? `Active Source: Custom Pasted Vocab (${greekCustomVocabList.length} words)`
+          : `Selected Chapters: ${formatChapterRangeLabel(greekSelectedChapters)} (${pool.length} words)`;
+      }
+    }
+
+    function countTotalRecoveryRemaining() {
+      return Object.values(triremeState.recoveryMap).reduce((sum, entry) => sum + (entry.remaining || 0), 0);
+    }
+
+    function countRecoveryWordsRemaining() {
+      return Object.values(triremeState.recoveryMap).filter(entry => entry.remaining > 0).length;
+    }
+
+    function updateTriremePromptUI() {
+      const phaseKicker = document.getElementById('triremePhaseKicker');
+      const sailText = document.getElementById('triremeSailPromptText');
+      const unlockedLbl = document.getElementById('triremeUnlockedLabel');
+      const scoreEl = document.getElementById('triremeHudScore');
+      const modePill = document.getElementById('triremeHudModePill');
+      const modeText = document.getElementById('triremeHudModeText');
+      const heartsEl = document.getElementById('triremeHudHearts');
+      const recEl = document.getElementById('triremeHudRecoveryCount');
+
+      if (scoreEl) scoreEl.textContent = String(triremeState.score);
+      if (heartsEl) heartsEl.textContent = '♥'.repeat(Math.max(0, triremeState.hearts));
+
+      const recRemaining = countTotalRecoveryRemaining();
+      const recWords = countRecoveryWordsRemaining();
+      if (recEl) recEl.textContent = `Recovery: ${recWords} (${recRemaining}x)`;
+
+      if (modePill && modeText) {
+        if (triremeState.phase === 'RECOVERY') {
+          modePill.classList.add('trireme-recovery-badge');
+          modeText.textContent = 'RECOVERY 3x';
+        } else {
+          modePill.classList.remove('trireme-recovery-badge');
+          modeText.textContent = `${triremeState.unlockedCount}/${triremeState.fullDeck.length} WORDS`;
+        }
+      }
+
+      if (phaseKicker) {
+        phaseKicker.textContent = triremeState.phase === 'RECOVERY'
+          ? `RECOVERY ROUND · ${recRemaining} PASSES LEFT`
+          : `MAIN VOYAGE · GATE ${Math.min(TRIREME_MAIN_TARGET_GATES, triremeState.gatesCleared + 1)}/${TRIREME_MAIN_TARGET_GATES}`;
+      }
+      if (unlockedLbl) {
+        unlockedLbl.textContent = `Unlocked: ${triremeState.unlockedCount} words`;
+      }
+
+      const gate = triremeState.harbourGate;
+      if (sailText && gate && gate.wordObj) {
+        const baseG = getTriremeBaseWord(gate.wordObj.greek);
+        const tr = (greekShowTranslit && gate.wordObj.transliteration) ? ` (${gate.wordObj.transliteration})` : '';
+        sailText.textContent = baseG + tr;
+      }
+    }
+
+    function spawnNextTriremeGate(startX = 860) {
+      let targetWord = null;
+      if (triremeState.phase === 'RECOVERY') {
+        const pending = Object.values(triremeState.recoveryMap).filter(e => e.remaining > 0);
+        if (pending.length > 0) {
+          targetWord = pending[Math.floor(Math.random() * pending.length)].wordObj;
+        }
+      }
+
+      if (!targetWord) {
+        const activeSlice = triremeState.fullDeck.slice(0, Math.max(1, triremeState.unlockedCount));
+        targetWord = activeSlice[Math.floor(Math.random() * activeSlice.length)];
+      }
+
+      const distractorPool = triremeState.fullDeck.length >= 3 ? triremeState.fullDeck : GREEK_CHAPTER_VOCAB;
+      const distractors = [];
+      const seenEng = new Set([targetWord.english]);
+      let guard = 0;
+      while (distractors.length < 2 && guard < 120) {
+        guard++;
+        const cand = distractorPool[Math.floor(Math.random() * distractorPool.length)];
+        if (cand && !seenEng.has(cand.english)) {
+          seenEng.add(cand.english);
+          distractors.push(cand.english);
+        }
+      }
+      while (distractors.length < 2) {
+        const cand = GREEK_CHAPTER_VOCAB[Math.floor(Math.random() * GREEK_CHAPTER_VOCAB.length)];
+        if (cand && !seenEng.has(cand.english)) {
+          seenEng.add(cand.english);
+          distractors.push(cand.english);
+        }
+      }
+
+      const correctLane = Math.floor(Math.random() * 3);
+      const laneLabels = ['', '', ''];
+      let dIdx = 0;
+      for (let i = 0; i < 3; i++) {
+        laneLabels[i] = i === correctLane ? targetWord.english : distractors[dIdx++];
+      }
+
+      triremeState.harbourGate = {
+        x: startX,
+        width: 175,
+        wordObj: targetWord,
+        correctLane,
+        laneLabels,
+        resolved: false
+      };
+      updateTriremePromptUI();
+    }
+
+    function initTriremeCanvasListeners() {
+      const canvas = document.getElementById('aegeanTriremeCanvas');
+      if (!canvas || canvas.dataset.triremeAttached) return;
+      canvas.dataset.triremeAttached = 'true';
+
+      canvas.addEventListener('pointerdown', (e) => {
+        if (triremeState.status !== 'PLAYING') return;
+        const rect = canvas.getBoundingClientRect();
+        const scaleY = canvas.height / rect.height;
+        const y = (e.clientY - rect.top) * scaleY;
+        let closest = 0;
+        let bestDist = Infinity;
+        TRIREME_LANE_Y.forEach((ly, idx) => {
+          const d = Math.abs(y - ly);
+          if (d < bestDist) {
+            bestDist = d;
+            closest = idx;
+          }
+        });
+        steerTriremeLane(closest);
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (typeof activeLanguage === 'undefined' || activeLanguage !== 'greek') return;
+        const flapTab = document.getElementById('tabFlap');
+        if (!flapTab || flapTab.style.display === 'none') return;
+        if (triremeState.status !== 'PLAYING' && triremeState.status !== 'PAUSED') return;
+
+        if (e.code === 'ArrowUp' || e.code === 'KeyW') {
+          e.preventDefault();
+          if (triremeState.status === 'PLAYING') steerTriremeLane(Math.max(0, triremeState.targetLane - 1));
+        } else if (e.code === 'ArrowDown' || e.code === 'KeyS') {
+          e.preventDefault();
+          if (triremeState.status === 'PLAYING') steerTriremeLane(Math.min(2, triremeState.targetLane + 1));
+        } else if (e.code === 'Digit1') {
+          if (triremeState.status === 'PLAYING') steerTriremeLane(0);
+        } else if (e.code === 'Digit2') {
+          if (triremeState.status === 'PLAYING') steerTriremeLane(1);
+        } else if (e.code === 'Digit3') {
+          if (triremeState.status === 'PLAYING') steerTriremeLane(2);
+        } else if (e.code === 'KeyP') {
+          e.preventDefault();
+          toggleTriremePause();
+        }
+      });
+    }
+
+    function steerTriremeLane(laneIdx) {
+      if (triremeState.status !== 'PLAYING') return;
+      triremeState.targetLane = Math.max(0, Math.min(2, laneIdx));
+      playFlipClick();
+    }
+
+    function startTriremeGame(recoveryOnlyMode = false) {
+      if (triremeAnimId) {
+        cancelAnimationFrame(triremeAnimId);
+        triremeAnimId = null;
+      }
+      initTriremeCanvasListeners();
+
+      const lobby = document.getElementById('triremeLobbyScreen');
+      const screen = document.getElementById('triremeGameScreen');
+      const pauseModal = document.getElementById('triremePauseModal');
+      const endModal = document.getElementById('triremeEndModal');
+      if (lobby) lobby.style.display = 'none';
+      if (screen) screen.style.display = 'flex';
+      if (pauseModal) pauseModal.style.display = 'none';
+      if (endModal) endModal.style.display = 'none';
+
+      if (!recoveryOnlyMode) {
+        triremeState.fullDeck = buildTriremeDeck();
+        triremeState.unlockedCount = Math.min(4, triremeState.fullDeck.length);
+        triremeState.phase = 'MAIN';
+        triremeState.score = 0;
+        triremeState.hearts = 5;
+        triremeState.gatesCleared = 0;
+        triremeState.totalPassedAll = 0;
+        triremeState.recoveryMap = {};
+        triremeState.unlockBannerText = 'Starting with 4 Words (+2 every 5 gates)';
+        triremeState.unlockBannerTimer = 2.5;
+      } else {
+        triremeState.phase = 'RECOVERY';
+        triremeState.hearts = Math.max(3, triremeState.hearts);
+        triremeState.unlockBannerText = 'Recovery Round: Clear each missed word 3x!';
+        triremeState.unlockBannerTimer = 2.8;
+      }
+
+      triremeState.status = 'PLAYING';
+      triremeState.targetLane = 1;
+      triremeState.shipY = TRIREME_LANE_Y[1];
+      triremeState.feedbackBannerTimer = 0;
+      spawnNextTriremeGate(790);
+
+      triremeLastTimestamp = performance.now();
+      triremeAnimId = requestAnimationFrame(triremeLoop);
+    }
+
+    function startTriremeRecoveryOnly() {
+      if (countTotalRecoveryRemaining() <= 0) {
+        startTriremeGame(false);
+        return;
+      }
+      startTriremeGame(true);
+    }
+
+    function toggleTriremePause(forcePause = null) {
+      const pauseModal = document.getElementById('triremePauseModal');
+      const shouldPause = forcePause !== null ? forcePause : triremeState.status === 'PLAYING';
+      if (shouldPause && triremeState.status === 'PLAYING') {
+        triremeState.status = 'PAUSED';
+        if (pauseModal) pauseModal.style.display = 'flex';
+      } else if (!shouldPause && triremeState.status === 'PAUSED') {
+        triremeState.status = 'PLAYING';
+        if (pauseModal) pauseModal.style.display = 'none';
+        triremeLastTimestamp = performance.now();
+        triremeAnimId = requestAnimationFrame(triremeLoop);
+      }
+    }
+
+    function exitTriremeToLobby() {
+      if (triremeAnimId) {
+        cancelAnimationFrame(triremeAnimId);
+        triremeAnimId = null;
+      }
+      triremeState.status = 'LOBBY';
+      const lobby = document.getElementById('triremeLobbyScreen');
+      const screen = document.getElementById('triremeGameScreen');
+      const pauseModal = document.getElementById('triremePauseModal');
+      const endModal = document.getElementById('triremeEndModal');
+      if (lobby) lobby.style.display = 'block';
+      if (screen) screen.style.display = 'none';
+      if (pauseModal) pauseModal.style.display = 'none';
+      if (endModal) endModal.style.display = 'none';
+      updateTriremeLobbyUI();
+    }
+
+    function finishTriremeVoyage(isVictory, reasonText) {
+      triremeState.status = 'ENDED';
+      if (triremeAnimId) {
+        cancelAnimationFrame(triremeAnimId);
+        triremeAnimId = null;
+      }
+
+      if (triremeState.score > triremeHighScore) {
+        triremeHighScore = triremeState.score;
+        try { localStorage.setItem('romalingua_greek_trireme_high', String(triremeHighScore)); } catch (_e) {}
+      }
+      if (triremeState.totalPassedAll > triremeBestGates) {
+        triremeBestGates = triremeState.totalPassedAll;
+        try { localStorage.setItem('romalingua_greek_trireme_best_gates', String(triremeBestGates)); } catch (_e) {}
+      }
+
+      if (isVictory) {
+        addXP(25);
+        playVictoryFanfare();
+      } else {
+        playWarningSound();
+      }
+
+      const endModal = document.getElementById('triremeEndModal');
+      const badge = document.getElementById('triremeEndBadge');
+      const title = document.getElementById('triremeEndTitle');
+      const sum = document.getElementById('triremeEndSummary');
+      const sc = document.getElementById('triremeEndScore');
+      const gt = document.getElementById('triremeEndGates');
+      const recBtn = document.getElementById('triremeRecoveryQuickBtn');
+
+      if (badge) badge.textContent = isVictory ? 'ΝΙΚΗ' : '×';
+      if (title) {
+        title.textContent = isVictory ? 'ΝΙΚΗ! VOYAGE VICTORIOUS!' : 'SHIPWRECKED ON THE REEF';
+        title.className = 'flap-modal-title ' + (isVictory ? 'success' : 'danger');
+      }
+      if (sum) sum.textContent = reasonText;
+      if (sc) sc.textContent = String(triremeState.score);
+      if (gt) gt.textContent = String(triremeState.totalPassedAll);
+      if (recBtn) {
+        recBtn.style.display = (!isVictory && countTotalRecoveryRemaining() > 0) ? 'inline-flex' : 'none';
+      }
+      if (endModal) endModal.style.display = 'flex';
+    }
+
+    function resolveTriremeHarbourPass() {
+      const gate = triremeState.harbourGate;
+      if (!gate || gate.resolved) return;
+      gate.resolved = true;
+
+      // Determine current closest lane of ship hull
+      let chosenLane = triremeState.targetLane;
+      let minD = Infinity;
+      TRIREME_LANE_Y.forEach((ly, idx) => {
+        const d = Math.abs(triremeState.shipY - ly);
+        if (d < minD) {
+          minD = d;
+          chosenLane = idx;
+        }
+      });
+
+      const wordObj = gate.wordObj;
+      const wKey = getTriremeWordKey(wordObj);
+      const shortGreek = getTriremeBaseWord(wordObj.greek);
+
+      if (chosenLane === gate.correctLane) {
+        triremeState.score += 20;
+        triremeState.totalPassedAll++;
+        playSuccessChime();
+        addXP(5);
+
+        if (triremeState.phase === 'MAIN') {
+          triremeState.gatesCleared++;
+          triremeState.feedbackBannerText = `✓ Εὖ! "${shortGreek}" = ${wordObj.english}`;
+          triremeState.feedbackBannerColor = '#10b981';
+          triremeState.feedbackBannerTimer = 1.6;
+
+          // Progressive word expansion: +2 words every 5 gates cleared
+          if (triremeState.gatesCleared > 0 && triremeState.gatesCleared % 5 === 0) {
+            const nextUnlocked = Math.min(triremeState.fullDeck.length, triremeState.unlockedCount + 2);
+            if (nextUnlocked > triremeState.unlockedCount) {
+              triremeState.unlockedCount = nextUnlocked;
+              triremeState.unlockBannerText = `⚓ +2 NEW WORDS UNLOCKED! (${nextUnlocked}/${triremeState.fullDeck.length} words active)`;
+              triremeState.unlockBannerTimer = 2.6;
+            }
+          }
+
+          if (triremeState.gatesCleared >= TRIREME_MAIN_TARGET_GATES) {
+            const pendingPasses = countTotalRecoveryRemaining();
+            if (pendingPasses > 0) {
+              triremeState.phase = 'RECOVERY';
+              triremeState.hearts = Math.max(3, triremeState.hearts);
+              triremeState.unlockBannerText = `⚓ RECOVERY ROUND BEGINS! (${countRecoveryWordsRemaining()} words x3)`;
+              triremeState.unlockBannerTimer = 3.0;
+            } else {
+              updateTriremePromptUI();
+              finishTriremeVoyage(true, 'Flawless sailing across all 15 harbour gates! +25 bonus XP awarded.');
+              return;
+            }
+          }
+        } else {
+          // RECOVERY phase: decrement required recovery passes
+          if (triremeState.recoveryMap[wKey] && triremeState.recoveryMap[wKey].remaining > 0) {
+            triremeState.recoveryMap[wKey].remaining--;
+          }
+          const leftForWord = triremeState.recoveryMap[wKey] ? triremeState.recoveryMap[wKey].remaining : 0;
+          triremeState.feedbackBannerText = leftForWord > 0
+            ? `✓ Recovered "${shortGreek}" (${leftForWord} left)`
+            : `✓ Mastered "${shortGreek}" (3/3 complete)!`;
+          triremeState.feedbackBannerColor = '#10b981';
+          triremeState.feedbackBannerTimer = 1.8;
+
+          if (countTotalRecoveryRemaining() === 0) {
+            updateTriremePromptUI();
+            finishTriremeVoyage(true, 'All missed words mastered 3x in the Recovery Round! Athens celebrates your victory (+25 XP).');
+            return;
+          }
+        }
+      } else {
+        // Missed harbour lane -> queue word x3 in Recovery Map
+        triremeState.hearts--;
+        playWarningSound();
+
+        if (!triremeState.recoveryMap[wKey]) {
+          triremeState.recoveryMap[wKey] = { wordObj, remaining: 3 };
+        } else {
+          triremeState.recoveryMap[wKey].remaining = Math.min(6, triremeState.recoveryMap[wKey].remaining + 1);
+          if (triremeState.phase === 'MAIN') {
+            triremeState.recoveryMap[wKey].remaining = Math.max(3, triremeState.recoveryMap[wKey].remaining);
+          }
+        }
+
+        triremeState.feedbackBannerText = `✕ Missed! "${shortGreek}" = ${wordObj.english} (Recovery x${triremeState.recoveryMap[wKey].remaining})`;
+        triremeState.feedbackBannerColor = '#ef4444';
+        triremeState.feedbackBannerTimer = 2.3;
+
+        if (triremeState.hearts <= 0) {
+          updateTriremePromptUI();
+          finishTriremeVoyage(false, `"${shortGreek}" means "${wordObj.english}". Practice your missed words in the 3x Recovery Round or sail again!`);
+          return;
+        }
+      }
+
+      updateTriremePromptUI();
+    }
+
+    function drawAegeanTriremeFrame(ctx, w, h) {
+      // 1. Sky & Aegean Bronze-Dawn Horizon (top 116px)
+      const skyGrad = ctx.createLinearGradient(0, 0, 0, 120);
+      skyGrad.addColorStop(0, '#1c1917');
+      skyGrad.addColorStop(0.62, '#78350f');
+      skyGrad.addColorStop(1, '#d97706');
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, w, 120);
+
+      // Sun & distant Cycladic islands silhouettes
+      ctx.fillStyle = 'rgba(253, 224, 71, 0.28)';
+      ctx.beginPath();
+      ctx.arc(680, 72, 34, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#292524';
+      ctx.beginPath();
+      ctx.moveTo(0, 120);
+      ctx.lineTo(140, 96);
+      ctx.lineTo(290, 114);
+      ctx.lineTo(490, 92);
+      ctx.lineTo(660, 112);
+      ctx.lineTo(800, 100);
+      ctx.lineTo(800, 120);
+      ctx.closePath();
+      ctx.fill();
+
+      // 2. Aegean Sea & 3 Harbour Lanes
+      const seaGrad = ctx.createLinearGradient(0, 118, 0, h);
+      seaGrad.addColorStop(0, '#0e5a68');
+      seaGrad.addColorStop(0.5, '#0b414d');
+      seaGrad.addColorStop(1, '#072c36');
+      ctx.fillStyle = seaGrad;
+      ctx.fillRect(0, 118, w, h - 118);
+
+      // Horizontal lane bands & dotted sea guides
+      const laneHeight = 98;
+      TRIREME_LANE_Y.forEach((ly, idx) => {
+        const isTarget = idx === triremeState.targetLane;
+        ctx.fillStyle = isTarget ? 'rgba(251, 191, 36, 0.14)' : 'rgba(15, 23, 42, 0.14)';
+        ctx.fillRect(0, ly - laneHeight / 2, w, laneHeight);
+
+        if (idx > 0) {
+          ctx.strokeStyle = 'rgba(253, 230, 138, 0.28)';
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([12, 10]);
+          ctx.beginPath();
+          ctx.moveTo(0, ly - laneHeight / 2);
+          ctx.lineTo(w, ly - laneHeight / 2);
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+      });
+
+      // Rolling white-cap wave ripples
+      ctx.strokeStyle = 'rgba(226, 232, 240, 0.22)';
+      ctx.lineWidth = 2;
+      for (let row = 0; row < 4; row++) {
+        const wy = 140 + row * 95;
+        ctx.beginPath();
+        for (let wx = 0; wx <= w; wx += 40) {
+          const offset = Math.sin((wx * 0.03) + triremeState.wavePhase + row) * 4;
+          if (wx === 0) ctx.moveTo(wx, wy + offset);
+          else ctx.lineTo(wx, wy + offset);
+        }
+        ctx.stroke();
+      }
+
+      // 3. Draw Harbour Lane Gates
+      const gate = triremeState.harbourGate;
+      if (gate) {
+        TRIREME_LANE_Y.forEach((ly, idx) => {
+          const boxX = gate.x;
+          const boxY = ly - 38;
+          const boxW = gate.width;
+          const boxH = 76;
+
+          // Stone & bronze harbour pier caps top & bottom of lane box
+          ctx.fillStyle = '#d6d3d1';
+          ctx.fillRect(boxX - 8, boxY - 6, boxW + 16, 8);
+          ctx.fillRect(boxX - 8, boxY + boxH - 2, boxW + 16, 8);
+
+          // Answer meaning card inside harbour entrance
+          const isTarget = idx === triremeState.targetLane;
+          ctx.fillStyle = isTarget ? '#fffbeb' : '#fafaf9';
+          ctx.strokeStyle = isTarget ? '#d97706' : '#78716c';
+          ctx.lineWidth = isTarget ? 3 : 2;
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect(boxX, boxY, boxW, boxH, 8);
+          else ctx.rect(boxX, boxY, boxW, boxH);
+          ctx.fill();
+          ctx.stroke();
+
+          // Harbour lane number badge
+          ctx.fillStyle = '#92400e';
+          ctx.font = '800 11px "Plus Jakarta Sans", sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(`HARBOUR ${idx + 1}`, boxX + 10, boxY + 18);
+
+          // Fit English meaning text cleanly up to 2 lines
+          const rawLabel = String(gate.laneLabels[idx] || '');
+          ctx.fillStyle = '#0f172a';
+          ctx.font = '700 14px "Plus Jakarta Sans", sans-serif';
+          ctx.textAlign = 'center';
+          const maxLineW = boxW - 18;
+          if (ctx.measureText(rawLabel).width <= maxLineW) {
+            ctx.fillText(rawLabel, boxX + boxW / 2, boxY + 46);
+          } else {
+            const words = rawLabel.split(' ');
+            let line1 = '';
+            let line2 = '';
+            for (const wd of words) {
+              const test = line1 ? line1 + ' ' + wd : wd;
+              if (ctx.measureText(test).width <= maxLineW) line1 = test;
+              else line2 = line2 ? line2 + ' ' + wd : wd;
+            }
+            if (!line1) line1 = rawLabel.slice(0, 18);
+            ctx.fillText(line1, boxX + boxW / 2, boxY + 38);
+            if (line2) {
+              ctx.fillText(line2.length > 22 ? line2.slice(0, 20) + '…' : line2, boxX + boxW / 2, boxY + 57);
+            }
+          }
+        });
+      }
+
+      // 4. Draw Athenian Trireme Warship
+      const sx = triremeState.shipX;
+      const bobY = Math.sin(triremeState.wavePhase * 1.6) * 2.5;
+      const sy = triremeState.shipY + bobY;
+
+      ctx.save();
+      ctx.translate(sx, sy);
+
+      // Animated oars sweeping
+      ctx.strokeStyle = '#fde68a';
+      ctx.lineWidth = 2.5;
+      for (let i = -3; i <= 2; i++) {
+        const ox = i * 11;
+        const sweep = Math.sin(triremeState.oarPhase + i * 0.4) * 7;
+        ctx.beginPath();
+        ctx.moveTo(ox, 10);
+        ctx.lineTo(ox - 6 + sweep, 28);
+        ctx.stroke();
+      }
+
+      // Wooden hull & bronze ram (forward right)
+      ctx.fillStyle = '#78350f';
+      ctx.beginPath();
+      ctx.moveTo(-58, -4);
+      ctx.lineTo(44, -4);
+      ctx.lineTo(64, 8); // Bronze ram prow
+      ctx.lineTo(42, 16);
+      ctx.lineTo(-46, 16);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Trireme bow eye (Ophthalmos)
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(36, 4, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.arc(37, 4, 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Mast & Billowing Linen Sail displaying the Greek word
+      ctx.strokeStyle = '#92400e';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(-4, 0);
+      ctx.lineTo(-4, -52);
+      ctx.stroke();
+
+      // Sail canvas
+      ctx.fillStyle = '#fefce8';
+      ctx.strokeStyle = '#b45309';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-36, -48);
+      ctx.quadraticCurveTo(-4, -54, 30, -48);
+      ctx.quadraticCurveTo(38, -28, 28, -8);
+      ctx.quadraticCurveTo(-4, -14, -36, -8);
+      ctx.quadraticCurveTo(-28, -28, -36, -48);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Greek word printed on the sail
+      if (gate && gate.wordObj) {
+        const gWord = getTriremeBaseWord(gate.wordObj.greek);
+        ctx.fillStyle = '#78350f';
+        ctx.font = '700 13.5px "Noto Serif", Georgia, serif';
+        ctx.textAlign = 'center';
+        const showWord = gWord.length > 13 ? gWord.slice(0, 12) + '…' : gWord;
+        ctx.fillText(showWord, -3, -28);
+
+        if (greekShowTranslit && gate.wordObj.transliteration) {
+          ctx.fillStyle = '#b45309';
+          ctx.font = '600 10px "Plus Jakarta Sans", sans-serif';
+          const trWord = gate.wordObj.transliteration;
+          ctx.fillText(trWord.length > 14 ? trWord.slice(0, 13) + '…' : trWord, -3, -15);
+        }
+      }
+
+      ctx.restore();
+
+      // 5. Non-blocking Feedback & Word Unlock Toast Banners
+      if (triremeState.unlockBannerTimer > 0 && triremeState.unlockBannerText) {
+        ctx.fillStyle = 'rgba(180, 83, 9, 0.92)';
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(w / 2 - 205, 114, 410, 28, 6);
+        else ctx.rect(w / 2 - 205, 114, 410, 28);
+        ctx.fill();
+        ctx.fillStyle = '#fef08a';
+        ctx.font = '800 12.5px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(triremeState.unlockBannerText, w / 2, 132);
+      }
+
+      if (triremeState.feedbackBannerTimer > 0 && triremeState.feedbackBannerText) {
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(w / 2 - 220, h - 36, 440, 28, 6);
+        else ctx.rect(w / 2 - 220, h - 36, 440, 28);
+        ctx.fill();
+        ctx.fillStyle = triremeState.feedbackBannerColor;
+        ctx.font = '700 12.5px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(triremeState.feedbackBannerText, w / 2, h - 18);
+      }
+    }
+
+    function triremeLoop(now) {
+      if (triremeState.status !== 'PLAYING') return;
+      const dt = Math.min(0.05, Math.max(0.001, (now - triremeLastTimestamp) / 1000));
+      triremeLastTimestamp = now;
+
+      triremeState.wavePhase += dt * 3.2;
+      triremeState.oarPhase += dt * 6.5;
+      if (triremeState.unlockBannerTimer > 0) triremeState.unlockBannerTimer = Math.max(0, triremeState.unlockBannerTimer - dt);
+      if (triremeState.feedbackBannerTimer > 0) triremeState.feedbackBannerTimer = Math.max(0, triremeState.feedbackBannerTimer - dt);
+
+      // Smooth vertical steering toward target harbour lane
+      const desiredY = TRIREME_LANE_Y[triremeState.targetLane];
+      triremeState.shipY += (desiredY - triremeState.shipY) * Math.min(1, dt * 11);
+
+      // Constant steady sailing speed (never accelerates over time!)
+      if (triremeState.harbourGate) {
+        triremeState.harbourGate.x -= TRIREME_SPEED_PX_PER_SEC * dt;
+
+        // Check harbour arrival when gate front reaches bow of ship
+        if (!triremeState.harbourGate.resolved && triremeState.harbourGate.x <= triremeState.shipX + 46) {
+          resolveTriremeHarbourPass();
+          if (triremeState.status !== 'PLAYING') {
+            const c = document.getElementById('aegeanTriremeCanvas');
+            if (c) drawAegeanTriremeFrame(c.getContext('2d'), c.width, c.height);
+            return;
+          }
+        }
+
+        if (triremeState.harbourGate.x + triremeState.harbourGate.width < -20) {
+          spawnNextTriremeGate(830);
+        }
+      }
+
+      const canvas = document.getElementById('aegeanTriremeCanvas');
+      if (canvas) {
+        drawAegeanTriremeFrame(canvas.getContext('2d'), canvas.width, canvas.height);
+      }
+
+      triremeAnimId = requestAnimationFrame(triremeLoop);
+    }
+
+    // ==================== GREEK TAB 6: STORIES & MYTH READER ====================
+    function getScopedGreekStories() {
+      const maxCh = getMaxSelectedGreekChapter();
+      const inCeiling = GREEK_STORIES.filter(st => st.chapter <= maxCh);
+      const base = inCeiling.length > 0 ? inCeiling : [GREEK_STORIES[0]];
+      if (greekStoryDiffFilter === 'all') return base;
+      const byDiff = base.filter(st => st.difficulty === greekStoryDiffFilter);
+      return byDiff.length > 0 ? byDiff : base;
+    }
+
+    function getActiveGreekStoryAndIndex() {
+      const pool = getScopedGreekStories();
+      let idx = pool.findIndex(st => st.story_id === currentGreekStoryId);
+      if (idx === -1) {
+        idx = 0;
+        if (pool[0]) currentGreekStoryId = pool[0].story_id;
+      }
+      return { pool, index: idx, story: pool[idx] || GREEK_STORIES[0] };
+    }
+
+    function findGreekWordGloss(story, rawGreekCore) {
+      const normCore = stripGreekDiacritics(rawGreekCore);
+      if (story && Array.isArray(story.wordByWord)) {
+        const exact = story.wordByWord.find(w => w.greek === rawGreekCore);
+        if (exact) return exact;
+        const fuzzy = story.wordByWord.find(w => stripGreekDiacritics(w.greek) === normCore);
+        if (fuzzy) return fuzzy;
+      }
+      // Fallback search across selected/all vocabulary stems
+      const matchVocab = GREEK_CHAPTER_VOCAB.find(v => {
+        const base = stripGreekDiacritics(v.greek.split(',')[0]);
+        return base === normCore || base.slice(0, 4) === normCore.slice(0, 4);
+      });
+      if (matchVocab) {
+        return {
+          greek: rawGreekCore,
+          transliteration: matchVocab.transliteration,
+          dictionaryForm: matchVocab.greek,
+          grammarNote: matchVocab.grammarNote,
+          meaning: matchVocab.english
+        };
+      }
+      return {
+        greek: rawGreekCore,
+        transliteration: transliterateAncientGreek(rawGreekCore),
+        dictionaryForm: rawGreekCore,
+        grammarNote: 'Attic form',
+        meaning: 'See full passage translation'
+      };
+    }
+
+    function renderGreekStoryTokens(story) {
+      const tokens = story.greek.split(/(\s+)/);
+      let wordIdx = 0;
+      return tokens.map(token => {
+        if (/^\s+$/.test(token)) return token;
+        const m = token.match(/^([^\p{L}]*)([\p{L}]+)([^\p{L}]*)$/u);
+        if (!m) return escapeGreekHtml(token);
+        const leading = m[1];
+        const core = m[2];
+        const trailing = m[3];
+        const tokenIdx = wordIdx++;
+        const isSel = greekStorySelectedToken && greekStorySelectedToken.index === tokenIdx;
+        const safeCore = escapeGreekHtml(core).replace(/'/g, '&#39;');
+        return (
+          escapeGreekHtml(leading) +
+          `<button type="button" class="myth-gloss-word greek-script${isSel ? ' is-selected' : ''}" onclick="glossGreekStoryWord(${tokenIdx}, '${safeCore}')">` +
+          escapeGreekHtml(core) +
+          '</button>' +
+          escapeGreekHtml(trailing)
+        );
+      }).join('');
+    }
+
+    function renderGreekStoriesView() {
+      const { pool, index, story } = getActiveGreekStoryAndIndex();
+      const metaEl = document.getElementById('greekStoryMeta');
+      const titleEl = document.getElementById('greekStoryTitle');
+      const stageEl = document.getElementById('greekStoryStage');
+      const translitEl = document.getElementById('greekStoryTranslitLine');
+      const engDrawer = document.getElementById('greekStoryEngDrawer');
+      const engBtn = document.getElementById('greekStoryEngToggleBtn');
+      const glossBanner = document.getElementById('greekGlossBanner');
+      const prevBtn = document.getElementById('greekStoryPrevBtn');
+      const nextBtn = document.getElementById('greekStoryNextBtn');
+      const qStack = document.getElementById('greekStoryQuestionsStack');
+      const solvedBadge = document.getElementById('greekStorySolvedBadge');
+      const nextPromptRow = document.getElementById('greekStoryNextPromptRow');
+
+      if (!metaEl || !titleEl || !stageEl) return;
+
+      document.querySelectorAll('[data-greek-myth-filter]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-greek-myth-filter') === greekStoryDiffFilter);
+      });
+
+      const diffLabel = story.difficulty.charAt(0).toUpperCase() + story.difficulty.slice(1);
+      metaEl.innerHTML =
+        `<span>${escapeGreekHtml(story.source)}</span>` +
+        `<span aria-hidden="true">·</span>` +
+        `<span class="myths-diff-text-${story.difficulty}">${escapeGreekHtml(diffLabel)} (Part ${story.part}, Ch ${story.chapter})</span>`;
+
+      titleEl.textContent = story.title;
+      stageEl.innerHTML = renderGreekStoryTokens(story);
+
+      if (translitEl) {
+        if (greekShowTranslit && story.transliteration) {
+          translitEl.textContent = story.transliteration;
+          translitEl.style.display = 'block';
+        } else {
+          translitEl.style.display = 'none';
+        }
+      }
+
+      if (engDrawer && engBtn) {
+        engBtn.textContent = greekStoryShowEnglish ? 'Hide English Translation' : 'Show English Translation';
+        engDrawer.textContent = 'Model English: ' + story.englishTranslation;
+        engDrawer.style.display = greekStoryShowEnglish ? 'block' : 'none';
+      }
+
+      if (glossBanner) {
+        if (greekStorySelectedToken && greekStorySelectedToken.word) {
+          const entry = findGreekWordGloss(story, greekStorySelectedToken.word);
+          const tr = (greekShowTranslit && entry.transliteration) ? ` (${escapeGreekHtml(entry.transliteration)})` : '';
+          glossBanner.className = 'myths-gloss-banner';
+          glossBanner.innerHTML =
+            `<div><strong class="greek-script">${escapeGreekHtml(entry.dictionaryForm)}</strong>${tr} <span style="color:#64748b;">[${escapeGreekHtml(entry.grammarNote)}]</span> — ${escapeGreekHtml(entry.meaning)}</div>` +
+            `<button type="button" class="myths-text-action" onclick="glossGreekStoryWord(null, null)">Clear</button>`;
+        } else {
+          glossBanner.className = 'myths-gloss-banner is-hint';
+          glossBanner.innerHTML = '<span>Tap any Ancient Greek word above to view its dictionary form, grammar note, and English meaning.</span>';
+        }
+      }
+
+      if (prevBtn) prevBtn.disabled = index <= 0;
+      if (nextBtn) nextBtn.textContent = index < pool.length - 1 ? 'Next Story →' : 'Start From Beginning ↻';
+
+      const solvedForStory = greekStoryAnswersState[story.story_id] || {};
+      const allCorrect = story.comprehension_questions.every((_q, idx) => solvedForStory[idx] && solvedForStory[idx].isCorrect);
+      if (solvedBadge) solvedBadge.textContent = allCorrect ? 'Εὖ! (Solved)' : '';
+      if (nextPromptRow) nextPromptRow.style.display = allCorrect ? 'flex' : 'none';
+
+      if (qStack) {
+        const letters = ['A', 'B', 'C', 'D'];
+        qStack.innerHTML = story.comprehension_questions.map((q, qIdx) => {
+          const st = solvedForStory[qIdx];
+          const optsHtml = q.options.map((opt, optIdx) => {
+            let cls = 'myths-option-btn';
+            if (st && st.selected === opt) cls += st.isCorrect ? ' is-correct' : ' is-wrong';
+            return (
+              `<button type="button" class="${cls}" onclick="answerGreekStoryQuestion(${qIdx}, ${optIdx})">` +
+              `<span class="myths-option-letter">${letters[optIdx]}</span>` +
+              `<span>${escapeGreekHtml(opt)}</span>` +
+              `</button>`
+            );
+          }).join('');
+
+          let fbHtml = '';
+          if (st) {
+            fbHtml = st.isCorrect
+              ? `<div class="myths-answer-feedback is-correct"><strong>✓ Correct</strong> — ${escapeGreekHtml(q.explanation)}</div>`
+              : `<div class="myths-answer-feedback is-wrong"><strong>✕ Not quite</strong> — Tap words in the Greek passage above to double-check, then try again.</div>`;
+          }
+
+          return (
+            `<div class="myths-question-block">` +
+            `<p class="myths-question-prompt">${qIdx + 1}. ${escapeGreekHtml(q.question)}</p>` +
+            `<div class="myths-options-list">${optsHtml}</div>` +
+            fbHtml +
+            `</div>`
+          );
+        }).join('');
+      }
+    }
+
+    function toggleGreekStoryTranslation() {
+      greekStoryShowEnglish = !greekStoryShowEnglish;
+      renderGreekStoriesView();
+    }
+
+    function setGreekStoryDifficultyFilter(filter) {
+      greekStoryDiffFilter = filter || 'all';
+      greekStorySelectedToken = null;
+      const pool = getScopedGreekStories();
+      if (pool.length > 0 && !pool.some(st => st.story_id === currentGreekStoryId)) {
+        currentGreekStoryId = pool[0].story_id;
+      }
+      renderGreekStoriesView();
+    }
+
+    function prevGreekStory() {
+      const { pool, index } = getActiveGreekStoryAndIndex();
+      if (index > 0) {
+        currentGreekStoryId = pool[index - 1].story_id;
+        greekStorySelectedToken = null;
+        renderGreekStoriesView();
+      }
+    }
+
+    function nextGreekStory() {
+      const { pool, index } = getActiveGreekStoryAndIndex();
+      if (!pool.length) return;
+      currentGreekStoryId = pool[(index + 1) % pool.length].story_id;
+      greekStorySelectedToken = null;
+      renderGreekStoriesView();
+    }
+
+    function glossGreekStoryWord(tokenIndex, word) {
+      if (tokenIndex === null || !word || (greekStorySelectedToken && greekStorySelectedToken.index === tokenIndex)) {
+        greekStorySelectedToken = null;
+      } else {
+        greekStorySelectedToken = { index: tokenIndex, word };
+      }
+      renderGreekStoriesView();
+    }
+
+    function answerGreekStoryQuestion(qIdx, optIdx) {
+      const { story } = getActiveGreekStoryAndIndex();
+      const q = story.comprehension_questions[qIdx];
+      if (!q) return;
+      const selected = q.options[optIdx];
+      if (!selected) return;
+
+      if (!greekStoryAnswersState[story.story_id]) greekStoryAnswersState[story.story_id] = {};
+      const prev = greekStoryAnswersState[story.story_id][qIdx];
+      const alreadyRewarded = Boolean(prev && prev.rewarded);
+      const isCorrect = selected === q.correct_answer;
+
+      greekStoryAnswersState[story.story_id][qIdx] = {
+        selected,
+        isCorrect,
+        rewarded: alreadyRewarded || isCorrect
+      };
+
+      try { localStorage.setItem('romalingua_greek_stories_answers_v1', JSON.stringify(greekStoryAnswersState)); } catch (_e) {}
+
+      if (isCorrect && !alreadyRewarded) {
+        addXP(15);
+        playSuccessChime();
+        showToast('Εὖ! +15 XP earned');
+      } else if (!isCorrect) {
+        playWarningSound();
+      }
+      renderGreekStoriesView();
+    }
+
+    function initGreekMode() {
+      const gInput = document.getElementById('greekTranslationInput');
+      if (gInput && !gInput.dataset.greekEnterAttached) {
+        gInput.dataset.greekEnterAttached = 'true';
+        gInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const btn = document.getElementById('greekSubmitCheckBtn');
+            if (btn) btn.click();
+          }
+        });
+      }
+
+      document.addEventListener('click', () => {
+        document.querySelectorAll('#greekSentenceTokenContainer .latin-token.active-token').forEach(el => {
+          el.classList.remove('active-token');
+        });
+      });
+
+      renderGreekContextBar();
+      renderGreekSentenceByPool();
+      nextGreekArcadeWord();
+      filterAndRenderGreekCards();
+      updateTriremeLobbyUI();
+      renderGreekStoriesView();
+
+      if (activeLanguage === 'greek') {
+        switchLanguage('greek');
+      }
+    }
+
+    window.switchLanguage = switchLanguage;
+    window.toggleGreekChapter = toggleGreekChapter;
+    window.applyGreekChapterPreset = applyGreekChapterPreset;
+    window.toggleGreekChapterSelectMode = toggleGreekChapterSelectMode;
+    window.toggleGreekTransliteration = toggleGreekTransliteration;
+    window.openGreekCustomVocabModal = openGreekCustomVocabModal;
+    window.closeGreekCustomVocabModal = closeGreekCustomVocabModal;
+    window.loadSampleCustomGreekVocab = loadSampleCustomGreekVocab;
+    window.saveCustomGreekVocab = saveCustomGreekVocab;
+    window.clearCustomGreekVocab = clearCustomGreekVocab;
+    window.setGreekArenaDifficulty = setGreekArenaDifficulty;
+    window.toggleGreekTenseHint = toggleGreekTenseHint;
+    window.skipGreekSentence = skipGreekSentence;
+    window.checkGreekTranslation = checkGreekTranslation;
+    window.handleGreekIWasRight = handleGreekIWasRight;
+    window.nextGreekArcadeWord = nextGreekArcadeWord;
+    window.handleGreekArcadeIWasRight = handleGreekArcadeIWasRight;
+    window.setGreekDeckScope = setGreekDeckScope;
+    window.handleGreekDeckSearch = handleGreekDeckSearch;
+    window.handleGreekDropdownFilter = handleGreekDropdownFilter;
+    window.setGreekCategoryFilter = setGreekCategoryFilter;
+    window.shuffleGreekCards = shuffleGreekCards;
+    window.toggleFlipAllGreek = toggleFlipAllGreek;
+    window.changeGreekPage = changeGreekPage;
+    window.toggleGreekMasterWord = toggleGreekMasterWord;
+    window.startTriremeGame = startTriremeGame;
+    window.startTriremeRecoveryOnly = startTriremeRecoveryOnly;
+    window.toggleTriremePause = toggleTriremePause;
+    window.exitTriremeToLobby = exitTriremeToLobby;
+    window.steerTriremeLane = steerTriremeLane;
+    window.setGreekStoryDifficultyFilter = setGreekStoryDifficultyFilter;
+    window.toggleGreekStoryTranslation = toggleGreekStoryTranslation;
+    window.prevGreekStory = prevGreekStory;
+    window.nextGreekStory = nextGreekStory;
+    window.glossGreekStoryWord = glossGreekStoryWord;
+    window.answerGreekStoryQuestion = answerGreekStoryQuestion;
 
     if (document.readyState === 'loading') {
       window.addEventListener('DOMContentLoaded', initApp);

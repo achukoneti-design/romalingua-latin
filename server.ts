@@ -60,30 +60,72 @@ const ai = new GoogleGenAI({
 });
 
 interface EvaluationRequestBody {
+  language?: 'latin' | 'greek';
   latin?: string;
+  greek?: string;
   userTranslation?: string;
   primaryTranslation?: string;
   tenseHint?: string;
   acceptedTranslations?: string[];
 }
 
-// AI-powered OCR GCSE Latin Sentence Evaluation Endpoint
+// AI-powered OCR GCSE Latin & Classical Greek Sentence Evaluation Endpoint
 app.post('/api/evaluate-translation', async (req: Request, res: Response) => {
-  const { latin, userTranslation, primaryTranslation, tenseHint, acceptedTranslations } =
-    req.body as EvaluationRequestBody;
+  const {
+    language = 'latin',
+    latin,
+    greek,
+    userTranslation,
+    primaryTranslation,
+    tenseHint,
+    acceptedTranslations,
+  } = req.body as EvaluationRequestBody;
 
-  if (!latin || !userTranslation || !primaryTranslation) {
+  const isGreek = language === 'greek';
+  const sourceSentence = isGreek ? (greek || latin) : latin;
+
+  if (!sourceSentence || !userTranslation || !primaryTranslation) {
     res.status(400).json({
-      error: 'Missing required fields: latin, userTranslation, primaryTranslation',
+      error: 'Missing required fields: sentence, userTranslation, primaryTranslation',
     });
     return;
   }
 
-  const prompt = `You are a strict and knowledgeable OCR GCSE Latin examiner.
+  const prompt = isGreek
+    ? `You are a strict and knowledgeable OCR GCSE Classical Greek (J292) examiner following John Taylor's "Greek to GCSE" standard.
+Evaluate whether the student translation is acceptable according to official OCR GCSE Classical Greek marking standards.
+
+ANCIENT GREEK SENTENCE:
+"${sourceSentence}"
+
+EXPECTED PRIMARY TRANSLATION:
+"${primaryTranslation}"
+
+GRAMMAR & TENSE HINT:
+"${tenseHint || 'Check verb tense, voice, mood, definite article, and noun cases.'}"
+
+ACCEPTED REFERENCE VARIATIONS:
+${JSON.stringify(acceptedTranslations || [])}
+
+STUDENT TRANSLATION:
+"${userTranslation}"
+
+OCR GCSE CLASSICAL GREEK MARKING PRINCIPLES:
+1. Lexical Accuracy: All essential Attic Greek words must be translated accurately.
+2. Verb Tense, Voice & Mood Integrity:
+   - Distinguish Present ("runs / is running"), Imperfect ("was running / used to run"), Future ("will / shall run"), and Aorist ("ran / saved").
+   - Distinguish Active vs Passive ("was defeated by" / "is honoured") vs Middle/Deponent.
+   - Respect Subjunctive/Optative in purpose, fearing, indirect statement, and result clauses.
+3. Person, Number & Definite Article: Singular vs plural, 1st/2nd/3rd person, and definite ("the") vs indefinite ("a/an") nouns must be accurate.
+4. Case Roles: Nominative subject, accusative object, genitive possession/time/agent, dative indirect object/instrument must have the right syntactic relationship.
+5. Natural English Idiom: Allow natural synonyms (e.g., "brave"/"good", "will"/"shall", "ruler"/"archon", "land"/"country") provided grammar, tense, voice, and cases remain intact.
+
+Evaluate the translation and output JSON.`
+    : `You are a strict and knowledgeable OCR GCSE Latin examiner.
 Evaluate whether the student translation is acceptable according to official OCR GCSE Latin marking standards.
 
 LATIN SENTENCE:
-"${latin}"
+"${sourceSentence}"
 
 EXPECTED PRIMARY TRANSLATION:
 "${primaryTranslation}"
@@ -122,7 +164,9 @@ Evaluate the translation and output JSON.`;
           },
           feedbackTitle: {
             type: Type.STRING,
-            description: 'Short title like "Optime! (GCSE Accepted)" or "Tense Error" or "Case Error"',
+            description: isGreek
+              ? 'Short title like "Eu! (GCSE Accepted)" or "Tense/Voice Error" or "Case Error"'
+              : 'Short title like "Optime! (GCSE Accepted)" or "Tense Error" or "Case Error"',
           },
           feedbackExplanation: {
             type: Type.STRING,
@@ -131,7 +175,7 @@ Evaluate the translation and output JSON.`;
           },
           tenseCorrect: {
             type: Type.BOOLEAN,
-            description: 'Whether the verb tense is correct',
+            description: 'Whether the verb tense/voice/mood is correct',
           },
           caseAndPersonCorrect: {
             type: Type.BOOLEAN,
@@ -179,13 +223,17 @@ Evaluate the translation and output JSON.`;
     console.error('Translation evaluation fallback used:', errorMsg);
 
     // Fallback heuristic if external API is temporarily unavailable
-    const cleanUser = userTranslation.toLowerCase().replace(/[.,/#!$%^&*;:{}=_()?'"-]/g, '').trim();
-    const cleanPrimary = primaryTranslation.toLowerCase().replace(/[.,/#!$%^&*;:{}=_()?'"-]/g, '').trim();
-    const isBasicMatch = cleanUser === cleanPrimary;
+    const norm = (s: string) => s.toLowerCase().replace(/[.,/#!$%^&*;:{}=_()?'"’-]/g, '').replace(/\s+/g, ' ').trim();
+    const cleanUser = norm(userTranslation);
+    const cleanPrimary = norm(primaryTranslation);
+    const matchesAccepted = Array.isArray(acceptedTranslations)
+      ? acceptedTranslations.some((acc) => norm(acc) === cleanUser)
+      : false;
+    const isBasicMatch = cleanUser === cleanPrimary || matchesAccepted;
 
     res.json({
       isCorrect: isBasicMatch,
-      feedbackTitle: isBasicMatch ? 'Optime! (Correct)' : 'Check Your Translation',
+      feedbackTitle: isBasicMatch ? (isGreek ? 'Εὖ! (Correct)' : 'Optime! (Correct)') : 'Check Your Translation',
       feedbackExplanation: isBasicMatch
         ? `Accurate translation: "${primaryTranslation}"`
         : `Check verb tense and cases: "${primaryTranslation}" (${tenseHint || ''})`,
