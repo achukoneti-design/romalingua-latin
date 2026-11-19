@@ -1,7 +1,7 @@
 {
-  "name": "RomaLingua - OCR GCSE Latin",
+  "name": "RomaLingua - OCR GCSE Latin & Ancient Greek",
   "short_name": "RomaLingua",
-  "description": "Interactive OCR GCSE Latin revision suite featuring Translation Arena with token tooltips, Vocab Speed Blitz, full 446-word DVL flashcard deck, and Grammar Notes.",
+  "description": "Interactive OCR GCSE Latin & Ancient Greek revision suite featuring Translation Arena, Latina Flap & Aegean Trireme arcade games, Myth & Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",

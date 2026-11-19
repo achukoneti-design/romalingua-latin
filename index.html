@@ -29,12 +29,14 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#15803d">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RomaLingua - OCR GCSE Latin Prep</title>
-  <meta name="description" content="Interactive OCR GCSE Latin revision suite featuring Translation Arena with Cullen Book 1 progression, Latina Flap 20-level arcade mini-game, Myth Comprehension Practice, full 446-word DVL flashcard deck, and Grammar Notes.">
-  <meta property="og:title" content="RomaLingua - OCR GCSE Latin Prep">
-  <meta property="og:description" content="Interactive OCR GCSE Latin revision suite featuring Translation Arena with Cullen Book 1 progression, Latina Flap 20-level arcade mini-game, Myth Comprehension Practice, full 446-word DVL flashcard deck, and Grammar Notes.">
+  <title>RomaLingua — OCR GCSE Latin &amp; Ancient Greek</title>
+  <meta name="description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena (Cullen Book 1 &amp; John Taylor Greek to GCSE), Latina Flap &amp; Aegean Trireme arcade games, Myth &amp; Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.">
+  <meta property="og:title" content="RomaLingua — OCR GCSE Latin &amp; Ancient Greek">
+  <meta property="og:description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena (Cullen Book 1 &amp; John Taylor Greek to GCSE), Latina Flap &amp; Aegean Trireme arcade games, Myth &amp; Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RomaLingua — OCR GCSE Latin &amp; Ancient Greek">
+  <meta name="twitter:description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena, Latina Flap &amp; Aegean Trireme, Myth &amp; Greek Story Readers, Official DVL flashcards, and Grammar Notes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
@@ -153,6 +155,15 @@
       line-height: 1;
     }
 
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      margin-top: 3px;
+      line-height: 1;
+    }
+
     .header-stats {
       display: flex;
       align-items: center;
@@ -232,6 +243,10 @@
 
       .brand-title {
         font-size: 20px;
+      }
+
+      .brand-sub {
+        font-size: 10px;
       }
 
       .header-stats {
@@ -3641,6 +3656,174 @@
       background: #ffffff;
     }
 
+    /* Latin to GCSE Shared Chapter Context Bar (Emerald & Laurel Palette) */
+    .latin-context-bar {
+      max-width: 1060px;
+      margin: 0 auto 16px auto;
+      background: var(--card-bg);
+      border: 1.5px solid #86efac;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      box-shadow: 0 2px 6px rgba(20, 83, 45, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .latin-context-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .latin-context-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .latin-context-title {
+      font-weight: 800;
+      font-size: 13.5px;
+      color: #14532d;
+    }
+
+    .latin-context-summary {
+      font-size: 12px;
+      font-weight: 700;
+      color: #15803d;
+      background: #edf7f0;
+      border: 1px solid #86efac;
+      padding: 3px 9px;
+      border-radius: 5px;
+    }
+
+    .latin-context-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .latin-mini-btn {
+      appearance: none;
+      border: 1.5px solid var(--border);
+      background: var(--surface-sub);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .latin-mini-btn:hover {
+      border-color: #15803d;
+      color: #14532d;
+      background: #edf7f0;
+    }
+
+    .latin-mini-btn.active {
+      background: #15803d;
+      border-color: #14532d;
+      color: #ffffff;
+    }
+
+    .latin-chapters-strip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      border-top: 1px solid #dcfce7;
+    }
+
+    .latin-ch-btn {
+      appearance: none;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .latin-ch-btn:hover {
+      border-color: #15803d;
+      background: #edf7f0;
+      color: #14532d;
+    }
+
+    .latin-ch-btn.active {
+      background: #15803d;
+      border-color: #14532d;
+      color: #ffffff;
+    }
+
+    .latin-deck-scope-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #dcfce7;
+    }
+
+    .latin-scope-btn {
+      appearance: none;
+      border: 1.5px solid #86efac;
+      background: #f6fdf8;
+      color: #14532d;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .latin-scope-btn:hover {
+      background: #dcfce7;
+      border-color: #15803d;
+    }
+
+    .latin-scope-btn.active {
+      background: #15803d;
+      border-color: #14532d;
+      color: #ffffff;
+    }
+
+    .latin-custom-textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+      background: var(--surface-sub);
+    }
+
+    .latin-custom-textarea:focus {
+      outline: none;
+      border-color: #15803d;
+      background: #ffffff;
+    }
+
     /* Aegean Trireme Game UI (Classical Bronze & Sea Slate) */
     .trireme-banner {
       background: linear-gradient(135deg, #451a03 0%, #78350f 55%, #9a5b13 100%);
@@ -3705,7 +3888,7 @@
       <button type="button" class="auth-close-btn" onclick="closeAuthModal()" title="Continue without signing in" aria-label="Close">✕</button>
       <div class="auth-brand-badge"><img src="./romalingua-logo.svg" alt="RomaLingua"></div>
       <div class="auth-modal-title" id="authModalTitle">Sign In (Optional)</div>
-      <div class="auth-modal-sub">Signing in is optional — you can practice everything right away without an account. <strong>Sign in to save and sync your progress</strong> (XP, streak, completed sentences, and Latina Flap levels) across devices.</div>
+      <div class="auth-modal-sub">Signing in is optional — you can practice everything right away without an account. <strong>Sign in to save and sync your progress</strong> (XP, streak, completed sentences, and arcade game levels) across devices.</div>
 
       <!-- Personal Email Sign-In (Gmail, Yahoo, Outlook, iCloud only) -->
       <div id="authTeacherPanel">
@@ -3835,7 +4018,7 @@
       </div>
 
       <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
-        All Cullen Book 1 sentences, 446 DVL flashcards, and 20 Latina Flap levels run locally with offline progress saving.
+        All Latin &amp; Ancient Greek sentences, Official DVL flashcards, and Latina Flap &amp; Aegean Trireme games run locally with offline progress saving.
       </div>
     </div>
   </div>
@@ -3865,6 +4048,7 @@
         </div>
         <div>
           <div class="brand-title">RomaLingua</div>
+          <div class="brand-sub">Latin &amp; Ancient Greek</div>
         </div>
       </div>
 
@@ -4020,8 +4204,50 @@
     </div>
   </div>
 
+  <!-- Custom Pasted Latin Vocab Modal -->
+  <div id="latinCustomVocabModal" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="latinCustomModalTitle" onclick="if(event.target===this)closeLatinCustomVocabModal()">
+    <div class="auth-modal" style="max-width: 540px; text-align: left;">
+      <button type="button" class="auth-close-btn" onclick="closeLatinCustomVocabModal()" title="Close" aria-label="Close">✕</button>
+      <div class="auth-modal-title" id="latinCustomModalTitle" style="text-align: left; font-size: 20px;">Custom Latin Vocabulary</div>
+      <div class="auth-modal-sub" style="text-align: left; margin-bottom: 10px;">
+        Paste one word per line using <code>Latin | English | notes</code> or <code>Latin - English</code>. Active across Official DVL Deck, Vocab Speed Blitz, and Latina Flap.
+      </div>
+      <textarea id="latinCustomVocabInput" class="latin-custom-textarea" placeholder="puella, puellae, f. | girl | 1st decl. f.&#10;servus - slave&#10;gladius = sword&#10;voco, vocare - call"></textarea>
+      <div id="latinCustomPreviewInfo" style="font-size: 12px; color: var(--text-muted); margin: 8px 0 12px 0; font-weight: 600;"></div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button type="button" class="latin-mini-btn" onclick="loadSampleCustomLatinVocab()">Load Sample List</button>
+          <button type="button" class="latin-mini-btn" onclick="clearCustomLatinVocab()">Revert to Chapters</button>
+        </div>
+        <button type="button" class="btn-3d btn-green" style="padding: 9px 16px; font-size: 13px;" onclick="saveCustomLatinVocab()">
+          <span>Save &amp; Use Custom Vocab</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content Area -->
   <main>
+
+    <!-- Shared Cullen & Taylor Latin to GCSE Chapter Selector Bar (Shown in Latin Mode) -->
+    <div id="latinContextBar" class="latin-context-bar" role="region" aria-label="Latin to GCSE Chapter & Settings">
+      <div class="latin-context-top">
+        <div class="latin-context-brand">
+          <span class="latin-context-title">Latin to GCSE (Cullen &amp; Taylor)</span>
+          <span class="latin-context-summary" id="latinContextSummaryBadge">All Ch 1–12 · 446 words</span>
+        </div>
+        <div class="latin-context-controls">
+          <button type="button" class="latin-mini-btn" id="latinSelectModeBtn" onclick="toggleLatinChapterSelectMode()" title="Switch between single-chapter selection and multi-chapter combination">Select: Combine Ch</button>
+          <button type="button" class="latin-mini-btn" id="latinPresetPart1Btn" onclick="applyLatinChapterPreset('part1')">Part 1 (Ch 1–6)</button>
+          <button type="button" class="latin-mini-btn" id="latinPresetPart2Btn" onclick="applyLatinChapterPreset('part2')">Part 2 (Ch 7–12)</button>
+          <button type="button" class="latin-mini-btn active" id="latinPresetAllBtn" onclick="applyLatinChapterPreset('all')">Full DVL (1–12)</button>
+          <button type="button" class="latin-mini-btn" id="latinCustomVocabBtn" onclick="openLatinCustomVocabModal()">Custom Vocab</button>
+        </div>
+      </div>
+      <div class="latin-chapters-strip" id="latinChapterButtonsContainer">
+        <!-- Populated dynamically for Ch 1-6 (Part 1) and Ch 7-12 (Part 2) -->
+      </div>
+    </div>
 
     <!-- Shared John Taylor Greek to GCSE Chapter Selector Bar (Shown in Ancient Greek Mode) -->
     <div id="greekContextBar" class="greek-context-bar" style="display: none;" role="region" aria-label="Greek to GCSE Chapter & Settings">
@@ -4267,7 +4493,7 @@
         <!-- Quiz Card -->
         <div class="arcade-card">
 
-          <div class="arcade-kicker">Speed Blitz · Match the Latin Word</div>
+          <div class="arcade-kicker" id="arcadeLatinKicker">Speed Blitz · Match the Latin Word</div>
           <div class="arcade-latin-word" id="arcadeLatinWord">puella, puellae, f.</div>
           <div class="arcade-word-note" id="arcadeWordNote">1st declension noun</div>
 
@@ -4332,6 +4558,12 @@
       <div class="deck-container">
         <!-- Toolbar -->
         <div class="deck-toolbar">
+          <div class="latin-deck-scope-row" role="group" aria-label="Latin Deck Scope">
+            <span style="font-size: 12px; font-weight: 800; color: #14532d; text-transform: uppercase; letter-spacing: 0.04em;">Deck Scope:</span>
+            <button type="button" class="latin-scope-btn active" id="latinScopeFullBtn" onclick="setLatinDeckScope('full')">Full OCR GCSE DVL (446)</button>
+            <button type="button" class="latin-scope-btn" id="latinScopeChaptersBtn" onclick="setLatinDeckScope('chapters')">Selected Chapter Pool</button>
+            <span id="latinDeckScopeHint" style="font-size: 12px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Showing complete OCR J282 &amp; Latin to GCSE list</span>
+          </div>
 
           <div class="deck-controls-top">
             <div class="deck-search">
@@ -4343,7 +4575,7 @@
               <label for="deckCategorySelect" class="deck-select-label">Category / Sort:</label>
               <select id="deckCategorySelect" class="deck-select" onchange="handleDropdownFilter(this.value, event)">
                 <optgroup label="Parts of Speech">
-                  <option value="all">All Words (446)</option>
+                  <option value="all">All Selected Words</option>
                   <option value="noun">Nouns</option>
                   <option value="verb">Verbs</option>
                   <option value="adjective">Adjectives</option>
@@ -4368,7 +4600,7 @@
           </div>
 
           <div class="filter-pills" id="deckFilterPills">
-            <button type="button" class="filter-pill active" onclick="setCategoryFilter('all', event)">All (446)</button>
+            <button type="button" class="filter-pill active" id="latinDeckAllPill" onclick="setCategoryFilter('all', event)">All Words (446)</button>
             <button type="button" class="filter-pill" onclick="setCategoryFilter('noun', event)">Nouns</button>
             <button type="button" class="filter-pill" onclick="setCategoryFilter('verb', event)">Verbs</button>
             <button type="button" class="filter-pill" onclick="setCategoryFilter('adjective', event)">Adjectives</button>
@@ -4987,7 +5219,7 @@
                   <span class="mode-name">Intermediate</span>
                   <span class="mode-tag">Legionarii</span>
                 </div>
-                <div class="mode-desc">Core 446 DVL vocabulary list. Comprehensive syllabus coverage across all nouns, verbs, and conjunctions.</div>
+                <div class="mode-desc">DVL vocabulary scoped to your selected Latin to GCSE chapters (or full 446-word syllabus &amp; Custom Vocab).</div>
                 <div class="mode-score">High Score: <span id="modeHighInter">0</span> • Level: <span id="modeLevelInter">I</span></div>
               </button>
 
@@ -5475,7 +5707,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-credit">Made by Achyuth Koneti</div>
-      <div class="footer-spec" id="footerSpecLine">RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · Translation Arena</div>
+      <div class="footer-spec" id="footerSpecLine">RomaLingua · OCR GCSE Latin (J282) &amp; Ancient Greek (J292) Revision Suite · Translation Arena</div>
       <div class="footer-spec" style="margin-top: 4px; opacity: 0.85;">Sign in is optional (saves &amp; syncs progress across devices). Personal Gmail, Yahoo, Outlook, or iCloud emails only — school emails cannot be used to create an account.</div>
     </div>
   </footer>
@@ -5491,6 +5723,12 @@
       transliterateAncientGreek,
       parseCustomGreekVocab
     } from './src/data/greekToGcseData.js';
+    import {
+      LATIN_CHAPTERS,
+      getLatinChapterForDvlWord,
+      getLatinChapterForSentence,
+      parseCustomLatinVocab
+    } from './src/data/latinToGcseData.js';
     // Firebase v10 CDN Modular SDK Imports
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
     import { 
@@ -12926,6 +13164,277 @@
   }
 ];
 
+    // Tag all 446 Latin DVL words & Translation Arena sentences with Cullen & Taylor chapters (Part 1 Ch 1–6, Part 2 Ch 7–12)
+    DVL_DATA.forEach(w => {
+      const ch = getLatinChapterForDvlWord(w);
+      w.chapter = ch;
+      w.part = ch <= 6 ? 1 : 2;
+    });
+    SENTENCES_DATA.forEach(s => {
+      const ch = getLatinChapterForSentence(s);
+      s.chapter = ch;
+      s.part = ch <= 6 ? 1 : 2;
+    });
+
+    // Latin to GCSE Chapter Selector & Custom Vocab State
+    let latinSelectedChapters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    try {
+      const savedLatinChs = JSON.parse(localStorage.getItem('romalingua_latin_selected_chapters') || 'null');
+      if (Array.isArray(savedLatinChs) && savedLatinChs.length > 0) {
+        const cleanLatinChs = savedLatinChs.map(Number).filter(n => n >= 1 && n <= 12);
+        if (cleanLatinChs.length > 0) latinSelectedChapters = [...new Set(cleanLatinChs)].sort((a, b) => a - b);
+      }
+    } catch (_e) {}
+
+    let latinChapterSelectMode = localStorage.getItem('romalingua_latin_ch_mode') === 'single' ? 'single' : 'combine';
+    let latinUseCustomVocab = localStorage.getItem('romalingua_latin_use_custom') === 'true';
+    let latinCustomVocabRaw = localStorage.getItem('romalingua_latin_custom_vocab_raw') || '';
+    let latinCustomVocabList = parseCustomLatinVocab(latinCustomVocabRaw);
+    if (latinUseCustomVocab && latinCustomVocabList.length === 0) {
+      latinUseCustomVocab = false;
+    }
+    let latinDeckScope = localStorage.getItem('romalingua_latin_deck_scope') || (latinSelectedChapters.length < 12 || latinUseCustomVocab ? 'chapters' : 'full');
+
+    function escapeLatinHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function formatLatinChapterLabel(chs) {
+      if (!chs || !chs.length) return 'All Ch 1–12';
+      if (chs.length === 12) return 'All Ch 1–12';
+      if (chs.length === 6 && chs[0] === 1 && chs[5] === 6) return 'Part 1 (Ch 1–6)';
+      if (chs.length === 6 && chs[0] === 7 && chs[5] === 12) return 'Part 2 (Ch 7–12)';
+      if (chs.length <= 4) return 'Ch ' + chs.join(', ');
+      return chs.length + ' Chapters (max Ch ' + Math.max(...chs) + ')';
+    }
+
+    function getActiveLatinVocabPool() {
+      if (latinUseCustomVocab && latinCustomVocabList.length > 0) {
+        return latinCustomVocabList;
+      }
+      if (!latinSelectedChapters.length || latinSelectedChapters.length === 12) {
+        return DVL_DATA;
+      }
+      const list = DVL_DATA.filter(w => latinSelectedChapters.includes(w.chapter));
+      return list.length > 0 ? list : DVL_DATA;
+    }
+
+    function getLatinDeckSourcePool() {
+      if (latinUseCustomVocab && latinCustomVocabList.length > 0 && latinDeckScope === 'chapters') {
+        return latinCustomVocabList;
+      }
+      if (latinDeckScope === 'full') {
+        return DVL_DATA;
+      }
+      return getActiveLatinVocabPool();
+    }
+
+    function saveLatinSelections() {
+      try {
+        localStorage.setItem('romalingua_latin_selected_chapters', JSON.stringify(latinSelectedChapters));
+        localStorage.setItem('romalingua_latin_ch_mode', latinChapterSelectMode);
+        localStorage.setItem('romalingua_latin_use_custom', latinUseCustomVocab ? 'true' : 'false');
+        localStorage.setItem('romalingua_latin_deck_scope', latinDeckScope);
+      } catch (_e) {}
+    }
+
+    function renderLatinContextBar() {
+      const strip = document.getElementById('latinChapterButtonsContainer');
+      const summaryBadge = document.getElementById('latinContextSummaryBadge');
+      const modeBtn = document.getElementById('latinSelectModeBtn');
+      const customBtn = document.getElementById('latinCustomVocabBtn');
+      const p1Btn = document.getElementById('latinPresetPart1Btn');
+      const p2Btn = document.getElementById('latinPresetPart2Btn');
+      const allBtn = document.getElementById('latinPresetAllBtn');
+
+      const activePool = getActiveLatinVocabPool();
+      if (summaryBadge) {
+        if (latinUseCustomVocab && latinCustomVocabList.length > 0) {
+          summaryBadge.textContent = `Custom Vocab · ${latinCustomVocabList.length} words`;
+        } else {
+          summaryBadge.textContent = `${formatLatinChapterLabel(latinSelectedChapters)} · ${activePool.length} words`;
+        }
+      }
+
+      if (modeBtn) {
+        modeBtn.textContent = latinChapterSelectMode === 'single' ? 'Select: One Ch' : 'Select: Combine Ch';
+      }
+      if (customBtn) {
+        customBtn.classList.toggle('active', latinUseCustomVocab && latinCustomVocabList.length > 0);
+        customBtn.textContent = (latinUseCustomVocab && latinCustomVocabList.length > 0)
+          ? `Custom Vocab (${latinCustomVocabList.length})`
+          : 'Custom Vocab';
+      }
+
+      const isPart1 = !latinUseCustomVocab && latinSelectedChapters.length === 6 && latinSelectedChapters[0] === 1 && latinSelectedChapters[5] === 6;
+      const isPart2 = !latinUseCustomVocab && latinSelectedChapters.length === 6 && latinSelectedChapters[0] === 7 && latinSelectedChapters[5] === 12;
+      const isAll = !latinUseCustomVocab && latinSelectedChapters.length === 12;
+      if (p1Btn) p1Btn.classList.toggle('active', isPart1);
+      if (p2Btn) p2Btn.classList.toggle('active', isPart2);
+      if (allBtn) allBtn.classList.toggle('active', isAll);
+
+      if (strip) {
+        let html = '<span class="greek-part-lbl">Part 1:</span>';
+        for (let ch = 1; ch <= 6; ch++) {
+          const chMeta = LATIN_CHAPTERS.find(c => c.id === ch);
+          const isActive = !latinUseCustomVocab && latinSelectedChapters.includes(ch);
+          html += `<button type="button" class="latin-ch-btn${isActive ? ' active' : ''}" title="${escapeLatinHtml(chMeta ? chMeta.title + ' — ' + chMeta.grammarSummary : 'Ch ' + ch)}" onclick="toggleLatinChapter(${ch})">Ch ${ch}</button>`;
+        }
+        html += '<span class="greek-ch-divider" aria-hidden="true"></span><span class="greek-part-lbl">Part 2:</span>';
+        for (let ch = 7; ch <= 12; ch++) {
+          const chMeta = LATIN_CHAPTERS.find(c => c.id === ch);
+          const isActive = !latinUseCustomVocab && latinSelectedChapters.includes(ch);
+          html += `<button type="button" class="latin-ch-btn${isActive ? ' active' : ''}" title="${escapeLatinHtml(chMeta ? chMeta.title + ' — ' + chMeta.grammarSummary : 'Ch ' + ch)}" onclick="toggleLatinChapter(${ch})">Ch ${ch}</button>`;
+        }
+        strip.innerHTML = html;
+      }
+    }
+
+    function refreshAllLatinModules() {
+      renderLatinContextBar();
+      const pool = getFilteredSentencePool();
+      const curSentence = SENTENCES_DATA[currentSentenceIndex];
+      const inPool = curSentence && pool.some(s => s.id === curSentence.id);
+      if (!inPool && pool.length > 0) {
+        loadSentence(getRandomSentenceIndexFromPool(), false);
+      } else {
+        renderSentenceMeta(curSentence);
+        updateTierSummaryDisplay();
+      }
+      nextArcadeWord();
+      currentDeckPage = 1;
+      filterAndRenderCards();
+    }
+
+    function toggleLatinChapter(chNum) {
+      latinUseCustomVocab = false;
+      if (latinChapterSelectMode === 'single') {
+        latinSelectedChapters = [chNum];
+      } else {
+        if (latinSelectedChapters.includes(chNum)) {
+          if (latinSelectedChapters.length > 1) {
+            latinSelectedChapters = latinSelectedChapters.filter(c => c !== chNum);
+          } else {
+            showToast('Keep at least 1 chapter selected.');
+          }
+        } else {
+          latinSelectedChapters = [...latinSelectedChapters, chNum].sort((a, b) => a - b);
+        }
+      }
+      latinDeckScope = latinSelectedChapters.length < 12 ? 'chapters' : 'full';
+      saveLatinSelections();
+      refreshAllLatinModules();
+    }
+
+    function applyLatinChapterPreset(preset) {
+      latinUseCustomVocab = false;
+      if (preset === 'part1') {
+        latinSelectedChapters = [1, 2, 3, 4, 5, 6];
+        latinDeckScope = 'chapters';
+      } else if (preset === 'part2') {
+        latinSelectedChapters = [7, 8, 9, 10, 11, 12];
+        latinDeckScope = 'chapters';
+      } else {
+        latinSelectedChapters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        latinDeckScope = 'full';
+      }
+      saveLatinSelections();
+      refreshAllLatinModules();
+    }
+
+    function toggleLatinChapterSelectMode() {
+      latinChapterSelectMode = latinChapterSelectMode === 'combine' ? 'single' : 'combine';
+      if (latinChapterSelectMode === 'single' && latinSelectedChapters.length > 1) {
+        latinSelectedChapters = [latinSelectedChapters[latinSelectedChapters.length - 1]];
+        latinDeckScope = 'chapters';
+      }
+      saveLatinSelections();
+      refreshAllLatinModules();
+    }
+
+    function setLatinDeckScope(scope) {
+      latinDeckScope = scope === 'chapters' ? 'chapters' : 'full';
+      saveLatinSelections();
+      currentDeckPage = 1;
+      filterAndRenderCards();
+    }
+
+    function openLatinCustomVocabModal() {
+      const modal = document.getElementById('latinCustomVocabModal');
+      const input = document.getElementById('latinCustomVocabInput');
+      if (input) {
+        input.value = latinCustomVocabRaw || '';
+        input.oninput = updateLatinCustomPreview;
+      }
+      updateLatinCustomPreview();
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeLatinCustomVocabModal() {
+      const modal = document.getElementById('latinCustomVocabModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function updateLatinCustomPreview() {
+      const input = document.getElementById('latinCustomVocabInput');
+      const info = document.getElementById('latinCustomPreviewInfo');
+      if (!input || !info) return;
+      const parsed = parseCustomLatinVocab(input.value);
+      info.textContent = parsed.length > 0
+        ? `Ready: ${parsed.length} valid Latin word${parsed.length === 1 ? '' : 's'} detected.`
+        : 'Enter lines formatted as: Latin | English | notes (or Latin - English).';
+    }
+
+    function loadSampleCustomLatinVocab() {
+      const input = document.getElementById('latinCustomVocabInput');
+      if (!input) return;
+      input.value = [
+        'puella, puellae, f. | girl | 1st declension f.',
+        'servus, servi, m. | slave | 2nd declension m.',
+        'gladius, gladii, m. | sword | 2nd declension m.',
+        'nuntius, nuntii, m. | messenger, message | 2nd declension m.',
+        'rex, regis, m. | king | 3rd declension m.',
+        'navis, navis, f. | ship | 3rd declension f.',
+        'voco, vocare, vocavi | call | 1st conjugation',
+        'mitto, mittere, misi | send | 3rd conjugation'
+      ].join('\n');
+      updateLatinCustomPreview();
+    }
+
+    function saveCustomLatinVocab() {
+      const input = document.getElementById('latinCustomVocabInput');
+      const raw = input ? input.value : '';
+      const parsed = parseCustomLatinVocab(raw);
+      if (parsed.length === 0) {
+        showToast('Please enter at least 1 valid word pair (e.g. servus - slave).');
+        return;
+      }
+      latinCustomVocabRaw = raw;
+      latinCustomVocabList = parsed;
+      latinUseCustomVocab = true;
+      latinDeckScope = 'chapters';
+      try {
+        localStorage.setItem('romalingua_latin_custom_vocab_raw', raw);
+      } catch (_e) {}
+      saveLatinSelections();
+      closeLatinCustomVocabModal();
+      refreshAllLatinModules();
+      showToast(`Custom Latin Vocab activated (${parsed.length} words)!`);
+    }
+
+    function clearCustomLatinVocab() {
+      latinUseCustomVocab = false;
+      latinDeckScope = latinSelectedChapters.length < 12 ? 'chapters' : 'full';
+      saveLatinSelections();
+      closeLatinCustomVocabModal();
+      refreshAllLatinModules();
+      showToast('Switched back to Latin to GCSE chapters.');
+    }
+
     // State Variables
     let soundEnabled = true;
     let audioCtx = null;
@@ -13960,11 +14469,16 @@
     let currentDifficulty = localStorage.getItem('romalingua_arena_difficulty') || 'all';
 
     function getFilteredSentencePool() {
-      if (currentDifficulty === 'all') {
-        return SENTENCES_DATA;
+      let base = SENTENCES_DATA;
+      if (!latinUseCustomVocab && latinSelectedChapters.length > 0 && latinSelectedChapters.length < 12) {
+        const chMatches = SENTENCES_DATA.filter(s => latinSelectedChapters.includes(s.chapter));
+        if (chMatches.length > 0) base = chMatches;
       }
-      const filtered = SENTENCES_DATA.filter(s => s.difficulty === currentDifficulty);
-      return filtered.length > 0 ? filtered : SENTENCES_DATA;
+      if (currentDifficulty === 'all') {
+        return base;
+      }
+      const filtered = base.filter(s => s.difficulty === currentDifficulty);
+      return filtered.length > 0 ? filtered : base;
     }
 
     function getRandomSentenceIndexFromPool(excludeIndex = -1) {
@@ -13992,6 +14506,7 @@
 
       const diff = sentence.difficulty || 'intermediate';
       const focus = sentence.grammarFocus || 'GCSE Latin Syntax';
+      const chBadge = sentence.chapter ? `Ch ${sentence.chapter}` : '';
 
       const tagMap = {
         easy: { label: 'Easy', cls: 'tag-easy' },
@@ -14002,20 +14517,18 @@
       const info = tagMap[diff] || tagMap.intermediate;
 
       if (kickerEl) {
-        kickerEl.innerHTML = `<span class="kicker-tag ${info.cls}">${info.label}</span> <span>${focus}</span>`;
+        kickerEl.innerHTML = `<span class="kicker-tag ${info.cls}">${info.label}</span>${chBadge ? ` <span class="kicker-tag" style="background:#edf7f0; color:#15803d; border:1px solid #86efac;">${chBadge}</span>` : ''} <span>${focus}</span>`;
       }
 
       const isCompleted = completedSentences.includes(sentence.id);
 
       if (posEl) {
-        if (currentDifficulty === 'all') {
-          posEl.innerHTML = isCompleted
-            ? '<span style="color:#15803d; font-weight:800;">✓ Done</span>'
-            : 'OCR GCSE Practice';
-        } else {
-          const capitalizedDiff = diff.charAt(0).toUpperCase() + diff.slice(1);
-          posEl.innerHTML = `${capitalizedDiff} Tier${isCompleted ? ' • <span style="color:#15803d; font-weight:800;">✓ Done</span>' : ''}`;
-        }
+        const scopeTag = (!latinUseCustomVocab && latinSelectedChapters.length < 12)
+          ? formatLatinChapterLabel(latinSelectedChapters)
+          : (currentDifficulty === 'all' ? 'OCR GCSE Practice' : (diff.charAt(0).toUpperCase() + diff.slice(1) + ' Tier'));
+        posEl.innerHTML = isCompleted
+          ? `${scopeTag} • <span style="color:#15803d; font-weight:800;">✓ Done</span>`
+          : scopeTag;
       }
     }
 
@@ -14025,9 +14538,12 @@
 
       const pool = getFilteredSentencePool();
       const completedInPool = pool.filter(s => completedSentences.includes(s.id)).length;
+      const chPrefix = (!latinUseCustomVocab && latinSelectedChapters.length < 12)
+        ? `${formatLatinChapterLabel(latinSelectedChapters)} • `
+        : '';
 
       if (currentDifficulty === 'all') {
-        summaryEl.textContent = `Unified progress • ${completedSentences.length} mastered overall`;
+        summaryEl.textContent = `${chPrefix}Unified progress • ${completedSentences.length} mastered overall`;
       } else {
         const diffNames = {
           easy: 'Easy tier',
@@ -14036,7 +14552,7 @@
           gcse: 'GCSE tier'
         };
         const name = diffNames[currentDifficulty] || 'Current tier';
-        summaryEl.textContent = `Unified progress • ${completedInPool} ${name} completed`;
+        summaryEl.textContent = `${chPrefix}${completedInPool} ${name} completed`;
       }
     }
 
@@ -14046,14 +14562,14 @@
       localStorage.setItem('romalingua_arena_difficulty', currentDifficulty);
 
       // Update active pill button styling
-      document.querySelectorAll('.diff-pill-btn').forEach(btn => {
+      document.querySelectorAll('.diff-pill-btn[data-difficulty]').forEach(btn => {
         const btnDiff = btn.getAttribute('data-difficulty');
         btn.classList.toggle('active', btnDiff === currentDifficulty);
       });
 
       const pool = getFilteredSentencePool();
       const currentSentence = SENTENCES_DATA[currentSentenceIndex];
-      const inPool = currentSentence && (currentDifficulty === 'all' || currentSentence.difficulty === currentDifficulty);
+      const inPool = currentSentence && pool.some(s => s.id === currentSentence.id);
 
       if (!inPool && pool.length > 0) {
         loadSentence(getRandomSentenceIndexFromPool(), !fromInit);
@@ -14429,22 +14945,41 @@
       if (arcadeOverrideBtn) arcadeOverrideBtn.style.display = 'none';
 
       arcadeCanAnswer = true;
-      const randomIndex = Math.floor(Math.random() * DVL_DATA.length);
-      currentArcadeWord = DVL_DATA[randomIndex];
+      const pool = getActiveLatinVocabPool();
+      const randomIndex = Math.floor(Math.random() * pool.length);
+      currentArcadeWord = pool[randomIndex];
+
+      const kickerEl = document.getElementById('arcadeLatinKicker');
+      if (kickerEl) {
+        if (latinUseCustomVocab && latinCustomVocabList.length > 0) {
+          kickerEl.textContent = `Speed Blitz · Custom Vocab (${latinCustomVocabList.length})`;
+        } else if (latinSelectedChapters.length < 12) {
+          kickerEl.textContent = `Speed Blitz · ${formatLatinChapterLabel(latinSelectedChapters)}`;
+        } else {
+          kickerEl.textContent = 'Speed Blitz · Match the Latin Word';
+        }
+      }
 
       const latinWordEl = document.getElementById('arcadeLatinWord');
       const noteEl = document.getElementById('arcadeWordNote');
       if (latinWordEl) latinWordEl.textContent = currentArcadeWord.latin;
-      if (noteEl) noteEl.textContent = currentArcadeWord.notes;
+      if (noteEl) {
+        const chPrefix = currentArcadeWord.chapter ? `Ch ${currentArcadeWord.chapter} · ` : '';
+        noteEl.textContent = chPrefix + (currentArcadeWord.notes || '');
+      }
 
-      // Select 3 distractors
+      // Select 3 distractors from active pool first, topping up from DVL_DATA if custom list is small
       const distractors = [];
-      const usedIndices = new Set([randomIndex]);
-      while (distractors.length < 3) {
-        const randD = Math.floor(Math.random() * DVL_DATA.length);
-        if (!usedIndices.has(randD) && DVL_DATA[randD].english !== currentArcadeWord.english) {
-          usedIndices.add(randD);
-          distractors.push(DVL_DATA[randD].english);
+      const usedEnglish = new Set([currentArcadeWord.english]);
+      const distractorSource = pool.length >= 4 ? pool : DVL_DATA;
+      let guard = 0;
+      while (distractors.length < 3 && guard < 120) {
+        guard++;
+        const src = guard < 60 ? distractorSource : DVL_DATA;
+        const candidate = src[Math.floor(Math.random() * src.length)];
+        if (candidate && candidate.english && !usedEnglish.has(candidate.english)) {
+          usedEnglish.add(candidate.english);
+          distractors.push(candidate.english);
         }
       }
 
@@ -14639,12 +15174,47 @@
       }
     }
 
+    function updateLatinDeckScopeUI() {
+      const fullBtn = document.getElementById('latinScopeFullBtn');
+      const chBtn = document.getElementById('latinScopeChaptersBtn');
+      const hintEl = document.getElementById('latinDeckScopeHint');
+      const allPill = document.getElementById('latinDeckAllPill');
+      const chPool = getActiveLatinVocabPool();
+      const sourcePool = getLatinDeckSourcePool();
+
+      if (fullBtn) {
+        fullBtn.textContent = `Full OCR GCSE DVL (${DVL_DATA.length})`;
+        fullBtn.classList.toggle('active', latinDeckScope === 'full');
+      }
+      if (chBtn) {
+        const label = (latinUseCustomVocab && latinCustomVocabList.length > 0)
+          ? `Custom Vocab (${latinCustomVocabList.length})`
+          : `Selected Chapters (${chPool.length})`;
+        chBtn.textContent = label;
+        chBtn.classList.toggle('active', latinDeckScope === 'chapters');
+      }
+      if (allPill) {
+        allPill.textContent = `All Words (${sourcePool.length})`;
+      }
+      if (hintEl) {
+        if (latinDeckScope === 'full') {
+          hintEl.textContent = 'Showing complete OCR J282 & Latin to GCSE vocabulary';
+        } else if (latinUseCustomVocab && latinCustomVocabList.length > 0) {
+          hintEl.textContent = 'Showing your Custom Pasted Vocab list';
+        } else {
+          hintEl.textContent = `Filtered to ${formatLatinChapterLabel(latinSelectedChapters)}`;
+        }
+      }
+    }
+
     function filterAndRenderCards() {
-      if (!Array.isArray(DVL_DATA)) return;
+      updateLatinDeckScopeUI();
+      const sourcePool = getLatinDeckSourcePool();
+      if (!Array.isArray(sourcePool)) return;
       const filterCat = activeDeckFilter || 'all';
       const search = (deckSearchQuery || '').toLowerCase().trim();
 
-      let filtered = DVL_DATA.filter(item => {
+      let filtered = sourcePool.filter(item => {
         if (!item) return false;
         const matchesCat = (filterCat === 'all') || (item.category === filterCat);
         const matchesSearch = !search ||
@@ -14707,12 +15277,13 @@
       const grid = document.getElementById('cardsGrid');
       if (!grid) return;
 
-      // CRITICAL PREVENT CRASH: clear existing card container innerHTML before inserting the 20-card batch
+      // CRITICAL PREVENT CRASH: clear existing card container innerHTML before inserting the batch
       grid.innerHTML = '';
 
-      if (!Array.isArray(DVL_DATA)) return;
+      const sourcePool = getLatinDeckSourcePool();
+      if (!Array.isArray(sourcePool)) return;
       if (!Array.isArray(displayedDeckList)) {
-        displayedDeckList = [...DVL_DATA];
+        displayedDeckList = [...sourcePool];
       }
       if (!Array.isArray(masteredWords)) {
         try {
@@ -14723,14 +15294,14 @@
       }
 
       if (displayedDeckList.length === 0) {
-        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 48px; color: #64748b; font-weight: 600;">No matching words found. Try adjusting your search or category filter.</div>';
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 48px; color: #64748b; font-weight: 600;">No matching words found. Try adjusting your chapters, search, or category filter.</div>';
         return;
       }
 
       // Setup single delegated click listener
       setupGridDelegatedListener(grid);
 
-      // Slice current 20-card batch
+      // Slice current batch
       const startIndex = (currentDeckPage - 1) * CARDS_PER_PAGE;
       const endIndex = Math.min(startIndex + CARDS_PER_PAGE, displayedDeckList.length);
       const pageBatch = displayedDeckList.slice(startIndex, endIndex);
@@ -14738,6 +15309,8 @@
       pageBatch.forEach(item => {
         if (!item) return;
         const isMastered = masteredWords.includes(item.id);
+        const cardBadgeLeft = item.chapter ? `Ch ${item.chapter} · #${item.id}` : 'Custom';
+        const masterArg = typeof item.id === 'number' ? item.id : `'${String(item.id).replace(/'/g, '')}'`;
 
         const scene = document.createElement('div');
         scene.className = 'card-scene';
@@ -14753,16 +15326,16 @@
         front.className = 'card-face card-front';
         front.innerHTML = `
           <div class="card-header-bar">
-            <span>#${item.id || ''}</span>
-            <span class="card-cat-badge">${item.category || ''}</span>
+            <span>${escapeLatinHtml(cardBadgeLeft)}</span>
+            <span class="card-cat-badge">${escapeLatinHtml(item.category || '')}</span>
           </div>
           <div class="card-body">
-            <div class="card-latin-text">${item.latin || ''}</div>
-            <div class="card-notes">${item.notes || ''}</div>
+            <div class="card-latin-text">${escapeLatinHtml(item.latin || '')}</div>
+            <div class="card-notes">${escapeLatinHtml(item.notes || '')}</div>
           </div>
           <div class="card-footer">
             <span>Tap to flip</span>
-            <button type="button" class="master-btn ${isMastered ? 'mastered' : ''}" title="Mark as mastered" onclick="toggleMasterWord(event, ${item.id})">
+            <button type="button" class="master-btn ${isMastered ? 'mastered' : ''}" title="Mark as mastered" onclick="toggleMasterWord(event, ${masterArg})">
               ${isMastered ? '✓' : '○'}
             </button>
           </div>
@@ -14774,15 +15347,15 @@
         back.innerHTML = `
           <div class="card-header-bar">
             <span>English Definition</span>
-            <span class="card-cat-badge">${item.category || ''}</span>
+            <span class="card-cat-badge">${escapeLatinHtml(item.category || '')}</span>
           </div>
           <div class="card-body">
-            <div class="card-eng-text">${item.english || ''}</div>
-            <div class="card-notes">${item.latin || ''}</div>
+            <div class="card-eng-text">${escapeLatinHtml(item.english || '')}</div>
+            <div class="card-notes">${escapeLatinHtml(item.latin || '')}</div>
           </div>
           <div class="card-footer">
             <span>Tap to return</span>
-            <button type="button" class="master-btn ${isMastered ? 'mastered' : ''}" title="Mark as mastered" onclick="toggleMasterWord(event, ${item.id})">
+            <button type="button" class="master-btn ${isMastered ? 'mastered' : ''}" title="Mark as mastered" onclick="toggleMasterWord(event, ${masterArg})">
               ${isMastered ? '✓' : '○'}
             </button>
           </div>
@@ -14816,19 +15389,21 @@
     function updateDeckStats() {
       const counterText = document.getElementById('deckCounterText');
       const masteryText = document.getElementById('deckMasteryText');
+      const sourcePool = getLatinDeckSourcePool();
       const totalWords = displayedDeckList ? displayedDeckList.length : 0;
-      if (counterText && Array.isArray(displayedDeckList) && Array.isArray(DVL_DATA)) {
+      if (counterText && Array.isArray(displayedDeckList) && Array.isArray(sourcePool)) {
         if (totalWords === 0) {
-          counterText.textContent = 'Showing 0 of ' + DVL_DATA.length + ' words';
+          counterText.textContent = 'Showing 0 of ' + sourcePool.length + ' words';
         } else {
           const start = (currentDeckPage - 1) * CARDS_PER_PAGE + 1;
           const end = Math.min(currentDeckPage * CARDS_PER_PAGE, totalWords);
-          counterText.textContent = `Showing words ${start}–${end} of ${totalWords} (Total: ${DVL_DATA.length})`;
+          counterText.textContent = `Showing words ${start}–${end} of ${totalWords} (Pool: ${sourcePool.length})`;
         }
       }
-      if (masteryText && Array.isArray(masteredWords) && Array.isArray(DVL_DATA)) {
-        const pct = Math.round((masteredWords.length / DVL_DATA.length) * 100);
-        masteryText.textContent = masteredWords.length + ' Mastered (' + pct + '%)';
+      if (masteryText && Array.isArray(masteredWords) && Array.isArray(sourcePool)) {
+        const masteredInPool = sourcePool.filter(w => masteredWords.includes(w.id)).length;
+        const pct = sourcePool.length > 0 ? Math.round((masteredInPool / sourcePool.length) * 100) : 0;
+        masteryText.textContent = masteredInPool + ' Mastered (' + pct + '%)';
       }
     }
 
@@ -15257,18 +15832,20 @@
         explanation = `"${item.latin}" means "${item.english}". "${item.distractor}" is a different word.`;
         category = "Common GCSE Word";
       } else if (flapCurrentMode === 'intermediate') {
-        if (Array.isArray(DVL_DATA) && DVL_DATA.length > 0) {
-          const item = DVL_DATA[Math.floor(Math.random() * DVL_DATA.length)];
+        const flapPool = getActiveLatinVocabPool();
+        if (Array.isArray(flapPool) && flapPool.length > 0) {
+          const item = flapPool[Math.floor(Math.random() * flapPool.length)];
           prompt = item.english;
-          correctLatin = item.stem || item.latin.split(',')[0];
-          // Find distractor of same category
-          const sameCat = DVL_DATA.filter(w => w.category === item.category && w.english !== item.english);
+          correctLatin = item.stem || (item.latin || '').split(',')[0].trim();
+          const distBase = flapPool.length >= 2 ? flapPool : DVL_DATA;
+          const sameCat = distBase.filter(w => w.category === item.category && w.english !== item.english);
+          const otherPool = distBase.filter(w => w.english !== item.english);
           const distItem = sameCat.length > 0
             ? sameCat[Math.floor(Math.random() * sameCat.length)]
-            : DVL_DATA[Math.floor(Math.random() * DVL_DATA.length)];
-          distractorLatin = distItem.stem || distItem.latin.split(',')[0];
+            : (otherPool.length > 0 ? otherPool[Math.floor(Math.random() * otherPool.length)] : DVL_DATA[Math.floor(Math.random() * DVL_DATA.length)]);
+          distractorLatin = distItem.stem || (distItem.latin || '').split(',')[0].trim();
           explanation = `"${correctLatin}" means "${item.english}". "${distractorLatin}" means "${distItem.english}".`;
-          category = item.category || "DVL Vocabulary";
+          category = item.chapter ? `Ch ${item.chapter} · ${item.category || 'Vocab'}` : (item.category || "DVL Vocabulary");
         } else {
           const item = FLAP_EASY_WORDS[Math.floor(Math.random() * FLAP_EASY_WORDS.length)];
           prompt = item.english;
@@ -16292,6 +16869,10 @@
         window.updateNavScrollUI();
       }
 
+      if (typeof renderLatinContextBar === 'function') {
+        renderLatinContextBar();
+      }
+
       if (typeof renderMythsView === 'function') {
         renderMythsView();
       }
@@ -16893,6 +17474,8 @@
 
       const contextBar = document.getElementById('greekContextBar');
       if (contextBar) contextBar.style.display = isGreek ? 'flex' : 'none';
+      const latinContextBar = document.getElementById('latinContextBar');
+      if (latinContextBar) latinContextBar.style.display = isGreek ? 'none' : 'flex';
 
       // Swap Tab Labels while keeping exact tab structure
       const deckSpan = document.querySelector('#tabBtnDeck span');
@@ -16906,8 +17489,8 @@
       const footerLine = document.getElementById('footerSpecLine');
       if (footerLine) {
         footerLine.textContent = isGreek
-          ? 'RomaLingua · John Taylor Greek to GCSE (Part 1 & 2) · OCR Classical Greek (J292) · Aegean Trireme'
-          : 'RomaLingua · Complete OCR GCSE Latin (J282) Syllabus Revision Engine · 446 DVL Words · Translation Arena';
+          ? 'RomaLingua · OCR GCSE Latin & Ancient Greek · Ancient Greek Mode (John Taylor Greek to GCSE · J292)'
+          : 'RomaLingua · OCR GCSE Latin & Ancient Greek · Latin Mode (Cullen & Taylor Latin to GCSE · J282 · 446 DVL Words)';
       }
 
       // Toggle Latin vs Greek view wrappers inside all 6 tabs
@@ -16936,10 +17519,18 @@
         else if (activeTabId === 'tabBtnFlap') updateTriremeLobbyUI();
         else if (activeTabId === 'tabBtnMyths') renderGreekStoriesView();
       } else {
+        renderLatinContextBar();
         const activeTabEl = document.querySelector('.tab-btn.active');
         const activeTabId = activeTabEl ? activeTabEl.id : 'tabBtnArena';
-        if (activeTabId === 'tabBtnDeck') filterAndRenderCards();
-        else if (activeTabId === 'tabBtnFlap') {
+        if (activeTabId === 'tabBtnArena') {
+          const curSentence = SENTENCES_DATA[currentSentenceIndex];
+          renderSentenceMeta(curSentence);
+          updateTierSummaryDisplay();
+        } else if (activeTabId === 'tabBtnArcade') {
+          nextArcadeWord();
+        } else if (activeTabId === 'tabBtnDeck') {
+          filterAndRenderCards();
+        } else if (activeTabId === 'tabBtnFlap') {
           if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
           if (typeof renderFlapLevelGrid === 'function') renderFlapLevelGrid();
         } else if (activeTabId === 'tabBtnMyths') renderMythsView();
@@ -18702,6 +19293,15 @@
     }
 
     window.switchLanguage = switchLanguage;
+    window.toggleLatinChapter = toggleLatinChapter;
+    window.applyLatinChapterPreset = applyLatinChapterPreset;
+    window.toggleLatinChapterSelectMode = toggleLatinChapterSelectMode;
+    window.setLatinDeckScope = setLatinDeckScope;
+    window.openLatinCustomVocabModal = openLatinCustomVocabModal;
+    window.closeLatinCustomVocabModal = closeLatinCustomVocabModal;
+    window.loadSampleCustomLatinVocab = loadSampleCustomLatinVocab;
+    window.saveCustomLatinVocab = saveCustomLatinVocab;
+    window.clearCustomLatinVocab = clearCustomLatinVocab;
     window.toggleGreekChapter = toggleGreekChapter;
     window.applyGreekChapterPreset = applyGreekChapterPreset;
     window.toggleGreekChapterSelectMode = toggleGreekChapterSelectMode;
