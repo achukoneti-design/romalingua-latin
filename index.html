@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZJ5WHXFR"></script>
+  <!-- Google Consent Mode v2 (GDPR defaults) & Google tag (gtag.js) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('romalingua_cookie_consent'); } catch (_e) {}
+      var analyticsState = consent === 'accepted' ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        analytics_storage: analyticsState,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HZJ5WHXFR"></script>
+  <script>
     gtag('js', new Date());
-
     gtag('config', 'G-3HZJ5WHXFR');
     gtag('config', 'G-DPLWX86G1C');
   </script>
@@ -24,19 +37,44 @@
   <!-- Mobile & Desktop Home Screen PWA Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="RomaLingua">
-  <meta name="application-name" content="RomaLingua">
+  <meta name="apple-mobile-web-app-title" content="RomaLingua — Latin &amp; Ancient Greek">
+  <meta name="application-name" content="RomaLingua — Latin &amp; Ancient Greek">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#15803d">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RomaLingua — OCR GCSE Latin &amp; Ancient Greek</title>
-  <meta name="description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena (Cullen Book 1 &amp; John Taylor Greek to GCSE), Latina Flap &amp; Aegean Trireme arcade games, Myth &amp; Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.">
-  <meta property="og:title" content="RomaLingua — OCR GCSE Latin &amp; Ancient Greek">
-  <meta property="og:description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena (Cullen Book 1 &amp; John Taylor Greek to GCSE), Latina Flap &amp; Aegean Trireme arcade games, Myth &amp; Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.">
+  <title>RomaLingua — Latin &amp; Ancient Greek (OCR GCSE)</title>
+  <meta name="description" content="OCR GCSE Latin &amp; Ancient Greek revision suite: Translation Arena, Official DVL flashcards, Myth &amp; Greek story readers, Latina Flap &amp; Aegean Trireme games.">
+  <link rel="canonical" href="https://romalingua.co.uk/">
+  <meta property="og:site_name" content="RomaLingua — Latin &amp; Ancient Greek">
+  <meta property="og:url" content="https://romalingua.co.uk/">
+  <meta property="og:title" content="RomaLingua — Latin &amp; Ancient Greek (OCR GCSE)">
+  <meta property="og:description" content="OCR GCSE Latin &amp; Ancient Greek revision suite: Translation Arena, Official DVL flashcards, Myth &amp; Greek story readers, Latina Flap &amp; Aegean Trireme games.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RomaLingua — OCR GCSE Latin &amp; Ancient Greek">
-  <meta name="twitter:description" content="Interactive OCR GCSE Latin &amp; Ancient Greek revision suite featuring Translation Arena, Latina Flap &amp; Aegean Trireme, Myth &amp; Greek Story Readers, Official DVL flashcards, and Grammar Notes.">
+  <meta name="twitter:title" content="RomaLingua — Latin &amp; Ancient Greek (OCR GCSE)">
+  <meta name="twitter:description" content="OCR GCSE Latin &amp; Ancient Greek revision suite: Translation Arena, Official DVL flashcards, Myth &amp; Greek story readers, Latina Flap &amp; Aegean Trireme games.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "RomaLingua — Latin & Ancient Greek",
+    "alternateName": "RomaLingua",
+    "url": "https://romalingua.co.uk/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "inLanguage": ["en", "la", "grc"],
+    "description": "OCR GCSE Latin (J282) & Ancient Greek (J292) revision suite featuring Translation Arena (Cullen Book 1 & John Taylor Greek to GCSE), Official DVL flashcard decks, Myth & Greek Story Readers, Latina Flap & Aegean Trireme arcade games, and Grammar Notes.",
+    "author": {
+      "@type": "Person",
+      "name": "Achyuth Koneti"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
@@ -1634,6 +1672,281 @@
       font-size: 12.5px;
       color: var(--text-muted);
       font-weight: 500;
+    }
+
+    .footer-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 16px;
+      margin-top: 8px;
+    }
+
+    .footer-link-btn {
+      background: transparent;
+      border: none;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footer-link-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    /* GDPR Privacy Policy & Data Controls Modal */
+    .privacy-modal {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px 26px;
+      position: relative;
+      text-align: left;
+      color: var(--text);
+    }
+
+    .privacy-header {
+      padding-right: 36px;
+      margin-bottom: 14px;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .privacy-title {
+      font-family: 'Cinzel', 'Noto Serif', Georgia, serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .privacy-subtitle {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .privacy-summary-box {
+      background: var(--primary-light);
+      border: 1.5px solid #b7dfc4;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .privacy-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 8px 12px;
+      margin-top: 6px;
+    }
+
+    .privacy-section {
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      background: var(--surface-sub);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .privacy-section h3 {
+      margin: 0 0 6px 0;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .privacy-section p,
+    .privacy-section li {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .privacy-section ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .privacy-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .privacy-action-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .privacy-action-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .privacy-action-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .privacy-btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .privacy-btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .privacy-btn-secondary {
+      background: var(--surface-sub);
+      color: var(--text);
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .privacy-btn-danger {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1.5px solid #fca5a5;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .privacy-btn-danger:hover {
+      background: #fee2e2;
+    }
+
+    .privacy-btn-danger-solid {
+      background: #b91c1c;
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .privacy-confirm-box {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-size: 11.5px;
+      color: #7f1d1d;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .privacy-confirm-btns {
+      display: flex;
+      gap: 6px;
+    }
+
+    .privacy-status-banner {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .privacy-status-banner.info {
+      background: var(--cobalt-bg);
+      border: 1px solid var(--cobalt-border);
+      color: #1e3a8a;
+    }
+
+    .privacy-status-banner.error {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+    }
+
+    /* Cookie Consent Banner */
+    .cookie-consent-bar {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      max-width: 920px;
+      background: #ffffff;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 12px 16px;
+      z-index: 950;
+      display: none;
+    }
+
+    .cookie-consent-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 16px;
+    }
+
+    .cookie-consent-text {
+      flex: 1 1 360px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .cookie-consent-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
     }
 
 
@@ -3942,6 +4255,9 @@
       <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 7px; line-height: 1.45; text-align: center;">
         No sign-in required to practice — signing in only saves &amp; syncs your progress across devices.
       </div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center;">
+        Read our <button type="button" class="footer-link-btn" onclick="openPrivacyModal()">Privacy Policy &amp; GDPR Data Controls</button> to view, export, or delete your data.
+      </div>
     </div>
   </div>
 
@@ -3959,7 +4275,7 @@
           Free Live Web Address:
         </div>
         <div class="domain-url-sample-row">
-          <div class="domain-url-sample" id="domainSampleNetlify">https://romalingua-latin.netlify.app</div>
+          <div class="domain-url-sample" id="domainSampleNetlify">https://romalingua-classics.netlify.app</div>
           <button type="button" class="btn-copy-chip" onclick="copyNetlifyUrlSample()">Copy Netlify Link</button>
         </div>
       </div>
@@ -4009,7 +4325,7 @@
           <li>Click <strong>Download ZIP</strong> above and extract the zip folder on your computer.</li>
           <li>Open <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" style="color: var(--cobalt); font-weight: 700;">app.netlify.com/drop</a> in any browser tab.</li>
           <li>Drag and drop the extracted folder into the box. Netlify generates a live URL like <code>https://something.netlify.app</code>.</li>
-          <li><em>(Optional)</em> In Netlify, click <strong>Site configuration &gt; Change site name</strong> to choose your custom name (e.g., <code>romalingua-latin.netlify.app</code>).</li>
+          <li><em>(Optional)</em> In Netlify, click <strong>Site configuration &gt; Change site name</strong> to choose your custom name (e.g., <code>romalingua-classics.netlify.app</code>).</li>
         </ol>
       </div>
 
@@ -4019,6 +4335,118 @@
 
       <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
         All Latin &amp; Ancient Greek sentences, Official DVL flashcards, and Latina Flap &amp; Aegean Trireme games run locally with offline progress saving.
+      </div>
+    </div>
+  </div>
+
+  <!-- GDPR Privacy Policy & Self-Service Data Rights Modal -->
+  <div id="privacyModalOverlay" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle" onclick="if(event.target===this)closePrivacyModal()">
+    <div class="privacy-modal">
+      <button type="button" class="auth-close-btn" onclick="closePrivacyModal()" title="Close Privacy Policy" aria-label="Close Privacy Policy">✕</button>
+      <div class="privacy-header">
+        <div class="privacy-title" id="privacyModalTitle">Privacy Policy &amp; Your Data (UK / EU GDPR)</div>
+        <div class="privacy-subtitle">
+          <strong>RomaLingua — Latin &amp; Ancient Greek</strong> (<code>romalingua.co.uk</code>), created by Achyuth Koneti. Last updated: November 2026.
+        </div>
+      </div>
+
+      <!-- Live Summary of Stored Data -->
+      <div class="privacy-summary-box" id="privacyLiveSummaryBox">
+        <strong>Your Current Data Summary:</strong>
+        <div class="privacy-summary-grid" id="privacySummaryGrid">
+          <div>Account: <strong id="privacyAccountStatus">Signed out (local only)</strong></div>
+          <div>Local Progress Keys: <strong id="privacyLocalKeysCount">0</strong></div>
+          <div>Analytics Cookies: <strong id="privacyCookieStatus">Essential only</strong></div>
+        </div>
+      </div>
+
+      <!-- Step 1 & 2: What Data Is Stored & Lawful Basis -->
+      <div class="privacy-section">
+        <h3>1. What Data We Store &amp; Why</h3>
+        <ul>
+          <li><strong>Essential Local Browser Storage (<code>localStorage</code>):</strong> Necessary for the app to remember your study progress on this device without signing in. Stores XP, study streak, active language (Latin or Ancient Greek), chapter selections, custom vocabulary lists, completed sentences, mastered vocabulary IDs, story comprehension answers, and game high scores (<em>Latina Flap</em> &amp; <em>Aegean Trireme</em>), plus your cookie preference.</li>
+          <li><strong>Optional Cloud Account (Firebase Authentication &amp; Cloud Firestore):</strong> Stored <em>only</em> if you choose to sign in with a personal email (school emails are blocked). When signed in, your profile and synced study record at <code>users/{userId}</code> store: <code>userId</code>, <code>email</code>, <code>displayName</code>, <code>photoURL</code> (if provided by Google), <code>xp</code>, <code>streak</code>, <code>completedSentences</code>, <code>masteredWords</code>, <code>currentSentenceIndex</code>, <code>sentencesDoneToday</code>, <code>lastActiveDate</code>, <code>flapLevels</code>, <code>flapHighScores</code>, and <code>updatedAt</code>.</li>
+          <li><strong>Optional Analytics (Google Analytics 4):</strong> Only activated if you explicitly click <strong>Accept Analytics</strong> in the cookie banner or below. Configured via Google Consent Mode v2 with <code>analytics_storage: 'denied'</code> by default and all advertising/personalisation storage permanently disabled. We never sell or share student data for advertising.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3: Third-Party Processors & Retention -->
+      <div class="privacy-section">
+        <h3>2. Data Processors, Security &amp; Retention</h3>
+        <p>
+          Optional sign-in and cloud sync are powered by <strong>Google Firebase</strong> (Authentication &amp; Cloud Firestore), protected by strict Firestore security rules so only your authenticated account can read, update, or delete your own <code>users/{uid}</code> record. Local storage remains on your browser until you clear it below or clear browser site data. Cloud account records are kept only until you delete your account below.
+        </p>
+      </div>
+
+      <!-- Step 4 & 5: Your GDPR Rights & Self-Service Controls -->
+      <div class="privacy-section" id="privacyDataControlsSection">
+        <h3>3. Retrieve, Export, or Delete Your Data (GDPR Rights)</h3>
+        <p>
+          Under UK &amp; EU GDPR, you have the right to access, export (data portability), and erase your personal data at any time using the instant self-service controls below:
+        </p>
+
+        <div class="privacy-actions-grid">
+          <!-- Retrieve / Export JSON -->
+          <div class="privacy-action-card">
+            <div class="privacy-action-title">Retrieve &amp; Export My Data</div>
+            <div class="privacy-action-desc">
+              Downloads a complete <code>.json</code> copy of all RomaLingua data stored in your browser and (if signed in) your Cloud Firestore account document.
+            </div>
+            <button type="button" class="privacy-btn-primary" onclick="downloadMyStoredData()">
+              Download My Data (.json)
+            </button>
+          </div>
+
+          <!-- Clear Local Data -->
+          <div class="privacy-action-card">
+            <div class="privacy-action-title">Erase Local Browser Data</div>
+            <div class="privacy-action-desc">
+              Removes all locally saved progress, custom vocab, XP, and scores stored on this device.
+            </div>
+            <button type="button" id="btnRequestClearLocal" class="privacy-btn-danger" onclick="requestClearLocalData()">
+              Clear Local Data
+            </button>
+            <div id="confirmClearLocalBox" class="privacy-confirm-box" style="display: none;">
+              <span>Erase all local RomaLingua progress on this device?</span>
+              <div class="privacy-confirm-btns">
+                <button type="button" class="privacy-btn-danger-solid" onclick="confirmClearLocalData()">Confirm Erase</button>
+                <button type="button" class="privacy-btn-secondary" onclick="cancelClearLocalData()">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delete Cloud Account -->
+          <div class="privacy-action-card">
+            <div class="privacy-action-title">Delete Cloud Account</div>
+            <div class="privacy-action-desc" id="privacyDeleteCloudDesc">
+              Permanently deletes your Firestore sync document and Firebase Authentication account.
+            </div>
+            <button type="button" id="btnRequestDeleteCloud" class="privacy-btn-danger" onclick="requestDeleteCloudAccount()">
+              Delete Cloud Account
+            </button>
+            <div id="confirmDeleteCloudBox" class="privacy-confirm-box" style="display: none;">
+              <span>Permanently delete your cloud account &amp; synced Firestore record? This cannot be undone.</span>
+              <div class="privacy-confirm-btns">
+                <button type="button" class="privacy-btn-danger-solid" onclick="confirmDeleteCloudAccount()">Delete Forever</button>
+                <button type="button" class="privacy-btn-secondary" onclick="cancelDeleteCloudAccount()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="privacyActionStatus" class="privacy-status-banner"></div>
+      </div>
+
+      <!-- Step 6: Cookie Preferences -->
+      <div class="privacy-section" id="privacyCookieControlsSection" style="margin-bottom: 0;">
+        <h3>4. Cookie &amp; Analytics Consent</h3>
+        <p style="margin-bottom: 10px;">
+          Essential browser storage is used strictly to save your study state locally. Optional Google Analytics cookies only measure anonymous page usage when you opt in.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <button type="button" class="privacy-btn-primary" onclick="acceptAnalyticsCookies(true)">Accept Analytics Cookies</button>
+          <button type="button" class="privacy-btn-secondary" onclick="rejectAnalyticsCookies(true)">Essential Only (Decline Analytics)</button>
+        </div>
       </div>
     </div>
   </div>
@@ -5703,12 +6131,31 @@
 
 </main>
 
+  <!-- Cookie Consent Banner (GDPR) -->
+  <div id="cookieConsentBar" class="cookie-consent-bar" role="region" aria-label="Cookie and privacy notice">
+    <div class="cookie-consent-inner">
+      <div class="cookie-consent-text">
+        <strong>Privacy &amp; Cookies:</strong> RomaLingua uses essential browser storage to save your Latin &amp; Ancient Greek progress locally. Optional analytics cookies are disabled until you accept.
+        <button type="button" class="footer-link-btn" onclick="openPrivacyModal()">Privacy Policy &amp; Your Data</button>
+      </div>
+      <div class="cookie-consent-actions">
+        <button type="button" class="privacy-btn-secondary" onclick="rejectAnalyticsCookies(false)">Essential Only</button>
+        <button type="button" class="privacy-btn-primary" onclick="acceptAnalyticsCookies(false)">Accept Analytics</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Explicit Footer Required by User -->
   <footer>
     <div class="footer-inner">
       <div class="footer-credit">Made by Achyuth Koneti</div>
-      <div class="footer-spec" id="footerSpecLine">RomaLingua · OCR GCSE Latin (J282) &amp; Ancient Greek (J292) Revision Suite · Translation Arena</div>
+      <div class="footer-spec" id="footerSpecLine">RomaLingua — Latin &amp; Ancient Greek · OCR GCSE (J282 &amp; J292) Revision Suite</div>
       <div class="footer-spec" style="margin-top: 4px; opacity: 0.85;">Sign in is optional (saves &amp; syncs progress across devices). Personal Gmail, Yahoo, Outlook, or iCloud emails only — school emails cannot be used to create an account.</div>
+      <div class="footer-links-row">
+        <button type="button" class="footer-link-btn" onclick="openPrivacyModal()">Privacy Policy</button>
+        <button type="button" class="footer-link-btn" onclick="openPrivacyModal('data-controls')">Retrieve / Delete My Data</button>
+        <button type="button" class="footer-link-btn" onclick="openPrivacyModal('cookie-controls')">Cookie Settings</button>
+      </div>
     </div>
   </footer>
 
@@ -5735,6 +6182,7 @@
       getAuth, 
       onAuthStateChanged, 
       signInWithPopup, 
+      reauthenticateWithPopup,
       GoogleAuthProvider, 
       signInWithEmailAndPassword, 
       createUserWithEmailAndPassword, 
@@ -5745,8 +6193,10 @@
     import { 
       getFirestore, 
       doc, 
+      getDoc,
       getDocFromServer,
       setDoc, 
+      deleteDoc,
       onSnapshot
     } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
 
@@ -13700,7 +14150,7 @@
     };
 
     window.copyGoogleSitesUrlSample = function() {
-      const urlText = 'https://sites.google.com/view/romalingua-latin';
+      const urlText = 'https://sites.google.com/view/romalingua-classics';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(urlText).then(() => {
           showToast('Copied Google Sites URL format to clipboard!');
@@ -13783,7 +14233,7 @@
     };
 
     window.copyNetlifyUrlSample = function() {
-      const urlText = 'https://romalingua-latin.netlify.app';
+      const urlText = 'https://romalingua-classics.netlify.app';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(urlText).then(() => {
           showToast('Copied Netlify URL to clipboard!');
@@ -14106,6 +14556,325 @@
         if (nameLabel) nameLabel.textContent = 'Sign In';
         if (avatarContainer) avatarContainer.textContent = '?';
         setSyncStatus('not-synced');
+      }
+      if (typeof updatePrivacyModalState === 'function') {
+        updatePrivacyModalState();
+      }
+    }
+
+    // ==================== GDPR PRIVACY POLICY, CONSENT & DATA CONTROLS ====================
+    const COOKIE_CONSENT_KEY = 'romalingua_cookie_consent';
+
+    function applyAnalyticsConsent(accepted) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          analytics_storage: accepted ? 'granted' : 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied'
+        });
+      }
+    }
+
+    function initCookieConsentBar() {
+      const bar = document.getElementById('cookieConsentBar');
+      let stored = null;
+      try { stored = localStorage.getItem(COOKIE_CONSENT_KEY); } catch (_e) {}
+      if (stored === 'accepted') {
+        applyAnalyticsConsent(true);
+        if (bar) bar.style.display = 'none';
+      } else if (stored === 'essential') {
+        applyAnalyticsConsent(false);
+        if (bar) bar.style.display = 'none';
+      } else {
+        applyAnalyticsConsent(false);
+        if (bar) bar.style.display = 'block';
+      }
+      updatePrivacyModalState();
+    }
+
+    function acceptAnalyticsCookies(fromModal) {
+      try { localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted'); } catch (_e) {}
+      applyAnalyticsConsent(true);
+      const bar = document.getElementById('cookieConsentBar');
+      if (bar) bar.style.display = 'none';
+      updatePrivacyModalState();
+      if (fromModal) {
+        setPrivacyActionStatus('Analytics cookies enabled. You can switch back to Essential Only anytime.', 'info');
+      }
+      if (typeof showToast === 'function') showToast('Cookie preference saved: Analytics enabled.');
+    }
+
+    function rejectAnalyticsCookies(fromModal) {
+      try { localStorage.setItem(COOKIE_CONSENT_KEY, 'essential'); } catch (_e) {}
+      applyAnalyticsConsent(false);
+      const bar = document.getElementById('cookieConsentBar');
+      if (bar) bar.style.display = 'none';
+      updatePrivacyModalState();
+      if (fromModal) {
+        setPrivacyActionStatus('Cookie preference saved: Essential local storage only (analytics declined).', 'info');
+      }
+      if (typeof showToast === 'function') showToast('Cookie preference saved: Essential storage only.');
+    }
+
+    function setPrivacyActionStatus(message, type) {
+      const el = document.getElementById('privacyActionStatus');
+      if (!el) return;
+      if (!message) {
+        el.style.display = 'none';
+        el.textContent = '';
+        return;
+      }
+      el.className = 'privacy-status-banner ' + (type === 'error' ? 'error' : 'info');
+      el.textContent = message;
+      el.style.display = 'block';
+    }
+
+    function getAllLocalRomalinguaData() {
+      const items = {};
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          if (k && k.startsWith('romalingua_')) {
+            const raw = localStorage.getItem(k);
+            try {
+              items[k] = JSON.parse(raw);
+            } catch (_e) {
+              items[k] = raw;
+            }
+          }
+        }
+      } catch (_err) {}
+      return items;
+    }
+
+    function updatePrivacyModalState() {
+      const acctEl = document.getElementById('privacyAccountStatus');
+      const keysEl = document.getElementById('privacyLocalKeysCount');
+      const cookieEl = document.getElementById('privacyCookieStatus');
+      const delBtn = document.getElementById('btnRequestDeleteCloud');
+      const delDesc = document.getElementById('privacyDeleteCloudDesc');
+
+      if (acctEl) {
+        acctEl.textContent = currentUser
+          ? ('Signed in (' + (currentUser.email || currentUser.uid) + ')')
+          : 'Signed out (local browser only)';
+      }
+
+      if (keysEl) {
+        keysEl.textContent = String(Object.keys(getAllLocalRomalinguaData()).length);
+      }
+
+      if (cookieEl) {
+        let c = null;
+        try { c = localStorage.getItem(COOKIE_CONSENT_KEY); } catch (_e) {}
+        cookieEl.textContent = c === 'accepted'
+          ? 'Analytics accepted'
+          : (c === 'essential' ? 'Essential only (declined)' : 'Not chosen yet (default: denied)');
+      }
+
+      if (delBtn && delDesc) {
+        if (currentUser) {
+          delBtn.disabled = false;
+          delBtn.style.opacity = '1';
+          delDesc.textContent = 'Permanently deletes your Firestore sync document and Firebase Authentication account (' + (currentUser.email || currentUser.uid) + ').';
+        } else {
+          delBtn.disabled = true;
+          delBtn.style.opacity = '0.55';
+          delDesc.textContent = 'Sign in to delete a cloud account. While signed out, no cloud record is tied to this browser.';
+        }
+      }
+    }
+
+    function openPrivacyModal(sectionFocus) {
+      const overlay = document.getElementById('privacyModalOverlay');
+      if (!overlay) return;
+      setPrivacyActionStatus('', 'info');
+      cancelClearLocalData();
+      cancelDeleteCloudAccount();
+      updatePrivacyModalState();
+      overlay.style.display = 'flex';
+      if (sectionFocus === 'data-controls') {
+        const sec = document.getElementById('privacyDataControlsSection');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (sectionFocus === 'cookie-controls') {
+        const sec = document.getElementById('privacyCookieControlsSection');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function closePrivacyModal() {
+      const overlay = document.getElementById('privacyModalOverlay');
+      if (overlay) overlay.style.display = 'none';
+    }
+
+    async function downloadMyStoredData() {
+      setPrivacyActionStatus('Preparing your data export...', 'info');
+      const localItems = getAllLocalRomalinguaData();
+      let cloudAccount = null;
+      let firestoreUserDocument = null;
+
+      if (currentUser) {
+        cloudAccount = {
+          uid: currentUser.uid,
+          email: currentUser.email || null,
+          displayName: currentUser.displayName || null,
+          photoURL: currentUser.photoURL || null,
+          createdAt: currentUser.metadata ? currentUser.metadata.creationTime : null,
+          lastSignInTime: currentUser.metadata ? currentUser.metadata.lastSignInTime : null
+        };
+        const userPath = 'users/' + currentUser.uid;
+        try {
+          const snap = await getDoc(doc(db, 'users', currentUser.uid));
+          firestoreUserDocument = snap.exists() ? snap.data() : null;
+        } catch (err) {
+          handleFirestoreError(err, 'get', userPath);
+          firestoreUserDocument = { error: 'Could not read cloud document: ' + (err && err.message ? err.message : String(err)) };
+        }
+      }
+
+      const payload = {
+        exportedAt: new Date().toISOString(),
+        service: 'RomaLingua — Latin & Ancient Greek (romalingua.co.uk)',
+        controller: 'Achyuth Koneti (RomaLingua)',
+        gdprNotice: 'Complete copy of user study data stored in local browser storage and optional Cloud Firestore.',
+        cloudAccount,
+        firestoreUserDocument,
+        localBrowserStorage: localItems
+      };
+
+      const jsonText = JSON.stringify(payload, null, 2);
+      const blob = new Blob([jsonText], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'romalingua-my-data-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+
+      updatePrivacyModalState();
+      setPrivacyActionStatus('Downloaded JSON export (' + Object.keys(localItems).length + ' local keys' + (currentUser ? ' + cloud Firestore record' : '') + ').', 'info');
+    }
+
+    function requestClearLocalData() {
+      const box = document.getElementById('confirmClearLocalBox');
+      if (box) box.style.display = 'flex';
+    }
+
+    function cancelClearLocalData() {
+      const box = document.getElementById('confirmClearLocalBox');
+      if (box) box.style.display = 'none';
+    }
+
+    function confirmClearLocalData() {
+      cancelClearLocalData();
+      const keysToRemove = [];
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          if (k && k.startsWith('romalingua_')) keysToRemove.push(k);
+        }
+        keysToRemove.forEach(k => localStorage.removeItem(k));
+      } catch (_err) {}
+
+      // Reset in-memory session state
+      userXP = 0;
+      userStreak = 1;
+      masteredWords = [];
+      completedSentences = [];
+      sentencesDoneToday = 0;
+      if (typeof greekCompletedSentences !== 'undefined') greekCompletedSentences = [];
+      if (typeof greekMasteredWords !== 'undefined') greekMasteredWords = [];
+      if (typeof greekStoryAnswersState !== 'undefined') greekStoryAnswersState = {};
+      if (typeof mythAnswersState !== 'undefined') mythAnswersState = {};
+      if (typeof arcadeBestStreak !== 'undefined') arcadeBestStreak = 0;
+      if (typeof greekArcadeBestStreak !== 'undefined') greekArcadeBestStreak = 0;
+      if (typeof triremeHighScore !== 'undefined') triremeHighScore = 0;
+      if (typeof triremeBestGates !== 'undefined') triremeBestGates = 0;
+
+      if (typeof updateGamificationDisplay === 'function') updateGamificationDisplay();
+      if (typeof renderCardsGrid === 'function') renderCardsGrid();
+      if (typeof updateDeckStats === 'function') updateDeckStats();
+      if (typeof filterAndRenderGreekCards === 'function') filterAndRenderGreekCards();
+      if (typeof updateTriremeLobbyUI === 'function') updateTriremeLobbyUI();
+      if (typeof updateFlapLobbyStatsUI === 'function') updateFlapLobbyStatsUI();
+      if (typeof renderMythsView === 'function') renderMythsView();
+      if (typeof renderGreekStoriesView === 'function') renderGreekStoriesView();
+
+      applyAnalyticsConsent(false);
+      updatePrivacyModalState();
+      setPrivacyActionStatus('Cleared ' + keysToRemove.length + ' locally stored RomaLingua records from this browser.', 'info');
+      if (typeof showToast === 'function') showToast('Local browser data erased.');
+    }
+
+    function requestDeleteCloudAccount() {
+      if (!currentUser) {
+        setPrivacyActionStatus('You are not currently signed in to a cloud account.', 'info');
+        return;
+      }
+      const box = document.getElementById('confirmDeleteCloudBox');
+      if (box) box.style.display = 'flex';
+    }
+
+    function cancelDeleteCloudAccount() {
+      const box = document.getElementById('confirmDeleteCloudBox');
+      if (box) box.style.display = 'none';
+    }
+
+    async function confirmDeleteCloudAccount() {
+      cancelDeleteCloudAccount();
+      const user = auth.currentUser || currentUser;
+      if (!user) {
+        setPrivacyActionStatus('You are not signed in.', 'error');
+        return;
+      }
+
+      const uid = user.uid;
+      const userPath = 'users/' + uid;
+      setPrivacyActionStatus('Deleting your Cloud Firestore record and authentication account...', 'info');
+
+      try {
+        if (userDocUnsubscribe) {
+          userDocUnsubscribe();
+          userDocUnsubscribe = null;
+        }
+
+        try {
+          await deleteDoc(doc(db, 'users', uid));
+        } catch (fsErr) {
+          handleFirestoreError(fsErr, 'delete', userPath);
+          throw fsErr;
+        }
+
+        try {
+          await deleteUser(user);
+        } catch (authErr) {
+          if (authErr && authErr.code === 'auth/requires-recent-login') {
+            const isGoogle = Array.isArray(user.providerData) && user.providerData.some(p => p && p.providerId === 'google.com');
+            if (isGoogle) {
+              setPrivacyActionStatus('Please confirm your Google sign-in in the popup to finish deleting your account...', 'info');
+              const provider = new GoogleAuthProvider();
+              provider.setCustomParameters({ prompt: 'select_account' });
+              await reauthenticateWithPopup(user, provider);
+              await deleteUser(user);
+            } else {
+              throw new Error('For security, please sign out and sign back in with your email & password, then click Delete Cloud Account again.');
+            }
+          } else {
+            throw authErr;
+          }
+        }
+
+        currentUser = null;
+        updateAuthUIState();
+        updatePrivacyModalState();
+        setPrivacyActionStatus('Your Cloud Firestore document and authentication account have been permanently deleted.', 'info');
+        if (typeof showToast === 'function') showToast('Cloud account and synced data permanently deleted.');
+      } catch (err) {
+        console.error('Account deletion error:', err);
+        setPrivacyActionStatus(err && err.message ? err.message : 'Unable to delete account right now. Please try again.', 'error');
       }
     }
 
@@ -16880,6 +17649,10 @@
       if (typeof initGreekMode === 'function') {
         initGreekMode();
       }
+
+      if (typeof initCookieConsentBar === 'function') {
+        initCookieConsentBar();
+      }
     }
 
     // ==================== TAB 6: MYTH COMPREHENSION PRACTICE LOGIC ====================
@@ -19337,6 +20110,17 @@
     window.nextGreekStory = nextGreekStory;
     window.glossGreekStoryWord = glossGreekStoryWord;
     window.answerGreekStoryQuestion = answerGreekStoryQuestion;
+    window.openPrivacyModal = openPrivacyModal;
+    window.closePrivacyModal = closePrivacyModal;
+    window.downloadMyStoredData = downloadMyStoredData;
+    window.requestClearLocalData = requestClearLocalData;
+    window.cancelClearLocalData = cancelClearLocalData;
+    window.confirmClearLocalData = confirmClearLocalData;
+    window.requestDeleteCloudAccount = requestDeleteCloudAccount;
+    window.cancelDeleteCloudAccount = cancelDeleteCloudAccount;
+    window.confirmDeleteCloudAccount = confirmDeleteCloudAccount;
+    window.acceptAnalyticsCookies = acceptAnalyticsCookies;
+    window.rejectAnalyticsCookies = rejectAnalyticsCookies;
 
     if (document.readyState === 'loading') {
       window.addEventListener('DOMContentLoaded', initApp);

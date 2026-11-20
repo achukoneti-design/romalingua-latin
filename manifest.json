@@ -1,7 +1,7 @@
 {
-  "name": "RomaLingua - OCR GCSE Latin & Ancient Greek",
+  "name": "RomaLingua — Latin & Ancient Greek (OCR GCSE)",
   "short_name": "RomaLingua",
-  "description": "Interactive OCR GCSE Latin & Ancient Greek revision suite featuring Translation Arena, Latina Flap & Aegean Trireme arcade games, Myth & Greek Story Readers, Official DVL flashcard decks, and Grammar Notes.",
+  "description": "Interactive OCR GCSE Latin & Ancient Greek revision suite featuring Translation Arena, Latin & Greek to GCSE chapters, Latina Flap & Aegean Trireme games, Myth & Greek Story Readers, DVL flashcards, and Grammar Notes.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
